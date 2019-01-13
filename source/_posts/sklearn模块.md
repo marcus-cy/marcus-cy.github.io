@@ -26,7 +26,6 @@ np.where(conditions,x,y) # 条件判断
 np.where(conditions) # 返回输入数组中满足给定条件的元素的索引
 np.sort(a, axis, kind, order) # 返回新数组
 np.diff() #数组相邻两个元素之间的差
-np.unique()
 np.concatenate([a,b],axis=1) # 对array进行合并,同hstack()
 np.split() # 如果是一个整数，就用该数平均切分，如果是一个数组，为沿轴切分的位置
 np.repeat([,axis]) #将数组中的各个元素重复一定次数
@@ -120,36 +119,40 @@ dataframe.spend = pd.DataFrame({'a':list(range(10)),'b':list(range(20,10,-1))})
 pd.DataFrame.from_dict(data[,orient='index']) 字典转化为dataframe
 ```
 
-### 数组运算
-```
-会自动对齐不同索引的数据,不重叠的索引引入NaN值
-delq *2
-delq[delq>0]
-del spend['a']
-
-```
-
 ### 索引
 ```
-print(spend.iloc[3])
+spend.iloc[3]
 #选取第3条记录
-print(spend.ix[3])
+spend.ix[3]
 #ix可以通过行号和行标签进行索引，而iloc只能通过行号索引,loc只通过行标签索引
-print(spend[(spend.a>5)&(spend.b<=15)])
+spend[(spend.a>5)&(spend.b<=15)]
 
 
 
 spend.index.is_unique
 # 判断索引是否有重复值
 
+spend.replace(1,'one')
+#用‘one’代替所有等于1的值
+spend.replace([1,3],['one','three'])
+#用'one'代替1，用'three'代替3
 
-set_index()
-reset_index()
-#列、行索引转换
+
+spend.rename(columns={'old_name': 'new_ name'})
+#选择性更改列名
+spend.rename(index=lambda x: x + 1)
+#批量重命名索引
+
+
+spend.set_index('column_one')
+#将某列设为索引
+spend.reset_index(drop=True)
+#重新设定索引列，删除原索引列
 
 spend.drop(index=[])
 spend.drop_duplicate(subset=None, keep='first', inplace=False)
 #去除特定列下面的重复行
+
 spend.drop(column_name,axis=1)
 #Use axis=1（跨列） to apply a method across each row, or to the column labels.
 #Use axis=0（跨行）to apply a method down each column, or to the row labels (the index).
@@ -163,31 +166,52 @@ spend.drop(column_name,axis=1)
 
 ```
 spend.sum(axis=1,skipna=False)
+spend[col].unique() 获取去重值
 spend.idxmax() 获取最大值的索引值
-spend.value_counts() 返回各值频率
+spend.cumsum() 每一列的累加和
+spend[col].value_counts() 返回各值频率
+spend.apply(pd.Series.value_counts) 查看DataFrame对象中每一列的唯一值和计数
+
 
 apply函数：让函数作用在dataframe某一维的向量
-
-print(spend[‘a’].apply(lambda x: x+1))
-print(spend.iloc[3].apply(lambda x: x+1))
+spend[‘a’].apply(lambda x: x+1)
+spend.iloc[3].apply(lambda x: x+1)
 
 
 applymap函数：让函数作用在dataframe的每一个元素上
+spend.applymap(lambda x: x+1)
 
-print(spend.applymap(lambda x: x+1))
+
+spend.groupby([col1,col2])：返回一个按多列进行分组的Groupby对象
+spend.groupby(col1)[col2].agg(['mean','sum'])
+# 返回按列col1分组的所有列的均值,和
+
+spend.groupby(col1).apply(np.mean)
+# apply应用各列，agg仅作用于指定的列,agg可以传入多个函数
+
+
+spend.pivot_table(index=col1, values=[col2,col3], aggfunc=max)
+#创建一个按列col1进行分组，并计算col2和col3的最大值的数据透视表
+
+pd.get_dummies(data, prefix=None, prefix_sep='_', dummy_na=False, columns=None, sparse=False, drop_first=False)
+
 
 ```
 
 
-### 排序和排名
+### 排序和合并
 
 ```
 
-dataframespend.sort_index([axis=1],[ascending=False],[by=column_name])
-dataframespend.sort_values(by = column_name,[ascending = True])
+spend.sort_index([axis=1],[ascending=False],[by=column_name])
 
-sort_index 对索引排序
-sort 对值排序
+spend.sort_values(by = column_name,[ascending = True])
+
+pd.merge(df1,df2,how=[inner,outer,left,right],left_on='',right_on='',on=[key1,key2],left_index=false,right_index=false)
+
+pd.concat([s1,s2,s3],axis=)
+
+
 
 ```
 ### 缺失值处理
@@ -200,24 +224,6 @@ fillna(,[inplace=True])替换缺失值,inplace为true直接修改原对象
 fillna({1:0.5,3:-1})
 isnull() 返回一个布尔值对象，该对象类型与源类型一样
 ```
--
-
-
-- read_csv和read_table
-`pd.read_csv(" ",names=[],index_col=[],sep='',skiprows=[],na_values=[],encoding='utf-9',nrows=)`
-
-- merge
-`pd.merge(df1,df2,how=[inner,outer,left,right],left_on='',right_on='',on=[key1,key2],left_index=false,right_index=false)`
-left_index 索引是否作为关联键
-
-
-- concat
-`pd.concat([s1,s2,s3],axis=)`
-默认axis=0，竖排连接
-
-- get_dummies(data, prefix=None, prefix_sep='_', dummy_na=False, columns=None, sparse=False, drop_first=False)
-` get_dummies转换后，列名的前缀 `
-
 
 
 # Scikit-learn 模块
