@@ -249,6 +249,128 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/13/python入门/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Marcus Anthony">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/mar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/01/13/python入门/" itemprop="url">python入门</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-13T19:40:56+08:00">
+                2019-01-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="Python：一种交互式、解释性、面向对象的编程语言"><a href="#Python：一种交互式、解释性、面向对象的编程语言" class="headerlink" title="Python：一种交互式、解释性、面向对象的编程语言"></a>Python：一种交互式、解释性、面向对象的编程语言</h3><p>解释性语言：即无需编译源码为可执行文件，直接使用源码就可以运行</p>
+<h4 id="Python-shell"><a href="#Python-shell" class="headerlink" title="Python shell"></a>Python shell</h4><p>提供一个运行环境，方便交互式开发。在windows下，分为两种，Python(command line) 和 IDLE</p>
+<h4 id="Python-IDE"><a href="#Python-IDE" class="headerlink" title="Python IDE"></a>Python IDE</h4><p>将Python开发相关的各种工具集成，包括python代码编辑器，python运行环境（pyhton shell）。常见主流的IDE有Pycharm和spyder</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/13/sklearn模块/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -320,31 +442,17 @@
       
         
           
-            <h1 id="Numpy模块"><a href="#Numpy模块" class="headerlink" title="Numpy模块"></a>Numpy模块</h1><h3 id="array"><a href="#array" class="headerlink" title="array"></a>array</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">创建N维数组对象，元素必须相同类型，每个数组都有一个shape和一个dyte</span><br><span class="line">np.array()</span><br><span class="line">np.reshape(-1,1) #转化为一列，-1代表自动计算行数</span><br><span class="line">np.mat() #转化为矩阵</span><br><span class="line">np.dot() # 矩阵乘法，计算矩阵内积</span><br><span class="line">np.vstack() #对array进行上下合并</span><br><span class="line">np.hstack() #对array进行横向合并</span><br><span class="line">np.r_[a,b,c] #类似pandas中的concat</span><br><span class="line">np.c_[a,b,c] #类似pandas中的merge</span><br><span class="line">np.column_stack()# 类似hstack，将每个元素作为一列</span><br><span class="line">np.zeros((2,2))# 创建全为0的二维数组</span><br><span class="line">np.ones()</span><br><span class="line">np.eyes(4) # 创建4*4对角数组，对角元素为1，其余为0</span><br><span class="line">np.linalg.norm() #求范数，默认为L2范数</span><br><span class="line">np.where(conditions,x,y) # 条件判断</span><br><span class="line">np.where(conditions) # 返回输入数组中满足给定条件的元素的索引</span><br><span class="line">np.sort(a, axis, kind, order) # 返回新数组</span><br><span class="line">np.diff() #数组相邻两个元素之间的差</span><br><span class="line">np.unique()</span><br><span class="line">np.concatenate([a,b],axis=1) # 对array进行合并,同hstack()</span><br><span class="line">np.split() # 如果是一个整数，就用该数平均切分，如果是一个数组，为沿轴切分的位置</span><br><span class="line">np.repeat([,axis]) #将数组中的各个元素重复一定次数</span><br><span class="line">np.tile() #堆叠数组副本</span><br><span class="line">a[:, np.newaxis] # 给a最外层中括号中的每一个元素加[]</span><br><span class="line">a[newaxis, :] # 给a最外层中括号中所有元素加[]</span><br><span class="line">大小相等的数组之间的任何算术运算都会应用到元素级，数组和标量的运算也会应用到元素级，不同大小的数组之间的运算叫广播</span><br></pre></td></tr></table></figure>
+            <h1 id="Numpy模块"><a href="#Numpy模块" class="headerlink" title="Numpy模块"></a>Numpy模块</h1><h3 id="array"><a href="#array" class="headerlink" title="array"></a>array</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">创建N维数组对象，元素必须相同类型，每个数组都有一个shape和一个dyte</span><br><span class="line">np.array()</span><br><span class="line">np.reshape(-1,1) #转化为一列，-1代表自动计算行数</span><br><span class="line">np.mat() #转化为矩阵</span><br><span class="line">np.dot() # 矩阵乘法，计算矩阵内积</span><br><span class="line">np.vstack() #对array进行上下合并</span><br><span class="line">np.hstack() #对array进行横向合并</span><br><span class="line">np.r_[a,b,c] #类似pandas中的concat</span><br><span class="line">np.c_[a,b,c] #类似pandas中的merge</span><br><span class="line">np.column_stack()# 类似hstack，将每个元素作为一列</span><br><span class="line">np.zeros((2,2))# 创建全为0的二维数组</span><br><span class="line">np.ones()</span><br><span class="line">np.eyes(4) # 创建4*4对角数组，对角元素为1，其余为0</span><br><span class="line">np.linalg.norm() #求范数，默认为L2范数</span><br><span class="line">np.where(conditions,x,y) # 条件判断</span><br><span class="line">np.where(conditions) # 返回输入数组中满足给定条件的元素的索引</span><br><span class="line">np.sort(a, axis, kind, order) # 返回新数组</span><br><span class="line">np.diff() #数组相邻两个元素之间的差</span><br><span class="line">np.concatenate([a,b],axis=1) # 对array进行合并,同hstack()</span><br><span class="line">np.split() # 如果是一个整数，就用该数平均切分，如果是一个数组，为沿轴切分的位置</span><br><span class="line">np.repeat([,axis]) #将数组中的各个元素重复一定次数</span><br><span class="line">np.tile() #堆叠数组副本</span><br><span class="line">a[:, np.newaxis] # 给a最外层中括号中的每一个元素加[]</span><br><span class="line">a[newaxis, :] # 给a最外层中括号中所有元素加[]</span><br><span class="line">大小相等的数组之间的任何算术运算都会应用到元素级，数组和标量的运算也会应用到元素级，不同大小的数组之间的运算叫广播</span><br></pre></td></tr></table></figure>
 <p><strong>和列表最重要的区别，数组切片是原始数组的视图，即视图上的任何修改都会直接反映到源数组上，如果需要的是一份副本而非视图，即操作arr[:].copy()</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">np.linspace(0,10,50)</span><br><span class="line"># 返回50个均匀分布的样本，在[0, 10]之间</span><br><span class="line"></span><br><span class="line">numpy.random.randn(d0, d1, ..., dn)</span><br><span class="line"># 是从标准正态分布中返回一个或多个样本值，dn指维数</span><br><span class="line"></span><br><span class="line">numpy.random.rand(d0, d1, …, dn)</span><br><span class="line"># 随机样本位于[0, 1)中 ，dn指维数</span><br><span class="line"></span><br><span class="line">numpy.random.randint(low,high=None,size)</span><br><span class="line"># 生成在[low,high) 之间均匀分布的样本，若high为none，区间为[0，low)</span><br><span class="line"></span><br><span class="line">np.random.normal(mean,stdev,size)</span><br><span class="line"># 均值为mean，标准差为stdev，返回size个高斯随机数</span><br><span class="line"></span><br><span class="line">numpy.random.choice(a, size=None, replace=True, p=None)</span><br><span class="line"># 从a中随机选取size个数量，replace为True时，采样会重复</span><br></pre></td></tr></table></figure>
 <h3 id="布尔型索引"><a href="#布尔型索引" class="headerlink" title="布尔型索引"></a>布尔型索引</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">names=array([&apos;a&apos;,&apos;b&apos;,&apos;v&apos;])</span><br><span class="line">names[names==&apos;a&apos;]</span><br><span class="line">data=np.random.randn(2,4)</span><br><span class="line">data[data&lt;0]=0</span><br><span class="line">arr[2,0] 与 arr[2][0] 等价</span><br></pre></td></tr></table></figure>
 <h3 id="线性代数函数"><a href="#线性代数函数" class="headerlink" title="线性代数函数"></a>线性代数函数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">import numpy.linalg</span><br><span class="line">diag() #返回方阵的对角线元素，或将一维数组转换为方阵</span><br><span class="line">dot() #秩为1的数组，执行对应位置相乘，然后再相加,秩不为1的二维数组，执行矩阵乘法运算</span><br><span class="line">星号（*）乘法运算 # 对数组执行对应位置相乘,对矩阵执行矩阵乘法运算</span><br><span class="line">multiply() #对应元素位置相乘</span><br><span class="line">trace() #计算对角线元素和</span><br><span class="line">det() #计算矩阵行列式</span><br><span class="line">eig() #计算特征值和特征向量</span><br><span class="line">inv() #计算方阵的逆</span><br><span class="line">qr() #计算QR分解</span><br><span class="line">svd() #计算奇异值分解</span><br><span class="line">solve() #解线性方程组Ax=b</span><br><span class="line">lstsq() #计算Ax=b的最小二乘解</span><br></pre></td></tr></table></figure>
 <h1 id="Pandas模块"><a href="#Pandas模块" class="headerlink" title="Pandas模块"></a>Pandas模块</h1><h3 id="Series"><a href="#Series" class="headerlink" title="Series"></a>Series</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">import pandas as pd</span><br><span class="line">delq = pd.Series([1,0,2,3,0])</span><br><span class="line">delq = pd.Series([1,0,2,3,0],index=[&apos;a&apos;,&apos;b&apos;,&apos;c&apos;,&apos;d&apos;])</span><br><span class="line">delq.reindex([&apos;b&apos;,&apos;a&apos;,&apos;d&apos;,&apos;c&apos;],fill_value=0)</span><br><span class="line">delq =pd.Series(&#123;&apos;a&apos;:1,&apos;b&apos;:0,&apos;c&apos;:2,&apos;d&apos;:3,&apos;e&apos;:0&#125;)</span><br><span class="line">print delq.values</span><br><span class="line">print delq.index</span><br><span class="line">print delq[2]</span><br><span class="line">print delq[delq!=0]</span><br></pre></td></tr></table></figure>
 <h3 id="DataFrame"><a href="#DataFrame" class="headerlink" title="DataFrame"></a>DataFrame</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">一个表格型的数据结构。它提供有序的列和不同类型的列值,运算时，会自动对齐行和列，没有重叠引入NaN值</span><br><span class="line">DataFrame的列获取为Series</span><br><span class="line">spend = pd.read_csv(&apos;spend.csv&apos;,header = 0)</span><br><span class="line">spend.head()</span><br><span class="line">spend.info()</span><br><span class="line">spend.describe()</span><br><span class="line">dataframe.spend = pd.DataFrame(&#123;&apos;a&apos;:list(range(10)),&apos;b&apos;:list(range(20,10,-1))&#125;)</span><br><span class="line">pd.DataFrame.from_dict(data[,orient=&apos;index&apos;]) 字典转化为dataframe</span><br></pre></td></tr></table></figure>
-<h3 id="数组运算"><a href="#数组运算" class="headerlink" title="数组运算"></a>数组运算</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">会自动对齐不同索引的数据,不重叠的索引引入NaN值</span><br><span class="line">delq *2</span><br><span class="line">delq[delq&gt;0]</span><br><span class="line">del spend[&apos;a&apos;]</span><br></pre></td></tr></table></figure>
-<h3 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">print(spend.iloc[3])</span><br><span class="line">#选取第3条记录</span><br><span class="line">print(spend.ix[3])</span><br><span class="line">#ix可以通过行号和行标签进行索引，而iloc只能通过行号索引,loc只通过行标签索引</span><br><span class="line">print(spend[(spend.a&gt;5)&amp;(spend.b&lt;=15)])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">spend.index.is_unique</span><br><span class="line"># 判断索引是否有重复值</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">set_index()</span><br><span class="line">reset_index()</span><br><span class="line">#列、行索引转换</span><br><span class="line"></span><br><span class="line">spend.drop(index=[])</span><br><span class="line">spend.drop_duplicate(subset=None, keep=&apos;first&apos;, inplace=False)</span><br><span class="line">#去除特定列下面的重复行</span><br><span class="line">spend.drop(column_name,axis=1)</span><br><span class="line">#Use axis=1（跨列） to apply a method across each row, or to the column labels.</span><br><span class="line">#Use axis=0（跨行）to apply a method down each column, or to the row labels (the index).</span><br></pre></td></tr></table></figure>
-<h3 id="函数应用"><a href="#函数应用" class="headerlink" title="函数应用"></a>函数应用</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">spend.sum(axis=1,skipna=False)</span><br><span class="line">spend.idxmax() 获取最大值的索引值</span><br><span class="line">spend.value_counts() 返回各值频率</span><br><span class="line"></span><br><span class="line">apply函数：让函数作用在dataframe某一维的向量</span><br><span class="line"></span><br><span class="line">print(spend[‘a’].apply(lambda x: x+1))</span><br><span class="line">print(spend.iloc[3].apply(lambda x: x+1))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">applymap函数：让函数作用在dataframe的每一个元素上</span><br><span class="line"></span><br><span class="line">print(spend.applymap(lambda x: x+1))</span><br></pre></td></tr></table></figure>
-<h3 id="排序和排名"><a href="#排序和排名" class="headerlink" title="排序和排名"></a>排序和排名</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">dataframespend.sort_index([axis=1],[ascending=False],[by=column_name])</span><br><span class="line">dataframespend.sort_values(by = column_name,[ascending = True])</span><br><span class="line"></span><br><span class="line">sort_index 对索引排序</span><br><span class="line">sort 对值排序</span><br></pre></td></tr></table></figure>
+<h3 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">spend.iloc[3]</span><br><span class="line">#选取第3条记录</span><br><span class="line">spend.ix[3]</span><br><span class="line">#ix可以通过行号和行标签进行索引，而iloc只能通过行号索引,loc只通过行标签索引</span><br><span class="line">spend[(spend.a&gt;5)&amp;(spend.b&lt;=15)]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">spend.index.is_unique</span><br><span class="line"># 判断索引是否有重复值</span><br><span class="line"></span><br><span class="line">spend.replace(1,&apos;one&apos;)</span><br><span class="line">#用‘one’代替所有等于1的值</span><br><span class="line">spend.replace([1,3],[&apos;one&apos;,&apos;three&apos;])</span><br><span class="line">#用&apos;one&apos;代替1，用&apos;three&apos;代替3</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">spend.rename(columns=&#123;&apos;old_name&apos;: &apos;new_ name&apos;&#125;)</span><br><span class="line">#选择性更改列名</span><br><span class="line">spend.rename(index=lambda x: x + 1)</span><br><span class="line">#批量重命名索引</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">spend.set_index(&apos;column_one&apos;)</span><br><span class="line">#将某列设为索引</span><br><span class="line">spend.reset_index(drop=True)</span><br><span class="line">#重新设定索引列，删除原索引列</span><br><span class="line"></span><br><span class="line">spend.drop(index=[])</span><br><span class="line">spend.drop_duplicate(subset=None, keep=&apos;first&apos;, inplace=False)</span><br><span class="line">#去除特定列下面的重复行</span><br><span class="line"></span><br><span class="line">spend.drop(column_name,axis=1)</span><br><span class="line">#Use axis=1（跨列） to apply a method across each row, or to the column labels.</span><br><span class="line">#Use axis=0（跨行）to apply a method down each column, or to the row labels (the index).</span><br></pre></td></tr></table></figure>
+<h3 id="函数应用"><a href="#函数应用" class="headerlink" title="函数应用"></a>函数应用</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">spend.sum(axis=1,skipna=False)</span><br><span class="line">spend[col].unique() 获取去重值</span><br><span class="line">spend.idxmax() 获取最大值的索引值</span><br><span class="line">spend.cumsum() 每一列的累加和</span><br><span class="line">spend[col].value_counts() 返回各值频率</span><br><span class="line">spend.apply(pd.Series.value_counts) 查看DataFrame对象中每一列的唯一值和计数</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">apply函数：让函数作用在dataframe某一维的向量</span><br><span class="line">spend[‘a’].apply(lambda x: x+1)</span><br><span class="line">spend.iloc[3].apply(lambda x: x+1)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">applymap函数：让函数作用在dataframe的每一个元素上</span><br><span class="line">spend.applymap(lambda x: x+1)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">spend.groupby([col1,col2])：返回一个按多列进行分组的Groupby对象</span><br><span class="line">spend.groupby(col1)[col2].agg([&apos;mean&apos;,&apos;sum&apos;])</span><br><span class="line"># 返回按列col1分组的所有列的均值,和</span><br><span class="line"></span><br><span class="line">spend.groupby(col1).apply(np.mean)</span><br><span class="line"># apply应用各列，agg仅作用于指定的列,agg可以传入多个函数</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">spend.pivot_table(index=col1, values=[col2,col3], aggfunc=max)</span><br><span class="line">#创建一个按列col1进行分组，并计算col2和col3的最大值的数据透视表</span><br><span class="line"></span><br><span class="line">pd.get_dummies(data, prefix=None, prefix_sep=&apos;_&apos;, dummy_na=False, columns=None, sparse=False, drop_first=False)</span><br></pre></td></tr></table></figure>
+<h3 id="排序和合并"><a href="#排序和合并" class="headerlink" title="排序和合并"></a>排序和合并</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">spend.sort_index([axis=1],[ascending=False],[by=column_name])</span><br><span class="line"></span><br><span class="line">spend.sort_values(by = column_name,[ascending = True])</span><br><span class="line"></span><br><span class="line">pd.merge(df1,df2,how=[inner,outer,left,right],left_on=&apos;&apos;,right_on=&apos;&apos;,on=[key1,key2],left_index=false,right_index=false)</span><br><span class="line"></span><br><span class="line">pd.concat([s1,s2,s3],axis=)</span><br></pre></td></tr></table></figure>
 <h3 id="缺失值处理"><a href="#缺失值处理" class="headerlink" title="缺失值处理"></a>缺失值处理</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">pandas默认使用NaN表示缺失数据；</span><br><span class="line">dropna默认丢弃任何含有缺失值的行；</span><br><span class="line">dropna(how=&apos;all&apos;)只丢弃全为NA的行</span><br><span class="line">fillna(,[inplace=True])替换缺失值,inplace为true直接修改原对象</span><br><span class="line">fillna(&#123;1:0.5,3:-1&#125;)</span><br><span class="line">isnull() 返回一个布尔值对象，该对象类型与源类型一样</span><br></pre></td></tr></table></figure>
-<p>-</p>
-<ul>
-<li><p>read_csv和read_table<br><code>pd.read_csv(&quot; &quot;,names=[],index_col=[],sep=&#39;&#39;,skiprows=[],na_values=[],encoding=&#39;utf-9&#39;,nrows=)</code></p>
-</li>
-<li><p>merge<br><code>pd.merge(df1,df2,how=[inner,outer,left,right],left_on=&#39;&#39;,right_on=&#39;&#39;,on=[key1,key2],left_index=false,right_index=false)</code><br>left_index 索引是否作为关联键</p>
-</li>
-</ul>
-<ul>
-<li><p>concat<br><code>pd.concat([s1,s2,s3],axis=)</code><br>默认axis=0，竖排连接</p>
-</li>
-<li><p>get_dummies(data, prefix=None, prefix_sep=’_’, dummy_na=False, columns=None, sparse=False, drop_first=False)<br><code>get_dummies转换后，列名的前缀</code></p>
-</li>
-</ul>
 <h1 id="Scikit-learn-模块"><a href="#Scikit-learn-模块" class="headerlink" title="Scikit-learn 模块"></a>Scikit-learn 模块</h1><p>Scikit-learn的基本功能主要被分为六大部分：分类，回归，聚类，数据降维，模型选择和数据预处理</p>
 <h3 id="datasets"><a href="#datasets" class="headerlink" title="datasets"></a>datasets</h3><p>调用自带数据库中的数据<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. datasets.load_*()</span><br><span class="line">2. datasets.fetch_*()</span><br><span class="line">3. datasets.make_*()</span><br></pre></td></tr></table></figure></p>
 <p>datasets获取对象的属性：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">data:数据集</span><br><span class="line">target：数据对应的类标记</span><br><span class="line">target_name:类标记对应的名字</span><br><span class="line">DESCR:数据集的描述信息</span><br></pre></td></tr></table></figure></p>
@@ -455,7 +563,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
