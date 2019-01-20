@@ -10,6 +10,9 @@ tags:
 ```
 创建N维数组对象，元素必须相同类型，每个数组都有一个shape和一个dyte
 np.array()
+np.nan
+-np.inf
+np.inf
 np.reshape(-1,1) #转化为一列，-1代表自动计算行数
 np.mat() #转化为矩阵
 np.dot() # 矩阵乘法，计算矩阵内积
@@ -19,6 +22,7 @@ np.r_[a,b,c] #类似pandas中的concat
 np.c_[a,b,c] #类似pandas中的merge
 np.column_stack()# 类似hstack，将每个元素作为一列
 np.zeros((2,2))# 创建全为0的二维数组
+np.arange()
 np.ones()
 np.eyes(4) # 创建4*4对角数组，对角元素为1，其余为0
 np.linalg.norm() #求范数，默认为L2范数
@@ -57,8 +61,15 @@ np.random.normal(mean,stdev,size)
 numpy.random.choice(a, size=None, replace=True, p=None)
 # 从a中随机选取size个数量，replace为True时，采样会重复
 ```
+### 集合运算
+```
+intersect1d(x,y) 返回x、y公共元素
+union1d(x,y)  返回x、y并集
+in1d(x,y)  返回x元素是否在y中
+setdiff1d(x,y) 集合差，含于x，不含y
+setxor1d(x,y) x、y中非并集的元素
 
-
+```
 
 ### 布尔型索引
 
@@ -102,6 +113,9 @@ delq.reindex(['b','a','d','c'],fill_value=0)
 delq =pd.Series({'a':1,'b':0,'c':2,'d':3,'e':0})
 print delq.values
 print delq.index
+print delq.dtypes
+print delq.get_dtype_counts()
+print delq.index.tolist()
 print delq[2]
 print delq[delq!=0]
 ```
@@ -115,8 +129,14 @@ spend = pd.read_csv('spend.csv',header = 0)
 spend.head()
 spend.info()
 spend.describe()
-dataframe.spend = pd.DataFrame({'a':list(range(10)),'b':list(range(20,10,-1))})
+spend = pd.DataFrame({'a':list(range(10)),'b':list(range(20,10,-1))})
 pd.DataFrame.from_dict(data[,orient='index']) 字典转化为dataframe
+spend=pd.DataFrame(np.random.randn(4,3),columns=['one','two','three'],index=['a','b','c','d'])
+spend['one']['a']=spend.loc['a','one']=spend.loc['a']['one']
+spend.loc[:,'one']=spend['one']
+spend.loc['a']=spend.loc['a',:]
+spend[(spend>n).all(1)] 全部符合条件的行
+spend[(spend>n).all(0)] 全部符合条件的列
 ```
 
 ### 索引
@@ -148,9 +168,13 @@ spend.set_index('column_one')
 #将某列设为索引
 spend.reset_index(drop=True)
 #重新设定索引列，删除原索引列
+spend.reindex(index=[],columns=[],method='ffill')
+spend.reindex(spend.index.difference([]))
+# 重构索引
+
 
 spend.drop(index=[])
-spend.drop_duplicate(subset=None, keep='first', inplace=False)
+spend.drop_duplicates(subset=None, keep='first', inplace=False)
 #去除特定列下面的重复行
 
 spend.drop(column_name,axis=1)
@@ -166,16 +190,30 @@ spend.drop(column_name,axis=1)
 
 ```
 spend.sum(axis=1,skipna=False)
-spend[col].unique() 获取去重值
+spend.mode() 众数
+spend[col].unique() 
+spend.nunique() 获取去重值
 spend.idxmax() 获取最大值的索引值
 spend.cumsum() 每一列的累加和
+spend.insert(loc,col,value) 插入列
 spend[col].value_counts() 返回各值频率
 spend.apply(pd.Series.value_counts) 查看DataFrame对象中每一列的唯一值和计数
 
+cut将根据值本身来选择箱子均匀间隔，qcut是根据这些值的频率来选择箱子的均匀间隔
+pd.qcut(spend,n,labels=[])
+pd.cut(spend,n,labels=[])
+
+transform同一时间在一个Series上进行一次转换，返回与 group相同的单个维度的序列
+spend.transform({col1: func, col2: func})
+
+col前n个最大小值
+spend.nlargest(n, col)
+spend.nsmallest(n, col)
 
 apply函数：让函数作用在dataframe某一维的向量
 spend[‘a’].apply(lambda x: x+1)
 spend.iloc[3].apply(lambda x: x+1)
+
 
 
 applymap函数：让函数作用在dataframe的每一个元素上
@@ -183,8 +221,8 @@ spend.applymap(lambda x: x+1)
 
 
 spend.groupby([col1,col2])：返回一个按多列进行分组的Groupby对象
-spend.groupby(col1)[col2].agg(['mean','sum'])
-# 返回按列col1分组的所有列的均值,和
+spend.groupby(col1，group_keys=False)[col2].agg(['mean','sum'])
+# 返回按列col1分组的所有列的均值,和.group_keys 禁止分组的键
 
 spend.groupby(col1).apply(np.mean)
 # apply应用各列，agg仅作用于指定的列,agg可以传入多个函数
@@ -205,11 +243,13 @@ pd.get_dummies(data, prefix=None, prefix_sep='_', dummy_na=False, columns=None, 
 
 spend.sort_index([axis=1],[ascending=False],[by=column_name])
 
-spend.sort_values(by = column_name,[ascending = True])
+spend.sort_values(by = column_name,[ascending = True],[na_position='first'])
 
 pd.merge(df1,df2,how=[inner,outer,left,right],left_on='',right_on='',on=[key1,key2],left_index=false,right_index=false)
 
-pd.concat([s1,s2,s3],axis=)
+pd.concat([s1,s2,s3],axis=，ignore_index=True)
+ignore_index 产生新的索引
+
 
 
 
