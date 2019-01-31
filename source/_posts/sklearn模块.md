@@ -549,7 +549,13 @@ XGBClassifier(learning_rate=0.1,n_estimators=1000,max_depth=5,min_child_weight=1
 决策树特定参数调优(max_depth, min_child_weight, gamma, subsample, colsample_bytree)
 正则化参数的调优(lambda, alpha)
 ```
+```
+xgboost.DMatrix(data, label=None, missing=None, weight=None, silent=False, feature_names=None, feature_types=None, nthread=None) 
+无法识别object类型,需使用了一个sklearn.preprocessing中的LabelEncoder转化
+label：一个序列，表示样本标记。
+missing： 一个值，它是缺失值的默认值。
+weight：一个序列，给出了数据集中每个样本的权重
 
-xgb.DMatrix( data, label=label, missing = -999.0，weight=w)
-处理 DMatrix中的缺失值，给样本设置权重，无法识别object类型
-
+属性：feature_names： 返回每个特征的名字；feature_types： 返回每个特征的数据类型
+方法：.num_col()；.num_row()；.get_label();.get_weight()
+```
