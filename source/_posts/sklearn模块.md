@@ -129,6 +129,7 @@ spend = pd.read_csv('spend.csv',header = 0)
 spend.head()
 spend.info()
 spend.describe()
+spend._get_numeric_data() #drop non-numeric cols
 spend = pd.DataFrame({'a':list(range(10)),'b':list(range(20,10,-1))})
 pd.DataFrame.from_dict(data[,orient='index']) 字典转化为dataframe
 spend=pd.DataFrame(np.random.randn(4,3),columns=['one','two','three'],index=['a','b','c','d'])
@@ -166,7 +167,7 @@ spend.rename(index=lambda x: x + 1)
 
 spend.set_index('column_one')
 #将某列设为索引
-spend.reset_index(drop=True)
+spend.reset_index(drop=True,name=)
 #重新设定索引列，删除原索引列
 spend.reindex(index=[],columns=[],method='ffill')
 spend.reindex(spend.index.difference([]))
@@ -234,6 +235,14 @@ spend.pivot_table(index=col1, values=[col2,col3], aggfunc=max)
 pd.get_dummies(data, prefix=None, prefix_sep='_', dummy_na=False, columns=None, sparse=False, drop_first=False)
 
 
+from patsy import dmatrices
+#构建线性模型矩阵
+y, X = patsy.dmatrices('y ~ x0 + x1', data，return_type='dataframe')
+
+
+spend.corr()
+spend.corrwith(data.X)
+# 变量间的相关系数，和某个确定变量的相关系数
 ```
 
 
@@ -540,4 +549,7 @@ XGBClassifier(learning_rate=0.1,n_estimators=1000,max_depth=5,min_child_weight=1
 决策树特定参数调优(max_depth, min_child_weight, gamma, subsample, colsample_bytree)
 正则化参数的调优(lambda, alpha)
 ```
+
+xgb.DMatrix( data, label=label, missing = -999.0，weight=w)
+处理 DMatrix中的缺失值，给样本设置权重，无法识别object类型
 
