@@ -129,6 +129,7 @@ spend = pd.read_csv('spend.csv',header = 0)
 spend.head()
 spend.info()
 spend.describe()
+spend.select_dtypes(include,exclude)
 spend._get_numeric_data() #drop non-numeric cols
 spend = pd.DataFrame({'a':list(range(10)),'b':list(range(20,10,-1))})
 pd.DataFrame.from_dict(data[,orient='index']) 字典转化为dataframe
@@ -540,22 +541,95 @@ EasyEnsembleClassifier(n_estimators=10, base_estimator=None, warm_start=False, s
 
 ```
 #  xgboost 模块
+
+### sklearn.XGBClassifier
 ```
-import xgboost as xgb
 from xgboost.sklearn import XGBClassifier
-XGBClassifier(learning_rate=0.1,n_estimators=1000,max_depth=5,min_child_weight=1,gamma=0,subsample=0.8,colsample_bytree=0.8,objective='binary:logistic',nthread=4,scale_pos_weight=1,seed=27)
+
+XGBClassifier(learning_rate=0.1,n_estimators=1000,max_depth=5,min_child_weight=1,gamma=0,subsample=0.8,colsample_bytree=0.8,objective='binary:logistic',nthread=4,scale_pos_weight=1,seed=27,reg_alpha=0, reg_lambda=1, colsample_bylevel=1)
 
 基本参数调优（learning_rate,n_estimators）
 决策树特定参数调优(max_depth, min_child_weight, gamma, subsample, colsample_bytree)
 正则化参数的调优(lambda, alpha)
-```
-```
-xgboost.DMatrix(data, label=None, missing=None, weight=None, silent=False, feature_names=None, feature_types=None, nthread=None) 
-无法识别object类型,需使用了一个sklearn.preprocessing中的LabelEncoder转化
-label：一个序列，表示样本标记。
-missing： 一个值，它是缺失值的默认值。
-weight：一个序列，给出了数据集中每个样本的权重
 
+参数：booster：指定了用哪一种基模型。可以为：'gbtree','gblinear','dart'
+	gamma：最小划分损失min_split_loss。即对于一个叶子节点，当对它采取划分之后，损失函数的降低值的阈值。
+	max_depth:树的深度，默认值为6
+	min_child_weight： 一个整数，子节点的权重阈值。对于树模型（booster=gbtree,dart），权重就是：叶子节点包含样本的所有二阶偏导数之和。
+	subsample：一个浮点数，对训练样本的采样比例。默认值为 1 。如果为0.5，表示随机使用一半的训练样本来训练子树
+	colsample_bytree： 一个浮点数，构建子树时，对特征的采样比例。默认值为 1。
+	colsample_bylevel： 一个浮点数，寻找划分点时，对特征的采样比例。 默认值为 1。
+	reg_alpha： L1 正则化系数
+	reg_lambda： L2 正则化系数
+	scale_pos_weight： 用于调整正负样本的权重，常用于类别不平衡的分类问题。默认为 1。
+	
+>> objective 
+回归任务
+reg:linear (默认)
+reg:logistic 
+二分类
+binary:logistic     概率 
+binary：logitraw   类别
+多分类
+multi：softmax  num_class=n   返回类别
+multi：softprob   num_class=n  返回概率
+	
+	
+
+fit(X, y, sample_weight=None, eval_set=None, eval_metric=None,
+    early_stopping_rounds=None,verbose=True, xgb_model=None)
+
+参数：sample_weight： 一个序列，给出了每个样本的权重
+	eval_set： 一个列表，元素为(X,y)，给出了验证集及其标签
+	xgb_model：一个Booster实例，它给出了待训练的模型。
+	eval_metric： 一个字符串或者可调用对象，用于evaluation metric
+	early_stopping_rounds：在验证集上，当连续n次迭代，分数没有提高后，提前终止训练
+
+>> eval_metric
+回归任务(默认rmse) rmse--均方根误差;mae--平均绝对误差
+分类任务(默认error)
+auc--roc曲线下面积
+error--错误率（二分类）
+merror--错误率（多分类）
+logloss--负对数似然函数（二分类）
+mlogloss--负对数似然函数（多分类）
+	
+	
+predict(data, output_margin=False, ntree_limit=0)
+参数：output_margin： 表示是否输出原始的、未经过转换的margin value
+
+predict_proba(data, output_margin=False, ntree_limit=0) ： 执行预测，预测的是各类别的概率
+
+evals_result()： 返回一个字典，给出了各个验证集在各个验证参数上的历史值
+```
+
+### Xgboost
+```
+import xgboost 
+xgboost.DMatrix(data, label=None, missing=None, weight=None, silent=False, feature_names=None, feature_types=None, nthread=None) 
+无法识别object类型,需使用了sklearn.preprocessing中的LabelEncoder转化
+参数：label：一个序列，表示样本标记。，missing： 一个值，它是缺失值的默认值。，weight：一个序列，给出了数据集中每个样本的权重
 属性：feature_names： 返回每个特征的名字；feature_types： 返回每个特征的数据类型
 方法：.num_col()；.num_row()；.get_label();.get_weight()
+
+xgboost.train()： 使用给定的参数来训练一个booster
+xgboost.train(params, dtrain, num_boost_round=10, evals=(), obj=None, feval=None,
+   maximize=False, early_stopping_rounds=None, evals_result=None, verbose_eval=True,
+   xgb_model=None, callbacks=None, learning_rates=None)
+参数：dtrain：DMatrix对象，params： 键值对，num_boost_round： 表示boosting 迭代数量
+	evals： (DMatrix,string)验证集，以及验证集的名字，obj：表示自定义的目标函数
+	feval： 表示自定义的evaluation 函数，maximize： 如果为True，则表示是对feval 求最大值
+	learning_rates： 一个列表，给出了每个迭代步的学习率，
+	evals_result： 一个字典，它给出了对测试集要进行评估的指标
+	
+xgboost.cv()： 使用给定的参数执行交叉验证 
+xgboost.cv(params, dtrain, num_boost_round=10, nfold=3, stratified=False, folds=None,
+     metrics=(), obj=None, feval=None, maximize=False, early_stopping_rounds=None,
+     fpreproc=None, as_pandas=True, verbose_eval=None, show_stdv=True, seed=0,
+     callbacks=None, shuffle=True)
+     参数：nfold： 表示交叉验证的fold 的数量，stratified： 如果为True，则执行分层采样
+     	folds： 一个scikit-learn 的 KFold 实例或者StratifiedKFold 实例
+     	shuffle： 如果为True，则创建folds 之前先混洗数据
+     	as_pandas： 如果为True，则返回DataFrame；否则返回ndarray
+
 ```
