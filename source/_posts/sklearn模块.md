@@ -7,7 +7,7 @@ tags:
 # Numpy模块
 ### array
 
-
+```
 创建N维数组对象，元素必须相同类型，每个数组都有一个shape和一个dyte
 np.array()
 np.nan
@@ -61,30 +61,28 @@ np.random.normal(mean,stdev,size)
 numpy.random.choice(a, size=None, replace=True, p=None)
 从a中随机选取size个数量，replace为True时，采样会重复
 
+```
 
 ### 集合运算
 
+```
 intersect1d(x,y) 返回x、y公共元素
 union1d(x,y)  返回x、y并集
 in1d(x,y)  返回x元素是否在y中
 setdiff1d(x,y) 集合差，含于x，不含y
 setxor1d(x,y) x、y中非并集的元素
-
-
+```
 
 ### 布尔型索引
-
-
+```
 names=array(['a','b','v'])
 names[names=='a']
 data=np.random.randn(2,4)
 data[data<0]=0
 arr[2,0] 与 arr[2][0] 等价
-
-
+```
 ### 线性代数函数
-
-
+```
 import numpy.linalg
 diag() #返回方阵的对角线元素，或将一维数组转换为方阵
 dot() #秩为1的数组，执行对应位置相乘，然后再相加,秩不为1的二维数组，执行矩阵乘法运算
@@ -99,8 +97,7 @@ svd() #计算奇异值分解
 solve() #解线性方程组Ax=b
 lstsq() #计算Ax=b的最小二乘解
 
-
-
+```
 # Pandas模块
 
 ### Series
