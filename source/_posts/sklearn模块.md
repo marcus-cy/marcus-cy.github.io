@@ -7,7 +7,7 @@ tags:
 # Numpy模块
 ### array
 
-```
+
 创建N维数组对象，元素必须相同类型，每个数组都有一个shape和一个dyte
 np.array()
 np.nan
@@ -38,52 +38,53 @@ a[:, np.newaxis] # 给a最外层中括号中的每一个元素加[]
 a[newaxis, :] # 给a最外层中括号中所有元素加[]
 大小相等的数组之间的任何算术运算都会应用到元素级，数组和标量的运算也会应用到元素级，不同大小的数组之间的运算叫广播
 
-```
+
 **和列表最重要的区别，数组切片是原始数组的视图，即视图上的任何修改都会直接反映到源数组上，如果需要的是一份副本而非视图，即操作arr[:].copy()**
 
 
-```
+
 np.linspace(0,10,50)
-# 返回50个均匀分布的样本，在[0, 10]之间
+返回50个均匀分布的样本，在[0, 10]之间
 
 numpy.random.randn(d0, d1, ..., dn)
-# 是从标准正态分布中返回一个或多个样本值，dn指维数
+是从标准正态分布中返回一个或多个样本值，dn指维数
 
 numpy.random.rand(d0, d1, …, dn)
-# 随机样本位于[0, 1)中 ，dn指维数
+随机样本位于[0, 1)中 ，dn指维数
 
 numpy.random.randint(low,high=None,size)
-# 生成在[low,high) 之间均匀分布的样本，若high为none，区间为[0，low)
+生成在[low,high) 之间均匀分布的样本，若high为none，区间为[0，low)
 
 np.random.normal(mean,stdev,size)
-# 均值为mean，标准差为stdev，返回size个高斯随机数
+均值为mean，标准差为stdev，返回size个高斯随机数
 
 numpy.random.choice(a, size=None, replace=True, p=None)
-# 从a中随机选取size个数量，replace为True时，采样会重复
-```
+从a中随机选取size个数量，replace为True时，采样会重复
+
+
 ### 集合运算
-```
+
 intersect1d(x,y) 返回x、y公共元素
 union1d(x,y)  返回x、y并集
 in1d(x,y)  返回x元素是否在y中
 setdiff1d(x,y) 集合差，含于x，不含y
 setxor1d(x,y) x、y中非并集的元素
 
-```
+
 
 ### 布尔型索引
 
-```
+
 names=array(['a','b','v'])
 names[names=='a']
 data=np.random.randn(2,4)
 data[data<0]=0
 arr[2,0] 与 arr[2][0] 等价
-```
+
 
 ### 线性代数函数
 
-```
+
 import numpy.linalg
 diag() #返回方阵的对角线元素，或将一维数组转换为方阵
 dot() #秩为1的数组，执行对应位置相乘，然后再相加,秩不为1的二维数组，执行矩阵乘法运算
@@ -99,7 +100,6 @@ solve() #解线性方程组Ax=b
 lstsq() #计算Ax=b的最小二乘解
 
 
-```
 
 # Pandas模块
 
