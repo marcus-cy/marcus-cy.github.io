@@ -249,6 +249,145 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/05/数据挖掘基础/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Marcus Anthony">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/mar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/02/05/数据挖掘基础/" itemprop="url">数据挖掘基础.md</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-05T19:30:33+08:00">
+                2019-02-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="数据缺失"><a href="#数据缺失" class="headerlink" title="数据缺失"></a>数据缺失</h3><h3 id="数据缺失及其类别"><a href="#数据缺失及其类别" class="headerlink" title="数据缺失及其类别"></a>数据缺失及其类别</h3><ul>
+<li>完全随机缺失：<br>当某变量缺失值发生的可能性与其他变量无关也与该变量自身无关时称作MCAR。换句话说，某变量缺失值的出现完全是个随机事件。可以将存在MCAR变量的数据看做是假定完整数据的一个随机样本<br>例如，由于测量设备出故障导致某些值缺失。</li>
+<li>随机缺失：<br>当某变量出现缺失值的可能性与模型中某些观测变量有关而与该变量自身无关时称作MAR<br>例如，在一次测试中，如果IQ达不到最低要求的100分，那么将不能参加随后的人格测验。在人格测验上因为IQ低于100分而产生的缺失值为MAR</li>
+<li>非随机缺失：<br>当某变量出现缺失值的可能性只与自身相关时称作MANR<br>例如，公司新录用了20名员工，由于6名员工表现较差在试用期内辞退，试用期结束后的表现评定中，辞退的6名员工的表现分即为非随机缺失。</li>
+</ul>
+<h3 id="数据缺失的处理方法"><a href="#数据缺失的处理方法" class="headerlink" title="数据缺失的处理方法"></a>数据缺失的处理方法</h3><ul>
+<li>删除法：当一条记录中存在许多缺失时，将记录删去；当一个列存在许多缺失时，将列删去。或将特征映射到高维，对特征的每个属性做是否判断。或添加缺失项这一特征</li>
+<li>均值替代法：使用每个变量的均值去填补该变量的缺失值。这种方法容易产生估计偏差。</li>
+<li>回归法 ：根据变量间的相关，利用其他变量的信息通过建立回归方式去推算缺失值。该法同样会产生估计偏差。</li>
+<li>期望值最大化（Expectation Maximization, EM）法：随机缺失的条件下，假设模型对于完整的样本是正确的，那么通过观测数据的边际分布可以对未知参数进行极大似然估计。这种方法也被称为忽略缺失值的极大似然估计，对于极大似然的参数估计实际中常采用的计算方法是期望值最大化。</li>
+<li>K最近距离邻（K-means clustering）法：先确定距离具有缺失数据样本最近的K个样本，将这K个值加权平均来估计该样本的缺失数据。</li>
+<li>不处理：把缺失当成一种特殊值。</li>
+<li>拉格朗日插值法</li>
+</ul>
+<p>拉格朗日插值法，即对于点 </p>
+<p>$$<br>(x_1,y_1),(x_2,y_2),(x_3,y_3)<br>$$</p>
+<p>存在曲线经过这些点，运用线代中的坐标基向量的找法，该多项式曲线为 </p>
+<p>$$<br>f(x)=y_1f_1(x)+y_2f_2(x)+y_3f_3(x)+…<br>$$</p>
+<p>其中，</p>
+<p>$$<br>f_i(x_j)= \begin{cases} 1 ,i=j \ \0 ,i!=j    \end{cases}<br>$$<br>则推导有<br>$$<br>f_i(x)=\prod \cfrac{x-x_i}{x_i-x_j}<br>$$</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/05/Python基础/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -1013,7 +1152,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
