@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="数据缺失数据缺失及其类别 完全随机缺失：当某变量缺失值发生的可能性与其他变量无关也与该变量自身无关时称作MCAR。换句话说，某变量缺失值的出现完全是个随机事件。可以将存在MCAR变量的数据看做是假定完整数据的一个随机样本例如，由于测量设备出故障导致某些值缺失。 随机缺失：当某变量出现缺失值的可能性与模型中某些观测变量有关而与该变量自身无关时称作MAR例如，在一次测试中，如果IQ达不到最低要求的10">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据挖掘基础">
+<meta property="og:url" content="http://yoursite.com/2019/02/05/数据挖掘基础/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="数据缺失数据缺失及其类别 完全随机缺失：当某变量缺失值发生的可能性与其他变量无关也与该变量自身无关时称作MCAR。换句话说，某变量缺失值的出现完全是个随机事件。可以将存在MCAR变量的数据看做是假定完整数据的一个随机样本例如，由于测量设备出故障导致某些值缺失。 随机缺失：当某变量出现缺失值的可能性与模型中某些观测变量有关而与该变量自身无关时称作MAR例如，在一次测试中，如果IQ达不到最低要求的10">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-02-05T11:43:17.915Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数据挖掘基础">
+<meta name="twitter:description" content="数据缺失数据缺失及其类别 完全随机缺失：当某变量缺失值发生的可能性与其他变量无关也与该变量自身无关时称作MCAR。换句话说，某变量缺失值的出现完全是个随机事件。可以将存在MCAR变量的数据看做是假定完整数据的一个随机样本例如，由于测量设备出故障导致某些值缺失。 随机缺失：当某变量出现缺失值的可能性与模型中某些观测变量有关而与该变量自身无关时称作MAR例如，在一次测试中，如果IQ达不到最低要求的10">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Marcus'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/02/05/数据挖掘基础/">
+
+
+
+
+
+  <title>数据挖掘基础 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/05/数据挖掘基础/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Marcus Anthony">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/mar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">数据挖掘基础</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-05T19:30:33+08:00">
+                2019-02-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="数据缺失"><a href="#数据缺失" class="headerlink" title="数据缺失"></a>数据缺失</h2><h3 id="数据缺失及其类别"><a href="#数据缺失及其类别" class="headerlink" title="数据缺失及其类别"></a>数据缺失及其类别</h3><ul>
+<li>完全随机缺失：<br>当某变量缺失值发生的可能性与其他变量无关也与该变量自身无关时称作MCAR。换句话说，某变量缺失值的出现完全是个随机事件。可以将存在MCAR变量的数据看做是假定完整数据的一个随机样本<br>例如，由于测量设备出故障导致某些值缺失。</li>
+<li>随机缺失：<br>当某变量出现缺失值的可能性与模型中某些观测变量有关而与该变量自身无关时称作MAR<br>例如，在一次测试中，如果IQ达不到最低要求的100分，那么将不能参加随后的人格测验。在人格测验上因为IQ低于100分而产生的缺失值为MAR</li>
+<li>非随机缺失：<br>当某变量出现缺失值的可能性只与自身相关时称作MANR<br>例如，公司新录用了20名员工，由于6名员工表现较差在试用期内辞退，试用期结束后的表现评定中，辞退的6名员工的表现分即为非随机缺失。</li>
+</ul>
+<h3 id="数据缺失的处理方法"><a href="#数据缺失的处理方法" class="headerlink" title="数据缺失的处理方法"></a>数据缺失的处理方法</h3><ul>
+<li>删除法：当一条记录中存在许多缺失时，将记录删去；当一个列存在许多缺失时，将列删去。或将特征映射到高维，对特征的每个属性做是否判断。或添加缺失项这一特征</li>
+<li>均值替代法：使用每个变量的均值去填补该变量的缺失值。这种方法容易产生估计偏差。</li>
+<li>回归法 ：根据变量间的相关，利用其他变量的信息通过建立回归方式去推算缺失值。该法同样会产生估计偏差。</li>
+<li>期望值最大化（Expectation Maximization, EM）法：随机缺失的条件下，假设模型对于完整的样本是正确的，那么通过观测数据的边际分布可以对未知参数进行极大似然估计。这种方法也被称为忽略缺失值的极大似然估计，对于极大似然的参数估计实际中常采用的计算方法是期望值最大化。</li>
+<li>K最近距离邻（K-means clustering）法：先确定距离具有缺失数据样本最近的K个样本，将这K个值加权平均来估计该样本的缺失数据。</li>
+<li>不处理：把缺失当成一种特殊值。</li>
+<li>拉格朗日插值法</li>
+</ul>
+<p>拉格朗日插值法，即对于点 </p>
+<script type="math/tex; mode=display">
+(x_1,y_1),(x_2,y_2),(x_3,y_3)</script><p>存在曲线经过这些点，运用线代中的坐标基向量的找法，该多项式曲线为 </p>
+<script type="math/tex; mode=display">
+f(x)=y_1f_1(x)+y_2f_2(x)+y_3f_3(x)+...</script><p>其中，</p>
+<script type="math/tex; mode=display">
+f_i(x_j)= \begin{cases} 1 ,i=j \\ \\0 ,i!=j    \end{cases}</script><p>则推导有</p>
+<script type="math/tex; mode=display">
+f_i(x)=\prod \cfrac{x-x_i}{x_i-x_j}</script>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/02/05/Python基础/" rel="next" title="Python基础">
+                <i class="fa fa-chevron-left"></i> Python基础
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/mar.jpg" alt="Marcus Anthony">
+            
+              <p class="site-author-name" itemprop="name">Marcus Anthony</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据缺失"><span class="nav-number">1.</span> <span class="nav-text">数据缺失</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据缺失及其类别"><span class="nav-number">1.1.</span> <span class="nav-text">数据缺失及其类别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据缺失的处理方法"><span class="nav-number">1.2.</span> <span class="nav-text">数据缺失的处理方法</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Marcus Anthony</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+
+  
+
+  
+
+</body>
+</html>

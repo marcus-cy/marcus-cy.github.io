@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Python：一种交互式、解释性、面向对象的编程语言解释性语言：即无需编译源码为可执行文件，直接使用源码就可以运行 Python shell提供一个运行环境，方便交互式开发。在windows下，分为两种，Python(command line) 和 IDLE Python IDE将Python开发相关的各种工具集成，包括python代码编辑器，python运行环境（pyhton shell）。常见">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python入门">
+<meta property="og:url" content="http://yoursite.com/2019/01/13/python入门/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Python：一种交互式、解释性、面向对象的编程语言解释性语言：即无需编译源码为可执行文件，直接使用源码就可以运行 Python shell提供一个运行环境，方便交互式开发。在windows下，分为两种，Python(command line) 和 IDLE Python IDE将Python开发相关的各种工具集成，包括python代码编辑器，python运行环境（pyhton shell）。常见">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-02-05T11:03:23.534Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="python入门">
+<meta name="twitter:description" content="Python：一种交互式、解释性、面向对象的编程语言解释性语言：即无需编译源码为可执行文件，直接使用源码就可以运行 Python shell提供一个运行环境，方便交互式开发。在windows下，分为两种，Python(command line) 和 IDLE Python IDE将Python开发相关的各种工具集成，包括python代码编辑器，python运行环境（pyhton shell）。常见">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Marcus'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/01/13/python入门/">
+
+
+
+
+
+  <title>python入门 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/13/python入门/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Marcus Anthony">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/mar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">python入门</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-13T19:40:56+08:00">
+                2019-01-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="Python：一种交互式、解释性、面向对象的编程语言"><a href="#Python：一种交互式、解释性、面向对象的编程语言" class="headerlink" title="Python：一种交互式、解释性、面向对象的编程语言"></a>Python：一种交互式、解释性、面向对象的编程语言</h3><p>解释性语言：即无需编译源码为可执行文件，直接使用源码就可以运行</p>
+<h4 id="Python-shell"><a href="#Python-shell" class="headerlink" title="Python shell"></a>Python shell</h4><p>提供一个运行环境，方便交互式开发。在windows下，分为两种，Python(command line) 和 IDLE</p>
+<h4 id="Python-IDE"><a href="#Python-IDE" class="headerlink" title="Python IDE"></a>Python IDE</h4><p>将Python开发相关的各种工具集成，包括python代码编辑器，python运行环境（pyhton shell）。常见主流的IDE有Pycharm和spyder</p>
+<h4 id="python编码"><a href="#python编码" class="headerlink" title="python编码"></a>python编码</h4><ul>
+<li><strong>字节与字符</strong></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">计算机存储的一切数据，文本字符、图片、视频、音频、软件都是由一串01的字节序列构成的，一个字节等于8个比特位。</span><br><span class="line"></span><br><span class="line">而字符就是一个符号，比如一个汉字、一个英文字母、一个数字、一个标点都可以称为一个字符。</span><br><span class="line"></span><br><span class="line">字节方便存储和网络传输，而字符用于显示，方便阅读。例如字符 &quot;p&quot; 存储到硬盘是一串二进制数据 01110000，占用一个字节的长度</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>len() 函数</strong> </li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">len(string)返回的是字节数，len(unicode)返回的是字符数</span><br><span class="line"></span><br><span class="line">gbk编码每个汉字占用2个字节，utf8编码的每个汉字占用3个字节,而1个英文字符只占用1个字节</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>编码与解码</strong></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">我们用编辑器打开的文本，看到的一个个字符，最终保存在磁盘的时候都是以二进制字节序列形式存起来的。那么从字符到字节的转换过程就叫做编码（encode），反过来叫做解码（decode），两者是一个可逆的过程。编码是为了存储传输，解码是为了方便显示阅读</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>ascill编码</strong>   </li>
+</ul>
+<p>英文字母加上特殊字符，一共128个字符。这个就是ascill编码。对应关系很简单，一个字符对应一个byte</p>
+<ul>
+<li><strong>Unicode编码</strong></li>
+</ul>
+<p>Unicode（统一码，万国码）是基于通用字符集（Universal Character Set）的标准发展。它为每种语言中的每个字符设定了统一并且唯一的二进制编码，以满足语言、跨平台进行文本转换、处理的要求</p>
+<ul>
+<li><strong>UTF-8</strong></li>
+</ul>
+<p>Unicode是一个标准，Unicode只是一个符号集，它只规定了符号的二进制代码，却没有规定这个二进制代码应该如何存储；UTF-8是实现，UTF-8以字节为单位对Unicode进行编码<br>UTF-8（8-bit Unicode Transformation Format）是一种针对Unicode的可变长度字符编码（定长码），也是一种前缀码。它可以用来表示 Unicode 标准中的任何字符，且其编码中的第一个字节仍与<a href="">ASCII</a>兼容<br>windows记事本保存的utf-8格式，开始的三个字节EF BB BF就是BOM了，全称Byte Order Mark，这玩意也是很多乱码问题的来源，Linux下很多程序就不认BOM。因此，强烈不建议使用BOM，使用Notepad++之类的软件保存文本时，尽量选择以UTF-8无BOM格式编码</p>
+<ul>
+<li><strong>linux 转UTF-8(无bom)</strong></li>
+</ul>
+<p>用 Vim 打开</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">:set nobomb</span><br><span class="line">:wq</span><br></pre></td></tr></table></figure>
+<hr>
+<ul>
+<li><strong>Python2</strong></li>
+</ul>
+<p>Python默认脚本文件都是ASCII编码的，当文件中有非ASCII编码范围内的字符的时候就要使用“编码指示”来修正，也就是在文件第一行或第二行指定编码声明：<br><code># -*- coding=utf-8 -*</code>-或者<code>#coding=utf-8</code>，若头部声明coding=utf-8, a = ‘中文’ 其编码为utf-8，若头部声明coding=gb2312, a = ‘中文’ 其编码为gbk</p>
+<p>python解释器纯粹把源码使用ascii编码进行解析生成语法树。考虑到源码里可能存在其他语言的字符串量，提供了setdefaultencode接口，但是非常容易引发各类问题。PEP263指出在文件第一行或者第二行（仅限第一行为Unix脚本标注的情况下）写入特殊格式的注释# coding:xxx可以指定解释器解释源码时使用的字符编码</p>
+<p>Python2 把字符串分为 unicode 和 str 两种类型。本质上 str 是一串二进制字节序列，我们要把 unicode 符号保存到文件或者传输到网络就需要经过编码处理转换成 str 类型</p>
+<p><strong>python2的print的实质是将str里的东西输出到PIPE，如果你print的是一个unicode对象，它会自动根据LOCALE环境变量进行encode之后变成str再输出。然而一般在Windows上都没有设置locale环境变量，py2就按照默认的ascii编码进行处理，于是对中文自然就编码错误了</strong>。解决方法是手动encode成对应的输出端可接受的编码后输出。win下一般都是gbk，linux下一般都是utf8</p>
+<hr>
+<ul>
+<li><strong>str和unicode对象的转换，通过encode和decode实现</strong></li>
+</ul>
+<p>str对象,存储 bytes，它仅仅是一个字节流，没有其它的含义，如果你想使这个字节流显示的内容有意义，就必须用正确的编码格式，解码显示</p>
+<p>如果你使用一个 “u” 前缀，那么你会有一个 “unicode” 对象，存储的是 code points ，在一个 unicode 字符串中，你可以使用反斜杠 u(u) 来插入任何的 unicode 代码点</p>
+<p>Unicode 字符串会有一个 .encode 方法来产生 bytes , bytes 串会有一个 .decode 方法来产生 unicode 。每个方法中都有一个参数来表明你要操作的编码类型</p>
+<p><strong>decode方法是将一个str按照指定编码解析后转换为unicode，encode方法则是把一个unicode对象用指定编码表示并存储到一个str对象里</strong></p>
+<ul>
+<li><strong>字符串前加u如何理解：</strong></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">两种字符串如何相互转换？字符串&apos;xxx&apos;虽然是ASCII编码，但也可以看成是UTF-8编码，而u&apos;xxx&apos;则只能是Unicode编码</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>如何获得系统默认编码</strong></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import sys</span><br><span class="line">print sys.getdefaultencoding()</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>Python中用encoding声明的文件编码和文件的实际编码之间</strong></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">关键是保持 编码和解码时用的编码类型一致</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt;x=u&quot;禅&quot;</span><br><span class="line">&gt;&gt;&gt;a=x.encode(&quot;utf-8&quot;)</span><br><span class="line">&gt;&gt;&gt;a</span><br><span class="line">&apos;\xe7\xa6\x85&apos;</span><br><span class="line">&gt;&gt;&gt;a.decode(&quot;gbk&quot;)</span><br><span class="line">出现错误，需用decode(&quot;utf-8&quot;)</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>开头声明编码格式的解释</strong></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1.如果没有此文件编码类型的声明，则python默认以ASCII编码去处理</span><br><span class="line"></span><br><span class="line">2.必须放在python文件的第一行或第二行</span><br><span class="line"></span><br><span class="line">3.程序会通过头部声明，解码初始化 u”字符串”，这样的unicode对象，所以头部声明和代码的存储格式要一致</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">str = u.encode(&apos;utf-8&apos;) </span><br><span class="line">#以utf-8编码对unicode对象进行编码</span><br><span class="line"></span><br><span class="line">u = str.decode(&apos;gb2312&apos;)</span><br><span class="line">#以gb2312编码对字符串str进行解码，以获取unicode</span><br></pre></td></tr></table></figure>
+<p>eg.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;su=u&apos;哈哈&apos;</span><br><span class="line">&gt;&gt;&gt;type(su)</span><br><span class="line">&lt;type &apos;unicode&apos;&gt;</span><br><span class="line">&gt;&gt;&gt;s_utf8=su.encode(&apos;utf-8&apos;)</span><br><span class="line">&gt;&gt;&gt;type(s_utf8)</span><br><span class="line">&lt;type &apos;str&apos;&gt;</span><br><span class="line">&gt;&gt;&gt;s_utf8</span><br><span class="line">&apos;\xe5\x93\x88\xe5\x93\x88&apos;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>当将一个unicode对象传给print时，在内部会将该unicode对象进行一次转换，转换成本地的默认编码</strong></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;print s_utf8</span><br><span class="line">乱码显示</span><br><span class="line">&gt;&gt;&gt;print su</span><br><span class="line">哈哈</span><br><span class="line">&gt;&gt;&gt;s_gbk=su.encode(&apos;gbk&apos;)</span><br><span class="line">&gt;&gt;&gt;s_gbk</span><br><span class="line">&apos;\xb9\xfe\xb9\xfe&apos;</span><br><span class="line">&gt;&gt;&gt; print s_gbk</span><br><span class="line">哈哈</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/12/13/sklearn模块/" rel="next" title="python之旅">
+                <i class="fa fa-chevron-left"></i> python之旅
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/02/05/Python基础/" rel="prev" title="Python基础">
+                Python基础 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/mar.jpg" alt="Marcus Anthony">
+            
+              <p class="site-author-name" itemprop="name">Marcus Anthony</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Python：一种交互式、解释性、面向对象的编程语言"><span class="nav-number">1.</span> <span class="nav-text">Python：一种交互式、解释性、面向对象的编程语言</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Python-shell"><span class="nav-number">1.1.</span> <span class="nav-text">Python shell</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Python-IDE"><span class="nav-number">1.2.</span> <span class="nav-text">Python IDE</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#python编码"><span class="nav-number">1.3.</span> <span class="nav-text">python编码</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Marcus Anthony</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Numpy模块array123456789101112131415161718192021222324252627282930313233343536373839404142434445464748np.array() 创建N维数组对象，元素必须相同类型，每个数组都有一个shape和一个dyte**和列表最重要的区别，数组切片是原始数组的视图，即视图上的任何修改都会直接反映到源数组上，如果需要的是">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python之旅">
+<meta property="og:url" content="http://yoursite.com/2018/12/13/sklearn模块/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Numpy模块array123456789101112131415161718192021222324252627282930313233343536373839404142434445464748np.array() 创建N维数组对象，元素必须相同类型，每个数组都有一个shape和一个dyte**和列表最重要的区别，数组切片是原始数组的视图，即视图上的任何修改都会直接反映到源数组上，如果需要的是">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-02-05T10:29:51.013Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="python之旅">
+<meta name="twitter:description" content="Numpy模块array123456789101112131415161718192021222324252627282930313233343536373839404142434445464748np.array() 创建N维数组对象，元素必须相同类型，每个数组都有一个shape和一个dyte**和列表最重要的区别，数组切片是原始数组的视图，即视图上的任何修改都会直接反映到源数组上，如果需要的是">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Marcus'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/12/13/sklearn模块/">
+
+
+
+
+
+  <title>python之旅 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/13/sklearn模块/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Marcus Anthony">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/mar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">python之旅</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-13T15:28:52+08:00">
+                2018-12-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Numpy模块"><a href="#Numpy模块" class="headerlink" title="Numpy模块"></a>Numpy模块</h1><h3 id="array"><a href="#array" class="headerlink" title="array"></a>array</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">np.array() 创建N维数组对象，元素必须相同类型，每个数组都有一个shape和一个dyte</span><br><span class="line">**和列表最重要的区别，数组切片是原始数组的视图，即视图上的任何修改都会直接反映到源数组上，如果需要的是一份副本而非视图，即操作arr[:].copy()**</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">常用属性：</span><br><span class="line">np.nan；-np.inf；np.inf；</span><br><span class="line">np.arange()；np.ones()；np.mat() ；np.zeros((2,2))；np.eyes(4)</span><br><span class="line">np.reshape(-1,1) #转化为一列，-1代表自动计算行数</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">常用合并：</span><br><span class="line">np.vstack() #对array进行上下合并</span><br><span class="line">np.hstack() #对array进行横向合并</span><br><span class="line">np.r_[a,b,c] #类似pandas中的concat</span><br><span class="line">np.c_[a,b,c] #类似pandas中的merge</span><br><span class="line">np.column_stack()# 类似hstack，将每个元素作为一列</span><br><span class="line">np.concatenate([a,b],axis=1) # 对array进行合并,同hstack()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">np.sort(array, axis, kind, order) # 返回新数组</span><br><span class="line">np.diff() #数组相邻两个元素之间的差</span><br><span class="line">np.split() # 如果是一个整数，就用该数平均切分，如果是一个数组，为沿轴切分的位置</span><br><span class="line">np.repeat([,axis]) #将数组中的各个元素重复一定次数</span><br><span class="line">np.tile() #堆叠数组副本</span><br><span class="line">a[:, np.newaxis] # 给a最外层中括号中的每一个元素加[]</span><br><span class="line">a[newaxis, :] # 给a最外层中括号中所有元素加[]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">随机取数：</span><br><span class="line">np.linspace(0,10,50)</span><br><span class="line">#返回50个均匀分布的样本，在[0, 10]之间</span><br><span class="line"></span><br><span class="line">numpy.random.randn(d0, d1, ..., dn)</span><br><span class="line">#是从标准正态分布中返回一个或多个样本值，dn指维数</span><br><span class="line"></span><br><span class="line">numpy.random.rand(d0, d1, …, dn)</span><br><span class="line">#随机样本位于[0, 1)中 ，dn指维数</span><br><span class="line"></span><br><span class="line">numpy.random.randint(low,high=None,size)</span><br><span class="line">#生成在[low,high) 之间均匀分布的样本，若high为none，区间为[0，low)</span><br><span class="line"></span><br><span class="line">np.random.normal(mean,stdev,size)</span><br><span class="line">#均值为mean，标准差为stdev，返回size个高斯随机数</span><br><span class="line"></span><br><span class="line">numpy.random.choice(a, size=None, replace=True, p=None)</span><br><span class="line">从a中随机选取size个数量，replace为True时，采样会重复</span><br></pre></td></tr></table></figure>
+<h3 id="集合运算"><a href="#集合运算" class="headerlink" title="集合运算"></a>集合运算</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">intersect1d(x,y) 返回x、y公共元素</span><br><span class="line">union1d(x,y)  返回x、y并集</span><br><span class="line">in1d(x,y)  返回x元素是否在y中</span><br><span class="line">setdiff1d(x,y) 集合差，含于x，不含y</span><br><span class="line">setxor1d(x,y) x、y中非并集的元素</span><br></pre></td></tr></table></figure>
+<h3 id="索引运算"><a href="#索引运算" class="headerlink" title="索引运算"></a>索引运算</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">names[names==&apos;a&apos;]</span><br><span class="line">data=np.random.randn(2,4)</span><br><span class="line">data[data&lt;0]=0</span><br><span class="line">arr[2,0] 与 arr[2][0] 等价</span><br><span class="line">np.where(conditions,x,y) # 条件判断</span><br><span class="line">np.where(conditions) # 返回输入数组中满足给定条件的元素的索引</span><br></pre></td></tr></table></figure>
+<h3 id="函数运算"><a href="#函数运算" class="headerlink" title="函数运算"></a>函数运算</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">import numpy.linalg</span><br><span class="line">diag() #返回方阵的对角线元素，或将一维数组转换为方阵</span><br><span class="line">dot() #秩为1的数组，执行对应位置相乘，然后再相加,秩不为1的二维数组，执行矩阵乘法运算</span><br><span class="line">星号（*）乘法运算 # 对数组执行对应位置相乘,对矩阵执行矩阵乘法运算</span><br><span class="line">norm() #求范数，默认为L2范数</span><br><span class="line">multiply() #对应元素位置相乘</span><br><span class="line">trace() #计算对角线元素和</span><br><span class="line">det() #计算矩阵行列式</span><br><span class="line">eig() #计算特征值和特征向量</span><br><span class="line">inv() #计算方阵的逆</span><br><span class="line">qr() #计算QR分解</span><br><span class="line">svd() #计算奇异值分解</span><br><span class="line">solve() #解线性方程组Ax=b</span><br><span class="line">lstsq() #计算Ax=b的最小二乘解</span><br><span class="line"></span><br><span class="line">np.dot() # 矩阵乘法，计算矩阵内积</span><br></pre></td></tr></table></figure>
+<h1 id="Pandas模块"><a href="#Pandas模块" class="headerlink" title="Pandas模块"></a>Pandas模块</h1><h3 id="Series"><a href="#Series" class="headerlink" title="Series"></a>Series</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">import pandas as pd</span><br><span class="line">delq = pd.Series([1,0,2,3,0])</span><br><span class="line">delq = pd.Series([1,0,2,3,0],index=[&apos;a&apos;,&apos;b&apos;,&apos;c&apos;,&apos;d&apos;])</span><br><span class="line">delq.reindex([&apos;b&apos;,&apos;a&apos;,&apos;d&apos;,&apos;c&apos;],fill_value=0)</span><br><span class="line">delq =pd.Series(&#123;&apos;a&apos;:1,&apos;b&apos;:0,&apos;c&apos;:2,&apos;d&apos;:3,&apos;e&apos;:0&#125;)</span><br><span class="line">print delq.values</span><br><span class="line">print delq.index</span><br><span class="line">print delq.dtypes</span><br><span class="line">print delq.get_dtype_counts()</span><br><span class="line">print delq.index.tolist()</span><br><span class="line">print delq[2]</span><br><span class="line">print delq[delq!=0]</span><br></pre></td></tr></table></figure>
+<h3 id="DataFrame"><a href="#DataFrame" class="headerlink" title="DataFrame"></a>DataFrame</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">一个表格型的数据结构。它提供有序的列和不同类型的列值,运算时，会自动对齐行和列，没有重叠引入NaN值</span><br><span class="line">DataFrame的列获取为Series</span><br><span class="line">spend = pd.read_csv(&apos;spend.csv&apos;,header = 0)</span><br><span class="line">spend.head()</span><br><span class="line">spend.info()</span><br><span class="line">spend.describe()</span><br><span class="line">spend.select_dtypes(include,exclude)</span><br><span class="line">spend._get_numeric_data() #drop non-numeric cols</span><br><span class="line">spend = pd.DataFrame(&#123;&apos;a&apos;:list(range(10)),&apos;b&apos;:list(range(20,10,-1))&#125;)</span><br><span class="line">pd.DataFrame.from_dict(data[,orient=&apos;index&apos;]) 字典转化为dataframe</span><br><span class="line">spend=pd.DataFrame(np.random.randn(4,3),columns=[&apos;one&apos;,&apos;two&apos;,&apos;three&apos;],index=[&apos;a&apos;,&apos;b&apos;,&apos;c&apos;,&apos;d&apos;])</span><br><span class="line">spend[&apos;one&apos;][&apos;a&apos;]=spend.loc[&apos;a&apos;,&apos;one&apos;]=spend.loc[&apos;a&apos;][&apos;one&apos;]</span><br><span class="line">spend.loc[:,&apos;one&apos;]=spend[&apos;one&apos;]</span><br><span class="line">spend.loc[&apos;a&apos;]=spend.loc[&apos;a&apos;,:]</span><br><span class="line">spend[(spend&gt;n).all(1)] 全部符合条件的行</span><br><span class="line">spend[(spend&gt;n).all(0)] 全部符合条件的列</span><br></pre></td></tr></table></figure>
+<h3 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">spend.iloc[3]</span><br><span class="line">#选取第3条记录</span><br><span class="line">spend.ix[3]</span><br><span class="line">#ix可以通过行号和行标签进行索引，而iloc只能通过行号索引,loc只通过行标签索引</span><br><span class="line">spend[(spend.a&gt;5)&amp;(spend.b&lt;=15)]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">spend.index.is_unique</span><br><span class="line"># 判断索引是否有重复值</span><br><span class="line"></span><br><span class="line">spend.replace(1,&apos;one&apos;)</span><br><span class="line">#用‘one’代替所有等于1的值</span><br><span class="line">spend.replace([1,3],[&apos;one&apos;,&apos;three&apos;])</span><br><span class="line">#用&apos;one&apos;代替1，用&apos;three&apos;代替3</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">spend.rename(columns=&#123;&apos;old_name&apos;: &apos;new_ name&apos;&#125;)</span><br><span class="line">#选择性更改列名</span><br><span class="line">spend.rename(index=lambda x: x + 1)</span><br><span class="line">#批量重命名索引</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">spend.set_index(&apos;column_one&apos;)</span><br><span class="line">#将某列设为索引</span><br><span class="line">spend.reset_index(drop=True,name=)</span><br><span class="line">#重新设定索引列，删除原索引列</span><br><span class="line">spend.reindex(index=[],columns=[],method=&apos;ffill&apos;)</span><br><span class="line">spend.reindex(spend.index.difference([]))</span><br><span class="line"># 重构索引</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">spend.drop(index=[])</span><br><span class="line">spend.drop_duplicates(subset=None, keep=&apos;first&apos;, inplace=False)</span><br><span class="line">#去除特定列下面的重复行</span><br><span class="line"></span><br><span class="line">spend.drop(column_name,axis=1)</span><br><span class="line">#Use axis=1（跨列） to apply a method across each row, or to the column labels.</span><br><span class="line">#Use axis=0（跨行）to apply a method down each column, or to the row labels (the index).</span><br></pre></td></tr></table></figure>
+<h3 id="函数应用"><a href="#函数应用" class="headerlink" title="函数应用"></a>函数应用</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line">spend.sum(axis=1,skipna=False)</span><br><span class="line">spend.mode() 众数</span><br><span class="line">spend[col].unique() </span><br><span class="line">spend.nunique() 获取去重值</span><br><span class="line">spend.idxmax() 获取最大值的索引值</span><br><span class="line">spend.cumsum() 每一列的累加和</span><br><span class="line">spend.insert(loc,col,value) 插入列</span><br><span class="line">spend[col].value_counts() 返回各值频率</span><br><span class="line">spend.apply(pd.Series.value_counts) 查看DataFrame对象中每一列的唯一值和计数</span><br><span class="line"></span><br><span class="line">cut将根据值本身来选择箱子均匀间隔，qcut是根据这些值的频率来选择箱子的均匀间隔</span><br><span class="line">pd.qcut(spend,n,labels=[])</span><br><span class="line">pd.cut(spend,n,labels=[])</span><br><span class="line"></span><br><span class="line">transform同一时间在一个Series上进行一次转换，返回与 group相同的单个维度的序列</span><br><span class="line">spend.transform(&#123;col1: func, col2: func&#125;)</span><br><span class="line"></span><br><span class="line">col前n个最大小值</span><br><span class="line">spend.nlargest(n, col)</span><br><span class="line">spend.nsmallest(n, col)</span><br><span class="line"></span><br><span class="line">apply函数：让函数作用在dataframe某一维的向量</span><br><span class="line">spend[‘a’].apply(lambda x: x+1)</span><br><span class="line">spend.iloc[3].apply(lambda x: x+1)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">applymap函数：让函数作用在dataframe的每一个元素上</span><br><span class="line">spend.applymap(lambda x: x+1)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">spend.groupby([col1,col2])：返回一个按多列进行分组的Groupby对象</span><br><span class="line">spend.groupby(col1，group_keys=False)[col2].agg([&apos;mean&apos;,&apos;sum&apos;])</span><br><span class="line"># 返回按列col1分组的所有列的均值,和.group_keys 禁止分组的键</span><br><span class="line"></span><br><span class="line">spend.groupby(col1).apply(np.mean)</span><br><span class="line"># apply应用各列，agg仅作用于指定的列,agg可以传入多个函数</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">spend.pivot_table(index=col1, values=[col2,col3], aggfunc=max)</span><br><span class="line">#创建一个按列col1进行分组，并计算col2和col3的最大值的数据透视表</span><br><span class="line"></span><br><span class="line">pd.get_dummies(data, prefix=None, prefix_sep=&apos;_&apos;, dummy_na=False, columns=None, sparse=False, drop_first=False)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">from patsy import dmatrices</span><br><span class="line">#构建线性模型矩阵</span><br><span class="line">y, X = patsy.dmatrices(&apos;y ~ x0 + x1&apos;, data，return_type=&apos;dataframe&apos;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">spend.corr()</span><br><span class="line">spend.corrwith(data.X)</span><br><span class="line"># 变量间的相关系数，和某个确定变量的相关系数</span><br><span class="line"></span><br><span class="line">spend.melt(id_vars=None, value_vars=None, var_name=None, value_name=&apos;value&apos;, col_level=None)</span><br><span class="line"># 透视操作，id_vars是指普通列的列名，value_vars是指那些需要转换的列名，转化为variable和value列</span><br><span class="line"></span><br><span class="line">spend.stack(self, level=-1, dropna=True)</span><br><span class="line">#行头变为列头,参数level指向行索引值，或行索引名称</span><br><span class="line"></span><br><span class="line">spend.unstack(self, level=-1, fill_value=None)</span><br><span class="line">#unstack，可使得列头变为行头，参数level指向列索引值，或列索引名称</span><br></pre></td></tr></table></figure>
+<h3 id="排序和合并"><a href="#排序和合并" class="headerlink" title="排序和合并"></a>排序和合并</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">spend.sort_index([axis=1],[ascending=False],[by=column_name])</span><br><span class="line"></span><br><span class="line">spend.sort_values(by = column_name,[ascending = True],[na_position=&apos;first&apos;])</span><br><span class="line"></span><br><span class="line">pd.merge(df1,df2,how=[inner,outer,left,right],left_on=&apos;&apos;,right_on=&apos;&apos;,on=[key1,key2],left_index=false,right_index=false)</span><br><span class="line"></span><br><span class="line">pd.concat([s1,s2,s3],axis=，ignore_index=True)</span><br><span class="line">ignore_index 产生新的索引</span><br></pre></td></tr></table></figure>
+<h3 id="缺失值处理"><a href="#缺失值处理" class="headerlink" title="缺失值处理"></a>缺失值处理</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">pandas默认使用NaN表示缺失数据；</span><br><span class="line">dropna默认丢弃任何含有缺失值的行；</span><br><span class="line">dropna(how=&apos;all&apos;)只丢弃全为NA的行</span><br><span class="line">fillna(,[inplace=True])替换缺失值,inplace为true直接修改原对象</span><br><span class="line">fillna(&#123;1:0.5,3:-1&#125;)</span><br><span class="line">isnull() 返回一个布尔值对象，该对象类型与源类型一样</span><br></pre></td></tr></table></figure>
+<h1 id="Scikit-learn-模块"><a href="#Scikit-learn-模块" class="headerlink" title="Scikit-learn 模块"></a>Scikit-learn 模块</h1><p>Scikit-learn的基本功能主要被分为六大部分：分类，回归，聚类，数据降维，模型选择和数据预处理</p>
+<h3 id="datasets"><a href="#datasets" class="headerlink" title="datasets"></a>datasets</h3><p>调用自带数据库中的数据<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. datasets.load_*()</span><br><span class="line">2. datasets.fetch_*()</span><br><span class="line">3. datasets.make_*()</span><br></pre></td></tr></table></figure></p>
+<p>datasets获取对象的属性：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">data:数据集</span><br><span class="line">target：数据对应的类标记</span><br><span class="line">target_name:类标记对应的名字</span><br><span class="line">DESCR:数据集的描述信息</span><br></pre></td></tr></table></figure></p>
+<h3 id="preprocessing"><a href="#preprocessing" class="headerlink" title="preprocessing"></a>preprocessing</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">preprocessing.scale()</span><br><span class="line"></span><br><span class="line">preprocessing.StandardScaler().fit_transform()</span><br><span class="line">将数据都聚集在均值0附近，方差值为1。</span><br><span class="line"></span><br><span class="line">preprocessing.MinMaxScaler().fit_transform()</span><br><span class="line">将数据矩阵缩放到``[0, 1]``，对于方差非常小的属性可以增强其稳定性；可以维持稀疏矩阵中为0的条目</span><br><span class="line"></span><br><span class="line">preprocessing.MaxAbsScaler.fit_transform()</span><br><span class="line">将数据矩阵缩放到``[-1, 1]``</span><br><span class="line"></span><br><span class="line">preprocessing.normalize((X, norm=&apos;l2&apos;))</span><br><span class="line">归一化的过程是将每个样本缩放到单位范数，使用L1或L2范数，主要思想是对每个样本计算范数，然后对该样本中每个元素除以该范数，这样处理的结果是使得每个处理后样本的范数等于1</span><br><span class="line"></span><br><span class="line">preprocessing.Binarizer().fit_transform(X)</span><br><span class="line">特征二值化，默认阈值为0，大于阈值的分类1，小于阈值的分类0</span><br><span class="line"></span><br><span class="line">preprocessing.Imputer(missing_values=&apos;NaN&apos;, strategy=&apos;mean&apos;, axis=0).fit()</span><br><span class="line">缺失值插补</span><br><span class="line"></span><br><span class="line">preprocessing.RobustScaler()</span><br><span class="line">根据第1个四分位数和第3个四分位数之间的范围来缩放数据</span><br></pre></td></tr></table></figure>
+<h5 id="二值化编码"><a href="#二值化编码" class="headerlink" title="二值化编码"></a>二值化编码</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">OneHotEncoder(n_values=None, categorical_features=None, categories=None, sparse=True, dtype=&lt;class ‘numpy.float64’&gt;, handle_unknown=’error’)</span><br><span class="line">无法对文本编码，且输入必须是二维</span><br><span class="line">sparse：若为True时，返回稀疏矩阵，否则返回数组</span><br><span class="line">categorical_features：若为all，代表所有的特征都被视为分类特征</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">LabelEncoder(), </span><br><span class="line">对不连续的数值或文本进行编码，且输入必须为一维</span><br></pre></td></tr></table></figure>
+<h3 id="feature-selection"><a href="#feature-selection" class="headerlink" title="feature_selection"></a>feature_selection</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">VarianceThreshold(threshold)</span><br><span class="line">通过特征的方差来提取特征，默认方差为0的特征会自动删除</span><br><span class="line"></span><br><span class="line">SelectKBest(score_func, k=10)</span><br><span class="line">from minepy import MINE</span><br><span class="line">from sklearn.feature_selection import chi2</span><br><span class="line">from scipy.stats import pearsonr</span><br><span class="line">scores按升序排序，选择排前k名所对应的特征,</span><br><span class="line">score_func 通常结合 卡方检验chi2，Pearson相关系数 pearsonr,最大信息系数 MINE</span><br></pre></td></tr></table></figure>
+<h3 id="model-selection"><a href="#model-selection" class="headerlink" title="model_selection"></a>model_selection</h3><p>主要提供交叉验证和结果评估的工具</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">train_test_split(*array,test_size=0.25,train_size=None,random_state=None,shuffle=True,stratify=None)</span><br><span class="line"># 返回切分的数据集,默认test_size将被设置为0.25，train_size将被设置为0.75，stratify按比例抽取训练集和测试集，random_state不同值获取到不同的数据集</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">cross_val_score(estimator,raw_data,raw_target,cv,scoring)</span><br><span class="line"># 返回train/test数据集上的每折得分,estimator为分类器，raw_data为原数据，raw_target为原数据类别，cv默认为3折验证,scoring为评分算法</span><br><span class="line"></span><br><span class="line">GridSearchCV(estimator, param_grid, scoring=None, fit_params=None, refit=True, cv=’warn’)</span><br><span class="line">#自动调参，只要把参数输进去，就能给出最优化的结果和参数。但是这个方法适合于小数据集，可能会调到局部最优而不是全局最优</span><br><span class="line">param_grid：值为字典或者列表，即需要最优化的参数的取值</span><br><span class="line">score：评价标准，默认None,如scoring=&apos;roc_auc&apos;</span><br><span class="line">refit搜索参数结束后，用最佳参数结果再次fit一遍全部数据集</span><br><span class="line">grid.fit()：运行网格搜索</span><br><span class="line">grid_scores_：给出不同参数情况下的评价结果</span><br><span class="line">best_params_：描述了已取得最佳结果的参数的组合</span><br><span class="line">best_score_：成员提供优化过程期间观察到的最好的评分</span><br></pre></td></tr></table></figure>
+<h5 id="k折交叉划分"><a href="#k折交叉划分" class="headerlink" title="k折交叉划分"></a>k折交叉划分</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">kf=KFold(n_splits=3, shuffle=False, random_state=None)</span><br><span class="line">for train_index,test_index in kf.split():</span><br><span class="line"># 将数据集m划分n_splits个不相交子集，每个子集有m/n_splits个训练样例，每次使用k-1个子集作为训练数据，用1个子集作为测试数据，训练k次。最终的结果是这k次测试结果的均值。返回数据集index</span><br><span class="line"></span><br><span class="line">StratifiedKFold用法类似Kfold，但是他是分层采样，确保训练集，测试集中各类别样本的比例与原始数据集中相同</span><br><span class="line">LabelKFold与StratifiedKFold用法相反</span><br></pre></td></tr></table></figure>
+<h5 id="随机划分法"><a href="#随机划分法" class="headerlink" title="随机划分法"></a>随机划分法</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ShuffleSplit()</span><br><span class="line"># 首先对样本全体随机打乱，然后再划分出train/tes对，比KFold交叉更好的控制train/test比例</span><br><span class="line"></span><br><span class="line">ss=StratifiedShuffleSplit(n_splits=10,test_size=None,train_size=None, random_state=None)</span><br><span class="line">for train_index, test_index in ss.split(X, y):</span><br><span class="line"># n_splits是将训练数据分成train/test对的组数，StratifiedShuffleSplit是ShuffleSplit的一个变体，返回分层划分</span><br></pre></td></tr></table></figure>
+<h3 id="metrics"><a href="#metrics" class="headerlink" title="metrics"></a>metrics</h3><p>用于评估方法中，衡量 分类器性能</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">accuracy_score(y_true,y_pred) 计算 accuracy</span><br><span class="line"></span><br><span class="line">二分类指标：</span><br><span class="line">precision_recall_curve（y_true,y_score）</span><br><span class="line">fpr,tpr,thresholds=roc_curve(y_true, y_score)</span><br><span class="line">y_score 表示每个测试样本属于正样本的概率，从高到低，依次将“Score”值作为阈值threshold，当测试样本属于正样本的概率大于或等于这个threshold时，我们认为它为正样本，否则为负样本，每次选取一个不同的threshold，我们就可以得到一组FPR和TPR，即ROC曲线上的一点</span><br><span class="line"></span><br><span class="line">roc_auc_score(y_true, y_score, average=&apos;macro&apos;, sample_weight=None) 计算预测得分曲线下的面积</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">confusion_matrix(y_true, y_pred, labels=None, sample_weight=None) 输出为混淆矩阵</span><br></pre></td></tr></table></figure>
+<h3 id="linear-model"><a href="#linear-model" class="headerlink" title="linear_model"></a>linear_model</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">LogisticRegression(penalty,dual,c,solver,tol,max_iter)</span><br><span class="line">penalty为正则化范数，默认为L2范数；dual为对偶或者原始方法，通常样本数大于特征数的情况下，默认为False；C为正则化系数λ的倒数，默认为1，值越小，代表正则化越强；solver参数决定了我们对逻辑回归损失函数的优化方法;tol为迭代终止判据的误差范围；max_iter为算法收敛的最大迭代次数</span><br><span class="line"></span><br><span class="line">LogisticRegression().fit(X, y, sample_weight=None)</span><br><span class="line">LogisticRegression().predict(X)</span><br><span class="line">LogisticRegression().score(X，Y) 返回准确率</span><br><span class="line">LogisticRegression().predict_proba(X) 返回每个样本每种类别的概率</span><br></pre></td></tr></table></figure>
+<h3 id="tree"><a href="#tree" class="headerlink" title="tree"></a>tree</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">DecisionTreeClassifier(criterion=&apos;gini&apos;, splitter=&apos;best&apos;, max_depth=None, min_samples_split=2,min_samples_leaf =1, min_weight_fraction_leaf=0.0, max_features=None, random_state=None, max_leaf_nodes=None,class_weight=None, presort=False)</span><br><span class="line">CART分类回归树算法</span><br><span class="line">tree= DecisionTreeClassifier() 建立决策树模型</span><br><span class="line">tree.fit(X,Y) 构建实例</span><br><span class="line">tree.predict() 预测分类</span><br><span class="line">tree.predict_proba(X) 返回每个样本每种类别的概率</span><br></pre></td></tr></table></figure>
+<h3 id="cluster"><a href="#cluster" class="headerlink" title="cluster"></a>cluster</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">estimator=KMeans(n_clusters,n_init=10,max_iter)</span><br><span class="line">n_cluster为簇的个数，n_init为获取初始簇质心迭代的次数，max_iter为最大迭代次数</span><br><span class="line"></span><br><span class="line">estimator.fit() 构建实例</span><br><span class="line">estimator.labels 获取聚类标签</span><br><span class="line">estimator.cluster_centers 获取聚类中心</span><br></pre></td></tr></table></figure>
+<h3 id="ensemble"><a href="#ensemble" class="headerlink" title="ensemble"></a>ensemble</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">RandomForestClassifier(n_estimators,)</span><br><span class="line">n_estimators 决策树的个数，控制模型复杂度，bosstrap 是否有放回，oob_score 没有被boostrap选取的数据是否做验证，max_features 控制选取多少特征量，常用值为\sqrt&#123;n&#125;和log2(n) ,max_depth 控制子树的深度，min_samples_split控制内部节点再划分所需最小样本数，若节点样本数小于值，则不进行划分，min_samples_leaf 控制控制叶子节点最少样本数，若小于值，则和兄弟节点一起被剪枝</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">IsolationForest(n_estimators=100, max_samples=’auto’, contamination=0.1, max_features=1.0, bootstrap=False, n_jobs=1, random_state=None, verbose=0)</span><br><span class="line">max_samples默认采样数据256条样本</span><br><span class="line">contamination设置样本中异常点的比例</span><br><span class="line">fit(X)</span><br><span class="line">pretict(X) 返回1表示非异常值，-1为异常值</span><br><span class="line">decision_function(X) 返回样本的异常评分，值越小表示越有可能是异常样本</span><br></pre></td></tr></table></figure>
+<h3 id="neighbors"><a href="#neighbors" class="headerlink" title="neighbors"></a>neighbors</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">KNeighborsClassifier(n_neighbors=5, weights=’uniform’, algorithm=’auto’, leaf_size=30, p=2, metric=’minkowski’, metric_params=None, n_jobs=None, **kwargs)</span><br><span class="line">KNN近邻分类，algorithm有三种，brute’对应第一种蛮力实现，‘kd_tree’对应第二种KD树实现，‘ball_tree’对应第三种的球树实现， ‘auto’则会在上面三种算法中做权衡，选择一个拟合最好的最优算法</span><br></pre></td></tr></table></figure>
+<h3 id="SVM"><a href="#SVM" class="headerlink" title="SVM"></a>SVM</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">LinearSVC(penalty=&apos;l2&apos;, loss=&apos;squared_hinge&apos;, dual=True, tol=0.0001, C=1.0, multi_class=&apos;ovr&apos;, fit_intercept=True, intercept_scaling=1, class_weight=None, verbose=0, random_state=None, max_iter=1000)</span><br><span class="line">LinearSVC是线性分类，不支持各种低维到高维的核函数，仅仅支持线性核函数，对线性不可分的数据不能使用</span><br><span class="line"></span><br><span class="line">NuSVC(nu=0.5, kernel=&apos;rbf&apos;, degree=3, gamma=&apos;auto&apos;, coef0=0.0, shrinking=True, probability=False, tol=0.001, cache_size=200, class_weight=None, verbose=False, max_iter=-1, decision_function_shape=&apos;ovr&apos;, random_state=None)</span><br><span class="line"></span><br><span class="line">SVC(C=1.0, kernel=&apos;rbf&apos;, degree=3, gamma=&apos;auto&apos;, coef0=0.0, shrinking=True, probability=False, tol=0.001, cache_size=200, class_weight=None, verbose=False, max_iter=-1, decision_function_shape=&apos;ovr&apos;, random_state=None)</span><br><span class="line"></span><br><span class="line">OneClassSVM(kernel=’rbf’, degree=3, gamma=’auto’, coef0=0.0, tol=0.001, nu=0.5, shrinking=True, cache_size=200, verbose=False, max_iter=-1, random_state=None)</span><br><span class="line">pretict(X) 返回1表示非异常值，-1为异常值</span><br></pre></td></tr></table></figure>
+<h3 id="decomposition"><a href="#decomposition" class="headerlink" title="decomposition"></a>decomposition</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">PCA(n_components=None, copy=True, whiten=False)</span><br><span class="line">n_components:所要保留的主成分个数n</span><br></pre></td></tr></table></figure>
+<h3 id="manifold"><a href="#manifold" class="headerlink" title="manifold"></a>manifold</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">TSNE(n_components=2, perplexity=30.0, early_exaggeration=12.0, learning_rate=200.0, n_iter=1000, n_iter_without_progress=300, min_grad_norm=1e-07, metric=’euclidean’, init=’random’, verbose=0, random_state=None, method=’barnes_hut’, angle=0.5)</span><br><span class="line">n_components:嵌入空间的维度</span><br></pre></td></tr></table></figure>
+<h3 id="pipeline"><a href="#pipeline" class="headerlink" title="pipeline"></a>pipeline</h3><p>管道机制实现了对全部步骤的流式化封装和管理</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Pipeline([(&apos;sc&apos;, StandardScaler()), (&apos;pca&apos;, PCA(n_components=2)),(&apos;clf&apos;, LogisticRegression(random_state=1))])</span><br><span class="line"></span><br><span class="line">make_pipeline(StandardScaler()，PCA(n_components=2)，LogisticRegression(random_state=1))</span><br><span class="line">pipline的简写</span><br></pre></td></tr></table></figure>
+<h1 id="imblearn模块"><a href="#imblearn模块" class="headerlink" title="imblearn模块"></a>imblearn模块</h1><p>不平衡数据处理包</p>
+<h3 id="Over-sampling"><a href="#Over-sampling" class="headerlink" title="Over_sampling"></a>Over_sampling</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">RandomOverSampler(sampling_strategy=&apos;auto&apos;, return_indices=False, random_state=None, ratio=None)</span><br><span class="line">ros=RandomOverSampler()</span><br><span class="line">X_re,y_re=ros.fit_sample(X, y)</span><br><span class="line"></span><br><span class="line">SMOTE(sampling_strategy=&apos;auto&apos;, random_state=None, k_neighbors=5, m_neighbors=&apos;deprecated&apos;, out_step=&apos;deprecated&apos;, kind=&apos;deprecated&apos;, svm_estimator=&apos;deprecated&apos;, n_jobs=1, ratio=None)</span><br><span class="line">kind调参&#123;&apos;regular&apos;, &apos;borderline1&apos;, &apos;borderline2&apos;, &apos;svm&apos;&#125;调参判别k近邻的样本是否属于同类样本</span><br></pre></td></tr></table></figure>
+<h3 id="Under-sampling"><a href="#Under-sampling" class="headerlink" title="Under_sampling"></a>Under_sampling</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">RandomUnderSampler(sampling_strategy=&apos;auto&apos;, return_indices=False, random_state=None, replacement=False, ratio=None)</span><br><span class="line"></span><br><span class="line">NearMiss(sampling_strategy=&apos;auto&apos;, return_indices=False, random_state=None, version=1, n_neighbors=3, n_neighbors_ver3=3, n_jobs=1, ratio=None)</span><br><span class="line">version调参&#123;1，2，3&#125;调参判别K近邻样本选取</span><br></pre></td></tr></table></figure>
+<h3 id="ensemble-1"><a href="#ensemble-1" class="headerlink" title="ensemble"></a>ensemble</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">EasyEnsembleClassifier(n_estimators=10, base_estimator=None, warm_start=False, sampling_strategy=&apos;auto&apos;, replacement=False, n_jobs=1, random_state=None, verbose=0)</span><br><span class="line">从多数类中抽样出和少数类数目差不多的样本，然后和少数类样本组合作为训练集。在这个训练集上学习一个adaboost分类器</span><br></pre></td></tr></table></figure>
+<h1 id="xgboost-模块"><a href="#xgboost-模块" class="headerlink" title="xgboost 模块"></a>xgboost 模块</h1><h3 id="sklearn-XGBClassifier"><a href="#sklearn-XGBClassifier" class="headerlink" title="sklearn.XGBClassifier"></a>sklearn.XGBClassifier</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line">from xgboost.sklearn import XGBClassifier</span><br><span class="line"></span><br><span class="line">XGBClassifier(learning_rate=0.1,n_estimators=1000,max_depth=5,min_child_weight=1,gamma=0,subsample=0.8,colsample_bytree=0.8,objective=&apos;binary:logistic&apos;,nthread=4,scale_pos_weight=1,seed=27,reg_alpha=0, reg_lambda=1, colsample_bylevel=1)</span><br><span class="line"></span><br><span class="line">基本参数调优（learning_rate,n_estimators）</span><br><span class="line">决策树特定参数调优(max_depth, min_child_weight, gamma, subsample, colsample_bytree)</span><br><span class="line">正则化参数的调优(lambda, alpha)</span><br><span class="line"></span><br><span class="line">参数：booster：指定了用哪一种基模型。可以为：&apos;gbtree&apos;,&apos;gblinear&apos;,&apos;dart&apos;</span><br><span class="line">	gamma：最小划分损失min_split_loss。即对于一个叶子节点，当对它采取划分之后，损失函数的降低值的阈值。</span><br><span class="line">	max_depth:树的深度，默认值为6</span><br><span class="line">	min_child_weight： 一个整数，子节点的权重阈值。对于树模型（booster=gbtree,dart），权重就是：叶子节点包含样本的所有二阶偏导数之和。</span><br><span class="line">	subsample：一个浮点数，对训练样本的采样比例。默认值为 1 。如果为0.5，表示随机使用一半的训练样本来训练子树</span><br><span class="line">	colsample_bytree： 一个浮点数，构建子树时，对特征的采样比例。默认值为 1。</span><br><span class="line">	colsample_bylevel： 一个浮点数，寻找划分点时，对特征的采样比例。 默认值为 1。</span><br><span class="line">	reg_alpha： L1 正则化系数</span><br><span class="line">	reg_lambda： L2 正则化系数</span><br><span class="line">	scale_pos_weight： 用于调整正负样本的权重，常用于类别不平衡的分类问题。默认为 1。</span><br><span class="line">	</span><br><span class="line">&gt;&gt; objective </span><br><span class="line">回归任务</span><br><span class="line">reg:linear (默认)</span><br><span class="line">reg:logistic </span><br><span class="line">二分类</span><br><span class="line">binary:logistic     概率 </span><br><span class="line">binary：logitraw   类别</span><br><span class="line">多分类</span><br><span class="line">multi：softmax  num_class=n   返回类别</span><br><span class="line">multi：softprob   num_class=n  返回概率</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line"></span><br><span class="line">fit(X, y, sample_weight=None, eval_set=None, eval_metric=None,</span><br><span class="line">    early_stopping_rounds=None,verbose=True, xgb_model=None)</span><br><span class="line"></span><br><span class="line">参数：sample_weight： 一个序列，给出了每个样本的权重</span><br><span class="line">	eval_set： 一个列表，元素为(X,y)，给出了验证集及其标签</span><br><span class="line">	xgb_model：一个Booster实例，它给出了待训练的模型。</span><br><span class="line">	eval_metric： 一个字符串或者可调用对象，用于evaluation metric</span><br><span class="line">	early_stopping_rounds：在验证集上，当连续n次迭代，分数没有提高后，提前终止训练</span><br><span class="line"></span><br><span class="line">&gt;&gt; eval_metric</span><br><span class="line">回归任务(默认rmse) rmse--均方根误差;mae--平均绝对误差</span><br><span class="line">分类任务(默认error)</span><br><span class="line">auc--roc曲线下面积</span><br><span class="line">error--错误率（二分类）</span><br><span class="line">merror--错误率（多分类）</span><br><span class="line">logloss--负对数似然函数（二分类）</span><br><span class="line">mlogloss--负对数似然函数（多分类）</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">predict(data, output_margin=False, ntree_limit=0)</span><br><span class="line">参数：output_margin： 表示是否输出原始的、未经过转换的margin value</span><br><span class="line"></span><br><span class="line">predict_proba(data, output_margin=False, ntree_limit=0) ： 执行预测，预测的是各类别的概率</span><br><span class="line"></span><br><span class="line">evals_result()： 返回一个字典，给出了各个验证集在各个验证参数上的历史值</span><br></pre></td></tr></table></figure>
+<h3 id="Xgboost"><a href="#Xgboost" class="headerlink" title="Xgboost"></a>Xgboost</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">import xgboost </span><br><span class="line">xgboost.DMatrix(data, label=None, missing=None, weight=None, silent=False, feature_names=None, feature_types=None, nthread=None) </span><br><span class="line">无法识别object类型,需使用了sklearn.preprocessing中的LabelEncoder转化</span><br><span class="line">参数：label：一个序列，表示样本标记。，missing： 一个值，它是缺失值的默认值。，weight：一个序列，给出了数据集中每个样本的权重</span><br><span class="line">属性：feature_names： 返回每个特征的名字；feature_types： 返回每个特征的数据类型</span><br><span class="line">方法：.num_col()；.num_row()；.get_label();.get_weight()</span><br><span class="line"></span><br><span class="line">xgboost.train()： 使用给定的参数来训练一个booster</span><br><span class="line">xgboost.train(params, dtrain, num_boost_round=10, evals=(), obj=None, feval=None,</span><br><span class="line">   maximize=False, early_stopping_rounds=None, evals_result=None, verbose_eval=True,</span><br><span class="line">   xgb_model=None, callbacks=None, learning_rates=None)</span><br><span class="line">参数：dtrain：DMatrix对象，params： 键值对，num_boost_round： 表示boosting 迭代数量</span><br><span class="line">	evals： (DMatrix,string)验证集，以及验证集的名字，obj：表示自定义的目标函数</span><br><span class="line">	feval： 表示自定义的evaluation 函数，maximize： 如果为True，则表示是对feval 求最大值</span><br><span class="line">	learning_rates： 一个列表，给出了每个迭代步的学习率，</span><br><span class="line">	evals_result： 一个字典，它给出了对测试集要进行评估的指标</span><br><span class="line">	</span><br><span class="line">xgboost.cv()： 使用给定的参数执行交叉验证 </span><br><span class="line">xgboost.cv(params, dtrain, num_boost_round=10, nfold=3, stratified=False, folds=None,</span><br><span class="line">     metrics=(), obj=None, feval=None, maximize=False, early_stopping_rounds=None,</span><br><span class="line">     fpreproc=None, as_pandas=True, verbose_eval=None, show_stdv=True, seed=0,</span><br><span class="line">     callbacks=None, shuffle=True)</span><br><span class="line">     参数：nfold： 表示交叉验证的fold 的数量，stratified： 如果为True，则执行分层采样</span><br><span class="line">     	folds： 一个scikit-learn 的 KFold 实例或者StratifiedKFold 实例</span><br><span class="line">     	shuffle： 如果为True，则创建folds 之前先混洗数据</span><br><span class="line">     	as_pandas： 如果为True，则返回DataFrame；否则返回ndarray</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/01/13/python入门/" rel="prev" title="python入门">
+                python入门 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/mar.jpg" alt="Marcus Anthony">
+            
+              <p class="site-author-name" itemprop="name">Marcus Anthony</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Numpy模块"><span class="nav-number">1.</span> <span class="nav-text">Numpy模块</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#array"><span class="nav-number">1.0.1.</span> <span class="nav-text">array</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#集合运算"><span class="nav-number">1.0.2.</span> <span class="nav-text">集合运算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#索引运算"><span class="nav-number">1.0.3.</span> <span class="nav-text">索引运算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数运算"><span class="nav-number">1.0.4.</span> <span class="nav-text">函数运算</span></a></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#Pandas模块"><span class="nav-number">2.</span> <span class="nav-text">Pandas模块</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Series"><span class="nav-number">2.0.1.</span> <span class="nav-text">Series</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DataFrame"><span class="nav-number">2.0.2.</span> <span class="nav-text">DataFrame</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#索引"><span class="nav-number">2.0.3.</span> <span class="nav-text">索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数应用"><span class="nav-number">2.0.4.</span> <span class="nav-text">函数应用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#排序和合并"><span class="nav-number">2.0.5.</span> <span class="nav-text">排序和合并</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缺失值处理"><span class="nav-number">2.0.6.</span> <span class="nav-text">缺失值处理</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Scikit-learn-模块"><span class="nav-number">3.</span> <span class="nav-text">Scikit-learn 模块</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#datasets"><span class="nav-number">3.0.1.</span> <span class="nav-text">datasets</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#preprocessing"><span class="nav-number">3.0.2.</span> <span class="nav-text">preprocessing</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#二值化编码"><span class="nav-number">3.0.2.0.1.</span> <span class="nav-text">二值化编码</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#feature-selection"><span class="nav-number">3.0.3.</span> <span class="nav-text">feature_selection</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#model-selection"><span class="nav-number">3.0.4.</span> <span class="nav-text">model_selection</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#k折交叉划分"><span class="nav-number">3.0.4.0.1.</span> <span class="nav-text">k折交叉划分</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#随机划分法"><span class="nav-number">3.0.4.0.2.</span> <span class="nav-text">随机划分法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#metrics"><span class="nav-number">3.0.5.</span> <span class="nav-text">metrics</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#linear-model"><span class="nav-number">3.0.6.</span> <span class="nav-text">linear_model</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tree"><span class="nav-number">3.0.7.</span> <span class="nav-text">tree</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cluster"><span class="nav-number">3.0.8.</span> <span class="nav-text">cluster</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ensemble"><span class="nav-number">3.0.9.</span> <span class="nav-text">ensemble</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#neighbors"><span class="nav-number">3.0.10.</span> <span class="nav-text">neighbors</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SVM"><span class="nav-number">3.0.11.</span> <span class="nav-text">SVM</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#decomposition"><span class="nav-number">3.0.12.</span> <span class="nav-text">decomposition</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#manifold"><span class="nav-number">3.0.13.</span> <span class="nav-text">manifold</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pipeline"><span class="nav-number">3.0.14.</span> <span class="nav-text">pipeline</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#imblearn模块"><span class="nav-number">4.</span> <span class="nav-text">imblearn模块</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Over-sampling"><span class="nav-number">4.0.1.</span> <span class="nav-text">Over_sampling</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Under-sampling"><span class="nav-number">4.0.2.</span> <span class="nav-text">Under_sampling</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ensemble-1"><span class="nav-number">4.0.3.</span> <span class="nav-text">ensemble</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#xgboost-模块"><span class="nav-number">5.</span> <span class="nav-text">xgboost 模块</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#sklearn-XGBClassifier"><span class="nav-number">5.0.1.</span> <span class="nav-text">sklearn.XGBClassifier</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Xgboost"><span class="nav-number">5.0.2.</span> <span class="nav-text">Xgboost</span></a></li></ol></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Marcus Anthony</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+
+  
+
+  
+
+</body>
+</html>
