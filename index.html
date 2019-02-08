@@ -377,46 +377,21 @@ f(x)=y_1f_1(x)+y_2f_2(x)+y_3f_3(x)+...</script><p>其中$f_i(x_j)= \begin{cases}
 <h3 id="仿射函数"><a href="#仿射函数" class="headerlink" title="仿射函数"></a>仿射函数</h3><p>仿射函数即由 1 阶多项式构成的函数，一般形式为 f (x) = A x + b，这里，A 是一个 m×k 矩阵，x 是一个 k 向量，b 是一个 m 向量，实际上反映了一种从 k 维到 m 维的空间映射关系</p>
 <h3 id="超平面"><a href="#超平面" class="headerlink" title="超平面"></a>超平面</h3><p>超平面H是从n维空间到n-1维空间的一个映射子空间，它有一个n维向量和一个实数定义。因为是子空间，所以超平面一定过原点，二维空间里的超平面为一条直线. 一维空间里超平面为数轴上的一个点。</p>
 <h3 id="凸集"><a href="#凸集" class="headerlink" title="凸集"></a>凸集</h3><p>K是n维欧式空间一点集合，若任意两点<script type="math/tex">X_1,X_2 \in K</script>，这两点连线上的所有点<script type="math/tex">\alpha X_1+(1-\alpha)X_2 \in K ,(0 \leq\alpha\leq1)</script>,则称<script type="math/tex">K</script>为凸集</p>
-<h3 id="凸函数"><a href="#凸函数" class="headerlink" title="凸函数"></a>凸函数</h3><p>定义在某个向量空间的凸子集区间上的实值函数，对于任意两点<script type="math/tex">x,y,以及t \in [0,1]​</script>，有</p>
-<script type="math/tex; mode=display">f(tx+(1-t)y) \leq tf(x)+(1-t)f(y) ​$$，也就是凸函数上任意两点的连线都在两点区间的函数之上   
-凸函数的性质：
-
-> 1.凸函数的epigraph（函数图上或上方的点集合）为凸集
-> 2.对于$$∀x,y，f(y)≥f(x)+∇f(x)^T(y−x) $$,即在函数某点切线上的点的值小于该点在函数上的值
-> 3.对于$$∀x∈dom(f)， ∇^2f(x)≥0$$, 函数图像在定义域中每点处均有向上的正弯曲
-> 4.凸函数的任何 极小值都是最小值，严格凸函数最多有一个最小值
-> 5.凸函数具有仿射不变性，即f(x)是凸函数，则g(y)=f(Ax+b)也是凸函数
-
-### 凸优化
-
-> 1.目标函数必须是凸的
-> 2.不等式约束函数必须是凸的
-> 3.等式约束函数必须是仿射的
-
-### 最大似然估计
-
-概率是已知模型和参数，推数据。统计是已知数据，推模型和参数。最大似然估计的目的就是：利用已知的样本结果，反推最有可能（最大概率）导致这样结果的参数值。
-
-对于P(x|θ)，x表示某一个具体的数据；θ表示模型的参数。
-
-如果θ是已知确定的，x是变量，这个函数叫做概率函数(probability function)，它描述对于不同的样本点x，其出现概率是多少。
-
-如果x是已知确定的，θ是变量，这个函数叫做似然函数(likelihood function), 它描述对于不同的模型参数，出现x这个样本点的概率是多少。
-
-### 对数几率
-
-一个事件发生的概率与不发生的概率的比值称为几率
-对数几率函数为 $$ logit(P)=log(\cfrac{P}{1-P})=\beta_0+\beta_1x_1+...+\beta_nx_n$$,与逻辑回归函数转化
-
-## 线性代数1
-
-### 二维空间的向量
-
-可以由两个基向量$$ \vec{i}=\left[ \begin{array}{ccc}1\\0
-\end{array}\right]
-,\vec{j}=\left[ \begin{array}{ccc}0\\1
-\end{array}\right]
- $$，经过向量数乘和向量加法运算后表示</script><p>\left[ \begin{array}{ccc}<br>-3\<br>2<br>\end{array}\right]<br>=-3\vec{i}+2\vec{j}</p>
+<h3 id="凸函数"><a href="#凸函数" class="headerlink" title="凸函数"></a>凸函数</h3><p>定义在某个向量空间的凸子集区间上的实值函数，对于任意两点<script type="math/tex">x,y,以及t \in [0,1]</script>，有<br>$ f(tx+(1-t)y) \leq tf(x)+(1-t)f(y) $，也就是凸函数上任意两点的连线都在两点区间的函数之上   </p>
+<p>凸函数的性质：</p>
+<blockquote>
+<p>1.凸函数的epigraph（函数图上或上方的点集合）为凸集<br>2.对于<script type="math/tex">∀x,y，f(y)≥f(x)+∇f(x)^T(y−x)</script>,即在函数某点切线上的点的值小于该点在函数上的值<br>3.对于<script type="math/tex">∀x∈dom(f)， ∇^2f(x)≥0</script>, 函数图像在定义域中每点处均有向上的正弯曲<br>4.凸函数的任何 极小值都是最小值，严格凸函数最多有一个最小值<br>5.凸函数具有仿射不变性，即f(x)是凸函数，则g(y)=f(Ax+b)也是凸函数</p>
+</blockquote>
+<h3 id="凸优化"><a href="#凸优化" class="headerlink" title="凸优化"></a>凸优化</h3><blockquote>
+<p>1.目标函数必须是凸的<br>2.不等式约束函数必须是凸的<br>3.等式约束函数必须是仿射的</p>
+</blockquote>
+<h3 id="最大似然估计"><a href="#最大似然估计" class="headerlink" title="最大似然估计"></a>最大似然估计</h3><p>概率是已知模型和参数，推数据。统计是已知数据，推模型和参数。最大似然估计的目的就是：利用已知的样本结果，反推最有可能（最大概率）导致这样结果的参数值。</p>
+<p>对于P(x|θ)，x表示某一个具体的数据；θ表示模型的参数。</p>
+<p>如果θ是已知确定的，x是变量，这个函数叫做概率函数(probability function)，它描述对于不同的样本点x，其出现概率是多少。</p>
+<p>如果x是已知确定的，θ是变量，这个函数叫做似然函数(likelihood function), 它描述对于不同的模型参数，出现x这个样本点的概率是多少。</p>
+<h3 id="对数几率"><a href="#对数几率" class="headerlink" title="对数几率"></a>对数几率</h3><p>一个事件发生的概率与不发生的概率的比值称为几率<br>对数几率函数为 <script type="math/tex">logit(P)=log(\cfrac{P}{1-P})=\beta_0+\beta_1x_1+...+\beta_nx_n</script>,与逻辑回归函数转化</p>
+<h2 id="线性代数1"><a href="#线性代数1" class="headerlink" title="线性代数1"></a>线性代数1</h2><h3 id="二维空间的向量"><a href="#二维空间的向量" class="headerlink" title="二维空间的向量"></a>二维空间的向量</h3><p>可以由两个基向量$$ \vec{i}=\left[ \begin{array}{ccc}1\0<br>\end{array}\right]<br>,\vec{j}=\left[ \begin{array}{ccc}0\1<br>\end{array}\right]</p>
+<script type="math/tex; mode=display">，经过向量数乘和向量加法运算后表示</script><p>\left[ \begin{array}{ccc}<br>-3\<br>2<br>\end{array}\right]<br>=-3\vec{i}+2\vec{j}</p>
 <script type="math/tex; mode=display">
 向量空间的一组基是张成该空间的一个线性无关向量集，当选择不同的基向量时，获得一个新的坐标系
 
