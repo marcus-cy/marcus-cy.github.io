@@ -334,7 +334,7 @@
 <li>不处理：把缺失当成一种特殊值。</li>
 <li>拉格朗日插值法</li>
 </ul>
-<p>拉格朗日插值法，即对于点 $(x_1,y_1),(x_2,y_2),(x_3,y_3)$<br>存在曲线经过这些点，运用线代中的坐标基向量的找法，该多项式曲线为 </p>
+<p>拉格朗日插值法，即对于点 $(x_1,y_1),(x_2,y_2),(x_3,y_3)​$<br>存在曲线经过这些点，运用线代中的坐标基向量的找法，该多项式曲线为 </p>
 <script type="math/tex; mode=display">
 f(x)=y_1f_1(x)+y_2f_2(x)+y_3f_3(x)+...</script><p>其中$f_i(x_j)= \begin{cases} 1 ,i=j \ \0 ,i!=j    \end{cases}$</p>
 <p>推导有 $ f_i(x)=\prod \cfrac{x-x_i}{x_i-x_j}  $</p>
@@ -376,9 +376,9 @@ f(x)=y_1f_1(x)+y_2f_2(x)+y_3f_3(x)+...</script><p>其中$f_i(x_j)= \begin{cases}
 <h3 id="仿射"><a href="#仿射" class="headerlink" title="仿射"></a>仿射</h3><p>任意两点<script type="math/tex">X_1,X_2 \in K 以及 \alpha \in R</script>，这两点连线上的所有点<script type="math/tex">\alpha X_1+(1-\alpha)X_2 \in K</script>,则称这些点为仿射组合</p>
 <h3 id="仿射函数"><a href="#仿射函数" class="headerlink" title="仿射函数"></a>仿射函数</h3><p>仿射函数即由 1 阶多项式构成的函数，一般形式为 f (x) = A x + b，这里，A 是一个 m×k 矩阵，x 是一个 k 向量，b 是一个 m 向量，实际上反映了一种从 k 维到 m 维的空间映射关系</p>
 <h3 id="超平面"><a href="#超平面" class="headerlink" title="超平面"></a>超平面</h3><p>超平面H是从n维空间到n-1维空间的一个映射子空间，它有一个n维向量和一个实数定义。因为是子空间，所以超平面一定过原点，二维空间里的超平面为一条直线. 一维空间里超平面为数轴上的一个点。</p>
-<h4 id="凸集"><a href="#凸集" class="headerlink" title="凸集"></a>凸集</h4><p>K是n维欧式空间一点集合，若任意两点<script type="math/tex">X_1,X_2 \in K</script>，这两点连线上的所有点<script type="math/tex">\alpha X_1+(1-\alpha)X_2 \in K ,(0 \leq\alpha\leq1)</script>,则称<script type="math/tex">K</script>为凸集</p>
-<h3 id="凸函数"><a href="#凸函数" class="headerlink" title="凸函数"></a>凸函数</h3><p>定义在某个向量空间的凸子集区间上的实值函数，对于任意两点<script type="math/tex">x,y,以及t \in [0,1]</script>，有</p>
-<script type="math/tex; mode=display">f(tx+(1-t)y) \leq tf(x)+(1-t)f(y) $$，也就是凸函数上任意两点的连线都在两点区间的函数之上   
+<h3 id="凸集"><a href="#凸集" class="headerlink" title="凸集"></a>凸集</h3><p>K是n维欧式空间一点集合，若任意两点<script type="math/tex">X_1,X_2 \in K</script>，这两点连线上的所有点<script type="math/tex">\alpha X_1+(1-\alpha)X_2 \in K ,(0 \leq\alpha\leq1)</script>,则称<script type="math/tex">K</script>为凸集</p>
+<h3 id="凸函数"><a href="#凸函数" class="headerlink" title="凸函数"></a>凸函数</h3><p>定义在某个向量空间的凸子集区间上的实值函数，对于任意两点<script type="math/tex">x,y,以及t \in [0,1]​</script>，有</p>
+<script type="math/tex; mode=display">f(tx+(1-t)y) \leq tf(x)+(1-t)f(y) ​$$，也就是凸函数上任意两点的连线都在两点区间的函数之上   
 凸函数的性质：
 
 > 1.凸函数的epigraph（函数图上或上方的点集合）为凸集
@@ -488,13 +488,15 @@ min\Sigma(y_i-\hat{y})^2</script><blockquote>
 </blockquote>
 <p>1.离差<script type="math/tex">y_i -\hat{y}</script> 表示用方程的估计值预测所产生的误差，称为误差平方和 <script type="math/tex">SSE=\Sigma(y_i -\hat{y})^2</script></p>
 <p>2.离差<script type="math/tex">y_i -\bar{y}</script> 表示用样本平均值来去预测所产生的误差，称为总平方和 <script type="math/tex">SST=\Sigma(y_i -\bar{y})^2</script></p>
-<p>3.离差<script type="math/tex">\hat{y} -\bar{y}</script> ，称为回归平方和 <script type="math/tex">SSR=\Sigma(\hat{y} -\bar{y})^2</script></p>
-<p>4.<script type="math/tex">SST=SSR+SSE</script></p>
+<p>3.离差<script type="math/tex">\hat{y} -\bar{y} ​</script> ，称为回归平方和 <script type="math/tex">SSR=\Sigma(\hat{y} -\bar{y})^2 ​</script></p>
+<ol>
+<li>$SST=SSR+SSE​$</li>
+</ol>
 <p>5.判定系数：<script type="math/tex">r^2= \frac {SSR} {SST}</script></p>
 <p>6.仅仅依靠判定系数，无法判断x和y之间的显著性，只能判断最小二乘回归直线是否很好的拟合了样本数据</p>
 <blockquote>
 <p>相关系数   </p>
-<script type="math/tex; mode=display">r_{xy}=（b_1的符号)\sqrt{判定系数}</script><p>样本相关系数被限制在两变量之间存在线性关系的情况</p>
+<script type="math/tex; mode=display">r_{xy}=（b_1的符号)\sqrt{判定系数} ​</script><p>样本相关系数被限制在两变量之间存在线性关系的情况</p>
 </blockquote>
 <h3 id="显著性检验"><a href="#显著性检验" class="headerlink" title="显著性检验"></a>显著性检验</h3><p>关于简单线性回归模型中误差项ε的假定</p>
 <script type="math/tex; mode=display">
