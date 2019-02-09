@@ -95,7 +95,7 @@
 <meta property="og:image" content="http://yoursite.com/2019/02/05/dataanalysis/640.webp">
 <meta property="og:image" content="http://yoursite.com/2019/02/05/dataanalysis/20170213172108998.jpg">
 <meta property="og:image" content="http://yoursite.com/2019/02/05/dataanalysis/1528726169.jpg">
-<meta property="og:updated_time" content="2019-02-09T14:36:06.775Z">
+<meta property="og:updated_time" content="2019-02-09T14:41:18.253Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据挖掘基础">
 <meta name="twitter:description" content="缺失处理数据缺失及其类别 完全随机缺失：当某变量缺失值发生的可能性与其他变量无关也与该变量自身无关时称作MCAR。换句话说，某变量缺失值的出现完全是个随机事件。可以将存在MCAR变量的数据看做是假定完整数据的一个随机样本例如，由于测量设备出故障导致某些值缺失。 随机缺失：当某变量出现缺失值的可能性与模型中某些观测变量有关而与该变量自身无关时称作MAR例如，在一次测试中，如果IQ达不到最低要求的10">
@@ -547,7 +547,7 @@ y=β_0 + β_1 X + ε</script><p>1.误差项ε是一个期望值为零的随机�
 <p>为使函数实现最大值，可采用梯度上升法，</p>
 <p>$ \cfrac{\partial LL(x,y|\beta)}{\partial \beta_i}=\sum_{i=1}^N[y_ix_i-x_i\cfrac{exp(x_i\beta)}{1+exp(x_i\beta)}] $</p>
 <p>$ \beta^{i+1}=\beta^{i}+\nabla*h $ (h为步长)</p>
-<p>最优的参数值即为<br>$ \beta^{ <em>}=\sum\nabla_i</em>h_i $</p>
+<p>最优的参数值即为<br>$ \beta=\sum\nabla_i*h_i $</p>
 <p>对于多分类情况，借用softmax函数，或者通过多个二分类实现</p>
 <h3 id="模型特点"><a href="#模型特点" class="headerlink" title="模型特点"></a>模型特点</h3><p>模型的结果是估计出属于某一类的概率；<br>变量之间是线性可加关系；<br>可增量式读取数据；<br>需要对非数值变量进行编码；<br>对缺失值敏感，需要处理；<br>对异常值敏感，需要处理；<br>需要做变量归一化；<br>变量的线性相关性对模型有影响，需要变量挑选和正则化；</p>
 <h2 id="模型评估"><a href="#模型评估" class="headerlink" title="模型评估"></a>模型评估</h2><h3 id="训练集与测试集的划分方法"><a href="#训练集与测试集的划分方法" class="headerlink" title="训练集与测试集的划分方法"></a>训练集与测试集的划分方法</h3><ul>
