@@ -414,7 +414,7 @@ A=\left[ \begin{array}{ccc}i,j
 <h3 id="线性方程组"><a href="#线性方程组" class="headerlink" title="线性方程组"></a>线性方程组</h3><p>对于求解线性方程组$ A\vec{x}=\vec{v},即是找到一个向量\vec{x}，在经过矩阵A线性变换后，与\vec{v}重合$</p>
 <h3 id="逆矩阵"><a href="#逆矩阵" class="headerlink" title="逆矩阵"></a>逆矩阵</h3><p>对于$A^{-1}A=E$的恒等变换 ，只存在于det(A)≠0，即若矩阵A代表的线性变换将空间压缩，则无法通过逆变换还原</p>
 <h3 id="秩"><a href="#秩" class="headerlink" title="秩"></a>秩</h3><p>代表着线性变换后空间的维数，当列数与秩相等时，称为满秩</p>
-<h3 id="向量的点积"><a href="#向量的点积" class="headerlink" title="向量的点积"></a>向量的点积</h3><p>向量的点积$ \vec{v}<em>\vec{w}=\vec{v}的投影长度</em>\vec{w}的长度=\vec{v}*\vec{w}的投影长度 $</p>
+<h3 id="向量的点积"><a href="#向量的点积" class="headerlink" title="向量的点积"></a>向量的点积</h3><p>向量的点积<script type="math/tex">\vec{v}*\vec{w}=\vec{v}的投影长度*\vec{w}的长度=\vec{v}*\vec{w}的投影长度</script></p>
 <p>对偶性:两种数学事物之间自然而又出乎意料的对应关系</p>
 <h3 id="向量的叉积"><a href="#向量的叉积" class="headerlink" title="向量的叉积"></a>向量的叉积</h3><p>$ \vec{v}\times\vec{w}=\vec{p},其中\vec{p}的长度等于平行四边形的面积，方向垂直于\vec{v}和\vec{w} ​$</p>
 <h2 id="线性代数3"><a href="#线性代数3" class="headerlink" title="线性代数3"></a>线性代数3</h2><h3 id="不同坐标系下的基向量"><a href="#不同坐标系下的基向量" class="headerlink" title="不同坐标系下的基向量"></a>不同坐标系下的基向量</h3><p>A坐标系下基向量<script type="math/tex">\vec{i},\vec{j}</script>，B坐标系下基向量<script type="math/tex">\vec{b_1},\vec{b_2} 为\left[ \begin{array}{ccc}0 \\1
@@ -426,7 +426,7 @@ A=\left[ \begin{array}{ccc}i,j
 \end{array}\right]​</script>,对于两种坐标系下的向量转换，即存在<script type="math/tex">M\alpha=\beta ​</script>,其中 <script type="math/tex">\alpha=\left[ \begin{array}{ccc}1 & 0 \\0 &1
 \end{array}\right] ​</script> 为B坐标系视角下的向量，<script type="math/tex">\beta=\left[ \begin{array}{ccc} \vec{b_1} & \vec{b_2}
 \end{array}\right]  ​</script>为A坐标系视角下的向量。</p>
-<p>推广下，则有 $  M^{-1}PM\alpha 代表在两种坐标系视角下，经过矩阵P(A视角下)的线性变换后，获得的B视角下的向量 $</p>
+<p>推广下，则有<br>$  M^{-1}PM\alpha 代表在两种坐标系视角下，经过矩阵P(A视角下)的线性变换后，获得的B视角下的向量 ​$</p>
 <h3 id="特征向量"><a href="#特征向量" class="headerlink" title="特征向量"></a>特征向量</h3><p>对于线性变化A，若存在原向量$ \alpha $,经过A变化后，仍在其张成的空间中，只做拉伸变化，即存在<br>$ A\alpha=\lambda\alpha $，其中$ \lambda $为拉伸或压缩比例因子，称向量$ \alpha为特征向量，\lambda为特征值 $</p>
 <p>特征向量的用途：在一个三维空间旋转中，对于旋转的特征向量，可以将此特征向量视为旋转轴，此时特征值为1</p>
 <h3 id="特征基"><a href="#特征基" class="headerlink" title="特征基"></a>特征基</h3><p>当特征向量可作为基向量时，即<script type="math/tex">\vec{b_1},\vec{b_2}</script> 为P变换中的特征向量，则有</p>
