@@ -340,56 +340,34 @@ f(x)=y_1f_1(x)+y_2f_2(x)+y_3f_3(x)+...</script><p>其中$f_i(x_j)= \begin{cases}
 <p>推导有 $ f_i(x)=\prod \cfrac{x-x_i}{x_i-x_j}  ​$</p>
 <h2 id="特征选择"><a href="#特征选择" class="headerlink" title="特征选择"></a>特征选择</h2><h3 id="特征选择的方法"><a href="#特征选择的方法" class="headerlink" title="特征选择的方法"></a>特征选择的方法</h3><p>前向选择法：在前一轮产生的最优特征集合上，添加这一轮的最优特征，且产生的特征集合优于上一轮。若在K+1轮时，最优的{K+1}特征集合表现不如上一轮的K个特征集，则停止搜索。<br>后向选择法：类似前向，前向选择和后向选择都属于贪心策略，仅考虑本轮的最优。对于特征选择方法，可以基于决策树算法，选取信息增益最大的特征。<br>过滤式选择：先进行特征选取，特征的选取依据一种相关统计量来度量，类似于距离度量。然后再训练学习器。<br>包裹式选择：将最终确定的学习器性能作为特征选择的评价准则。<br>嵌入式选择：将特征选择和学习器训练过程融为一体，即在损失函数中，为避免样本特征多，样本量少，产生的过拟合，引入正则化项，其中L1范数更容易获得稀疏解</p>
 <h3 id="多重共线性检测"><a href="#多重共线性检测" class="headerlink" title="多重共线性检测"></a>多重共线性检测</h3><p>使用方差膨胀因子(VIF)来鉴定，如果VIF大于5，则说明变量存在多重共线性。一旦发现变量之间存在多重共线性的话，可以考虑删除变量和重新选择模型（岭回归法）</p>
-<script type="math/tex; mode=display">VIF =\cfrac{1}{1-R^2}​</script><script type="math/tex; mode=display">R^2是以x_j​$$为因变量时对其它自变量回归的复测定系数
-
-`from statsmodels.stats.outliers_influence import variance_inflation_factor`
-`variance_inflation_factor(data.values, index of the variable in the columns)`
-
-### 缺失值处理
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fancyimpute 支持填充方法删除法、均值法、回归法、KNN、MICE、EM等</span><br></pre></td></tr></table></figure>
-
-## 统计知识
-
-### 假设检验
-对总体参数做一个尝试性的假设，来确定是否应拒绝总体参数值
-
-1.假设检验中的两类错误
-
-> 第一类错误：原假设为真，拒绝原假设
-> 第二类错误：备择假设为真，不拒绝原假设
-
-2.显著性水平：犯第一类错误的概率
-
-3.下侧检验：拒绝域出现在下侧</script><p>原假设：H_0:u≥u_0  </p>
-<p>备择假设：H_a:u＜u_0</p>
+<p>$VIF =\cfrac{1}{1-R^2}$<br>$R^2是以x_j$为因变量时对其它自变量回归的复测定系数</p>
+<p><code>from statsmodels.stats.outliers_influence import variance_inflation_factor</code><br><code>variance_inflation_factor(data.values, index of the variable in the columns)</code></p>
+<h3 id="缺失值处理"><a href="#缺失值处理" class="headerlink" title="缺失值处理"></a>缺失值处理</h3><p><code>fancyimpute 支持填充方法删除法、均值法、回归法、KNN、MICE、EM等</code></p>
+<h2 id="统计知识"><a href="#统计知识" class="headerlink" title="统计知识"></a>统计知识</h2><h3 id="假设检验"><a href="#假设检验" class="headerlink" title="假设检验"></a>假设检验</h3><p>对总体参数做一个尝试性的假设，来确定是否应拒绝总体参数值</p>
+<p>1.假设检验中的两类错误</p>
+<blockquote>
+<p>第一类错误：原假设为真，拒绝原假设<br>第二类错误：备择假设为真，不拒绝原假设</p>
+</blockquote>
+<p>2.显著性水平：犯第一类错误的概率</p>
+<p>3.下侧检验：拒绝域出现在下侧</p>
 <script type="math/tex; mode=display">
-4.上侧检验：拒绝域出现在上侧</script><p>原假设：H_0:u≤u_0  </p>
-<p>备择假设：H_a:u＞u_0</p>
+原假设：H_0:u≥u_0  
+
+备择假设：H_a:u＜u_0</script><p>4.上侧检验：拒绝域出现在上侧</p>
 <script type="math/tex; mode=display">
-总体方差$$\sigma^2$$ 已知的情况下：Z检验
-总体方差$$\sigma^2$$ 未知的情况下：t检验
+原假设：H_0:u≤u_0  
 
-5.p值：概率值，是样本所提供的证据对原假设支持程度的度量，p越小，表明反对原假设的证据越多,p大于显著性水平时，不拒绝原假设
-
-### 自由度
-
-- wiki解释
-
-　　**在统计学中，自由度（英语：degree of freedom, df）是指当以样本的统计量来估计总体的参数时，样本中独立或能自由变化的数据的个数，称为该统计量的自由度[1]。一般来说，自由度等于独立变量减掉其衍生量数[2]；举例来说，方差的定义是样本减平均值的平方之和（一个由样本决定的衍生量），因此对N个随机样本而言，其自由度为N-1。**  
-
-　　**估计总体的方差时所使用的统计量是样本的方差 s，而 s必须用到样本平均数x来计算。 x在抽样完成后已确定，所以大小为 n的样本中只要  n-1个数确定了，第 n个数就只有一个能使样本符合x的数值。也就是说，样本中只有  n-1个数可以自由变化，只要确定了这  n-1个数，方差也就确定了。这里，平均数 x就相当于一个限制条件，由于加了这个限制条件，样本方差 s的自由度为 n-1。**
-
-### 中心极限定理
-若给定样本量的所有样本来自任意总体，则**样本均值的抽样分布近似服从正态分布**，样本量越大，近似性越强
-
-### 方差和标准差
-样本方差$$ s^2$$是对总体方差$$ \sigma ^2$$的无偏估计
-
-### Pearson相关系数
-
-两个变量之间是线性关系，总体是正态分布
-$$  r=\cfrac{\sum (X-\overline{X})(Y-\overline{Y})}{\sqrt{\sum (X-\overline X})^2 \sqrt{\sum (Y-\overline Y})^2}</script><h3 id="超几何分布"><a href="#超几何分布" class="headerlink" title="超几何分布"></a>超几何分布</h3><p>N中有M个特定种类，抽取n个时，会有k个特定种类的概率</p>
+备择假设：H_a:u＞u_0</script><p>总体方差$\sigma^2$ 已知的情况下：Z检验<br>总体方差$\sigma^2$ 未知的情况下：t检验</p>
+<p>5.p值：概率值，是样本所提供的证据对原假设支持程度的度量，p越小，表明反对原假设的证据越多,p大于显著性水平时，不拒绝原假设</p>
+<h3 id="自由度"><a href="#自由度" class="headerlink" title="自由度"></a>自由度</h3><ul>
+<li>wiki解释</li>
+</ul>
+<p>　　<strong>在统计学中，自由度（英语：degree of freedom, df）是指当以样本的统计量来估计总体的参数时，样本中独立或能自由变化的数据的个数，称为该统计量的自由度[1]。一般来说，自由度等于独立变量减掉其衍生量数[2]；举例来说，方差的定义是样本减平均值的平方之和（一个由样本决定的衍生量），因此对N个随机样本而言，其自由度为N-1。</strong>  </p>
+<p>　　<strong>估计总体的方差时所使用的统计量是样本的方差 s，而 s必须用到样本平均数x来计算。 x在抽样完成后已确定，所以大小为 n的样本中只要  n-1个数确定了，第 n个数就只有一个能使样本符合x的数值。也就是说，样本中只有  n-1个数可以自由变化，只要确定了这  n-1个数，方差也就确定了。这里，平均数 x就相当于一个限制条件，由于加了这个限制条件，样本方差 s的自由度为 n-1。</strong></p>
+<h3 id="中心极限定理"><a href="#中心极限定理" class="headerlink" title="中心极限定理"></a>中心极限定理</h3><p>若给定样本量的所有样本来自任意总体，则<strong>样本均值的抽样分布近似服从正态分布</strong>，样本量越大，近似性越强</p>
+<h3 id="方差和标准差"><a href="#方差和标准差" class="headerlink" title="方差和标准差"></a>方差和标准差</h3><p>样本方差<script type="math/tex">s^2</script>是对总体方差<script type="math/tex">\sigma ^2</script>的无偏估计</p>
+<h3 id="Pearson相关系数"><a href="#Pearson相关系数" class="headerlink" title="Pearson相关系数"></a>Pearson相关系数</h3><p>两个变量之间是线性关系，总体是正态分布<br>$  r=\cfrac{\sum (X-\overline{X})(Y-\overline{Y})}{\sqrt{\sum (X-\overline X})^2 \sqrt{\sum (Y-\overline Y})^2} $</p>
+<h3 id="超几何分布"><a href="#超几何分布" class="headerlink" title="超几何分布"></a>超几何分布</h3><p>N中有M个特定种类，抽取n个时，会有k个特定种类的概率</p>
 <h3 id="导数"><a href="#导数" class="headerlink" title="导数"></a>导数</h3><p>导数，指的是一元函数中，函数y=f(x)在某一点处沿x轴正方向的变化率； </p>
 <p><img src="/2019/02/05/dataanalysis/20160325131644664.jpg" alt=""></p>
 <h3 id="方向导数"><a href="#方向导数" class="headerlink" title="方向导数"></a>方向导数</h3><p>方向导数的定义，即：某一点在某一趋近方向上的变化率，就是函数在其他特定方向上的变化率</p>
@@ -556,12 +534,11 @@ y=β_0 + β_1 X + ε</script><p>1.误差项ε是一个期望值为零的随机�
 <h3 id="参数优化-1"><a href="#参数优化-1" class="headerlink" title="参数优化"></a>参数优化</h3><p>（极大似然法MLE）</p>
 <p>似然函数为：</p>
 <p>$ L(x,y|\beta)=\prod_{i=1}^N[p(Y=1|x)^{y_i}][p(Y=0|x)^{1-y_i}] $</p>
-<p>对数似然函数为： <script type="math/tex">LL(x,y|\beta)=\sum_{i=1}^N[y_ilog(\cfrac{e^{\beta x}}{1+e^{\beta x}})+(1-y_i)log(\cfrac{1}{1+e^{\beta x}})]=
-\sum_{i=1}^N[y_i(\beta x_i)-log(1+exp(\beta x_i))]</script></p>
+<p>对数似然函数为： $ LL(x,y|\beta)=\sum_{i=1}^N[y_ilog(\cfrac{e^{\beta x}}{1+e^{\beta x}})+(1-y_i)log(\cfrac{1}{1+e^{\beta x}})]=\sum_{i=1}^N[y_i(\beta x_i)-log(1+exp(\beta x_i))] $</p>
 <p>为使函数实现最大值，可采用梯度上升法，</p>
 <p>$ \cfrac{\partial LL(x,y|\beta)}{\partial \beta_i}=\sum_{i=1}^N[y_ix_i-x_i\cfrac{exp(x_i\beta)}{1+exp(x_i\beta)}] $</p>
 <p>$ \beta^{i+1}=\beta^{i}+\nabla*h $ (h为步长)</p>
-<p>最优的参数值即为 $ \beta^<em>=\sum\nabla_i</em>h_i $</p>
+<p>最优的参数值即为<br>$ \beta^<em>=\sum\nabla_i</em>h_i $</p>
 <p>对于多分类情况，借用softmax函数，或者通过多个二分类实现</p>
 <h3 id="模型特点"><a href="#模型特点" class="headerlink" title="模型特点"></a>模型特点</h3><p>模型的结果是估计出属于某一类的概率；<br>变量之间是线性可加关系；<br>可增量式读取数据；<br>需要对非数值变量进行编码；<br>对缺失值敏感，需要处理；<br>对异常值敏感，需要处理；<br>需要做变量归一化；<br>变量的线性相关性对模型有影响，需要变量挑选和正则化；</p>
 <h2 id="模型评估"><a href="#模型评估" class="headerlink" title="模型评估"></a>模型评估</h2><h3 id="训练集与测试集的划分方法"><a href="#训练集与测试集的划分方法" class="headerlink" title="训练集与测试集的划分方法"></a>训练集与测试集的划分方法</h3><ul>
