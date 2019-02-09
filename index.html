@@ -80,12 +80,12 @@
 
 
 <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
+<meta property="og:title" content="Marcus Blog">
 <meta property="og:url" content="http://yoursite.com/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="Marcus Blog">
 <meta property="og:locale" content="default">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="Marcus Blog">
 
 
 
@@ -121,7 +121,7 @@
 
 
 
-  <title>Hexo</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>Marcus Blog</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -152,7 +152,7 @@
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Hexo</span>
+        <span class="site-title">Marcus Blog</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -258,7 +258,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="Marcus Blog">
     </span>
 
     
@@ -291,6 +291,39 @@
           </span>
 
           
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="categories/foo/" itemprop="url" rel="index">
+                    <span itemprop="name">foo</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="categories/foo/bar/" itemprop="url" rel="index">
+                    <span itemprop="name">bar</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -320,82 +353,140 @@
       
         
           
-            <h2 id="缺失处理"><a href="#缺失处理" class="headerlink" title="缺失处理"></a>缺失处理</h2><h3 id="数据缺失及其类别"><a href="#数据缺失及其类别" class="headerlink" title="数据缺失及其类别"></a>数据缺失及其类别</h3><ul>
-<li>完全随机缺失：<br>当某变量缺失值发生的可能性与其他变量无关也与该变量自身无关时称作MCAR。换句话说，某变量缺失值的出现完全是个随机事件。可以将存在MCAR变量的数据看做是假定完整数据的一个随机样本<br>例如，由于测量设备出故障导致某些值缺失。</li>
-<li>随机缺失：<br>当某变量出现缺失值的可能性与模型中某些观测变量有关而与该变量自身无关时称作MAR<br>例如，在一次测试中，如果IQ达不到最低要求的100分，那么将不能参加随后的人格测验。在人格测验上因为IQ低于100分而产生的缺失值为MAR</li>
-<li>非随机缺失：<br>当某变量出现缺失值的可能性只与自身相关时称作MANR<br>例如，公司新录用了20名员工，由于6名员工表现较差在试用期内辞退，试用期结束后的表现评定中，辞退的6名员工的表现分即为非随机缺失。</li>
-</ul>
-<h3 id="数据缺失的处理方法"><a href="#数据缺失的处理方法" class="headerlink" title="数据缺失的处理方法"></a>数据缺失的处理方法</h3><ul>
-<li>删除法：当一条记录中存在许多缺失时，将记录删去；当一个列存在许多缺失时，将列删去。或将特征映射到高维，对特征的每个属性做是否判断。或添加缺失项这一特征</li>
-<li>均值替代法：使用每个变量的均值去填补该变量的缺失值。这种方法容易产生估计偏差。</li>
-<li>回归法 ：根据变量间的相关，利用其他变量的信息通过建立回归方式去推算缺失值。该法同样会产生估计偏差。</li>
-<li>期望值最大化（Expectation Maximization, EM）法：随机缺失的条件下，假设模型对于完整的样本是正确的，那么通过观测数据的边际分布可以对未知参数进行极大似然估计。这种方法也被称为忽略缺失值的极大似然估计，对于极大似然的参数估计实际中常采用的计算方法是期望值最大化。</li>
-<li>K最近距离邻（K-means clustering）法：先确定距离具有缺失数据样本最近的K个样本，将这K个值加权平均来估计该样本的缺失数据。</li>
-<li>不处理：把缺失当成一种特殊值。</li>
-<li>拉格朗日插值法</li>
-</ul>
-<p>拉格朗日插值法，即对于点 $(x_1,y_1),(x_2,y_2),(x_3,y_3)​$<br>存在曲线经过这些点，运用线代中的坐标基向量的找法，该多项式曲线为 </p>
-<script type="math/tex; mode=display">
-f(x)=y_1f_1(x)+y_2f_2(x)+y_3f_3(x)+...</script><p>其中$f_i(x_j)= \begin{cases} 1 ,i=j \ \ 0 ,i!=j    \end{cases}$</p>
+            <p>##  缺失处理
+### 数据缺失及其类别</p>
+<p>- 完全随机缺失： 
+  当某变量缺失值发生的可能性与其他变量无关也与该变量自身无关时称作MCAR。换句话说，某变量缺失值的出现完全是个随机事件。可以将存在MCAR变量的数据看做是假定完整数据的一个随机样本
+  例如，由于测量设备出故障导致某些值缺失。
+- 随机缺失： 
+  当某变量出现缺失值的可能性与模型中某些观测变量有关而与该变量自身无关时称作MAR
+  例如，在一次测试中，如果IQ达不到最低要求的100分，那么将不能参加随后的人格测验。在人格测验上因为IQ低于100分而产生的缺失值为MAR
+- 非随机缺失：  
+  当某变量出现缺失值的可能性只与自身相关时称作MANR
+  例如，公司新录用了20名员工，由于6名员工表现较差在试用期内辞退，试用期结束后的表现评定中，辞退的6名员工的表现分即为非随机缺失。</p>
+<p>### 数据缺失的处理方法</p>
+<p>- 删除法：当一条记录中存在许多缺失时，将记录删去；当一个列存在许多缺失时，将列删去。或将特征映射到高维，对特征的每个属性做是否判断。或添加缺失项这一特征
+- 均值替代法：使用每个变量的均值去填补该变量的缺失值。这种方法容易产生估计偏差。
+- 回归法 ：根据变量间的相关，利用其他变量的信息通过建立回归方式去推算缺失值。该法同样会产生估计偏差。
+- 期望值最大化（Expectation Maximization, EM）法：随机缺失的条件下，假设模型对于完整的样本是正确的，那么通过观测数据的边际分布可以对未知参数进行极大似然估计。这种方法也被称为忽略缺失值的极大似然估计，对于极大似然的参数估计实际中常采用的计算方法是期望值最大化。
+- K最近距离邻（K-means clustering）法：先确定距离具有缺失数据样本最近的K个样本，将这K个值加权平均来估计该样本的缺失数据。
+- 不处理：把缺失当成一种特殊值。
+- 拉格朗日插值法</p>
+<p>拉格朗日插值法，即对于点 $(x_1,y_1),(x_2,y_2),(x_3,y_3)​$
+存在曲线经过这些点，运用线代中的坐标基向量的找法，该多项式曲线为 
+$$
+f(x)=y_1f_1(x)+y_2f_2(x)+y_3f_3(x)+...
+$$</p>
+<p>其中$f_i(x_j)= \begin{cases} 1 ,i=j \\ \\ 0 ,i!=j	\end{cases}$</p>
 <p>推导有 $ f_i(x)=\prod \cfrac{x-x_i}{x_i-x_j}  ​$</p>
-<h2 id="统计知识"><a href="#统计知识" class="headerlink" title="统计知识"></a>统计知识</h2><h3 id="假设检验"><a href="#假设检验" class="headerlink" title="假设检验"></a>假设检验</h3><p>对总体参数做一个尝试性的假设，来确定是否应拒绝总体参数值</p>
+<p>## 统计知识
+### 假设检验
+对总体参数做一个尝试性的假设，来确定是否应拒绝总体参数值</p>
 <p>1.假设检验中的两类错误</p>
-<blockquote>
-<p>第一类错误：原假设为真，拒绝原假设<br>第二类错误：备择假设为真，不拒绝原假设</p>
-</blockquote>
+<p>&gt; 第一类错误：原假设为真，拒绝原假设
+&gt; 第二类错误：备择假设为真，不拒绝原假设</p>
 <p>2.显著性水平：犯第一类错误的概率</p>
-<p>3.下侧检验：拒绝域出现在下侧</p>
-<script type="math/tex; mode=display">
-原假设：H_0:u≥u_0  
-
-备择假设：H_a:u＜u_0</script><p>4.上侧检验：拒绝域出现在上侧</p>
-<script type="math/tex; mode=display">
-原假设：H_0:u≤u_0  
-
-备择假设：H_a:u＞u_0</script><p>总体方差<script type="math/tex">\sigma^2</script> 已知的情况下：Z检验<br>总体方差<script type="math/tex">\sigma^2</script> 未知的情况下：t检验</p>
+<p>3.下侧检验：拒绝域出现在下侧
+$$
+原假设：H_0:u≥u_0</p>
+<p>备择假设：H_a:u＜u_0
+$$
+4.上侧检验：拒绝域出现在上侧
+$$
+原假设：H_0:u≤u_0</p>
+<p>备择假设：H_a:u＞u_0
+$$
+总体方差$$\sigma^2$$ 已知的情况下：Z检验
+总体方差$$\sigma^2$$ 未知的情况下：t检验</p>
 <p>5.p值：概率值，是样本所提供的证据对原假设支持程度的度量，p越小，表明反对原假设的证据越多,p大于显著性水平时，不拒绝原假设</p>
-<h3 id="自由度"><a href="#自由度" class="headerlink" title="自由度"></a>自由度</h3><ul>
-<li>wiki解释</li>
-</ul>
-<p>　　<strong>在统计学中，自由度（英语：degree of freedom, df）是指当以样本的统计量来估计总体的参数时，样本中独立或能自由变化的数据的个数，称为该统计量的自由度[1]。一般来说，自由度等于独立变量减掉其衍生量数[2]；举例来说，方差的定义是样本减平均值的平方之和（一个由样本决定的衍生量），因此对N个随机样本而言，其自由度为N-1。</strong>  </p>
-<p>　　<strong>估计总体的方差时所使用的统计量是样本的方差 s，而 s必须用到样本平均数x来计算。 x在抽样完成后已确定，所以大小为 n的样本中只要  n-1个数确定了，第 n个数就只有一个能使样本符合x的数值。也就是说，样本中只有  n-1个数可以自由变化，只要确定了这  n-1个数，方差也就确定了。这里，平均数 x就相当于一个限制条件，由于加了这个限制条件，样本方差 s的自由度为 n-1。</strong></p>
-<h3 id="中心极限定理"><a href="#中心极限定理" class="headerlink" title="中心极限定理"></a>中心极限定理</h3><p>若给定样本量的所有样本来自任意总体，则<strong>样本均值的抽样分布近似服从正态分布</strong>，样本量越大，近似性越强</p>
-<h3 id="方差和标准差"><a href="#方差和标准差" class="headerlink" title="方差和标准差"></a>方差和标准差</h3><p>样本方差<script type="math/tex">s^2</script>是对总体方差<script type="math/tex">\sigma ^2</script>的无偏估计</p>
-<h3 id="Pearson相关系数"><a href="#Pearson相关系数" class="headerlink" title="Pearson相关系数"></a>Pearson相关系数</h3><p>两个变量之间是线性关系，总体是正态分布</p>
-<script type="math/tex; mode=display">r=\cfrac{\sum (X-\overline{X})(Y-\overline{Y})}{\sqrt{\sum (X-\overline X})^2 \sqrt{\sum (Y-\overline Y})^2}</script><h3 id="超几何分布"><a href="#超几何分布" class="headerlink" title="超几何分布"></a>超几何分布</h3><p>N中有M个特定种类，抽取n个时，会有k个特定种类的概率</p>
-<h3 id="导数"><a href="#导数" class="headerlink" title="导数"></a>导数</h3><p>导数，指的是一元函数中，函数y=f(x)在某一点处沿x轴正方向的变化率； </p>
-<p><img src="/2019/02/05/dataanalysis/20160325131644664.jpg" alt=""></p>
-<h3 id="方向导数"><a href="#方向导数" class="headerlink" title="方向导数"></a>方向导数</h3><p>方向导数的定义，即：某一点在某一趋近方向上的变化率，就是函数在其他特定方向上的变化率</p>
-<p><img src="/2019/02/05/dataanalysis/20160325132224619.jpg" alt=""></p>
-<h3 id="偏导数"><a href="#偏导数" class="headerlink" title="偏导数"></a>偏导数</h3><p>偏导数，指的是多元函数中，函数y=f(x1,x2,…,xn)在某一点处沿某一坐标轴（x1,x2,…,xn）正方向的变化率。 </p>
-<p><img src="/2019/02/05/dataanalysis/20160325132018016.jpg" alt="">
-　</p>
-<h3 id="梯度"><a href="#梯度" class="headerlink" title="梯度"></a>梯度</h3><p>梯度为解决空间中的某点，沿着哪个方向有最大的变化率</p>
-<script type="math/tex; mode=display">gradf(x_0,x_1,...,x_n)=(\cfrac{\delta{f}}{\delta{x_0}},...,\cfrac{\delta{f}}{\delta{x_n}})</script><p>既有<br>1.梯度是一个向量，即有方向有大小；<br>2.梯度的方向是最大方向导数的方向；<br>3.梯度的值是最大方向导数的值。 </p>
-<h3 id="泰勒公式"><a href="#泰勒公式" class="headerlink" title="泰勒公式"></a>泰勒公式</h3><script type="math/tex; mode=display">若f(x)在a点处n+1可导，那么函数在a处的泰勒展开式</script><script type="math/tex; mode=display">f(x)=f(a)+\cfrac{f'(a)}{1!}(x-a)+\cfrac{f^{(2)}(a)}{2!}(x-a)^2+..+\cfrac{f^{(n)}(a)}{n!}(x-a)^n+R_n</script><p>其中<script type="math/tex">R_n</script>是泰勒公式的余项，是<script type="math/tex">(x-a)^n</script>的高阶无穷小</p>
-<h3 id="仿射"><a href="#仿射" class="headerlink" title="仿射"></a>仿射</h3><p>任意两点<script type="math/tex">X_1,X_2 \in K 以及 \alpha \in R</script>，这两点连线上的所有点<script type="math/tex">\alpha X_1+(1-\alpha)X_2 \in K</script>,则称这些点为仿射组合</p>
-<h3 id="仿射函数"><a href="#仿射函数" class="headerlink" title="仿射函数"></a>仿射函数</h3><p>仿射函数即由 1 阶多项式构成的函数，一般形式为 f (x) = A x + b，这里，A 是一个 m×k 矩阵，x 是一个 k 向量，b 是一个 m 向量，实际上反映了一种从 k 维到 m 维的空间映射关系</p>
-<h3 id="超平面"><a href="#超平面" class="headerlink" title="超平面"></a>超平面</h3><p>超平面H是从n维空间到n-1维空间的一个映射子空间，它有一个n维向量和一个实数定义。因为是子空间，所以超平面一定过原点，二维空间里的超平面为一条直线. 一维空间里超平面为数轴上的一个点。</p>
-<h3 id="凸集"><a href="#凸集" class="headerlink" title="凸集"></a>凸集</h3><p>K是n维欧式空间一点集合，若任意两点<script type="math/tex">X_1,X_2 \in K</script>，这两点连线上的所有点<script type="math/tex">\alpha X_1+(1-\alpha)X_2 \in K ,(0 \leq\alpha\leq1)</script>,则称<script type="math/tex">K</script>为凸集</p>
-<h3 id="凸函数"><a href="#凸函数" class="headerlink" title="凸函数"></a>凸函数</h3><p>定义在某个向量空间的凸子集区间上的实值函数，对于任意两点<script type="math/tex">x,y,以及t \in [0,1]</script>，有<br>$ f(tx+(1-t)y) \leq tf(x)+(1-t)f(y) $，也就是凸函数上任意两点的连线都在两点区间的函数之上   </p>
-<p>凸函数的性质：</p>
-<blockquote>
-<p>1.凸函数的epigraph（函数图上或上方的点集合）为凸集<br>2.对于<script type="math/tex">∀x,y，f(y)≥f(x)+∇f(x)^T(y−x)</script>,即在函数某点切线上的点的值小于该点在函数上的值<br>3.对于<script type="math/tex">∀x∈dom(f)， ∇^2f(x)≥0</script>, 函数图像在定义域中每点处均有向上的正弯曲<br>4.凸函数的任何 极小值都是最小值，严格凸函数最多有一个最小值<br>5.凸函数具有仿射不变性，即f(x)是凸函数，则g(y)=f(Ax+b)也是凸函数</p>
-</blockquote>
-<h3 id="凸优化"><a href="#凸优化" class="headerlink" title="凸优化"></a>凸优化</h3><blockquote>
-<p>1.目标函数必须是凸的<br>2.不等式约束函数必须是凸的<br>3.等式约束函数必须是仿射的</p>
-</blockquote>
-<h3 id="最大似然估计"><a href="#最大似然估计" class="headerlink" title="最大似然估计"></a>最大似然估计</h3><p>概率是已知模型和参数，推数据。统计是已知数据，推模型和参数。最大似然估计的目的就是：利用已知的样本结果，反推最有可能（最大概率）导致这样结果的参数值。</p>
+<p>### 自由度</p>
+<p>- wiki解释</p>
+<p>**在统计学中，自由度（英语：degree of freedom, df）是指当以样本的统计量来估计总体的参数时，样本中独立或能自由变化的数据的个数，称为该统计量的自由度[1]。一般来说，自由度等于独立变量减掉其衍生量数[2]；举例来说，方差的定义是样本减平均值的平方之和（一个由样本决定的衍生量），因此对N个随机样本而言，其自由度为N-1。**</p>
+<p>**估计总体的方差时所使用的统计量是样本的方差 s，而 s必须用到样本平均数x来计算。 x在抽样完成后已确定，所以大小为 n的样本中只要  n-1个数确定了，第 n个数就只有一个能使样本符合x的数值。也就是说，样本中只有  n-1个数可以自由变化，只要确定了这  n-1个数，方差也就确定了。这里，平均数 x就相当于一个限制条件，由于加了这个限制条件，样本方差 s的自由度为 n-1。**</p>
+<p>### 中心极限定理
+若给定样本量的所有样本来自任意总体，则**样本均值的抽样分布近似服从正态分布**，样本量越大，近似性越强</p>
+<p>### 方差和标准差
+样本方差$$ s^2$$是对总体方差$$ \sigma ^2$$的无偏估计</p>
+<p>### Pearson相关系数</p>
+<p>两个变量之间是线性关系，总体是正态分布
+$$  r=\cfrac{\sum (X-\overline{X})(Y-\overline{Y})}{\sqrt{\sum (X-\overline X})^2 \sqrt{\sum (Y-\overline Y})^2} $$</p>
+<p>### 超几何分布</p>
+<p>N中有M个特定种类，抽取n个时，会有k个特定种类的概率</p>
+<p>### 导数</p>
+<p>导数，指的是一元函数中，函数y=f(x)在某一点处沿x轴正方向的变化率；</p>
+<p>![](dataanalysis/20160325131644664.jpg)</p>
+<p>### 方向导数</p>
+<p>方向导数的定义，即：某一点在某一趋近方向上的变化率，就是函数在其他特定方向上的变化率</p>
+<p>![](dataanalysis/20160325132224619.jpg)</p>
+<p>### 偏导数</p>
+<p>偏导数，指的是多元函数中，函数y=f(x1,x2,…,xn)在某一点处沿某一坐标轴（x1,x2,…,xn）正方向的变化率。</p>
+<p>![](dataanalysis/20160325132018016.jpg)</p>
+<p>### 梯度</p>
+<p>梯度为解决空间中的某点，沿着哪个方向有最大的变化率
+$$gradf(x_0,x_1,...,x_n)=(\cfrac{\delta{f}}{\delta{x_0}},...,\cfrac{\delta{f}}{\delta{x_n}}) $$
+既有
+1.梯度是一个向量，即有方向有大小； 
+2.梯度的方向是最大方向导数的方向； 
+3.梯度的值是最大方向导数的值。</p>
+<p>### 泰勒公式</p>
+<p>$$ 若f(x)在a点处n+1可导，那么函数在a处的泰勒展开式 $$</p>
+<p>$$ f(x)=f(a)+\cfrac{f'(a)}{1!}(x-a)+\cfrac{f^{(2)}(a)}{2!}(x-a)^2+..+\cfrac{f^{(n)}(a)}{n!}(x-a)^n+R_n $$
+其中$$ R_n $$是泰勒公式的余项，是$$ (x-a)^n $$的高阶无穷小</p>
+<p>### 仿射</p>
+<p>任意两点$$X_1,X_2 \in K 以及 \alpha \in R$$，这两点连线上的所有点$$ \alpha X_1+(1-\alpha)X_2 \in K $$,则称这些点为仿射组合</p>
+<p>### 仿射函数</p>
+<p>仿射函数即由 1 阶多项式构成的函数，一般形式为 f (x) = A x + b，这里，A 是一个 m×k 矩阵，x 是一个 k 向量，b 是一个 m 向量，实际上反映了一种从 k 维到 m 维的空间映射关系</p>
+<p>### 超平面</p>
+<p>超平面H是从n维空间到n-1维空间的一个映射子空间，它有一个n维向量和一个实数定义。因为是子空间，所以超平面一定过原点，二维空间里的超平面为一条直线. 一维空间里超平面为数轴上的一个点。</p>
+<p>### 凸集
+K是n维欧式空间一点集合，若任意两点$$X_1,X_2 \in K$$，这两点连线上的所有点$$ \alpha X_1+(1-\alpha)X_2 \in K ,(0 \leq\alpha\leq1)$$,则称$$K$$为凸集</p>
+<p>### 凸函数</p>
+<p>定义在某个向量空间的凸子集区间上的实值函数，对于任意两点$$x,y,以及t \in [0,1]$$，有
+$ f(tx+(1-t)y) \leq tf(x)+(1-t)f(y) $，也就是凸函数上任意两点的连线都在两点区间的函数之上</p>
+<p>凸函数的性质：
+&gt; 1.凸函数的epigraph（函数图上或上方的点集合）为凸集
+&gt; 2.对于$$∀x,y，f(y)≥f(x)+∇f(x)^T(y−x) $$,即在函数某点切线上的点的值小于该点在函数上的值
+&gt; 3.对于$$∀x∈dom(f)， ∇^2f(x)≥0$$, 函数图像在定义域中每点处均有向上的正弯曲
+&gt; 4.凸函数的任何 极小值都是最小值，严格凸函数最多有一个最小值
+&gt; 5.凸函数具有仿射不变性，即f(x)是凸函数，则g(y)=f(Ax+b)也是凸函数</p>
+<p>### 凸优化</p>
+<p>&gt; 1.目标函数必须是凸的
+&gt; 2.不等式约束函数必须是凸的
+&gt; 3.等式约束函数必须是仿射的</p>
+<p>### 最大似然估计</p>
+<p>概率是已知模型和参数，推数据。统计是已知数据，推模型和参数。最大似然估计的目的就是：利用已知的样本结果，反推最有可能（最大概率）导致这样结果的参数值。</p>
 <p>对于P(x|θ)，x表示某一个具体的数据；θ表示模型的参数。</p>
 <p>如果θ是已知确定的，x是变量，这个函数叫做概率函数(probability function)，它描述对于不同的样本点x，其出现概率是多少。</p>
 <p>如果x是已知确定的，θ是变量，这个函数叫做似然函数(likelihood function), 它描述对于不同的模型参数，出现x这个样本点的概率是多少。</p>
-<h3 id="对数几率"><a href="#对数几率" class="headerlink" title="对数几率"></a>对数几率</h3><p>一个事件发生的概率与不发生的概率的比值称为几率<br>对数几率函数为 <script type="math/tex">logit(P)=log(\cfrac{P}{1-P})=\beta_0+\beta_1x_1+...+\beta_nx_n</script>,与逻辑回归函数转化</p>
-<h2 id="线性代数1"><a href="#线性代数1" class="headerlink" title="线性代数1"></a>线性代数1</h2><h3 id="二维空间的向量"><a href="#二维空间的向量" class="headerlink" title="二维空间的向量"></a>二维空间的向量</h3><p>可以由两个基向量$ \vec{i}=\left[ \begin{array}{ccc}1\0<br>\end{array}\right]<br>,\vec{j}=\left[ \begin{array}{ccc}0\1<br>\end{array}\right]<br> $，经过向量数乘和向量加法运算后表示<br>$\left[ \begin{array}{ccc}<br>-3\<br>2<br>\end{array}\right]<br>=-3\vec{i}+2\vec{j}$<br>向量空间的一组基是张成该空间的一个线性无关向量集，当选择不同的基向量时，获得一个新的坐标系</p>
-<h3 id="线性组合"><a href="#线性组合" class="headerlink" title="线性组合"></a>线性组合</h3><p>两个数乘向量的和被称为这两个向量的线性组合<br>$a\vec{v}+b\vec{w},即\vec{v}和\vec{w}的线性组合，构成的向量集合称为张成的空间$<br>当固定其中一个标量，让另一个标量自由变化，所产生的向量的终点会描出一条直线；<br>当两个标量同时自由变化（非零向量；不共线的情况下），可以获得所有的二维向量</p>
-<h3 id="线性变换"><a href="#线性变换" class="headerlink" title="线性变换"></a>线性变换</h3><p>接受一个向量并且输出一个向量的变换</p>
-<p>线性变换的特性：<br>1.直线依旧是直线；<br>2.原点保持固定</p>
-<p>考虑基向量线性变换后的位置，其他向量通过变换后基向量表示变换值<br>变换后的基向量</p>
-<script type="math/tex; mode=display">
+<p>### 对数几率</p>
+<p>一个事件发生的概率与不发生的概率的比值称为几率
+对数几率函数为 $$ logit(P)=log(\cfrac{P}{1-P})=\beta_0+\beta_1x_1+...+\beta_nx_n$$,与逻辑回归函数转化</p>
+<p>## 线性代数1</p>
+<p>### 二维空间的向量</p>
+<p>可以由两个基向量$ \vec{i}=\left[ \begin{array}{ccc}1\\0
+\end{array}\right]
+,\vec{j}=\left[ \begin{array}{ccc}0\\1
+\end{array}\right]
+ $，经过向量数乘和向量加法运算后表示
+$\left[ \begin{array}{ccc}
+-3\\
+2
+\end{array}\right]
+=-3\vec{i}+2\vec{j}$
+向量空间的一组基是张成该空间的一个线性无关向量集，当选择不同的基向量时，获得一个新的坐标系</p>
+<p>### 线性组合</p>
+<p>两个数乘向量的和被称为这两个向量的线性组合
+$a\vec{v}+b\vec{w},即\vec{v}和\vec{w}的线性组合，构成的向量集合称为张成的空间$
+当固定其中一个标量，让另一个标量自由变化，所产生的向量的终点会描出一条直线；
+当两个标量同时自由变化（非零向量；不共线的情况下），可以获得所有的二维向量</p>
+<p>### 线性变换
+接受一个向量并且输出一个向量的变换</p>
+<p>线性变换的特性：
+1.直线依旧是直线；
+2.原点保持固定</p>
+<p>考虑基向量线性变换后的位置，其他向量通过变换后基向量表示变换值
+变换后的基向量
+$$
 \vec{i}=\left[ \begin{array}{ccc}1\\-2
 \end{array}\right]
 ,\vec{j}=\left[ \begin{array}{ccc}3\\0
@@ -404,138 +495,155 @@ f(x)=y_1f_1(x)+y_2f_2(x)+y_3f_3(x)+...</script><p>其中$f_i(x_j)= \begin{cases}
 \vec{v}=-3\vec{i}+2\vec{j}=\left[ \begin{array}{ccc}
 -3*1+2*3\\
 -3*-2+2*0
-\end{array}\right]</script><h3 id="矩阵乘法和线性变换"><a href="#矩阵乘法和线性变换" class="headerlink" title="矩阵乘法和线性变换"></a>矩阵乘法和线性变换</h3><script type="math/tex; mode=display">
+\end{array}\right]
+$$</p>
+<p>### 矩阵乘法和线性变换</p>
+<p>$$
 A=\left[ \begin{array}{ccc}i,j
-\end{array}\right]=\left[ \begin{array}{ccc}1 & 3\\-2 & 0
+\end{array}\right]=\left[ \begin{array}{ccc}1 &amp; 3\\-2 &amp; 0
 \end{array}\right]是变换后的基向量，\left[ \begin{array}{ccc}x \\y
 \end{array}\right] 是任意初始向量，则A\left[ \begin{array}{ccc}x \\y
-\end{array}\right]为线性变换后的向量</script><h2 id="线性代数2"><a href="#线性代数2" class="headerlink" title="线性代数2"></a>线性代数2</h2><h3 id="矩阵乘法和线性变换-续"><a href="#矩阵乘法和线性变换-续" class="headerlink" title="矩阵乘法和线性变换(续)"></a>矩阵乘法和线性变换(续)</h3><p>两个矩阵相乘的几何意义，就是两次线性变换的相继作用<br>$AB\left[ \begin{array}{ccc}x \y<br>\end{array}\right]=C\left[ \begin{array}{ccc}x \y<br>\end{array}\right]$</p>
-<h3 id="行列式"><a href="#行列式" class="headerlink" title="行列式"></a>行列式</h3><p>矩阵A的行列式<script type="math/tex">det(A)=M</script>,表示将一个区域的面积变换为原来的M倍，若M为0，则表示线性变换将平面压缩成一条线或者是一个点。<script type="math/tex">即通过判断行列式是否为0，确定矩阵所代表的线性变换是否将空间压缩，降维</script></p>
-<h3 id="线性方程组"><a href="#线性方程组" class="headerlink" title="线性方程组"></a>线性方程组</h3><p>对于求解线性方程组<script type="math/tex">A\vec{x}=\vec{v},即是找到一个向量\vec{x}，在经过矩阵A线性变换后，与\vec{v}重合</script></p>
-<h3 id="逆矩阵"><a href="#逆矩阵" class="headerlink" title="逆矩阵"></a>逆矩阵</h3><script type="math/tex; mode=display">对于A^{-1}A=E的恒等变换 $$，只存在于det(A)≠0，即若矩阵A代表的线性变换将空间压缩，则无法通过逆变换还原
-
-### 秩
-
-代表着线性变换后空间的维数，当列数与秩相等时，称为满秩
-
-### 向量的点积
-
-向量的点积$$ \vec{v}*\vec{w}=\vec{v}的投影长度*\vec{w}的长度=\vec{v}*\vec{w}的投影长度</script><p>对偶性:两种数学事物之间自然而又出乎意料的对应关系</p>
-<h3 id="向量的叉积"><a href="#向量的叉积" class="headerlink" title="向量的叉积"></a>向量的叉积</h3><script type="math/tex; mode=display">\vec{v}\times\vec{w}=\vec{p},其中\vec{p}的长度等于平行四边形的面积，方向垂直于\vec{v}和\vec{w}</script><h2 id="线性代数3"><a href="#线性代数3" class="headerlink" title="线性代数3"></a>线性代数3</h2><h3 id="不同坐标系下的基向量"><a href="#不同坐标系下的基向量" class="headerlink" title="不同坐标系下的基向量"></a>不同坐标系下的基向量</h3><p>A坐标系下基向量<script type="math/tex">\vec{i},\vec{j}</script>，B坐标系下基向量<script type="math/tex">\vec{b_1},\vec{b_2} 为\left[ \begin{array}{ccc}0 \\1
+\end{array}\right]为线性变换后的向量
+$$</p>
+<p>## 线性代数2</p>
+<p>### 矩阵乘法和线性变换(续)</p>
+<p>两个矩阵相乘的几何意义，就是两次线性变换的相继作用
+$AB\left[ \begin{array}{ccc}x \\y
+\end{array}\right]=C\left[ \begin{array}{ccc}x \\y
+\end{array}\right]$</p>
+<p>### 行列式</p>
+<p>矩阵A的行列式$$det(A)=M$$,表示将一个区域的面积变换为原来的M倍，若M为0，则表示线性变换将平面压缩成一条线或者是一个点。$$即通过判断行列式是否为0，确定矩阵所代表的线性变换是否将空间压缩，降维 $$</p>
+<p>### 线性方程组</p>
+<p>对于求解线性方程组$$ A\vec{x}=\vec{v},即是找到一个向量\vec{x}，在经过矩阵A线性变换后，与\vec{v}重合$$</p>
+<p>### 逆矩阵
+$$ 对于A^{-1}A=E的恒等变换 $$，只存在于det(A)≠0，即若矩阵A代表的线性变换将空间压缩，则无法通过逆变换还原</p>
+<p>### 秩</p>
+<p>代表着线性变换后空间的维数，当列数与秩相等时，称为满秩</p>
+<p>### 向量的点积</p>
+<p>向量的点积$$ \vec{v}*\vec{w}=\vec{v}的投影长度*\vec{w}的长度=\vec{v}*\vec{w}的投影长度 $$</p>
+<p>对偶性:两种数学事物之间自然而又出乎意料的对应关系</p>
+<p>### 向量的叉积</p>
+<p>$$ \vec{v}\times\vec{w}=\vec{p},其中\vec{p}的长度等于平行四边形的面积，方向垂直于\vec{v}和\vec{w} $$</p>
+<p>## 线性代数3</p>
+<p>### 不同坐标系下的基向量</p>
+<p>A坐标系下基向量$$ \vec{i},\vec{j} $$，B坐标系下基向量$$ \vec{b_1},\vec{b_2} 为\left[ \begin{array}{ccc}0 \\1
 \end{array}\right] 和\left[ \begin{array}{ccc}1 \\0
-\end{array}\right]</script>，其中从A的视角中，<script type="math/tex">\vec{b_1}=\left[ \begin{array}{ccc}2 \\1
+\end{array}\right] $$，其中从A的视角中，$$ \vec{b_1}=\left[ \begin{array}{ccc}2 \\1
 \end{array}\right],\vec{b_2}=\left[ \begin{array}{ccc}-1 \\1
-\end{array}\right]</script>，这两个坐标系都共用一个原点，但是坐标轴的方向和网格间距会不同，这依赖与对基的选择</p>
-<p>令<script type="math/tex">M=\left[ \begin{array}{ccc}2 & -1 \\1 &1
-\end{array}\right]</script>,对于两种坐标系下的向量转换，即存在<script type="math/tex">M\alpha=\beta</script>,其中 <script type="math/tex">\alpha=\left[ \begin{array}{ccc}1 & 0 \\0 &1
-\end{array}\right]</script> 为B坐标系视角下的向量，<script type="math/tex">\beta=\left[ \begin{array}{ccc} \vec{b_1} & \vec{b_2}
-\end{array}\right]</script>为A坐标系视角下的向量。</p>
-<p>推广下，则有 <script type="math/tex">M^{-1}PM\alpha 代表在两种坐标系视角下，经过矩阵P(A视角下)的线性变换后，获得的B视角下的向量</script></p>
-<h3 id="特征向量"><a href="#特征向量" class="headerlink" title="特征向量"></a>特征向量</h3><p>对于线性变化A，若存在原向量<script type="math/tex">\alpha</script>,经过A变化后，仍在其张成的空间中，只做拉伸变化，即存在</p>
-<script type="math/tex; mode=display">A\alpha=\lambda\alpha $$，其中$$ \lambda $$为拉伸或压缩比例因子，称向量$$ \alpha为特征向量，\lambda为特征值</script><p>特征向量的用途：在一个三维空间旋转中，对于旋转的特征向量，可以将此特征向量视为旋转轴，此时特征值为1</p>
-<h3 id="特征基"><a href="#特征基" class="headerlink" title="特征基"></a>特征基</h3><p>当特征向量可作为基向量时，即<script type="math/tex">\vec{b_1},\vec{b_2}</script> 为P变换中的特征向量，则有</p>
-<script type="math/tex; mode=display">M^{-1}PM 为新基的视角下P变换，所得到的矩阵，这个矩阵为对角矩阵，对角元为特征值，其中M为P变化的特征向量，这是因为在所处的坐标系的基向量在变换中只进行了伸缩</script><h3 id="正交矩阵"><a href="#正交矩阵" class="headerlink" title="正交矩阵"></a>正交矩阵</h3><p>矩阵的逆和矩阵的转置相等</p>
-<h3 id="正定矩阵"><a href="#正定矩阵" class="headerlink" title="正定矩阵"></a>正定矩阵</h3><p>对任意非零向量<script type="math/tex">\vec{x},有x^TAx>0</script>,即称A为正定矩阵，且A的特征值均为正；<br>正定、半正定矩阵的直觉代表一个向量经过它的变化后的向量与其本身的夹角小于等于90度。</p>
-<h3 id="二次型矩阵"><a href="#二次型矩阵" class="headerlink" title="二次型矩阵"></a>二次型矩阵</h3><p>二次型矩阵具有对称性，所以二次型一定可以化成对角矩阵</p>
-<h3 id="相似对角化"><a href="#相似对角化" class="headerlink" title="相似对角化"></a>相似对角化</h3><p>如果矩阵与一个对角阵相似，那么他们具有相同的特征多项值、特征值、秩<br>一个矩阵 <script type="math/tex">A=\lambda_1P_1+\lambda_2P_2+...</script><br>其中，<script type="math/tex">P称为A的谱族，\lambda为特征值,特征值
+\end{array}\right] $$，这两个坐标系都共用一个原点，但是坐标轴的方向和网格间距会不同，这依赖与对基的选择</p>
+<p>令$$ M=\left[ \begin{array}{ccc}2 &amp; -1 \\1 &amp;1
+\end{array}\right]$$,对于两种坐标系下的向量转换，即存在$$ M\alpha=\beta $$,其中 $$ \alpha=\left[ \begin{array}{ccc}1 &amp; 0 \\0 &amp;1
+\end{array}\right] $$ 为B坐标系视角下的向量，$$ \beta=\left[ \begin{array}{ccc} \vec{b_1} &amp; \vec{b_2}
+\end{array}\right]  $$为A坐标系视角下的向量。</p>
+<p>推广下，则有 $$  M^{-1}PM\alpha 代表在两种坐标系视角下，经过矩阵P(A视角下)的线性变换后，获得的B视角下的向量 $$</p>
+<p>### 特征向量</p>
+<p>对于线性变化A，若存在原向量$$ \alpha $$,经过A变化后，仍在其张成的空间中，只做拉伸变化，即存在
+$$ A\alpha=\lambda\alpha $$，其中$$ \lambda $$为拉伸或压缩比例因子，称向量$$ \alpha为特征向量，\lambda为特征值 $$</p>
+<p>特征向量的用途：在一个三维空间旋转中，对于旋转的特征向量，可以将此特征向量视为旋转轴，此时特征值为1</p>
+<p>### 特征基</p>
+<p>当特征向量可作为基向量时，即$$ \vec{b_1},\vec{b_2} $$ 为P变换中的特征向量，则有
+$$ M^{-1}PM 为新基的视角下P变换，所得到的矩阵，这个矩阵为对角矩阵，对角元为特征值，其中M为P变化的特征向量，这是因为在所处的坐标系的基向量在变换中只进行了伸缩  $$</p>
+<p>### 正交矩阵</p>
+<p>矩阵的逆和矩阵的转置相等</p>
+<p>### 正定矩阵</p>
+<p>对任意非零向量$$  \vec{x},有x^TAx&gt;0 $$,即称A为正定矩阵，且A的特征值均为正；
+正定、半正定矩阵的直觉代表一个向量经过它的变化后的向量与其本身的夹角小于等于90度。</p>
+<p>### 二次型矩阵</p>
+<p>二次型矩阵具有对称性，所以二次型一定可以化成对角矩阵</p>
+<p>### 相似对角化</p>
+<p>如果矩阵与一个对角阵相似，那么他们具有相同的特征多项值、特征值、秩
+一个矩阵 $$A=\lambda_1P_1+\lambda_2P_2+... $$
+其中，$$ P称为A的谱族，\lambda为特征值,特征值
 和谱族的乘积就代表了它对矩阵A 的贡献率,即能量（power）或者权重
-(weight)。这样，能量多的、权重大的部分当然重要，问题的主要矛盾就凸显出来了</script><br>对于矩阵<script type="math/tex">A=P\left[ \begin{array}{ccc}\lambda_1 &  \\ & \lambda_2
-\end{array}\right]P^{-1}，其中P=[p_1,p_2,..],P^{-1}=[q_1,q_2,..]^T,则有P_1=p_1q_1,...</script>,</p>
-<h2 id="线性回归方程"><a href="#线性回归方程" class="headerlink" title="线性回归方程"></a>线性回归方程</h2><blockquote>
-<p>简单线性回归模型</p>
-</blockquote>
-<script type="math/tex; mode=display">
-y=β_0 + β_1 X + ε</script><p>ε 是一个随机变量，称为模型的误差项，即不能被x，y之间的线性关系解释的变异性</p>
-<blockquote>
-<p>简单线性回归方程</p>
-</blockquote>
-<script type="math/tex; mode=display">
-E(y)=β_0 + β_1 X</script><blockquote>
-<p>估计的简单线性回归方程</p>
-</blockquote>
-<script type="math/tex; mode=display">
-\hat{y}=b_0 + b_1 X</script><p>用样本统计量 <script type="math/tex">b_0 + b_1 X</script> 替代回归方程中的未知参数</p>
-<blockquote>
-<p>最小二乘法准则   </p>
-</blockquote>
-<p>最小二乘法是利用样本数据，通过使应变量的观测值<script type="math/tex">y_i</script>与应变量的预测值 <script type="math/tex">\hat{y}</script> 之间的离差平方和达到最小的方法求得 <script type="math/tex">b_0 和 b_1</script> </p>
-<script type="math/tex; mode=display">
-min\Sigma(y_i-\hat{y})^2</script><blockquote>
-<p>判定系数<br>为估计回归方程提供一个拟合优度的度量  </p>
-</blockquote>
-<p>1.离差<script type="math/tex">y_i -\hat{y}</script> 表示用方程的估计值预测所产生的误差，称为误差平方和 <script type="math/tex">SSE=\Sigma(y_i -\hat{y})^2</script></p>
-<p>2.离差<script type="math/tex">y_i -\bar{y}</script> 表示用样本平均值来去预测所产生的误差，称为总平方和 <script type="math/tex">SST=\Sigma(y_i -\bar{y})^2</script></p>
-<p>3.离差<script type="math/tex">\hat{y} -\bar{y} ​</script> ，称为回归平方和 <script type="math/tex">SSR=\Sigma(\hat{y} -\bar{y})^2 ​</script></p>
-<ol>
-<li>$SST=SSR+SSE​$</li>
-</ol>
-<p>5.判定系数：<script type="math/tex">r^2= \frac {SSR} {SST}</script></p>
+(weight)。这样，能量多的、权重大的部分当然重要，问题的主要矛盾就凸显出来了 $$
+对于矩阵$$A=P\left[ \begin{array}{ccc}\lambda_1 &amp;  \\ &amp; \lambda_2
+\end{array}\right]P^{-1}，其中P=[p_1,p_2,..],P^{-1}=[q_1,q_2,..]^T,则有P_1=p_1q_1,...$$,</p>
+<p>## 线性回归方程</p>
+<p>&gt; 简单线性回归模型</p>
+<p>$$
+y=β_0 + β_1 X + ε
+$$</p>
+<p>ε 是一个随机变量，称为模型的误差项，即不能被x，y之间的线性关系解释的变异性</p>
+<p>&gt; 简单线性回归方程</p>
+<p>$$
+E(y)=β_0 + β_1 X
+$$</p>
+<p>&gt; 估计的简单线性回归方程</p>
+<p>$$
+\hat{y}=b_0 + b_1 X
+$$</p>
+<p>用样本统计量 $$ b_0 + b_1 X $$ 替代回归方程中的未知参数</p>
+<p>&gt; 最小二乘法准则</p>
+<p>最小二乘法是利用样本数据，通过使应变量的观测值$$ y_i $$与应变量的预测值 $$\hat{y}$$ 之间的离差平方和达到最小的方法求得 $$ b_0 和 b_1  $$ 
+$$
+min\Sigma(y_i-\hat{y})^2
+$$</p>
+<p>&gt; 判定系数
+&gt; 为估计回归方程提供一个拟合优度的度量</p>
+<p>1.离差$$ y_i -\hat{y} $$ 表示用方程的估计值预测所产生的误差，称为误差平方和 $$  SSE=\Sigma(y_i -\hat{y})^2 $$</p>
+<p>2.离差$$  y_i -\bar{y} $$ 表示用样本平均值来去预测所产生的误差，称为总平方和 $$ SST=\Sigma(y_i -\bar{y})^2 $$</p>
+<p>3.离差$$  \hat{y} -\bar{y} ​$$ ，称为回归平方和 $$ SSR=\Sigma(\hat{y} -\bar{y})^2 ​$$</p>
+<p>4. $SST=SSR+SSE​$</p>
+<p>5.判定系数：$$ r^2= \frac {SSR} {SST} $$</p>
 <p>6.仅仅依靠判定系数，无法判断x和y之间的显著性，只能判断最小二乘回归直线是否很好的拟合了样本数据</p>
-<blockquote>
-<p>相关系数   </p>
-<script type="math/tex; mode=display">r_{xy}=（b_1的符号)\sqrt{判定系数} ​</script><p>样本相关系数被限制在两变量之间存在线性关系的情况</p>
-</blockquote>
-<h3 id="显著性检验"><a href="#显著性检验" class="headerlink" title="显著性检验"></a>显著性检验</h3><p>关于简单线性回归模型中误差项ε的假定</p>
-<script type="math/tex; mode=display">
-y=β_0 + β_1 X + ε</script><p>1.误差项ε是一个期望值为零的随机变量，即<script type="math/tex">E(y)=0</script>,<br>即有 $$<br>E(y)=β_0 + β_1 X</p>
-<script type="math/tex; mode=display">
-
-2.对所有的x值，ε的方差$$\sigma^2 $$相同
-
-3.ε值是独立的，且符合正态分布
-
-4.假设检验，判定$$β_1$$ 是否为0
-
-$$\sigma^2 $$的估计：$$ s^2=MSE=\frac{SSE} {n-2}</script><h3 id="损失函数"><a href="#损失函数" class="headerlink" title="损失函数"></a>损失函数</h3><p>最小二乘法的拟合误差函数：</p>
-<script type="math/tex; mode=display">loss=\Sigma(y_i-\hat{y})^2=\Sigma(y_i-β_0 - β_1 X)^2</script><p>损失函数：</p>
-<script type="math/tex; mode=display">Loss function= Fit Error + Model Complexity</script><p>其中复杂度代价函数就是约束我们的模型尽量的简单，模型越复杂，规则化值越大</p>
-<blockquote>
-<p>范数</p>
-</blockquote>
-<p>范数，是具有“长度”概念的函数。<br>L1范数对应曼哈顿距离<br>L2范数对应欧式距离</p>
-<blockquote>
-<p>L0范数</p>
-</blockquote>
+<p>&gt; 相关系数   
+&gt; $$  r_{xy}=（b_1的符号)\sqrt{判定系数} ​$$   
+&gt; 样本相关系数被限制在两变量之间存在线性关系的情况</p>
+<p>### 显著性检验</p>
+<p>关于简单线性回归模型中误差项ε的假定
+$$
+y=β_0 + β_1 X + ε
+$$
+1.误差项ε是一个期望值为零的随机变量，即$$E(y)=0$$,
+即有 $$
+E(y)=β_0 + β_1 X
+$$</p>
+<p>2.对所有的x值，ε的方差$$\sigma^2 $$相同</p>
+<p>3.ε值是独立的，且符合正态分布</p>
+<p>4.假设检验，判定$$β_1$$ 是否为0</p>
+<p>$$\sigma^2 $$的估计：$$ s^2=MSE=\frac{SSE} {n-2} $$</p>
+<p>### 损失函数</p>
+<p>最小二乘法的拟合误差函数：
+$$ loss=\Sigma(y_i-\hat{y})^2=\Sigma(y_i-β_0 - β_1 X)^2 $$
+损失函数：
+$$ Loss function= Fit Error + Model Complexity $$
+其中复杂度代价函数就是约束我们的模型尽量的简单，模型越复杂，规则化值越大</p>
+<p>&gt;范数</p>
+<p>范数，是具有“长度”概念的函数。
+L1范数对应曼哈顿距离
+L2范数对应欧式距离</p>
+<p>&gt; L0范数</p>
 <p>向量中非零元素的个数</p>
-<blockquote>
-<p>L1范数 (Lasso regularization) </p>
-</blockquote>
-<script type="math/tex; mode=display">||x||_1 = \sum_{i=1}^N|x_i| $$，即向量元素绝对值之和
+<p>&gt; L1范数 (Lasso regularization)</p>
+<p>$$ ||x||_1 = \sum_{i=1}^N|x_i| $$，即向量元素绝对值之和
 L1正则化有助于生成一个稀疏的权值矩阵，即使线性回归模型中大多数系数为0
 损失函数：
-$$ J=J_0+\alpha\sum|w|</script><p>其中<script type="math/tex">J_0为原始的损失函数，\alpha为正则化系数</script></p>
-<blockquote>
-<p>L2范数 (Ridge Regression)</p>
-</blockquote>
-<p><script type="math/tex">||x||_2 = \sqrt[2]{\sum_{i=1}^N|x_i^2|} ​</script>，即向量元素绝对值平方和的开平方</p>
-<p><strong>L1范数和L2范数正则化都有助于降低过拟合风险，但前者更易于获得更少的非零向量。即L1会趋向于产生少量的特征，而其他的特征都是0，而L2会选择更多的特征，这些特征都会接近于0</strong></p>
-<p>如图，假定x仅有两个属性，此时L1范数等值线和平方误差等值线交点更常出现在坐标轴上，即参数为0的情况<br><img src="/2019/02/05/dataanalysis/1527426007.png" alt="1527426007"></p>
-<h3 id="参数优化"><a href="#参数优化" class="headerlink" title="参数优化"></a>参数优化</h3><p>机器学习的参数估计，是寻找最优参数使得损失函数最小化。在理想的情况下，损失函数是凸的、连续的、可导的。因此最基本的优化算法有：</p>
-<blockquote>
-<p>梯度下降法(Gradient Descend Method)：     </p>
-</blockquote>
-<p>梯度下降法，用当前负梯度的方向作为搜索方向，梯度下降法算法用梯度乘以一个称为学习速率（有时也称为步长）的标量，以确定下一个点的位置<br>对于损失函数<script type="math/tex">J(\theta)</script>,其中m为样本个数,对<script type="math/tex">\theta</script>求导，<br><img src="/2019/02/05/dataanalysis/p1.png" alt=""><br><img src="/2019/02/05/dataanalysis/p2.jpg" alt=""><br><img src="/2019/02/05/dataanalysis/640.webp" alt=""></p>
-<blockquote>
-<p>批量梯度下降法(BGD)</p>
-</blockquote>
+$$ J=J_0+\alpha\sum|w| $$
+其中$$J_0为原始的损失函数，\alpha为正则化系数 $$</p>
+<p>&gt; L2范数 (Ridge Regression)</p>
+<p>$$ ||x||_2 = \sqrt[2]{\sum_{i=1}^N|x_i^2|} ​$$，即向量元素绝对值平方和的开平方</p>
+<p>**L1范数和L2范数正则化都有助于降低过拟合风险，但前者更易于获得更少的非零向量。即L1会趋向于产生少量的特征，而其他的特征都是0，而L2会选择更多的特征，这些特征都会接近于0**</p>
+<p>如图，假定x仅有两个属性，此时L1范数等值线和平方误差等值线交点更常出现在坐标轴上，即参数为0的情况
+![1527426007](dataanalysis/1527426007.png)</p>
+<p>### 参数优化</p>
+<p>机器学习的参数估计，是寻找最优参数使得损失函数最小化。在理想的情况下，损失函数是凸的、连续的、可导的。因此最基本的优化算法有：</p>
+<p>&gt; 梯度下降法(Gradient Descend Method)：</p>
+<p>梯度下降法，用当前负梯度的方向作为搜索方向，梯度下降法算法用梯度乘以一个称为学习速率（有时也称为步长）的标量，以确定下一个点的位置
+对于损失函数$$J(\theta) $$,其中m为样本个数,对$$\theta $$求导，
+![](dataanalysis/p1.png)
+![](dataanalysis/p2.jpg)
+![](dataanalysis/640.webp)</p>
+<p>&gt; 批量梯度下降法(BGD)</p>
 <p>对于BGD法，每次迭代需要把m个样本全部带入计算，可以得到全局最优解，但会导致计算量庞大</p>
-<blockquote>
-<p>随机梯度下降法(SGD)</p>
-</blockquote>
+<p>&gt; 随机梯度下降法(SGD)</p>
 <p>在更新每一参数时都使用一个样本来进行更新，也就是m等于1。每一次跟新参数都用一个样本。最终的结果往往是在全局最优解附近，适用于大规模训练样本</p>
-<blockquote>
-<p>小批量梯度下降</p>
-</blockquote>
+<p>&gt; 小批量梯度下降</p>
 <p>是介于全批量迭代与 SGD 之间的折衷方案。小批量通常包含 10-1000 个随机选择的样本。小批量 SGD 可以减少 SGD 中的杂乱样本数量，但仍然比全批量更高效</p>
-<blockquote>
-<p>牛顿法和拟牛顿法： </p>
-</blockquote>
-<p>由<script type="math/tex">f(x)在x_k点处的</script>泰勒公式推展，对于极小值点有<script type="math/tex">f'(x)=0</script>,既有<script type="math/tex">x=x_k-\cfrac{f'(x_k)}{f''(x_k)}</script>,即需要求值<script type="math/tex">d_k=-\cfrac{f'(x_k)}{f''(x_k)}</script>,令</p>
-<p><script type="math/tex">x_{k+1}=x_k+d_k</script>,重新迭代计算</p>
+<p>&gt; 牛顿法和拟牛顿法：</p>
+<p>由$$f(x)在x_k点处的$$泰勒公式推展，对于极小值点有$$ f'(x)=0 $$,既有$$x=x_k-\cfrac{f'(x_k)}{f''(x_k)}$$,即需要求值$$ d_k=-\cfrac{f'(x_k)}{f''(x_k)} $$,令
+$$ x_{k+1}=x_k+d_k $$,重新迭代计算</p>
 <p>梯度下降使用梯度(一阶导数)寻找下降最快的方向，而牛顿法通过曲率(二阶导数)寻找下降最快的方向，因此牛顿法的路径更直接。</p>
-<blockquote>
-<p>共轭梯度法：             </p>
-</blockquote>
+<p>&gt; 共轭梯度法：</p>
 <p>介于最速下降法与牛顿法之间的一个方法，仅需一阶导数信息</p>
 
           
@@ -594,7 +702,7 @@ $$ J=J_0+\alpha\sum|w|</script><p>其中<script type="math/tex">J_0为原始的�
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="Marcus Blog">
     </span>
 
     
@@ -656,271 +764,121 @@ $$ J=J_0+\alpha\sum|w|</script><p>其中<script type="math/tex">J_0为原始的�
       
         
           
-            <h3 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h3><p>list是一种有序的集合，可以随时添加和删除其中的元素<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">list =[] </span><br><span class="line"># 空列表</span><br><span class="line"></span><br><span class="line">list.append(&apos;Google&apos;)</span><br><span class="line"># 添加元素，对列表自己内部进行操作， 不会有返回值</span><br><span class="line"></span><br><span class="line">list.extend(seq)</span><br><span class="line"># 列表末尾一次性追加另一个序列中的多个值,原列表内部操作，不会有返回值</span><br><span class="line"></span><br><span class="line">del list[2]</span><br><span class="line"># 删除元素，对列表自己内部进行操作， 不会有返回值</span><br><span class="line"></span><br><span class="line">del list[:]</span><br><span class="line"># 删除所有元素</span><br><span class="line"></span><br><span class="line">list.count(obj)</span><br><span class="line"># 统计某个元素在列表中出现的次数</span><br><span class="line"></span><br><span class="line">list.index(obj)</span><br><span class="line"># 从列表中找出某个值第一个匹配项的索引位置</span><br><span class="line"></span><br><span class="line">list.insert(index, obj)</span><br><span class="line"># 将对象插入列表,对列表自己内部进行操作， 不会有返回值</span><br><span class="line"></span><br><span class="line">list.pop([index=-1])</span><br><span class="line"># 移除列表中的一个元素（默认最后一个元素），并且返回该元素值</span><br><span class="line"></span><br><span class="line">list.remove(obj)</span><br><span class="line">#移除列表中某个值的第一个匹配项,对列表自己内部进行操作，不会有返回值</span><br><span class="line"></span><br><span class="line">list.reverse()</span><br><span class="line"># 反向列表中元素,不会有返回值</span><br><span class="line"></span><br><span class="line">list.sort(cmp=None, key=None, reverse=False)</span><br><span class="line"># 对原列表进行排序,不会有返回值</span><br><span class="line"></span><br><span class="line">sorted(list,key=,reverse=)</span><br><span class="line"># 不改变原列表，返回新列表</span><br></pre></td></tr></table></figure></p>
-<h3 id="IO-模块"><a href="#IO-模块" class="headerlink" title="IO 模块"></a>IO 模块</h3><p>open()函数用于打开一个文件，创建一个file对象  ,通过file对象，可以得到有关该文件的各种信息</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">file=open(filename,&apos;r+&apos;)</span><br><span class="line"># 打开文件用于读写</span><br><span class="line"></span><br><span class="line">file=open(filename,&apos;w+&apos;)</span><br><span class="line"># 打开文件用于读写，若文件存在则覆盖，若不存在，则创建文件</span><br><span class="line"></span><br><span class="line">file=open(filename,&apos;a+&apos;)</span><br><span class="line"># 打开文件用于读写，若文件存在，文件末尾追加，若不存在，则创建文件</span><br><span class="line"></span><br><span class="line">file_read=file.read([count])</span><br><span class="line"># 从文件的开头开始读入,count为字节数</span><br><span class="line"></span><br><span class="line">file_read=file.readline([size])</span><br><span class="line"># 返回包含size行的列表,size 未指定则返回全部行</span><br><span class="line"></span><br><span class="line">file_write=file.write(string)</span><br><span class="line"># write()方法不会在字符串的结尾添加换行符(&apos;\n&apos;)</span><br><span class="line"></span><br><span class="line">file=file.close()</span><br><span class="line"># 关闭文件</span><br><span class="line"></span><br><span class="line">for line in file:</span><br><span class="line"># file对象可迭代</span><br><span class="line"></span><br><span class="line">with open(filename) as f:</span><br><span class="line"># with语句可自动调用file的close()方法</span><br></pre></td></tr></table></figure>
-<h3 id="OS模块"><a href="#OS模块" class="headerlink" title="OS模块"></a>OS模块</h3><p>Python 的 os 模块封装了常见的文件和目录操作</p>
-<blockquote>
-<p>os: This module provides a portable way of using operating system dependent functionality.<br>这个模块提供了一种方便的使用操作系统函数的方法</p>
-<p>sys: This module provides access to some variables used or maintained by the interpreter and to functions that interact strongly with the interpreter.<br>这个模块可供访问由解释器使用或维护的变量和与解释器进行交互的函数。</p>
-</blockquote>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>方法</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>os.mkdir</td>
-<td>创建目录</td>
-</tr>
-<tr>
-<td>os.rmdir</td>
-<td>删除目录</td>
-</tr>
-<tr>
-<td>os.chdir(path)</td>
-<td>更改目录</td>
-</tr>
-<tr>
-<td>os.rename</td>
-<td>重命名</td>
-</tr>
-<tr>
-<td>os.remove</td>
-<td>删除文件</td>
-</tr>
-<tr>
-<td>os.getcwd</td>
-<td>获取当前工作路径</td>
-</tr>
-<tr>
-<td>os.walk</td>
-<td>遍历目录</td>
-</tr>
-<tr>
-<td>os.path.join</td>
-<td>连接目录与文件名</td>
-</tr>
-<tr>
-<td>os.path.split</td>
-<td>分割文件名与目录</td>
-</tr>
-<tr>
-<td>os.path.abspath</td>
-<td>获取绝对路径</td>
-</tr>
-<tr>
-<td>os.path.dirname</td>
-<td>获取路径</td>
-</tr>
-<tr>
-<td>os.path.basename</td>
-<td>获取文件名或文件夹名</td>
-</tr>
-<tr>
-<td>os.path.splitext</td>
-<td>分离文件名与扩展名</td>
-</tr>
-<tr>
-<td>os.path.isfile</td>
-<td>判断给出的路径是否是一个文件</td>
-</tr>
-<tr>
-<td>os.path.isdir</td>
-<td>判断给出的路径是否是一个目录</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:center">方法</th>
-<th style="text-align:center">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">sys.argv</td>
-<td style="text-align:center">命令行参数List，第一个元素是程序本身路径</td>
-</tr>
-<tr>
-<td style="text-align:center">sys.modules.keys()</td>
-<td style="text-align:center">返回所有已经导入的模块列表</td>
-</tr>
-<tr>
-<td style="text-align:center">sys.exc_info()</td>
-<td style="text-align:center">获取当前正在处理的异常类,exc_type、exc_value、exc_traceback当前处理的异常详细信息</td>
-</tr>
-<tr>
-<td style="text-align:center">sys.exit(n)</td>
-<td style="text-align:center">退出程序，正常退出时exit(0)</td>
-</tr>
-<tr>
-<td style="text-align:center">sys.hexversion</td>
-<td style="text-align:center">获取Python解释程序的版本值，16进制格式如：0x020403F0</td>
-</tr>
-<tr>
-<td style="text-align:center">sys.version</td>
-<td style="text-align:center">获取Python解释程序的版本信息</td>
-</tr>
-<tr>
-<td style="text-align:center">sys.maxint</td>
-<td style="text-align:center">最大的Int值</td>
-</tr>
-<tr>
-<td style="text-align:center">sys.maxunicode</td>
-<td style="text-align:center">最大的Unicode值</td>
-</tr>
-<tr>
-<td style="text-align:center">sys.modules</td>
-<td style="text-align:center">返回系统导入的模块字段，key是模块名，value是模块</td>
-</tr>
-<tr>
-<td style="text-align:center">sys.path</td>
-<td style="text-align:center">返回模块的搜索路径，初始化时使用PYTHONPATH环境变量的值</td>
-</tr>
-<tr>
-<td style="text-align:center">sys.platform</td>
-<td style="text-align:center">返回操作系统平台名称</td>
-</tr>
-<tr>
-<td style="text-align:center">sys.stdout</td>
-<td style="text-align:center">标准输出</td>
-</tr>
-<tr>
-<td style="text-align:center">sys.stdin</td>
-<td style="text-align:center">标准输入</td>
-</tr>
-<tr>
-<td style="text-align:center">sys.stderr</td>
-<td style="text-align:center">错误输出</td>
-</tr>
-<tr>
-<td style="text-align:center">sys.exc_clear()</td>
-<td style="text-align:center">用来清除当前线程所出现的当前的或最近的错误信息</td>
-</tr>
-<tr>
-<td style="text-align:center">sys.exec_prefix</td>
-<td style="text-align:center">返回平台独立的python文件安装的位置</td>
-</tr>
-<tr>
-<td style="text-align:center">sys.byteorder</td>
-<td style="text-align:center">本地字节规则的指示器，big-endian平台的值是’big’,little-endian平台的值是’little’</td>
-</tr>
-<tr>
-<td style="text-align:center">sys.copyright</td>
-<td style="text-align:center">记录python版权相关的东西</td>
-</tr>
-<tr>
-<td style="text-align:center">sys.api_version</td>
-<td style="text-align:center">解释器的C的API版本</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><ul>
-<li><p>execfile()函数：用来执行一个文件</p>
-</li>
-<li><p>file()函数：用来创建一个file对象</p>
-</li>
-<li><p>filter(function, iterable) 函数:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;daily_spend = [110.32, 0, 445.32, 0, 88.83,0]</span><br><span class="line">&gt;&gt;&gt;has_spend = filter(lambda x: x!=0,daily_spend)</span><br><span class="line">&gt;&gt;&gt;print(list(has_spend))</span><br><span class="line">[110.32, 445.32, 88.83]</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>iter()函数：用来生成迭代器</p>
-</li>
-<li><p>map(function, iterable, …)函数会根据提供的函数对指定序列做映射</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; map(lambda x: x+1,[1,2,3,4]) </span><br><span class="line">[2, 3, 4, 5]  </span><br><span class="line">&gt;&gt;&gt; map(lambda x,y: x+y,[1,2,3,4],(10,20,30,40))</span><br><span class="line">[11, 22, 33, 44]</span><br></pre></td></tr></table></figure>
-<ul>
-<li>reduce(function, iterable[, initializer]) 函数会对参数序列中元素进行累积</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;daily_spend = [110.32, 0, 445.32, 0, 88.83,0]</span><br><span class="line">&gt;&gt;&gt;print(reduce(lambda x,y:x+y, daily_spend))</span><br><span class="line">644.47</span><br></pre></td></tr></table></figure>
-<ul>
-<li>zip函数：将多个序列相同位置上的元素，组合成元组后放入列表中</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;days, spend = [10,25,30], [12.20, 20.43, 44.32]</span><br><span class="line">&gt;&gt;&gt;consumptions = zip(days, spend)</span><br><span class="line">&gt;&gt;&gt;print(list(consumptions ))</span><br><span class="line">[(10, 12.2), (25, 20.43), (30, 44.32)]</span><br></pre></td></tr></table></figure>
-<ul>
-<li>sort()函数应用在list上，对列表自己内部进行排序， 不会有返回值， 因此返回为None，sorted()函数应用在所有可迭代对象，产生新的对象</li>
-<li>set() 函数创建一个无序不重复元素集，可进行关系测试</li>
-<li>slice() 函数实现切片对象</li>
-<li>strip() 方法用于移除字符串头尾指定的字符（默认删除所有空白符）</li>
-<li><p>Python内置的enumerate函数可以把一个list变成索引-元素对</p>
-</li>
-<li><p>生成器：generator，是种一边循环一边计算的机制，generator保存的是算法，可以通过next()函数获得generator的下一个返回值</p>
-</li>
-<li>迭代器：Iterator表示的是一个数据流，对象可以被next()函数调用并不断返回下一个数据，可以把这个数据流看做是一个有序序列，但我们却不能提前知道序列的长度，只能不断通过next()函数实现按需计算下一个数据</li>
-<li><p>yield函数，在调用生成器运行的过程中，每次遇到 yield 时函数会暂停并保存当前所有的运行信息，返回 yield 的值, 并在下一次执行 next() 方法时从当前位置继续运行。</p>
-</li>
-<li><p>format 格式化函数</p>
-</li>
-<li>‘sep’.join() 返回一个以分隔符sep连接各个元素后生成的字符串</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&quot;&#123;&#125; &#123;&#125;&quot;.format(&quot;hello&quot;, &quot;world&quot;)    # 不设置指定位置，按默认顺序</span><br><span class="line">&apos;hello world&apos;</span><br><span class="line"></span><br><span class="line"> &quot;&#123;0&#125; &#123;1&#125;&quot;.format(&quot;hello&quot;, &quot;world&quot;)  # 设置指定位置</span><br><span class="line">&apos;hello world&apos;</span><br><span class="line"></span><br><span class="line"> &quot;&#123;1&#125; &#123;0&#125; &#123;1&#125;&quot;.format(&quot;hello&quot;, &quot;world&quot;)  # 设置指定位置</span><br><span class="line">&apos;world hello world&apos;</span><br><span class="line"></span><br><span class="line"> site = &#123;&quot;name&quot;: &quot;菜鸟教程&quot;, &quot;url&quot;: &quot;www.runoob.com&quot;&#125;</span><br><span class="line"> print(&quot;网站名：&#123;name&#125;, 地址 &#123;url&#125;&quot;.format(**site))</span><br><span class="line"></span><br><span class="line"> my_list = [&apos;菜鸟教程&apos;, &apos;www.runoob.com&apos;]</span><br><span class="line"> print(&quot;网站名：&#123;0[0]&#125;, 地址 &#123;0[1]&#125;&quot;.format(my_list))  # &quot;0&quot; 是可选的</span><br></pre></td></tr></table></figure>
-<h3 id="Notion事项"><a href="#Notion事项" class="headerlink" title="Notion事项"></a>Notion事项</h3><ul>
-<li>多行注释使用三个单引号(‘’’)或三个双引号(“””)    </li>
-<li>元组用”()”标识。内部元素用逗号隔开。但是元组不能二次赋值，相当于只读列表,元组中的元素值是不允许删除的，但我们可以使用del语句来删除整个元组     </li>
-<li>continue 用于跳过该次循环，break 则是用于退出循环    </li>
-<li>pass是空语句，是为了保持程序结构的完整性,pass 不做任何事情，一般用做占位语句   </li>
-<li>Python不支持单字符类型，单字符也在Python也是作为一个字符串使用    </li>
-<li>r/R    原始字符串,所有的字符串都是直接按照字面的意思来使用，没有转义特殊或不能打印的字符。 原始字符串除在字符串的第一个引号前加上字母”r”（可以大小写）以外，与普通字符串有着几乎完全相同的语法    </li>
-<li>在 python 中，strings, tuples, 和 numbers 是不可更改的对象，而 list,dict 等则是可以修改的对象 </li>
-<li>set和dict的唯一区别仅在于没有存储对应的value</li>
-<li>seek（offset [,from]）方法改变当前文件的位置。Offset变量表示要移动的字节数。From变量指定开始移动字节的参考位置。<br>如果from被设为0，这意味着将文件的开头作为移动字节的参考位置。如果设为1，则使用当前的位置作为参考位置。如果它被设为2，那么该文件的末尾将作为参考位置</li>
-<li>input() 和 raw_input() 这两个函数均能接收 字符串 ，但 raw_input() 直接读取控制台的输入（任何类型的输入它都可以接收）。而对于 input() ，它希望能够读取一个合法的 python 表达式，即你输入字符串的时候必须使用引号将它括起来</li>
-<li>tuple所谓的“不变”是说，tuple的每个元素，指向永远不变。list的元素可变</li>
-<li>函数返回值，可以用return语句返回，函数体内部的语句在执行时，一旦执行到return时，函数就执行完毕，并将结果返回，函数执行完毕也没有return语句时，自动return None</li>
-<li><p>Python的函数返回多值其实就是返回一个tuple</p>
-</li>
-<li><p>不可变类型参数传递：整数、字符串、元组。</p>
+            <p>### 列表 
+list是一种有序的集合，可以随时添加和删除其中的元素
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">list =[] </span><br><span class="line"># 空列表</span><br><span class="line"></span><br><span class="line">list.append(&apos;Google&apos;)</span><br><span class="line"># 添加元素，对列表自己内部进行操作， 不会有返回值</span><br><span class="line"></span><br><span class="line">list.extend(seq)</span><br><span class="line"># 列表末尾一次性追加另一个序列中的多个值,原列表内部操作，不会有返回值</span><br><span class="line"></span><br><span class="line">del list[2]</span><br><span class="line"># 删除元素，对列表自己内部进行操作， 不会有返回值</span><br><span class="line"></span><br><span class="line">del list[:]</span><br><span class="line"># 删除所有元素</span><br><span class="line"></span><br><span class="line">list.count(obj)</span><br><span class="line"># 统计某个元素在列表中出现的次数</span><br><span class="line"></span><br><span class="line">list.index(obj)</span><br><span class="line"># 从列表中找出某个值第一个匹配项的索引位置</span><br><span class="line"></span><br><span class="line">list.insert(index, obj)</span><br><span class="line"># 将对象插入列表,对列表自己内部进行操作， 不会有返回值</span><br><span class="line"></span><br><span class="line">list.pop([index=-1])</span><br><span class="line"># 移除列表中的一个元素（默认最后一个元素），并且返回该元素值</span><br><span class="line"></span><br><span class="line">list.remove(obj)</span><br><span class="line">#移除列表中某个值的第一个匹配项,对列表自己内部进行操作，不会有返回值</span><br><span class="line"></span><br><span class="line">list.reverse()</span><br><span class="line"># 反向列表中元素,不会有返回值</span><br><span class="line"></span><br><span class="line">list.sort(cmp=None, key=None, reverse=False)</span><br><span class="line"># 对原列表进行排序,不会有返回值</span><br><span class="line"></span><br><span class="line">sorted(list,key=,reverse=)</span><br><span class="line"># 不改变原列表，返回新列表</span><br></pre></td></tr></table></figure></p>
+<p>### IO 模块
+open()函数用于打开一个文件，创建一个file对象  ,通过file对象，可以得到有关该文件的各种信息</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">file=open(filename,&apos;r+&apos;)</span><br><span class="line"># 打开文件用于读写</span><br><span class="line"></span><br><span class="line">file=open(filename,&apos;w+&apos;)</span><br><span class="line"># 打开文件用于读写，若文件存在则覆盖，若不存在，则创建文件</span><br><span class="line"></span><br><span class="line">file=open(filename,&apos;a+&apos;)</span><br><span class="line"># 打开文件用于读写，若文件存在，文件末尾追加，若不存在，则创建文件</span><br><span class="line"></span><br><span class="line">file_read=file.read([count])</span><br><span class="line"># 从文件的开头开始读入,count为字节数</span><br><span class="line"></span><br><span class="line">file_read=file.readline([size])</span><br><span class="line"># 返回包含size行的列表,size 未指定则返回全部行</span><br><span class="line"></span><br><span class="line">file_write=file.write(string)</span><br><span class="line"># write()方法不会在字符串的结尾添加换行符(&apos;\n&apos;)</span><br><span class="line"></span><br><span class="line">file=file.close()</span><br><span class="line"># 关闭文件</span><br><span class="line"></span><br><span class="line">for line in file:</span><br><span class="line"># file对象可迭代</span><br><span class="line"></span><br><span class="line">with open(filename) as f:</span><br><span class="line"># with语句可自动调用file的close()方法</span><br></pre></td></tr></table></figure></p>
+<p>### OS模块
+Python 的 os 模块封装了常见的文件和目录操作</p>
+<p>&gt; os: This module provides a portable way of using operating system dependent functionality.
+&gt; 这个模块提供了一种方便的使用操作系统函数的方法</p>
+<p>&gt; sys: This module provides access to some variables used or maintained by the interpreter and to functions that interact strongly with the interpreter.
+&gt; 这个模块可供访问由解释器使用或维护的变量和与解释器进行交互的函数。</p>
+<p>| 方法 | 说明 |
+| ------ | ------ |
+| os.mkdir  |	创建目录 |
+|os.rmdir|	 删除目录 |
+|os.chdir(path)| 更改目录|
+|os.rename|	 重命名|
+|os.remove|	删除文件|
+|os.getcwd|	获取当前工作路径|
+|os.walk|	遍历目录|
+|os.path.join|	连接目录与文件名|
+|os.path.split|	分割文件名与目录|
+|os.path.abspath|	获取绝对路径|
+|os.path.dirname|	获取路径|
+|os.path.basename|	获取文件名或文件夹名|
+|os.path.splitext|	分离文件名与扩展名|
+|os.path.isfile	|判断给出的路径是否是一个文件|
+|os.path.isdir	|判断给出的路径是否是一个目录|</p>
+<p>|方法	|说明|
+| :------: | :------: |
+|sys.argv| 命令行参数List，第一个元素是程序本身路径|
+|sys.modules.keys()| 返回所有已经导入的模块列表|
+|sys.exc_info()| 获取当前正在处理的异常类,exc_type、exc_value、exc_traceback当前处理的异常详细信息|
+|sys.exit(n)| 退出程序，正常退出时exit(0)|
+|sys.hexversion| 获取Python解释程序的版本值，16进制格式如：0x020403F0|
+|sys.version| 获取Python解释程序的版本信息|
+|sys.maxint| 最大的Int值|
+|sys.maxunicode| 最大的Unicode值|
+|sys.modules| 返回系统导入的模块字段，key是模块名，value是模块|
+|sys.path |返回模块的搜索路径，初始化时使用PYTHONPATH环境变量的值|
+|sys.platform |返回操作系统平台名称|
+|sys.stdout |标准输出|
+|sys.stdin |标准输入|
+|sys.stderr |错误输出|
+|sys.exc_clear() |用来清除当前线程所出现的当前的或最近的错误信息|
+|sys.exec_prefix |返回平台独立的python文件安装的位置|
+|sys.byteorder |本地字节规则的指示器，big-endian平台的值是'big',little-endian平台的值是'little'|
+|sys.copyright |记录python版权相关的东西|
+|sys.api_version| 解释器的C的API版本|</p>
+<p>### 函数
+- execfile\(\)函数：用来执行一个文件</p>
+<p>- file\(\)函数：用来创建一个file对象</p>
+<p>- filter(function, iterable) 函数:</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;daily_spend = [110.32, 0, 445.32, 0, 88.83,0]</span><br><span class="line">&gt;&gt;&gt;has_spend = filter(lambda x: x!=0,daily_spend)</span><br><span class="line">&gt;&gt;&gt;print(list(has_spend))</span><br><span class="line">[110.32, 445.32, 88.83]</span><br></pre></td></tr></table></figure></p>
+<p>- iter\(\)函数：用来生成迭代器</p>
+<p>- map(function, iterable, ...)函数会根据提供的函数对指定序列做映射</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; map(lambda x: x+1,[1,2,3,4]) </span><br><span class="line">[2, 3, 4, 5]  </span><br><span class="line">&gt;&gt;&gt; map(lambda x,y: x+y,[1,2,3,4],(10,20,30,40))</span><br><span class="line">[11, 22, 33, 44]</span><br></pre></td></tr></table></figure></p>
+<p>- reduce(function, iterable[, initializer]) 函数会对参数序列中元素进行累积</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;daily_spend = [110.32, 0, 445.32, 0, 88.83,0]</span><br><span class="line">&gt;&gt;&gt;print(reduce(lambda x,y:x+y, daily_spend))</span><br><span class="line">644.47</span><br></pre></td></tr></table></figure></p>
+<p>- zip函数：将多个序列相同位置上的元素，组合成元组后放入列表中</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;days, spend = [10,25,30], [12.20, 20.43, 44.32]</span><br><span class="line">&gt;&gt;&gt;consumptions = zip(days, spend)</span><br><span class="line">&gt;&gt;&gt;print(list(consumptions ))</span><br><span class="line">[(10, 12.2), (25, 20.43), (30, 44.32)]</span><br></pre></td></tr></table></figure></p>
+<p>- sort\(\)函数应用在list上，对列表自己内部进行排序， 不会有返回值， 因此返回为None，sorted\(\)函数应用在所有可迭代对象，产生新的对象
+- set\(\) 函数创建一个无序不重复元素集，可进行关系测试
+- slice\(\) 函数实现切片对象
+- strip\(\) 方法用于移除字符串头尾指定的字符（默认删除所有空白符）
+- Python内置的enumerate函数可以把一个list变成索引-元素对</p>
+<p>- 生成器：generator，是种一边循环一边计算的机制，generator保存的是算法，可以通过next()函数获得generator的下一个返回值
+- 迭代器：Iterator表示的是一个数据流，对象可以被next()函数调用并不断返回下一个数据，可以把这个数据流看做是一个有序序列，但我们却不能提前知道序列的长度，只能不断通过next()函数实现按需计算下一个数据
+- yield函数，在调用生成器运行的过程中，每次遇到 yield 时函数会暂停并保存当前所有的运行信息，返回 yield 的值, 并在下一次执行 next() 方法时从当前位置继续运行。</p>
+<p>- format 格式化函数
+- 'sep'.join\(\) 返回一个以分隔符sep连接各个元素后生成的字符串</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&quot;&#123;&#125; &#123;&#125;&quot;.format(&quot;hello&quot;, &quot;world&quot;)    # 不设置指定位置，按默认顺序</span><br><span class="line">&apos;hello world&apos;</span><br><span class="line"></span><br><span class="line"> &quot;&#123;0&#125; &#123;1&#125;&quot;.format(&quot;hello&quot;, &quot;world&quot;)  # 设置指定位置</span><br><span class="line">&apos;hello world&apos;</span><br><span class="line"></span><br><span class="line"> &quot;&#123;1&#125; &#123;0&#125; &#123;1&#125;&quot;.format(&quot;hello&quot;, &quot;world&quot;)  # 设置指定位置</span><br><span class="line">&apos;world hello world&apos;</span><br><span class="line"></span><br><span class="line"> site = &#123;&quot;name&quot;: &quot;菜鸟教程&quot;, &quot;url&quot;: &quot;www.runoob.com&quot;&#125;</span><br><span class="line"> print(&quot;网站名：&#123;name&#125;, 地址 &#123;url&#125;&quot;.format(**site))</span><br><span class="line"></span><br><span class="line"> my_list = [&apos;菜鸟教程&apos;, &apos;www.runoob.com&apos;]</span><br><span class="line"> print(&quot;网站名：&#123;0[0]&#125;, 地址 &#123;0[1]&#125;&quot;.format(my_list))  # &quot;0&quot; 是可选的</span><br></pre></td></tr></table></figure></p>
+<p>### Notion事项</p>
+<p>- 多行注释使用三个单引号(''')或三个双引号(&quot;&quot;&quot;)    
+- 元组用&quot;()&quot;标识。内部元素用逗号隔开。但是元组不能二次赋值，相当于只读列表,元组中的元素值是不允许删除的，但我们可以使用del语句来删除整个元组     
+- continue 用于跳过该次循环，break 则是用于退出循环    
+- pass是空语句，是为了保持程序结构的完整性,pass 不做任何事情，一般用做占位语句   
+- Python不支持单字符类型，单字符也在Python也是作为一个字符串使用    
+- r/R	原始字符串,所有的字符串都是直接按照字面的意思来使用，没有转义特殊或不能打印的字符。 原始字符串除在字符串的第一个引号前加上字母&quot;r&quot;（可以大小写）以外，与普通字符串有着几乎完全相同的语法    
+- 在 python 中，strings, tuples, 和 numbers 是不可更改的对象，而 list,dict 等则是可以修改的对象 
+- set和dict的唯一区别仅在于没有存储对应的value
+- seek（offset [,from]）方法改变当前文件的位置。Offset变量表示要移动的字节数。From变量指定开始移动字节的参考位置。
+  如果from被设为0，这意味着将文件的开头作为移动字节的参考位置。如果设为1，则使用当前的位置作为参考位置。如果它被设为2，那么该文件的末尾将作为参考位置
+- input() 和 raw_input() 这两个函数均能接收 字符串 ，但 raw_input() 直接读取控制台的输入（任何类型的输入它都可以接收）。而对于 input() ，它希望能够读取一个合法的 python 表达式，即你输入字符串的时候必须使用引号将它括起来
+- tuple所谓的“不变”是说，tuple的每个元素，指向永远不变。list的元素可变
+- 函数返回值，可以用return语句返回，函数体内部的语句在执行时，一旦执行到return时，函数就执行完毕，并将结果返回，函数执行完毕也没有return语句时，自动return None
+- Python的函数返回多值其实就是返回一个tuple</p>
+<p>- 不可变类型参数传递：整数、字符串、元组。</p>
 <p>如fun（a），传递的只是a的值，没有影响a对象本身。比如在 fun（a）内部修改 a 的值，只是修改另一个复制的对象，不会影响 a 本身。</p>
-</li>
-<li><p>可变类型参数传递：如列表，字典。</p>
+<p>- 可变类型参数传递：如列表，字典。</p>
 <p>如 fun（la），则是将 la 真正的传过去，修改后fun外部的la也会受影响</p>
-</li>
-<li><p>定义可变参数。可变参数就是传入的参数个数是可变的，仅仅在参数前面加了一个*号</p>
+<p>- 定义可变参数。可变参数就是传入的参数个数是可变的，仅仅在参数前面加了一个*号</p>
 <p>可变参数允许你传入0个或任意个参数，这些可变参数在函数调用时自动组装为一个tuple。而关键字参数允许你传入0个或任意个含参数名的参数，这些关键字参数在函数内部自动组装为一个dict</p>
-</li>
-<li><p>*args是可变参数，args接收的是一个tuple</p>
-</li>
-<li><p>**kw是关键字参数，kw接收的是一个dict</p>
-</li>
-<li><p>可变参数既可以直接传入：func(1, 2, 3)，又可以先组装list或tuple，再通过<em>args传入：func(</em>(1, 2, 3))</p>
-</li>
-<li><p>关键字参数既可以直接传入：func(a=1, b=2)，又可以先组装dict，再通过<em> </em> kw传入：func(**{‘a’: 1, ‘b’: 2})</p>
-</li>
-<li><p>实例的变量名如果以__开头（两个下划线），就变成了一个私有变量（private），只有内部可以访问，外部不能访问</p>
-</li>
-<li><p><code>__slots__</code>变量，可限制该class实例能添加的属性</p>
-</li>
-<li><p><code>__init__</code>方法的第一个参数永远是self，表示创建的实例本身，因此，在<code>__init__</code>方法内部，就可以把各种属性绑定到self，因为self就指向创建的实例本身</p>
-</li>
-<li><p>imp.load_source(‘module_name’,’/path/file.py’)<br>将file.py 文件导入到 module_name中，module_name 可以自定义</p>
-</li>
-<li><p>每个Python脚本在运行时都有一个“name”属性。如果脚本作为模块被导入，则其“name”属性的值被自动设置为模块名；如果脚本独立运行，则其“name”属性值被自动设置为“main”</p>
-</li>
-<li><p>python查找变量是顺序是：先局部变量，再全局变量。</p>
-</li>
-<li><p>直接赋值：其实就是对象的引用（别名），即变量指向同一对象</p>
-</li>
-<li><p>浅拷贝(copy)：拷贝父对象，不会拷贝对象的内部的子对象，即内部子对象做同步变化</p>
-</li>
-<li><p>深拷贝(deepcopy)： copy 模块的 deepcopy 方法，完全拷贝了父对象及其子对象。</p>
-</li>
-<li><p>super() 函数是用于调用父类(超类)的一个方法</p>
-</li>
-<li><p>isinstance(a, list) 判断变量类型</p>
-</li>
-</ul>
-<h3 id="itertools模块"><a href="#itertools模块" class="headerlink" title="itertools模块"></a>itertools模块</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"> count(start=0, step=1)</span><br><span class="line"># 创建一个迭代器，生成从n开始的连续整数</span><br><span class="line"></span><br><span class="line">cycle(iterable)</span><br><span class="line"># 创建一个能在一组值间无限循环的迭代器</span><br><span class="line"></span><br><span class="line">repeat(object[, times])</span><br><span class="line"># 创建一个迭代器，重复生成object，times（如果已提供）指定重复计数</span><br><span class="line"></span><br><span class="line">chain(*iterables)</span><br><span class="line"># 将多个迭代器作为参数, 但只返回单个迭代器, 它产生所有参数迭代器的内容, 就好像他们是来自于一个单一的序列</span><br><span class="line"></span><br><span class="line">compress(data, selectors)</span><br><span class="line"># 提供一个选择列表，对原始数据进行筛选</span><br><span class="line"></span><br><span class="line">dropwhile(predicate, iterable)</span><br><span class="line"># 创建一个迭代器，只要函数predicate(item)返回False，就会生成iterable中的项和所有后续项</span><br><span class="line"></span><br><span class="line">takewhile(predicate, iterable)</span><br><span class="line"># 创建一个迭代器，生成iterable中predicate(item)为True的项，只要predicate计算为False，迭代就会立即停止</span><br><span class="line"></span><br><span class="line">groupby(iterable[, key])</span><br><span class="line"># 返回一个产生按照key进行分组后的值集合的迭代器,生成元素(key, group)，其中key是分组的键值，group是迭代器，生成组成该组的所有项</span><br><span class="line"></span><br><span class="line">ifilter(predicate, iterable)</span><br><span class="line"># 返回当测试函数返回true时的项</span><br><span class="line"></span><br><span class="line">islice(iterable, start, stop[, step])</span><br><span class="line"># 如果省略了start，迭代将从0开始，如果省略了step，步幅将采用1.</span><br><span class="line"></span><br><span class="line">imap(function, *iterables)</span><br><span class="line"># 返回序列每个元素被func执行后返回值的序列的迭代器</span><br><span class="line"></span><br><span class="line">starmap(function, iterable)</span><br><span class="line"># 创建一个迭代器，生成值func(*item),其中item来自iterable</span><br><span class="line"></span><br><span class="line">tee(iterable[, n=2])</span><br><span class="line"># 从一个可迭代对象创建 n 个迭代器</span><br><span class="line"></span><br><span class="line">izip(*iterables)</span><br><span class="line"># 类似于内置函数zip(), 只是它返回的是一个迭代器而不是一个列表</span><br><span class="line"></span><br><span class="line">product(*iterables[, repeat])</span><br><span class="line"># 创建一个迭代器，生成表示item1，item2等中的项目的笛卡尔积的元组，repeat是一个关键字参数，指定重复生成序列的次数</span><br><span class="line"></span><br><span class="line">permutations(iterable[, r])</span><br><span class="line"># 返回iterable中所有长度为r的项目序列，如果省略了r，那么序列的长度与iterable中的项目数量相同</span><br><span class="line"></span><br><span class="line">combinations(iterable, r)</span><br><span class="line"># 创建一个迭代器，返回iterable中所有长度为r的子序列，返回的子序列中的项按输入iterable中的顺序排序</span><br><span class="line"></span><br><span class="line">combinations_with_replacement(iterable, r)</span><br><span class="line"># 与 combinations 非常类似。唯一的区别是，它会创建元素自己与自己的组合</span><br></pre></td></tr></table></figure>
-<h3 id="字典"><a href="#字典" class="headerlink" title="字典"></a>字典</h3><p>字典的键一般是唯一的，如果重复最后的一个键值对会替换前面的，值不需要唯一；键必须不可变，所以可以用数字，字符串或元组充当，所以用列表就不行</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">del dict[&apos;Name&apos;]</span><br><span class="line">## 删除键是&apos;Name&apos;的条目</span><br><span class="line"></span><br><span class="line">dict.clear()  </span><br><span class="line">## 清空词典所有条目</span><br><span class="line"></span><br><span class="line">del dict </span><br><span class="line">## 删除词典</span><br><span class="line"></span><br><span class="line">str(dict)</span><br><span class="line">## 返回string</span><br><span class="line"></span><br><span class="line">dict.copy()</span><br><span class="line">## 返回一个字典的浅复制</span><br><span class="line"></span><br><span class="line">dict.fromkeys(seq[, val])</span><br><span class="line">## 创建一个新字典，以序列 seq 中元素做字典的键，value 为字典所有键对应的初始值</span><br><span class="line"></span><br><span class="line">dict.get(key, default=None)</span><br><span class="line">## 返回指定键的值，如果值不在字典中返回默认值</span><br><span class="line"></span><br><span class="line">dict.has_key(key)</span><br><span class="line">## 如果键在字典dict里返回true，否则返回false</span><br><span class="line"></span><br><span class="line">dict.items()</span><br><span class="line">## 以列表返回可遍历的(键, 值) 元组数组</span><br><span class="line"></span><br><span class="line">dict.keys()</span><br><span class="line">## 以列表返回一个字典所有的键</span><br><span class="line"></span><br><span class="line">dict.values()</span><br><span class="line">## 以列表返回字典中的所有值</span><br><span class="line"></span><br><span class="line">dict.setdefault(key, default=None)</span><br><span class="line">## 如果字典中包含有给定键，则返回该键对应的值，否则返回为该键设置的值</span><br><span class="line"></span><br><span class="line">dict.update(dict2)</span><br><span class="line">## 把字典dict2的键/值对更新到dict里</span><br><span class="line">	</span><br><span class="line">pop(key[,default])</span><br><span class="line">## 删除字典给定键 key 所对应的值，返回值为被删除的值。key值必须给出。 否则，返回default值。</span><br><span class="line"></span><br><span class="line">popitem()</span><br><span class="line">## 随机返回并删除字典中的一对键和值。</span><br></pre></td></tr></table></figure>
+<p>- *args是可变参数，args接收的是一个tuple</p>
+<p>- **kw是关键字参数，kw接收的是一个dict</p>
+<p>- 可变参数既可以直接传入：func(1, 2, 3)，又可以先组装list或tuple，再通过*args传入：func(*(1, 2, 3))</p>
+<p>- 关键字参数既可以直接传入：func(a=1, b=2)，又可以先组装dict，再通过* * kw传入：func(**{'a': 1, 'b': 2})</p>
+<p>- 实例的变量名如果以__开头（两个下划线），就变成了一个私有变量（private），只有内部可以访问，外部不能访问</p>
+<p>- `__slots__`变量，可限制该class实例能添加的属性</p>
+<p>- `__init__`方法的第一个参数永远是self，表示创建的实例本身，因此，在`__init__`方法内部，就可以把各种属性绑定到self，因为self就指向创建的实例本身</p>
+<p>- imp.load_source('module_name','/path/file.py')
+  将file.py 文件导入到 module_name中，module_name 可以自定义</p>
+<p>- 每个Python脚本在运行时都有一个“name”属性。如果脚本作为模块被导入，则其“name”属性的值被自动设置为模块名；如果脚本独立运行，则其“name”属性值被自动设置为“main”</p>
+<p>- python查找变量是顺序是：先局部变量，再全局变量。</p>
+<p>- 直接赋值：其实就是对象的引用（别名），即变量指向同一对象</p>
+<p>- 浅拷贝(copy)：拷贝父对象，不会拷贝对象的内部的子对象，即内部子对象做同步变化</p>
+<p>- 深拷贝(deepcopy)： copy 模块的 deepcopy 方法，完全拷贝了父对象及其子对象。</p>
+<p>- super() 函数是用于调用父类(超类)的一个方法</p>
+<p>- isinstance(a, list) 判断变量类型</p>
+<p>### itertools模块</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"> count(start=0, step=1)</span><br><span class="line"># 创建一个迭代器，生成从n开始的连续整数</span><br><span class="line"></span><br><span class="line">cycle(iterable)</span><br><span class="line"># 创建一个能在一组值间无限循环的迭代器</span><br><span class="line"></span><br><span class="line">repeat(object[, times])</span><br><span class="line"># 创建一个迭代器，重复生成object，times（如果已提供）指定重复计数</span><br><span class="line"></span><br><span class="line">chain(*iterables)</span><br><span class="line"># 将多个迭代器作为参数, 但只返回单个迭代器, 它产生所有参数迭代器的内容, 就好像他们是来自于一个单一的序列</span><br><span class="line"></span><br><span class="line">compress(data, selectors)</span><br><span class="line"># 提供一个选择列表，对原始数据进行筛选</span><br><span class="line"></span><br><span class="line">dropwhile(predicate, iterable)</span><br><span class="line"># 创建一个迭代器，只要函数predicate(item)返回False，就会生成iterable中的项和所有后续项</span><br><span class="line"></span><br><span class="line">takewhile(predicate, iterable)</span><br><span class="line"># 创建一个迭代器，生成iterable中predicate(item)为True的项，只要predicate计算为False，迭代就会立即停止</span><br><span class="line"></span><br><span class="line">groupby(iterable[, key])</span><br><span class="line"># 返回一个产生按照key进行分组后的值集合的迭代器,生成元素(key, group)，其中key是分组的键值，group是迭代器，生成组成该组的所有项</span><br><span class="line"></span><br><span class="line">ifilter(predicate, iterable)</span><br><span class="line"># 返回当测试函数返回true时的项</span><br><span class="line"></span><br><span class="line">islice(iterable, start, stop[, step])</span><br><span class="line"># 如果省略了start，迭代将从0开始，如果省略了step，步幅将采用1.</span><br><span class="line"></span><br><span class="line">imap(function, *iterables)</span><br><span class="line"># 返回序列每个元素被func执行后返回值的序列的迭代器</span><br><span class="line"></span><br><span class="line">starmap(function, iterable)</span><br><span class="line"># 创建一个迭代器，生成值func(*item),其中item来自iterable</span><br><span class="line"></span><br><span class="line">tee(iterable[, n=2])</span><br><span class="line"># 从一个可迭代对象创建 n 个迭代器</span><br><span class="line"></span><br><span class="line">izip(*iterables)</span><br><span class="line"># 类似于内置函数zip(), 只是它返回的是一个迭代器而不是一个列表</span><br><span class="line"></span><br><span class="line">product(*iterables[, repeat])</span><br><span class="line"># 创建一个迭代器，生成表示item1，item2等中的项目的笛卡尔积的元组，repeat是一个关键字参数，指定重复生成序列的次数</span><br><span class="line"></span><br><span class="line">permutations(iterable[, r])</span><br><span class="line"># 返回iterable中所有长度为r的项目序列，如果省略了r，那么序列的长度与iterable中的项目数量相同</span><br><span class="line"></span><br><span class="line">combinations(iterable, r)</span><br><span class="line"># 创建一个迭代器，返回iterable中所有长度为r的子序列，返回的子序列中的项按输入iterable中的顺序排序</span><br><span class="line"></span><br><span class="line">combinations_with_replacement(iterable, r)</span><br><span class="line"># 与 combinations 非常类似。唯一的区别是，它会创建元素自己与自己的组合</span><br></pre></td></tr></table></figure></p>
+<p>### 字典</p>
+<p>字典的键一般是唯一的，如果重复最后的一个键值对会替换前面的，值不需要唯一；键必须不可变，所以可以用数字，字符串或元组充当，所以用列表就不行</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">del dict[&apos;Name&apos;]</span><br><span class="line">## 删除键是&apos;Name&apos;的条目</span><br><span class="line"></span><br><span class="line">dict.clear()  </span><br><span class="line">## 清空词典所有条目</span><br><span class="line"></span><br><span class="line">del dict </span><br><span class="line">## 删除词典</span><br><span class="line"></span><br><span class="line">str(dict)</span><br><span class="line">## 返回string</span><br><span class="line"></span><br><span class="line">dict.copy()</span><br><span class="line">## 返回一个字典的浅复制</span><br><span class="line"></span><br><span class="line">dict.fromkeys(seq[, val])</span><br><span class="line">## 创建一个新字典，以序列 seq 中元素做字典的键，value 为字典所有键对应的初始值</span><br><span class="line"></span><br><span class="line">dict.get(key, default=None)</span><br><span class="line">## 返回指定键的值，如果值不在字典中返回默认值</span><br><span class="line"></span><br><span class="line">dict.has_key(key)</span><br><span class="line">## 如果键在字典dict里返回true，否则返回false</span><br><span class="line"></span><br><span class="line">dict.items()</span><br><span class="line">## 以列表返回可遍历的(键, 值) 元组数组</span><br><span class="line"></span><br><span class="line">dict.keys()</span><br><span class="line">## 以列表返回一个字典所有的键</span><br><span class="line"></span><br><span class="line">dict.values()</span><br><span class="line">## 以列表返回字典中的所有值</span><br><span class="line"></span><br><span class="line">dict.setdefault(key, default=None)</span><br><span class="line">## 如果字典中包含有给定键，则返回该键对应的值，否则返回为该键设置的值</span><br><span class="line"></span><br><span class="line">dict.update(dict2)</span><br><span class="line">## 把字典dict2的键/值对更新到dict里</span><br><span class="line">	</span><br><span class="line">pop(key[,default])</span><br><span class="line">## 删除字典给定键 key 所对应的值，返回值为被删除的值。key值必须给出。 否则，返回default值。</span><br><span class="line"></span><br><span class="line">popitem()</span><br><span class="line">## 随机返回并删除字典中的一对键和值。</span><br></pre></td></tr></table></figure></p>
 
           
         
@@ -978,7 +936,7 @@ $$ J=J_0+\alpha\sum|w|</script><p>其中<script type="math/tex">J_0为原始的�
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="Marcus Blog">
     </span>
 
     
@@ -1040,77 +998,56 @@ $$ J=J_0+\alpha\sum|w|</script><p>其中<script type="math/tex">J_0为原始的�
       
         
           
-            <h3 id="Python：一种交互式、解释性、面向对象的编程语言"><a href="#Python：一种交互式、解释性、面向对象的编程语言" class="headerlink" title="Python：一种交互式、解释性、面向对象的编程语言"></a>Python：一种交互式、解释性、面向对象的编程语言</h3><p>解释性语言：即无需编译源码为可执行文件，直接使用源码就可以运行</p>
-<h4 id="Python-shell"><a href="#Python-shell" class="headerlink" title="Python shell"></a>Python shell</h4><p>提供一个运行环境，方便交互式开发。在windows下，分为两种，Python(command line) 和 IDLE</p>
-<h4 id="Python-IDE"><a href="#Python-IDE" class="headerlink" title="Python IDE"></a>Python IDE</h4><p>将Python开发相关的各种工具集成，包括python代码编辑器，python运行环境（pyhton shell）。常见主流的IDE有Pycharm和spyder</p>
-<h4 id="python编码"><a href="#python编码" class="headerlink" title="python编码"></a>python编码</h4><ul>
-<li><strong>字节与字符</strong></li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">计算机存储的一切数据，文本字符、图片、视频、音频、软件都是由一串01的字节序列构成的，一个字节等于8个比特位。</span><br><span class="line"></span><br><span class="line">而字符就是一个符号，比如一个汉字、一个英文字母、一个数字、一个标点都可以称为一个字符。</span><br><span class="line"></span><br><span class="line">字节方便存储和网络传输，而字符用于显示，方便阅读。例如字符 &quot;p&quot; 存储到硬盘是一串二进制数据 01110000，占用一个字节的长度</span><br></pre></td></tr></table></figure>
-<ul>
-<li><strong>len() 函数</strong> </li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">len(string)返回的是字节数，len(unicode)返回的是字符数</span><br><span class="line"></span><br><span class="line">gbk编码每个汉字占用2个字节，utf8编码的每个汉字占用3个字节,而1个英文字符只占用1个字节</span><br></pre></td></tr></table></figure>
-<ul>
-<li><strong>编码与解码</strong></li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">我们用编辑器打开的文本，看到的一个个字符，最终保存在磁盘的时候都是以二进制字节序列形式存起来的。那么从字符到字节的转换过程就叫做编码（encode），反过来叫做解码（decode），两者是一个可逆的过程。编码是为了存储传输，解码是为了方便显示阅读</span><br></pre></td></tr></table></figure>
-<ul>
-<li><strong>ascill编码</strong>   </li>
-</ul>
+            <p>### Python：一种交互式、解释性、面向对象的编程语言</p>
+<p>解释性语言：即无需编译源码为可执行文件，直接使用源码就可以运行</p>
+<p>#### Python shell</p>
+<p>提供一个运行环境，方便交互式开发。在windows下，分为两种，Python(command line) 和 IDLE</p>
+<p>#### Python IDE</p>
+<p>将Python开发相关的各种工具集成，包括python代码编辑器，python运行环境（pyhton shell）。常见主流的IDE有Pycharm和spyder</p>
+<p>#### python编码</p>
+<p>- **字节与字符**</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">计算机存储的一切数据，文本字符、图片、视频、音频、软件都是由一串01的字节序列构成的，一个字节等于8个比特位。</span><br><span class="line"></span><br><span class="line">而字符就是一个符号，比如一个汉字、一个英文字母、一个数字、一个标点都可以称为一个字符。</span><br><span class="line"></span><br><span class="line">字节方便存储和网络传输，而字符用于显示，方便阅读。例如字符 &quot;p&quot; 存储到硬盘是一串二进制数据 01110000，占用一个字节的长度</span><br></pre></td></tr></table></figure></p>
+<p>- **len\(\) 函数**</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">len(string)返回的是字节数，len(unicode)返回的是字符数</span><br><span class="line"></span><br><span class="line">gbk编码每个汉字占用2个字节，utf8编码的每个汉字占用3个字节,而1个英文字符只占用1个字节</span><br></pre></td></tr></table></figure></p>
+<p>- **编码与解码**</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">我们用编辑器打开的文本，看到的一个个字符，最终保存在磁盘的时候都是以二进制字节序列形式存起来的。那么从字符到字节的转换过程就叫做编码（encode），反过来叫做解码（decode），两者是一个可逆的过程。编码是为了存储传输，解码是为了方便显示阅读</span><br></pre></td></tr></table></figure></p>
+<p>- **ascill编码**</p>
 <p>英文字母加上特殊字符，一共128个字符。这个就是ascill编码。对应关系很简单，一个字符对应一个byte</p>
-<ul>
-<li><strong>Unicode编码</strong></li>
-</ul>
+<p>- **Unicode编码**</p>
 <p>Unicode（统一码，万国码）是基于通用字符集（Universal Character Set）的标准发展。它为每种语言中的每个字符设定了统一并且唯一的二进制编码，以满足语言、跨平台进行文本转换、处理的要求</p>
-<ul>
-<li><strong>UTF-8</strong></li>
-</ul>
-<p>Unicode是一个标准，Unicode只是一个符号集，它只规定了符号的二进制代码，却没有规定这个二进制代码应该如何存储；UTF-8是实现，UTF-8以字节为单位对Unicode进行编码<br>UTF-8（8-bit Unicode Transformation Format）是一种针对Unicode的可变长度字符编码（定长码），也是一种前缀码。它可以用来表示 Unicode 标准中的任何字符，且其编码中的第一个字节仍与<a href="">ASCII</a>兼容<br>windows记事本保存的utf-8格式，开始的三个字节EF BB BF就是BOM了，全称Byte Order Mark，这玩意也是很多乱码问题的来源，Linux下很多程序就不认BOM。因此，强烈不建议使用BOM，使用Notepad++之类的软件保存文本时，尽量选择以UTF-8无BOM格式编码</p>
-<ul>
-<li><strong>linux 转UTF-8(无bom)</strong></li>
-</ul>
+<p>- **UTF-8**</p>
+<p>Unicode是一个标准，Unicode只是一个符号集，它只规定了符号的二进制代码，却没有规定这个二进制代码应该如何存储；UTF-8是实现，UTF-8以字节为单位对Unicode进行编码  
+UTF-8（8-bit Unicode Transformation Format）是一种针对Unicode的可变长度字符编码（定长码），也是一种前缀码。它可以用来表示 Unicode 标准中的任何字符，且其编码中的第一个字节仍与[ASCII]()兼容  
+windows记事本保存的utf-8格式，开始的三个字节EF BB BF就是BOM了，全称Byte Order Mark，这玩意也是很多乱码问题的来源，Linux下很多程序就不认BOM。因此，强烈不建议使用BOM，使用Notepad++之类的软件保存文本时，尽量选择以UTF-8无BOM格式编码</p>
+<p>- **linux 转UTF-8\(无bom\)**</p>
 <p>用 Vim 打开</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">:set nobomb</span><br><span class="line">:wq</span><br></pre></td></tr></table></figure>
-<hr>
-<ul>
-<li><strong>Python2</strong></li>
-</ul>
-<p>Python默认脚本文件都是ASCII编码的，当文件中有非ASCII编码范围内的字符的时候就要使用“编码指示”来修正，也就是在文件第一行或第二行指定编码声明：<br><code># -*- coding=utf-8 -*</code>-或者<code>#coding=utf-8</code>，若头部声明coding=utf-8, a = ‘中文’ 其编码为utf-8，若头部声明coding=gb2312, a = ‘中文’ 其编码为gbk</p>
-<p>python解释器纯粹把源码使用ascii编码进行解析生成语法树。考虑到源码里可能存在其他语言的字符串量，提供了setdefaultencode接口，但是非常容易引发各类问题。PEP263指出在文件第一行或者第二行（仅限第一行为Unix脚本标注的情况下）写入特殊格式的注释# coding:xxx可以指定解释器解释源码时使用的字符编码</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">:set nobomb</span><br><span class="line">:wq</span><br></pre></td></tr></table></figure></p>
+<p>------</p>
+<p>- **Python2**</p>
+<p>Python默认脚本文件都是ASCII编码的，当文件中有非ASCII编码范围内的字符的时候就要使用“编码指示”来修正，也就是在文件第一行或第二行指定编码声明：  
+`# -*- coding=utf-8 -*`-或者`#coding=utf-8`，若头部声明coding=utf-8, a = '中文' 其编码为utf-8，若头部声明coding=gb2312, a = '中文' 其编码为gbk</p>
+<p>python解释器纯粹把源码使用ascii编码进行解析生成语法树。考虑到源码里可能存在其他语言的字符串量，提供了setdefaultencode接口，但是非常容易引发各类问题。PEP263指出在文件第一行或者第二行（仅限第一行为Unix脚本标注的情况下）写入特殊格式的注释\# coding:xxx可以指定解释器解释源码时使用的字符编码</p>
 <p>Python2 把字符串分为 unicode 和 str 两种类型。本质上 str 是一串二进制字节序列，我们要把 unicode 符号保存到文件或者传输到网络就需要经过编码处理转换成 str 类型</p>
-<p><strong>python2的print的实质是将str里的东西输出到PIPE，如果你print的是一个unicode对象，它会自动根据LOCALE环境变量进行encode之后变成str再输出。然而一般在Windows上都没有设置locale环境变量，py2就按照默认的ascii编码进行处理，于是对中文自然就编码错误了</strong>。解决方法是手动encode成对应的输出端可接受的编码后输出。win下一般都是gbk，linux下一般都是utf8</p>
-<hr>
-<ul>
-<li><strong>str和unicode对象的转换，通过encode和decode实现</strong></li>
-</ul>
+<p>**python2的print的实质是将str里的东西输出到PIPE，如果你print的是一个unicode对象，它会自动根据LOCALE环境变量进行encode之后变成str再输出。然而一般在Windows上都没有设置locale环境变量，py2就按照默认的ascii编码进行处理，于是对中文自然就编码错误了**。解决方法是手动encode成对应的输出端可接受的编码后输出。win下一般都是gbk，linux下一般都是utf8</p>
+<p>------</p>
+<p>- **str和unicode对象的转换，通过encode和decode实现**</p>
 <p>str对象,存储 bytes，它仅仅是一个字节流，没有其它的含义，如果你想使这个字节流显示的内容有意义，就必须用正确的编码格式，解码显示</p>
-<p>如果你使用一个 “u” 前缀，那么你会有一个 “unicode” 对象，存储的是 code points ，在一个 unicode 字符串中，你可以使用反斜杠 u(u) 来插入任何的 unicode 代码点</p>
+<p>如果你使用一个 “u” 前缀，那么你会有一个 “unicode” 对象，存储的是 code points ，在一个 unicode 字符串中，你可以使用反斜杠 u\(u\) 来插入任何的 unicode 代码点</p>
 <p>Unicode 字符串会有一个 .encode 方法来产生 bytes , bytes 串会有一个 .decode 方法来产生 unicode 。每个方法中都有一个参数来表明你要操作的编码类型</p>
-<p><strong>decode方法是将一个str按照指定编码解析后转换为unicode，encode方法则是把一个unicode对象用指定编码表示并存储到一个str对象里</strong></p>
-<ul>
-<li><strong>字符串前加u如何理解：</strong></li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">两种字符串如何相互转换？字符串&apos;xxx&apos;虽然是ASCII编码，但也可以看成是UTF-8编码，而u&apos;xxx&apos;则只能是Unicode编码</span><br></pre></td></tr></table></figure>
-<ul>
-<li><strong>如何获得系统默认编码</strong></li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import sys</span><br><span class="line">print sys.getdefaultencoding()</span><br></pre></td></tr></table></figure>
-<ul>
-<li><strong>Python中用encoding声明的文件编码和文件的实际编码之间</strong></li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">关键是保持 编码和解码时用的编码类型一致</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt;x=u&quot;禅&quot;</span><br><span class="line">&gt;&gt;&gt;a=x.encode(&quot;utf-8&quot;)</span><br><span class="line">&gt;&gt;&gt;a</span><br><span class="line">&apos;\xe7\xa6\x85&apos;</span><br><span class="line">&gt;&gt;&gt;a.decode(&quot;gbk&quot;)</span><br><span class="line">出现错误，需用decode(&quot;utf-8&quot;)</span><br></pre></td></tr></table></figure>
-<ul>
-<li><strong>开头声明编码格式的解释</strong></li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1.如果没有此文件编码类型的声明，则python默认以ASCII编码去处理</span><br><span class="line"></span><br><span class="line">2.必须放在python文件的第一行或第二行</span><br><span class="line"></span><br><span class="line">3.程序会通过头部声明，解码初始化 u”字符串”，这样的unicode对象，所以头部声明和代码的存储格式要一致</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">str = u.encode(&apos;utf-8&apos;) </span><br><span class="line">#以utf-8编码对unicode对象进行编码</span><br><span class="line"></span><br><span class="line">u = str.decode(&apos;gb2312&apos;)</span><br><span class="line">#以gb2312编码对字符串str进行解码，以获取unicode</span><br></pre></td></tr></table></figure>
+<p>**decode方法是将一个str按照指定编码解析后转换为unicode，encode方法则是把一个unicode对象用指定编码表示并存储到一个str对象里**</p>
+<p>- **字符串前加u如何理解：**</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">两种字符串如何相互转换？字符串&apos;xxx&apos;虽然是ASCII编码，但也可以看成是UTF-8编码，而u&apos;xxx&apos;则只能是Unicode编码</span><br></pre></td></tr></table></figure></p>
+<p>- **如何获得系统默认编码**</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import sys</span><br><span class="line">print sys.getdefaultencoding()</span><br></pre></td></tr></table></figure></p>
+<p>- **Python中用encoding声明的文件编码和文件的实际编码之间**</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">关键是保持 编码和解码时用的编码类型一致</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt;x=u&quot;禅&quot;</span><br><span class="line">&gt;&gt;&gt;a=x.encode(&quot;utf-8&quot;)</span><br><span class="line">&gt;&gt;&gt;a</span><br><span class="line">&apos;\xe7\xa6\x85&apos;</span><br><span class="line">&gt;&gt;&gt;a.decode(&quot;gbk&quot;)</span><br><span class="line">出现错误，需用decode(&quot;utf-8&quot;)</span><br></pre></td></tr></table></figure></p>
+<p>- **开头声明编码格式的解释**</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1.如果没有此文件编码类型的声明，则python默认以ASCII编码去处理</span><br><span class="line"></span><br><span class="line">2.必须放在python文件的第一行或第二行</span><br><span class="line"></span><br><span class="line">3.程序会通过头部声明，解码初始化 u”字符串”，这样的unicode对象，所以头部声明和代码的存储格式要一致</span><br></pre></td></tr></table></figure></p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">str = u.encode(&apos;utf-8&apos;) </span><br><span class="line">#以utf-8编码对unicode对象进行编码</span><br><span class="line"></span><br><span class="line">u = str.decode(&apos;gb2312&apos;)</span><br><span class="line">#以gb2312编码对字符串str进行解码，以获取unicode</span><br></pre></td></tr></table></figure></p>
 <p>eg.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;su=u&apos;哈哈&apos;</span><br><span class="line">&gt;&gt;&gt;type(su)</span><br><span class="line">&lt;type &apos;unicode&apos;&gt;</span><br><span class="line">&gt;&gt;&gt;s_utf8=su.encode(&apos;utf-8&apos;)</span><br><span class="line">&gt;&gt;&gt;type(s_utf8)</span><br><span class="line">&lt;type &apos;str&apos;&gt;</span><br><span class="line">&gt;&gt;&gt;s_utf8</span><br><span class="line">&apos;\xe5\x93\x88\xe5\x93\x88&apos;</span><br></pre></td></tr></table></figure>
-<ul>
-<li><strong>当将一个unicode对象传给print时，在内部会将该unicode对象进行一次转换，转换成本地的默认编码</strong></li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;print s_utf8</span><br><span class="line">乱码显示</span><br><span class="line">&gt;&gt;&gt;print su</span><br><span class="line">哈哈</span><br><span class="line">&gt;&gt;&gt;s_gbk=su.encode(&apos;gbk&apos;)</span><br><span class="line">&gt;&gt;&gt;s_gbk</span><br><span class="line">&apos;\xb9\xfe\xb9\xfe&apos;</span><br><span class="line">&gt;&gt;&gt; print s_gbk</span><br><span class="line">哈哈</span><br></pre></td></tr></table></figure>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;su=u&apos;哈哈&apos;</span><br><span class="line">&gt;&gt;&gt;type(su)</span><br><span class="line">&lt;type &apos;unicode&apos;&gt;</span><br><span class="line">&gt;&gt;&gt;s_utf8=su.encode(&apos;utf-8&apos;)</span><br><span class="line">&gt;&gt;&gt;type(s_utf8)</span><br><span class="line">&lt;type &apos;str&apos;&gt;</span><br><span class="line">&gt;&gt;&gt;s_utf8</span><br><span class="line">&apos;\xe5\x93\x88\xe5\x93\x88&apos;</span><br></pre></td></tr></table></figure></p>
+<p>- **当将一个unicode对象传给print时，在内部会将该unicode对象进行一次转换，转换成本地的默认编码**</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;print s_utf8</span><br><span class="line">乱码显示</span><br><span class="line">&gt;&gt;&gt;print su</span><br><span class="line">哈哈</span><br><span class="line">&gt;&gt;&gt;s_gbk=su.encode(&apos;gbk&apos;)</span><br><span class="line">&gt;&gt;&gt;s_gbk</span><br><span class="line">&apos;\xb9\xfe\xb9\xfe&apos;</span><br><span class="line">&gt;&gt;&gt; print s_gbk</span><br><span class="line">哈哈</span><br></pre></td></tr></table></figure></p>
 
           
         
@@ -1168,7 +1105,7 @@ $$ J=J_0+\alpha\sum|w|</script><p>其中<script type="math/tex">J_0为原始的�
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="Marcus Blog">
     </span>
 
     
@@ -1230,44 +1167,83 @@ $$ J=J_0+\alpha\sum|w|</script><p>其中<script type="math/tex">J_0为原始的�
       
         
           
-            <h1 id="Numpy模块"><a href="#Numpy模块" class="headerlink" title="Numpy模块"></a>Numpy模块</h1><h3 id="array"><a href="#array" class="headerlink" title="array"></a>array</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">np.array() 创建N维数组对象，元素必须相同类型，每个数组都有一个shape和一个dyte</span><br><span class="line">**和列表最重要的区别，数组切片是原始数组的视图，即视图上的任何修改都会直接反映到源数组上，如果需要的是一份副本而非视图，即操作arr[:].copy()**</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">常用属性：</span><br><span class="line">np.nan；-np.inf；np.inf；</span><br><span class="line">np.arange()；np.ones()；np.mat() ；np.zeros((2,2))；np.eyes(4)</span><br><span class="line">np.reshape(-1,1) #转化为一列，-1代表自动计算行数</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">常用合并：</span><br><span class="line">np.vstack() #对array进行上下合并</span><br><span class="line">np.hstack() #对array进行横向合并</span><br><span class="line">np.r_[a,b,c] #类似pandas中的concat</span><br><span class="line">np.c_[a,b,c] #类似pandas中的merge</span><br><span class="line">np.column_stack()# 类似hstack，将每个元素作为一列</span><br><span class="line">np.concatenate([a,b],axis=1) # 对array进行合并,同hstack()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">np.sort(array, axis, kind, order) # 返回新数组</span><br><span class="line">np.diff() #数组相邻两个元素之间的差</span><br><span class="line">np.split() # 如果是一个整数，就用该数平均切分，如果是一个数组，为沿轴切分的位置</span><br><span class="line">np.repeat([,axis]) #将数组中的各个元素重复一定次数</span><br><span class="line">np.tile() #堆叠数组副本</span><br><span class="line">a[:, np.newaxis] # 给a最外层中括号中的每一个元素加[]</span><br><span class="line">a[newaxis, :] # 给a最外层中括号中所有元素加[]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">随机取数：</span><br><span class="line">np.linspace(0,10,50)</span><br><span class="line">#返回50个均匀分布的样本，在[0, 10]之间</span><br><span class="line"></span><br><span class="line">numpy.random.randn(d0, d1, ..., dn)</span><br><span class="line">#是从标准正态分布中返回一个或多个样本值，dn指维数</span><br><span class="line"></span><br><span class="line">numpy.random.rand(d0, d1, …, dn)</span><br><span class="line">#随机样本位于[0, 1)中 ，dn指维数</span><br><span class="line"></span><br><span class="line">numpy.random.randint(low,high=None,size)</span><br><span class="line">#生成在[low,high) 之间均匀分布的样本，若high为none，区间为[0，low)</span><br><span class="line"></span><br><span class="line">np.random.normal(mean,stdev,size)</span><br><span class="line">#均值为mean，标准差为stdev，返回size个高斯随机数</span><br><span class="line"></span><br><span class="line">numpy.random.choice(a, size=None, replace=True, p=None)</span><br><span class="line">从a中随机选取size个数量，replace为True时，采样会重复</span><br></pre></td></tr></table></figure>
-<h3 id="集合运算"><a href="#集合运算" class="headerlink" title="集合运算"></a>集合运算</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">intersect1d(x,y) 返回x、y公共元素</span><br><span class="line">union1d(x,y)  返回x、y并集</span><br><span class="line">in1d(x,y)  返回x元素是否在y中</span><br><span class="line">setdiff1d(x,y) 集合差，含于x，不含y</span><br><span class="line">setxor1d(x,y) x、y中非并集的元素</span><br></pre></td></tr></table></figure>
-<h3 id="索引运算"><a href="#索引运算" class="headerlink" title="索引运算"></a>索引运算</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">names[names==&apos;a&apos;]</span><br><span class="line">data=np.random.randn(2,4)</span><br><span class="line">data[data&lt;0]=0</span><br><span class="line">arr[2,0] 与 arr[2][0] 等价</span><br><span class="line">np.where(conditions,x,y) # 条件判断</span><br><span class="line">np.where(conditions) # 返回输入数组中满足给定条件的元素的索引</span><br></pre></td></tr></table></figure>
-<h3 id="函数运算"><a href="#函数运算" class="headerlink" title="函数运算"></a>函数运算</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">import numpy.linalg</span><br><span class="line">diag() #返回方阵的对角线元素，或将一维数组转换为方阵</span><br><span class="line">dot() #秩为1的数组，执行对应位置相乘，然后再相加,秩不为1的二维数组，执行矩阵乘法运算</span><br><span class="line">星号（*）乘法运算 # 对数组执行对应位置相乘,对矩阵执行矩阵乘法运算</span><br><span class="line">norm() #求范数，默认为L2范数</span><br><span class="line">multiply() #对应元素位置相乘</span><br><span class="line">trace() #计算对角线元素和</span><br><span class="line">det() #计算矩阵行列式</span><br><span class="line">eig() #计算特征值和特征向量</span><br><span class="line">inv() #计算方阵的逆</span><br><span class="line">qr() #计算QR分解</span><br><span class="line">svd() #计算奇异值分解</span><br><span class="line">solve() #解线性方程组Ax=b</span><br><span class="line">lstsq() #计算Ax=b的最小二乘解</span><br><span class="line"></span><br><span class="line">np.dot() # 矩阵乘法，计算矩阵内积</span><br></pre></td></tr></table></figure>
-<h1 id="Pandas模块"><a href="#Pandas模块" class="headerlink" title="Pandas模块"></a>Pandas模块</h1><h3 id="Series"><a href="#Series" class="headerlink" title="Series"></a>Series</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">import pandas as pd</span><br><span class="line">delq = pd.Series([1,0,2,3,0])</span><br><span class="line">delq = pd.Series([1,0,2,3,0],index=[&apos;a&apos;,&apos;b&apos;,&apos;c&apos;,&apos;d&apos;])</span><br><span class="line">delq.reindex([&apos;b&apos;,&apos;a&apos;,&apos;d&apos;,&apos;c&apos;],fill_value=0)</span><br><span class="line">delq =pd.Series(&#123;&apos;a&apos;:1,&apos;b&apos;:0,&apos;c&apos;:2,&apos;d&apos;:3,&apos;e&apos;:0&#125;)</span><br><span class="line">print delq.values</span><br><span class="line">print delq.index</span><br><span class="line">print delq.dtypes</span><br><span class="line">print delq.get_dtype_counts()</span><br><span class="line">print delq.index.tolist()</span><br><span class="line">print delq[2]</span><br><span class="line">print delq[delq!=0]</span><br></pre></td></tr></table></figure>
-<h3 id="DataFrame"><a href="#DataFrame" class="headerlink" title="DataFrame"></a>DataFrame</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">一个表格型的数据结构。它提供有序的列和不同类型的列值,运算时，会自动对齐行和列，没有重叠引入NaN值</span><br><span class="line">DataFrame的列获取为Series</span><br><span class="line">spend = pd.read_csv(&apos;spend.csv&apos;,header = 0)</span><br><span class="line">spend.head()</span><br><span class="line">spend.info()</span><br><span class="line">spend.describe()</span><br><span class="line">spend.select_dtypes(include,exclude)</span><br><span class="line">spend._get_numeric_data() #drop non-numeric cols</span><br><span class="line">spend = pd.DataFrame(&#123;&apos;a&apos;:list(range(10)),&apos;b&apos;:list(range(20,10,-1))&#125;)</span><br><span class="line">pd.DataFrame.from_dict(data[,orient=&apos;index&apos;]) 字典转化为dataframe</span><br><span class="line">spend=pd.DataFrame(np.random.randn(4,3),columns=[&apos;one&apos;,&apos;two&apos;,&apos;three&apos;],index=[&apos;a&apos;,&apos;b&apos;,&apos;c&apos;,&apos;d&apos;])</span><br><span class="line">spend[&apos;one&apos;][&apos;a&apos;]=spend.loc[&apos;a&apos;,&apos;one&apos;]=spend.loc[&apos;a&apos;][&apos;one&apos;]</span><br><span class="line">spend.loc[:,&apos;one&apos;]=spend[&apos;one&apos;]</span><br><span class="line">spend.loc[&apos;a&apos;]=spend.loc[&apos;a&apos;,:]</span><br><span class="line">spend[(spend&gt;n).all(1)] 全部符合条件的行</span><br><span class="line">spend[(spend&gt;n).all(0)] 全部符合条件的列</span><br></pre></td></tr></table></figure>
-<h3 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">spend.iloc[3]</span><br><span class="line">#选取第3条记录</span><br><span class="line">spend.ix[3]</span><br><span class="line">#ix可以通过行号和行标签进行索引，而iloc只能通过行号索引,loc只通过行标签索引</span><br><span class="line">spend[(spend.a&gt;5)&amp;(spend.b&lt;=15)]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">spend.index.is_unique</span><br><span class="line"># 判断索引是否有重复值</span><br><span class="line"></span><br><span class="line">spend.replace(1,&apos;one&apos;)</span><br><span class="line">#用‘one’代替所有等于1的值</span><br><span class="line">spend.replace([1,3],[&apos;one&apos;,&apos;three&apos;])</span><br><span class="line">#用&apos;one&apos;代替1，用&apos;three&apos;代替3</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">spend.rename(columns=&#123;&apos;old_name&apos;: &apos;new_ name&apos;&#125;)</span><br><span class="line">#选择性更改列名</span><br><span class="line">spend.rename(index=lambda x: x + 1)</span><br><span class="line">#批量重命名索引</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">spend.set_index(&apos;column_one&apos;)</span><br><span class="line">#将某列设为索引</span><br><span class="line">spend.reset_index(drop=True,name=)</span><br><span class="line">#重新设定索引列，删除原索引列</span><br><span class="line">spend.reindex(index=[],columns=[],method=&apos;ffill&apos;)</span><br><span class="line">spend.reindex(spend.index.difference([]))</span><br><span class="line"># 重构索引</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">spend.drop(index=[])</span><br><span class="line">spend.drop_duplicates(subset=None, keep=&apos;first&apos;, inplace=False)</span><br><span class="line">#去除特定列下面的重复行</span><br><span class="line"></span><br><span class="line">spend.drop(column_name,axis=1)</span><br><span class="line">#Use axis=1（跨列） to apply a method across each row, or to the column labels.</span><br><span class="line">#Use axis=0（跨行）to apply a method down each column, or to the row labels (the index).</span><br></pre></td></tr></table></figure>
-<h3 id="函数应用"><a href="#函数应用" class="headerlink" title="函数应用"></a>函数应用</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line">spend.sum(axis=1,skipna=False)</span><br><span class="line">spend.mode() 众数</span><br><span class="line">spend[col].unique() </span><br><span class="line">spend.nunique() 获取去重值</span><br><span class="line">spend.idxmax() 获取最大值的索引值</span><br><span class="line">spend.cumsum() 每一列的累加和</span><br><span class="line">spend.insert(loc,col,value) 插入列</span><br><span class="line">spend[col].value_counts() 返回各值频率</span><br><span class="line">spend.apply(pd.Series.value_counts) 查看DataFrame对象中每一列的唯一值和计数</span><br><span class="line"></span><br><span class="line">cut将根据值本身来选择箱子均匀间隔，qcut是根据这些值的频率来选择箱子的均匀间隔</span><br><span class="line">pd.qcut(spend,n,labels=[])</span><br><span class="line">pd.cut(spend,n,labels=[])</span><br><span class="line"></span><br><span class="line">transform同一时间在一个Series上进行一次转换，返回与 group相同的单个维度的序列</span><br><span class="line">spend.transform(&#123;col1: func, col2: func&#125;)</span><br><span class="line"></span><br><span class="line">col前n个最大小值</span><br><span class="line">spend.nlargest(n, col)</span><br><span class="line">spend.nsmallest(n, col)</span><br><span class="line"></span><br><span class="line">apply函数：让函数作用在dataframe某一维的向量</span><br><span class="line">spend[‘a’].apply(lambda x: x+1)</span><br><span class="line">spend.iloc[3].apply(lambda x: x+1)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">applymap函数：让函数作用在dataframe的每一个元素上</span><br><span class="line">spend.applymap(lambda x: x+1)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">spend.groupby([col1,col2])：返回一个按多列进行分组的Groupby对象</span><br><span class="line">spend.groupby(col1，group_keys=False)[col2].agg([&apos;mean&apos;,&apos;sum&apos;])</span><br><span class="line"># 返回按列col1分组的所有列的均值,和.group_keys 禁止分组的键</span><br><span class="line"></span><br><span class="line">spend.groupby(col1).apply(np.mean)</span><br><span class="line"># apply应用各列，agg仅作用于指定的列,agg可以传入多个函数</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">spend.pivot_table(index=col1, values=[col2,col3], aggfunc=max)</span><br><span class="line">#创建一个按列col1进行分组，并计算col2和col3的最大值的数据透视表</span><br><span class="line"></span><br><span class="line">pd.get_dummies(data, prefix=None, prefix_sep=&apos;_&apos;, dummy_na=False, columns=None, sparse=False, drop_first=False)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">from patsy import dmatrices</span><br><span class="line">#构建线性模型矩阵</span><br><span class="line">y, X = patsy.dmatrices(&apos;y ~ x0 + x1&apos;, data，return_type=&apos;dataframe&apos;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">spend.corr()</span><br><span class="line">spend.corrwith(data.X)</span><br><span class="line"># 变量间的相关系数，和某个确定变量的相关系数</span><br><span class="line"></span><br><span class="line">spend.melt(id_vars=None, value_vars=None, var_name=None, value_name=&apos;value&apos;, col_level=None)</span><br><span class="line"># 透视操作，id_vars是指普通列的列名，value_vars是指那些需要转换的列名，转化为variable和value列</span><br><span class="line"></span><br><span class="line">spend.stack(self, level=-1, dropna=True)</span><br><span class="line">#行头变为列头,参数level指向行索引值，或行索引名称</span><br><span class="line"></span><br><span class="line">spend.unstack(self, level=-1, fill_value=None)</span><br><span class="line">#unstack，可使得列头变为行头，参数level指向列索引值，或列索引名称</span><br></pre></td></tr></table></figure>
-<h3 id="排序和合并"><a href="#排序和合并" class="headerlink" title="排序和合并"></a>排序和合并</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">spend.sort_index([axis=1],[ascending=False],[by=column_name])</span><br><span class="line"></span><br><span class="line">spend.sort_values(by = column_name,[ascending = True],[na_position=&apos;first&apos;])</span><br><span class="line"></span><br><span class="line">pd.merge(df1,df2,how=[inner,outer,left,right],left_on=&apos;&apos;,right_on=&apos;&apos;,on=[key1,key2],left_index=false,right_index=false)</span><br><span class="line"></span><br><span class="line">pd.concat([s1,s2,s3],axis=，ignore_index=True)</span><br><span class="line">ignore_index 产生新的索引</span><br></pre></td></tr></table></figure>
-<h3 id="缺失值处理"><a href="#缺失值处理" class="headerlink" title="缺失值处理"></a>缺失值处理</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">pandas默认使用NaN表示缺失数据；</span><br><span class="line">dropna默认丢弃任何含有缺失值的行；</span><br><span class="line">dropna(how=&apos;all&apos;)只丢弃全为NA的行</span><br><span class="line">fillna(,[inplace=True])替换缺失值,inplace为true直接修改原对象</span><br><span class="line">fillna(&#123;1:0.5,3:-1&#125;)</span><br><span class="line">isnull() 返回一个布尔值对象，该对象类型与源类型一样</span><br></pre></td></tr></table></figure>
-<h1 id="Scikit-learn-模块"><a href="#Scikit-learn-模块" class="headerlink" title="Scikit-learn 模块"></a>Scikit-learn 模块</h1><p>Scikit-learn的基本功能主要被分为六大部分：分类，回归，聚类，数据降维，模型选择和数据预处理</p>
-<h3 id="datasets"><a href="#datasets" class="headerlink" title="datasets"></a>datasets</h3><p>调用自带数据库中的数据<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. datasets.load_*()</span><br><span class="line">2. datasets.fetch_*()</span><br><span class="line">3. datasets.make_*()</span><br></pre></td></tr></table></figure></p>
-<p>datasets获取对象的属性：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">data:数据集</span><br><span class="line">target：数据对应的类标记</span><br><span class="line">target_name:类标记对应的名字</span><br><span class="line">DESCR:数据集的描述信息</span><br></pre></td></tr></table></figure></p>
-<h3 id="preprocessing"><a href="#preprocessing" class="headerlink" title="preprocessing"></a>preprocessing</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">preprocessing.scale()</span><br><span class="line"></span><br><span class="line">preprocessing.StandardScaler().fit_transform()</span><br><span class="line">将数据都聚集在均值0附近，方差值为1。</span><br><span class="line"></span><br><span class="line">preprocessing.MinMaxScaler().fit_transform()</span><br><span class="line">将数据矩阵缩放到``[0, 1]``，对于方差非常小的属性可以增强其稳定性；可以维持稀疏矩阵中为0的条目</span><br><span class="line"></span><br><span class="line">preprocessing.MaxAbsScaler.fit_transform()</span><br><span class="line">将数据矩阵缩放到``[-1, 1]``</span><br><span class="line"></span><br><span class="line">preprocessing.normalize((X, norm=&apos;l2&apos;))</span><br><span class="line">归一化的过程是将每个样本缩放到单位范数，使用L1或L2范数，主要思想是对每个样本计算范数，然后对该样本中每个元素除以该范数，这样处理的结果是使得每个处理后样本的范数等于1</span><br><span class="line"></span><br><span class="line">preprocessing.Binarizer().fit_transform(X)</span><br><span class="line">特征二值化，默认阈值为0，大于阈值的分类1，小于阈值的分类0</span><br><span class="line"></span><br><span class="line">preprocessing.Imputer(missing_values=&apos;NaN&apos;, strategy=&apos;mean&apos;, axis=0).fit()</span><br><span class="line">缺失值插补</span><br><span class="line"></span><br><span class="line">preprocessing.RobustScaler()</span><br><span class="line">根据第1个四分位数和第3个四分位数之间的范围来缩放数据</span><br></pre></td></tr></table></figure>
-<h5 id="二值化编码"><a href="#二值化编码" class="headerlink" title="二值化编码"></a>二值化编码</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">OneHotEncoder(n_values=None, categorical_features=None, categories=None, sparse=True, dtype=&lt;class ‘numpy.float64’&gt;, handle_unknown=’error’)</span><br><span class="line">无法对文本编码，且输入必须是二维</span><br><span class="line">sparse：若为True时，返回稀疏矩阵，否则返回数组</span><br><span class="line">categorical_features：若为all，代表所有的特征都被视为分类特征</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">LabelEncoder(), </span><br><span class="line">对不连续的数值或文本进行编码，且输入必须为一维</span><br></pre></td></tr></table></figure>
-<h3 id="feature-selection"><a href="#feature-selection" class="headerlink" title="feature_selection"></a>feature_selection</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">VarianceThreshold(threshold)</span><br><span class="line">通过特征的方差来提取特征，默认方差为0的特征会自动删除</span><br><span class="line"></span><br><span class="line">SelectKBest(score_func, k=10)</span><br><span class="line">from minepy import MINE</span><br><span class="line">from sklearn.feature_selection import chi2</span><br><span class="line">from scipy.stats import pearsonr</span><br><span class="line">scores按升序排序，选择排前k名所对应的特征,</span><br><span class="line">score_func 通常结合 卡方检验chi2，Pearson相关系数 pearsonr,最大信息系数 MINE</span><br></pre></td></tr></table></figure>
-<h3 id="model-selection"><a href="#model-selection" class="headerlink" title="model_selection"></a>model_selection</h3><p>主要提供交叉验证和结果评估的工具</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">train_test_split(*array,test_size=0.25,train_size=None,random_state=None,shuffle=True,stratify=None)</span><br><span class="line"># 返回切分的数据集,默认test_size将被设置为0.25，train_size将被设置为0.75，stratify按比例抽取训练集和测试集，random_state不同值获取到不同的数据集</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">cross_val_score(estimator,raw_data,raw_target,cv,scoring)</span><br><span class="line"># 返回train/test数据集上的每折得分,estimator为分类器，raw_data为原数据，raw_target为原数据类别，cv默认为3折验证,scoring为评分算法</span><br><span class="line"></span><br><span class="line">GridSearchCV(estimator, param_grid, scoring=None, fit_params=None, refit=True, cv=’warn’)</span><br><span class="line">#自动调参，只要把参数输进去，就能给出最优化的结果和参数。但是这个方法适合于小数据集，可能会调到局部最优而不是全局最优</span><br><span class="line">param_grid：值为字典或者列表，即需要最优化的参数的取值</span><br><span class="line">score：评价标准，默认None,如scoring=&apos;roc_auc&apos;</span><br><span class="line">refit搜索参数结束后，用最佳参数结果再次fit一遍全部数据集</span><br><span class="line">grid.fit()：运行网格搜索</span><br><span class="line">grid_scores_：给出不同参数情况下的评价结果</span><br><span class="line">best_params_：描述了已取得最佳结果的参数的组合</span><br><span class="line">best_score_：成员提供优化过程期间观察到的最好的评分</span><br></pre></td></tr></table></figure>
-<h5 id="k折交叉划分"><a href="#k折交叉划分" class="headerlink" title="k折交叉划分"></a>k折交叉划分</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">kf=KFold(n_splits=3, shuffle=False, random_state=None)</span><br><span class="line">for train_index,test_index in kf.split():</span><br><span class="line"># 将数据集m划分n_splits个不相交子集，每个子集有m/n_splits个训练样例，每次使用k-1个子集作为训练数据，用1个子集作为测试数据，训练k次。最终的结果是这k次测试结果的均值。返回数据集index</span><br><span class="line"></span><br><span class="line">StratifiedKFold用法类似Kfold，但是他是分层采样，确保训练集，测试集中各类别样本的比例与原始数据集中相同</span><br><span class="line">LabelKFold与StratifiedKFold用法相反</span><br></pre></td></tr></table></figure>
-<h5 id="随机划分法"><a href="#随机划分法" class="headerlink" title="随机划分法"></a>随机划分法</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ShuffleSplit()</span><br><span class="line"># 首先对样本全体随机打乱，然后再划分出train/tes对，比KFold交叉更好的控制train/test比例</span><br><span class="line"></span><br><span class="line">ss=StratifiedShuffleSplit(n_splits=10,test_size=None,train_size=None, random_state=None)</span><br><span class="line">for train_index, test_index in ss.split(X, y):</span><br><span class="line"># n_splits是将训练数据分成train/test对的组数，StratifiedShuffleSplit是ShuffleSplit的一个变体，返回分层划分</span><br></pre></td></tr></table></figure>
-<h3 id="metrics"><a href="#metrics" class="headerlink" title="metrics"></a>metrics</h3><p>用于评估方法中，衡量 分类器性能</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">accuracy_score(y_true,y_pred) 计算 accuracy</span><br><span class="line"></span><br><span class="line">二分类指标：</span><br><span class="line">precision_recall_curve（y_true,y_score）</span><br><span class="line">fpr,tpr,thresholds=roc_curve(y_true, y_score)</span><br><span class="line">y_score 表示每个测试样本属于正样本的概率，从高到低，依次将“Score”值作为阈值threshold，当测试样本属于正样本的概率大于或等于这个threshold时，我们认为它为正样本，否则为负样本，每次选取一个不同的threshold，我们就可以得到一组FPR和TPR，即ROC曲线上的一点</span><br><span class="line"></span><br><span class="line">roc_auc_score(y_true, y_score, average=&apos;macro&apos;, sample_weight=None) 计算预测得分曲线下的面积</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">confusion_matrix(y_true, y_pred, labels=None, sample_weight=None) 输出为混淆矩阵</span><br></pre></td></tr></table></figure>
-<h3 id="linear-model"><a href="#linear-model" class="headerlink" title="linear_model"></a>linear_model</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">LogisticRegression(penalty,dual,C,solver,tol,max_iter)</span><br><span class="line">penalty为正则化范数，默认为L2范数；dual为对偶或者原始方法，通常样本数大于特征数的情况下，默认为False；C为正则化系数λ的倒数，默认为1，值越小，代表正则化越强；solver参数决定了我们对逻辑回归损失函数的优化方法;tol为迭代终止判据的误差范围；max_iter为算法收敛的最大迭代次数</span><br><span class="line"></span><br><span class="line">LogisticRegression().fit(X, y, sample_weight=None)</span><br><span class="line">LogisticRegression().predict(X)</span><br><span class="line">LogisticRegression().score(X，Y) 返回准确率</span><br><span class="line">LogisticRegression().predict_proba(X) 返回每个样本每种类别的概率</span><br></pre></td></tr></table></figure>
-<h3 id="tree"><a href="#tree" class="headerlink" title="tree"></a>tree</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">DecisionTreeClassifier(criterion=&apos;gini&apos;, splitter=&apos;best&apos;, max_depth=None, min_samples_split=2,min_samples_leaf =1, min_weight_fraction_leaf=0.0, max_features=None, random_state=None, max_leaf_nodes=None,class_weight=None, presort=False)</span><br><span class="line">CART分类回归树算法</span><br><span class="line">tree= DecisionTreeClassifier() 建立决策树模型</span><br><span class="line">tree.fit(X,Y) 构建实例</span><br><span class="line">tree.predict() 预测分类</span><br><span class="line">tree.predict_proba(X) 返回每个样本每种类别的概率</span><br></pre></td></tr></table></figure>
-<h3 id="cluster"><a href="#cluster" class="headerlink" title="cluster"></a>cluster</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">estimator=KMeans(n_clusters,n_init=10,max_iter)</span><br><span class="line">n_cluster为簇的个数，n_init为获取初始簇质心迭代的次数，max_iter为最大迭代次数</span><br><span class="line"></span><br><span class="line">estimator.fit() 构建实例</span><br><span class="line">estimator.labels 获取聚类标签</span><br><span class="line">estimator.cluster_centers 获取聚类中心</span><br></pre></td></tr></table></figure>
-<h3 id="ensemble"><a href="#ensemble" class="headerlink" title="ensemble"></a>ensemble</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">RandomForestClassifier(n_estimators,)</span><br><span class="line">n_estimators 决策树的个数，控制模型复杂度，bosstrap 是否有放回，oob_score 没有被boostrap选取的数据是否做验证，max_features 控制选取多少特征量，常用值为\sqrt&#123;n&#125;和log2(n) ,max_depth 控制子树的深度，min_samples_split控制内部节点再划分所需最小样本数，若节点样本数小于值，则不进行划分，min_samples_leaf 控制控制叶子节点最少样本数，若小于值，则和兄弟节点一起被剪枝</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">IsolationForest(n_estimators=100, max_samples=’auto’, contamination=0.1, max_features=1.0, bootstrap=False, n_jobs=1, random_state=None, verbose=0)</span><br><span class="line">max_samples默认采样数据256条样本</span><br><span class="line">contamination设置样本中异常点的比例</span><br><span class="line">fit(X)</span><br><span class="line">pretict(X) 返回1表示非异常值，-1为异常值</span><br><span class="line">decision_function(X) 返回样本的异常评分，值越小表示越有可能是异常样本</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">VotingClassifier(estimators=[(&apos;xgb&apos;, clf1), (&apos;rf&apos;, clf2), (&apos;svc&apos;, clf3)], voting=[&apos;hard&apos;,&apos;soft&apos;],weight=)</span><br><span class="line">针对分类问题的一种结合策略。基本思想是选择所有机器学习算法当中输出最多的那个类</span><br><span class="line">hard vote 硬投票是选择算法输出最多的标签，软投票是使用各个算法输出的类概率来进行类的选择，输入权重的话，会得到每个类的类概率的加权平均值</span><br></pre></td></tr></table></figure>
-<h3 id="neighbors"><a href="#neighbors" class="headerlink" title="neighbors"></a>neighbors</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">KNeighborsClassifier(n_neighbors=5, weights=’uniform’, algorithm=’auto’, leaf_size=30, p=2, metric=’minkowski’, metric_params=None, n_jobs=None, **kwargs)</span><br><span class="line">KNN近邻分类，algorithm有三种，brute’对应第一种蛮力实现，‘kd_tree’对应第二种KD树实现，‘ball_tree’对应第三种的球树实现， ‘auto’则会在上面三种算法中做权衡，选择一个拟合最好的最优算法</span><br></pre></td></tr></table></figure>
-<h3 id="SVM"><a href="#SVM" class="headerlink" title="SVM"></a>SVM</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">LinearSVC(penalty=&apos;l2&apos;, loss=&apos;squared_hinge&apos;, dual=True, tol=0.0001, C=1.0, multi_class=&apos;ovr&apos;, fit_intercept=True, intercept_scaling=1, class_weight=None, verbose=0, random_state=None, max_iter=1000)</span><br><span class="line">LinearSVC是线性分类，不支持各种低维到高维的核函数，仅仅支持线性核函数，对线性不可分的数据不能使用</span><br><span class="line"></span><br><span class="line">NuSVC(nu=0.5, kernel=&apos;rbf&apos;, degree=3, gamma=&apos;auto&apos;, coef0=0.0, shrinking=True, probability=False, tol=0.001, cache_size=200, class_weight=None, verbose=False, max_iter=-1, decision_function_shape=&apos;ovr&apos;, random_state=None)</span><br><span class="line"></span><br><span class="line">SVC(C=1.0, kernel=&apos;rbf&apos;, degree=3, gamma=&apos;auto&apos;, coef0=0.0, shrinking=True, probability=False, tol=0.001, cache_size=200, class_weight=None, verbose=False, max_iter=-1, decision_function_shape=&apos;ovr&apos;, random_state=None)</span><br><span class="line"></span><br><span class="line">OneClassSVM(kernel=’rbf’, degree=3, gamma=’auto’, coef0=0.0, tol=0.001, nu=0.5, shrinking=True, cache_size=200, verbose=False, max_iter=-1, random_state=None)</span><br><span class="line">pretict(X) 返回1表示非异常值，-1为异常值</span><br></pre></td></tr></table></figure>
-<h3 id="decomposition"><a href="#decomposition" class="headerlink" title="decomposition"></a>decomposition</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">PCA(n_components=None, copy=True, whiten=False)</span><br><span class="line">n_components:所要保留的主成分个数n</span><br></pre></td></tr></table></figure>
-<h3 id="manifold"><a href="#manifold" class="headerlink" title="manifold"></a>manifold</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">TSNE(n_components=2, perplexity=30.0, early_exaggeration=12.0, learning_rate=200.0, n_iter=1000, n_iter_without_progress=300, min_grad_norm=1e-07, metric=’euclidean’, init=’random’, verbose=0, random_state=None, method=’barnes_hut’, angle=0.5)</span><br><span class="line">n_components:嵌入空间的维度</span><br></pre></td></tr></table></figure>
-<h3 id="pipeline"><a href="#pipeline" class="headerlink" title="pipeline"></a>pipeline</h3><p>管道机制实现了对全部步骤的流式化封装和管理</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Pipeline([(&apos;sc&apos;, StandardScaler()), (&apos;pca&apos;, PCA(n_components=2)),(&apos;clf&apos;, LogisticRegression(random_state=1))])</span><br><span class="line"></span><br><span class="line">make_pipeline(StandardScaler()，PCA(n_components=2)，LogisticRegression(random_state=1))</span><br><span class="line">pipline的简写</span><br></pre></td></tr></table></figure>
-<h1 id="imblearn模块"><a href="#imblearn模块" class="headerlink" title="imblearn模块"></a>imblearn模块</h1><p>不平衡数据处理包</p>
-<h3 id="Over-sampling"><a href="#Over-sampling" class="headerlink" title="Over_sampling"></a>Over_sampling</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">RandomOverSampler(sampling_strategy=&apos;auto&apos;, return_indices=False, random_state=None, ratio=None)</span><br><span class="line">ros=RandomOverSampler()</span><br><span class="line">X_re,y_re=ros.fit_sample(X, y)</span><br><span class="line"></span><br><span class="line">SMOTE(sampling_strategy=&apos;auto&apos;, random_state=None, k_neighbors=5, m_neighbors=&apos;deprecated&apos;, out_step=&apos;deprecated&apos;, kind=&apos;deprecated&apos;, svm_estimator=&apos;deprecated&apos;, n_jobs=1, ratio=None)</span><br><span class="line">kind调参&#123;&apos;regular&apos;, &apos;borderline1&apos;, &apos;borderline2&apos;, &apos;svm&apos;&#125;调参判别k近邻的样本是否属于同类样本</span><br></pre></td></tr></table></figure>
-<h3 id="Under-sampling"><a href="#Under-sampling" class="headerlink" title="Under_sampling"></a>Under_sampling</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">RandomUnderSampler(sampling_strategy=&apos;auto&apos;, return_indices=False, random_state=None, replacement=False, ratio=None)</span><br><span class="line"></span><br><span class="line">NearMiss(sampling_strategy=&apos;auto&apos;, return_indices=False, random_state=None, version=1, n_neighbors=3, n_neighbors_ver3=3, n_jobs=1, ratio=None)</span><br><span class="line">version调参&#123;1，2，3&#125;调参判别K近邻样本选取</span><br></pre></td></tr></table></figure>
-<h3 id="ensemble-1"><a href="#ensemble-1" class="headerlink" title="ensemble"></a>ensemble</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">EasyEnsembleClassifier(n_estimators=10, base_estimator=None, warm_start=False, sampling_strategy=&apos;auto&apos;, replacement=False, n_jobs=1, random_state=None, verbose=0)</span><br><span class="line">从多数类中抽样出和少数类数目差不多的样本，然后和少数类样本组合作为训练集。在这个训练集上学习一个adaboost分类器</span><br></pre></td></tr></table></figure>
-<h1 id="xgboost-模块"><a href="#xgboost-模块" class="headerlink" title="xgboost 模块"></a>xgboost 模块</h1><h3 id="sklearn-XGBClassifier"><a href="#sklearn-XGBClassifier" class="headerlink" title="sklearn.XGBClassifier"></a>sklearn.XGBClassifier</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line">from xgboost.sklearn import XGBClassifier</span><br><span class="line"></span><br><span class="line">XGBClassifier(learning_rate=0.1,n_estimators=1000,max_depth=5,min_child_weight=1,gamma=0,subsample=0.8,colsample_bytree=0.8,objective=&apos;binary:logistic&apos;,nthread=4,scale_pos_weight=1,seed=27,reg_alpha=0, reg_lambda=1, colsample_bylevel=1)</span><br><span class="line"></span><br><span class="line">基本参数调优（learning_rate,n_estimators）</span><br><span class="line">决策树特定参数调优(max_depth, min_child_weight, gamma, subsample, colsample_bytree)</span><br><span class="line">正则化参数的调优(lambda, alpha)</span><br><span class="line"></span><br><span class="line">参数：booster：指定了用哪一种基模型。可以为：&apos;gbtree&apos;,&apos;gblinear&apos;,&apos;dart&apos;</span><br><span class="line">	gamma：最小划分损失min_split_loss。即对于一个叶子节点，当对它采取划分之后，损失函数的降低值的阈值。</span><br><span class="line">	max_depth:树的深度，默认值为6</span><br><span class="line">	min_child_weight： 一个整数，子节点的权重阈值。对于树模型（booster=gbtree,dart），权重就是：叶子节点包含样本的所有二阶偏导数之和。</span><br><span class="line">	subsample：一个浮点数，对训练样本的采样比例。默认值为 1 。如果为0.5，表示随机使用一半的训练样本来训练子树</span><br><span class="line">	colsample_bytree： 一个浮点数，构建子树时，对特征的采样比例。默认值为 1。</span><br><span class="line">	colsample_bylevel： 一个浮点数，寻找划分点时，对特征的采样比例。 默认值为 1。</span><br><span class="line">	reg_alpha： L1 正则化系数</span><br><span class="line">	reg_lambda： L2 正则化系数</span><br><span class="line">	scale_pos_weight： 用于调整正负样本的权重，常用于类别不平衡的分类问题。默认为 1。</span><br><span class="line">	</span><br><span class="line">&gt;&gt; objective </span><br><span class="line">回归任务</span><br><span class="line">reg:linear (默认)</span><br><span class="line">reg:logistic </span><br><span class="line">二分类</span><br><span class="line">binary:logistic     概率 </span><br><span class="line">binary：logitraw   类别</span><br><span class="line">多分类</span><br><span class="line">multi：softmax  num_class=n   返回类别</span><br><span class="line">multi：softprob   num_class=n  返回概率</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line"></span><br><span class="line">fit(X, y, sample_weight=None, eval_set=None, eval_metric=None,</span><br><span class="line">    early_stopping_rounds=None,verbose=True, xgb_model=None)</span><br><span class="line"></span><br><span class="line">参数：sample_weight： 一个序列，给出了每个样本的权重</span><br><span class="line">	eval_set： 一个列表，元素为(X,y)，给出了验证集及其标签</span><br><span class="line">	xgb_model：一个Booster实例，它给出了待训练的模型。</span><br><span class="line">	eval_metric： 一个字符串或者可调用对象，用于evaluation metric</span><br><span class="line">	early_stopping_rounds：在验证集上，当连续n次迭代，分数没有提高后，提前终止训练</span><br><span class="line"></span><br><span class="line">&gt;&gt; eval_metric</span><br><span class="line">回归任务(默认rmse) rmse--均方根误差;mae--平均绝对误差</span><br><span class="line">分类任务(默认error)</span><br><span class="line">auc--roc曲线下面积</span><br><span class="line">error--错误率（二分类）</span><br><span class="line">merror--错误率（多分类）</span><br><span class="line">logloss--负对数似然函数（二分类）</span><br><span class="line">mlogloss--负对数似然函数（多分类）</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">predict(data, output_margin=False, ntree_limit=0)</span><br><span class="line">参数：output_margin： 表示是否输出原始的、未经过转换的margin value</span><br><span class="line"></span><br><span class="line">predict_proba(data, output_margin=False, ntree_limit=0) ： 执行预测，预测的是各类别的概率</span><br><span class="line"></span><br><span class="line">evals_result()： 返回一个字典，给出了各个验证集在各个验证参数上的历史值</span><br></pre></td></tr></table></figure>
-<h3 id="Xgboost"><a href="#Xgboost" class="headerlink" title="Xgboost"></a>Xgboost</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">import xgboost </span><br><span class="line">xgboost.DMatrix(data, label=None, missing=None, weight=None, silent=False, feature_names=None, feature_types=None, nthread=None) </span><br><span class="line">无法识别object类型,需使用了sklearn.preprocessing中的LabelEncoder转化</span><br><span class="line">参数：label：一个序列，表示样本标记。，missing： 一个值，它是缺失值的默认值。，weight：一个序列，给出了数据集中每个样本的权重</span><br><span class="line">属性：feature_names： 返回每个特征的名字；feature_types： 返回每个特征的数据类型</span><br><span class="line">方法：.num_col()；.num_row()；.get_label();.get_weight()</span><br><span class="line"></span><br><span class="line">xgboost.train()： 使用给定的参数来训练一个booster</span><br><span class="line">xgboost.train(params, dtrain, num_boost_round=10, evals=(), obj=None, feval=None,</span><br><span class="line">   maximize=False, early_stopping_rounds=None, evals_result=None, verbose_eval=True,</span><br><span class="line">   xgb_model=None, callbacks=None, learning_rates=None)</span><br><span class="line">参数：dtrain：DMatrix对象，params： 键值对，num_boost_round： 表示boosting 迭代数量</span><br><span class="line">	evals： (DMatrix,string)验证集，以及验证集的名字，obj：表示自定义的目标函数</span><br><span class="line">	feval： 表示自定义的evaluation 函数，maximize： 如果为True，则表示是对feval 求最大值</span><br><span class="line">	learning_rates： 一个列表，给出了每个迭代步的学习率，</span><br><span class="line">	evals_result： 一个字典，它给出了对测试集要进行评估的指标</span><br><span class="line">	</span><br><span class="line">xgboost.cv()： 使用给定的参数执行交叉验证 </span><br><span class="line">xgboost.cv(params, dtrain, num_boost_round=10, nfold=3, stratified=False, folds=None,</span><br><span class="line">     metrics=(), obj=None, feval=None, maximize=False, early_stopping_rounds=None,</span><br><span class="line">     fpreproc=None, as_pandas=True, verbose_eval=None, show_stdv=True, seed=0,</span><br><span class="line">     callbacks=None, shuffle=True)</span><br><span class="line">     参数：nfold： 表示交叉验证的fold 的数量，stratified： 如果为True，则执行分层采样</span><br><span class="line">     	folds： 一个scikit-learn 的 KFold 实例或者StratifiedKFold 实例</span><br><span class="line">     	shuffle： 如果为True，则创建folds 之前先混洗数据</span><br><span class="line">     	as_pandas： 如果为True，则返回DataFrame；否则返回ndarray</span><br></pre></td></tr></table></figure>
+            <p># Numpy模块
+### array</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">np.array() 创建N维数组对象，元素必须相同类型，每个数组都有一个shape和一个dyte</span><br><span class="line">**和列表最重要的区别，数组切片是原始数组的视图，即视图上的任何修改都会直接反映到源数组上，如果需要的是一份副本而非视图，即操作arr[:].copy()**</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">常用属性：</span><br><span class="line">np.nan；-np.inf；np.inf；</span><br><span class="line">np.arange()；np.ones()；np.mat() ；np.zeros((2,2))；np.eyes(4)</span><br><span class="line">np.reshape(-1,1) #转化为一列，-1代表自动计算行数</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">常用合并：</span><br><span class="line">np.vstack() #对array进行上下合并</span><br><span class="line">np.hstack() #对array进行横向合并</span><br><span class="line">np.r_[a,b,c] #类似pandas中的concat</span><br><span class="line">np.c_[a,b,c] #类似pandas中的merge</span><br><span class="line">np.column_stack()# 类似hstack，将每个元素作为一列</span><br><span class="line">np.concatenate([a,b],axis=1) # 对array进行合并,同hstack()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">np.sort(array, axis, kind, order) # 返回新数组</span><br><span class="line">np.diff() #数组相邻两个元素之间的差</span><br><span class="line">np.split() # 如果是一个整数，就用该数平均切分，如果是一个数组，为沿轴切分的位置</span><br><span class="line">np.repeat([,axis]) #将数组中的各个元素重复一定次数</span><br><span class="line">np.tile() #堆叠数组副本</span><br><span class="line">a[:, np.newaxis] # 给a最外层中括号中的每一个元素加[]</span><br><span class="line">a[newaxis, :] # 给a最外层中括号中所有元素加[]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">随机取数：</span><br><span class="line">np.linspace(0,10,50)</span><br><span class="line">#返回50个均匀分布的样本，在[0, 10]之间</span><br><span class="line"></span><br><span class="line">numpy.random.randn(d0, d1, ..., dn)</span><br><span class="line">#是从标准正态分布中返回一个或多个样本值，dn指维数</span><br><span class="line"></span><br><span class="line">numpy.random.rand(d0, d1, …, dn)</span><br><span class="line">#随机样本位于[0, 1)中 ，dn指维数</span><br><span class="line"></span><br><span class="line">numpy.random.randint(low,high=None,size)</span><br><span class="line">#生成在[low,high) 之间均匀分布的样本，若high为none，区间为[0，low)</span><br><span class="line"></span><br><span class="line">np.random.normal(mean,stdev,size)</span><br><span class="line">#均值为mean，标准差为stdev，返回size个高斯随机数</span><br><span class="line"></span><br><span class="line">numpy.random.choice(a, size=None, replace=True, p=None)</span><br><span class="line">从a中随机选取size个数量，replace为True时，采样会重复</span><br></pre></td></tr></table></figure></p>
+<p>### 集合运算</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">intersect1d(x,y) 返回x、y公共元素</span><br><span class="line">union1d(x,y)  返回x、y并集</span><br><span class="line">in1d(x,y)  返回x元素是否在y中</span><br><span class="line">setdiff1d(x,y) 集合差，含于x，不含y</span><br><span class="line">setxor1d(x,y) x、y中非并集的元素</span><br></pre></td></tr></table></figure></p>
+<p>### 索引运算
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">names[names==&apos;a&apos;]</span><br><span class="line">data=np.random.randn(2,4)</span><br><span class="line">data[data&lt;0]=0</span><br><span class="line">arr[2,0] 与 arr[2][0] 等价</span><br><span class="line">np.where(conditions,x,y) # 条件判断</span><br><span class="line">np.where(conditions) # 返回输入数组中满足给定条件的元素的索引</span><br></pre></td></tr></table></figure></p>
+<p>### 函数运算
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">import numpy.linalg</span><br><span class="line">diag() #返回方阵的对角线元素，或将一维数组转换为方阵</span><br><span class="line">dot() #秩为1的数组，执行对应位置相乘，然后再相加,秩不为1的二维数组，执行矩阵乘法运算</span><br><span class="line">星号（*）乘法运算 # 对数组执行对应位置相乘,对矩阵执行矩阵乘法运算</span><br><span class="line">norm() #求范数，默认为L2范数</span><br><span class="line">multiply() #对应元素位置相乘</span><br><span class="line">trace() #计算对角线元素和</span><br><span class="line">det() #计算矩阵行列式</span><br><span class="line">eig() #计算特征值和特征向量</span><br><span class="line">inv() #计算方阵的逆</span><br><span class="line">qr() #计算QR分解</span><br><span class="line">svd() #计算奇异值分解</span><br><span class="line">solve() #解线性方程组Ax=b</span><br><span class="line">lstsq() #计算Ax=b的最小二乘解</span><br><span class="line"></span><br><span class="line">np.dot() # 矩阵乘法，计算矩阵内积</span><br></pre></td></tr></table></figure></p>
+<p># Pandas模块</p>
+<p>### Series</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">import pandas as pd</span><br><span class="line">delq = pd.Series([1,0,2,3,0])</span><br><span class="line">delq = pd.Series([1,0,2,3,0],index=[&apos;a&apos;,&apos;b&apos;,&apos;c&apos;,&apos;d&apos;])</span><br><span class="line">delq.reindex([&apos;b&apos;,&apos;a&apos;,&apos;d&apos;,&apos;c&apos;],fill_value=0)</span><br><span class="line">delq =pd.Series(&#123;&apos;a&apos;:1,&apos;b&apos;:0,&apos;c&apos;:2,&apos;d&apos;:3,&apos;e&apos;:0&#125;)</span><br><span class="line">print delq.values</span><br><span class="line">print delq.index</span><br><span class="line">print delq.dtypes</span><br><span class="line">print delq.get_dtype_counts()</span><br><span class="line">print delq.index.tolist()</span><br><span class="line">print delq[2]</span><br><span class="line">print delq[delq!=0]</span><br></pre></td></tr></table></figure></p>
+<p>### DataFrame</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">一个表格型的数据结构。它提供有序的列和不同类型的列值,运算时，会自动对齐行和列，没有重叠引入NaN值</span><br><span class="line">DataFrame的列获取为Series</span><br><span class="line">spend = pd.read_csv(&apos;spend.csv&apos;,header = 0)</span><br><span class="line">spend.head()</span><br><span class="line">spend.info()</span><br><span class="line">spend.describe()</span><br><span class="line">spend.select_dtypes(include,exclude)</span><br><span class="line">spend._get_numeric_data() #drop non-numeric cols</span><br><span class="line">spend = pd.DataFrame(&#123;&apos;a&apos;:list(range(10)),&apos;b&apos;:list(range(20,10,-1))&#125;)</span><br><span class="line">pd.DataFrame.from_dict(data[,orient=&apos;index&apos;]) 字典转化为dataframe</span><br><span class="line">spend=pd.DataFrame(np.random.randn(4,3),columns=[&apos;one&apos;,&apos;two&apos;,&apos;three&apos;],index=[&apos;a&apos;,&apos;b&apos;,&apos;c&apos;,&apos;d&apos;])</span><br><span class="line">spend[&apos;one&apos;][&apos;a&apos;]=spend.loc[&apos;a&apos;,&apos;one&apos;]=spend.loc[&apos;a&apos;][&apos;one&apos;]</span><br><span class="line">spend.loc[:,&apos;one&apos;]=spend[&apos;one&apos;]</span><br><span class="line">spend.loc[&apos;a&apos;]=spend.loc[&apos;a&apos;,:]</span><br><span class="line">spend[(spend&gt;n).all(1)] 全部符合条件的行</span><br><span class="line">spend[(spend&gt;n).all(0)] 全部符合条件的列</span><br></pre></td></tr></table></figure></p>
+<p>### 索引
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">spend.iloc[3]</span><br><span class="line">#选取第3条记录</span><br><span class="line">spend.ix[3]</span><br><span class="line">#ix可以通过行号和行标签进行索引，而iloc只能通过行号索引,loc只通过行标签索引</span><br><span class="line">spend[(spend.a&gt;5)&amp;(spend.b&lt;=15)]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">spend.index.is_unique</span><br><span class="line"># 判断索引是否有重复值</span><br><span class="line"></span><br><span class="line">spend.replace(1,&apos;one&apos;)</span><br><span class="line">#用‘one’代替所有等于1的值</span><br><span class="line">spend.replace([1,3],[&apos;one&apos;,&apos;three&apos;])</span><br><span class="line">#用&apos;one&apos;代替1，用&apos;three&apos;代替3</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">spend.rename(columns=&#123;&apos;old_name&apos;: &apos;new_ name&apos;&#125;)</span><br><span class="line">#选择性更改列名</span><br><span class="line">spend.rename(index=lambda x: x + 1)</span><br><span class="line">#批量重命名索引</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">spend.set_index(&apos;column_one&apos;)</span><br><span class="line">#将某列设为索引</span><br><span class="line">spend.reset_index(drop=True,name=)</span><br><span class="line">#重新设定索引列，删除原索引列</span><br><span class="line">spend.reindex(index=[],columns=[],method=&apos;ffill&apos;)</span><br><span class="line">spend.reindex(spend.index.difference([]))</span><br><span class="line"># 重构索引</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">spend.drop(index=[])</span><br><span class="line">spend.drop_duplicates(subset=None, keep=&apos;first&apos;, inplace=False)</span><br><span class="line">#去除特定列下面的重复行</span><br><span class="line"></span><br><span class="line">spend.drop(column_name,axis=1)</span><br><span class="line">#Use axis=1（跨列） to apply a method across each row, or to the column labels.</span><br><span class="line">#Use axis=0（跨行）to apply a method down each column, or to the row labels (the index).</span><br></pre></td></tr></table></figure></p>
+<p>### 函数应用</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line">spend.sum(axis=1,skipna=False)</span><br><span class="line">spend.mode() 众数</span><br><span class="line">spend[col].unique() </span><br><span class="line">spend.nunique() 获取去重值</span><br><span class="line">spend.idxmax() 获取最大值的索引值</span><br><span class="line">spend.cumsum() 每一列的累加和</span><br><span class="line">spend.insert(loc,col,value) 插入列</span><br><span class="line">spend[col].value_counts() 返回各值频率</span><br><span class="line">spend.apply(pd.Series.value_counts) 查看DataFrame对象中每一列的唯一值和计数</span><br><span class="line"></span><br><span class="line">cut将根据值本身来选择箱子均匀间隔，qcut是根据这些值的频率来选择箱子的均匀间隔</span><br><span class="line">pd.qcut(spend,n,labels=[])</span><br><span class="line">pd.cut(spend,n,labels=[])</span><br><span class="line"></span><br><span class="line">transform同一时间在一个Series上进行一次转换，返回与 group相同的单个维度的序列</span><br><span class="line">spend.transform(&#123;col1: func, col2: func&#125;)</span><br><span class="line"></span><br><span class="line">col前n个最大小值</span><br><span class="line">spend.nlargest(n, col)</span><br><span class="line">spend.nsmallest(n, col)</span><br><span class="line"></span><br><span class="line">apply函数：让函数作用在dataframe某一维的向量</span><br><span class="line">spend[‘a’].apply(lambda x: x+1)</span><br><span class="line">spend.iloc[3].apply(lambda x: x+1)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">applymap函数：让函数作用在dataframe的每一个元素上</span><br><span class="line">spend.applymap(lambda x: x+1)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">spend.groupby([col1,col2])：返回一个按多列进行分组的Groupby对象</span><br><span class="line">spend.groupby(col1，group_keys=False)[col2].agg([&apos;mean&apos;,&apos;sum&apos;])</span><br><span class="line"># 返回按列col1分组的所有列的均值,和.group_keys 禁止分组的键</span><br><span class="line"></span><br><span class="line">spend.groupby(col1).apply(np.mean)</span><br><span class="line"># apply应用各列，agg仅作用于指定的列,agg可以传入多个函数</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">spend.pivot_table(index=col1, values=[col2,col3], aggfunc=max)</span><br><span class="line">#创建一个按列col1进行分组，并计算col2和col3的最大值的数据透视表</span><br><span class="line"></span><br><span class="line">pd.get_dummies(data, prefix=None, prefix_sep=&apos;_&apos;, dummy_na=False, columns=None, sparse=False, drop_first=False)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">from patsy import dmatrices</span><br><span class="line">#构建线性模型矩阵</span><br><span class="line">y, X = patsy.dmatrices(&apos;y ~ x0 + x1&apos;, data，return_type=&apos;dataframe&apos;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">spend.corr()</span><br><span class="line">spend.corrwith(data.X)</span><br><span class="line"># 变量间的相关系数，和某个确定变量的相关系数</span><br><span class="line"></span><br><span class="line">spend.melt(id_vars=None, value_vars=None, var_name=None, value_name=&apos;value&apos;, col_level=None)</span><br><span class="line"># 透视操作，id_vars是指普通列的列名，value_vars是指那些需要转换的列名，转化为variable和value列</span><br><span class="line"></span><br><span class="line">spend.stack(self, level=-1, dropna=True)</span><br><span class="line">#行头变为列头,参数level指向行索引值，或行索引名称</span><br><span class="line"></span><br><span class="line">spend.unstack(self, level=-1, fill_value=None)</span><br><span class="line">#unstack，可使得列头变为行头，参数level指向列索引值，或列索引名称</span><br></pre></td></tr></table></figure></p>
+<p>### 排序和合并</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">spend.sort_index([axis=1],[ascending=False],[by=column_name])</span><br><span class="line"></span><br><span class="line">spend.sort_values(by = column_name,[ascending = True],[na_position=&apos;first&apos;])</span><br><span class="line"></span><br><span class="line">pd.merge(df1,df2,how=[inner,outer,left,right],left_on=&apos;&apos;,right_on=&apos;&apos;,on=[key1,key2],left_index=false,right_index=false)</span><br><span class="line"></span><br><span class="line">pd.concat([s1,s2,s3],axis=，ignore_index=True)</span><br><span class="line">ignore_index 产生新的索引</span><br></pre></td></tr></table></figure></p>
+<p>### 缺失值处理</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">pandas默认使用NaN表示缺失数据；</span><br><span class="line">dropna默认丢弃任何含有缺失值的行；</span><br><span class="line">dropna(how=&apos;all&apos;)只丢弃全为NA的行</span><br><span class="line">fillna(,[inplace=True])替换缺失值,inplace为true直接修改原对象</span><br><span class="line">fillna(&#123;1:0.5,3:-1&#125;)</span><br><span class="line">isnull() 返回一个布尔值对象，该对象类型与源类型一样</span><br></pre></td></tr></table></figure></p>
+<p># Scikit-learn 模块
+Scikit-learn的基本功能主要被分为六大部分：分类，回归，聚类，数据降维，模型选择和数据预处理</p>
+<p>### datasets
+调用自带数据库中的数据
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. datasets.load_*()</span><br><span class="line">2. datasets.fetch_*()</span><br><span class="line">3. datasets.make_*()</span><br></pre></td></tr></table></figure></p>
+<p>datasets获取对象的属性：
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">data:数据集</span><br><span class="line">target：数据对应的类标记</span><br><span class="line">target_name:类标记对应的名字</span><br><span class="line">DESCR:数据集的描述信息</span><br></pre></td></tr></table></figure></p>
+<p>### preprocessing</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">preprocessing.scale()</span><br><span class="line"></span><br><span class="line">preprocessing.StandardScaler().fit_transform()</span><br><span class="line">将数据都聚集在均值0附近，方差值为1。</span><br><span class="line"></span><br><span class="line">preprocessing.MinMaxScaler().fit_transform()</span><br><span class="line">将数据矩阵缩放到``[0, 1]``，对于方差非常小的属性可以增强其稳定性；可以维持稀疏矩阵中为0的条目</span><br><span class="line"></span><br><span class="line">preprocessing.MaxAbsScaler.fit_transform()</span><br><span class="line">将数据矩阵缩放到``[-1, 1]``</span><br><span class="line"></span><br><span class="line">preprocessing.normalize((X, norm=&apos;l2&apos;))</span><br><span class="line">归一化的过程是将每个样本缩放到单位范数，使用L1或L2范数，主要思想是对每个样本计算范数，然后对该样本中每个元素除以该范数，这样处理的结果是使得每个处理后样本的范数等于1</span><br><span class="line"></span><br><span class="line">preprocessing.Binarizer().fit_transform(X)</span><br><span class="line">特征二值化，默认阈值为0，大于阈值的分类1，小于阈值的分类0</span><br><span class="line"></span><br><span class="line">preprocessing.Imputer(missing_values=&apos;NaN&apos;, strategy=&apos;mean&apos;, axis=0).fit()</span><br><span class="line">缺失值插补</span><br><span class="line"></span><br><span class="line">preprocessing.RobustScaler()</span><br><span class="line">根据第1个四分位数和第3个四分位数之间的范围来缩放数据</span><br></pre></td></tr></table></figure></p>
+<p>##### 二值化编码
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">OneHotEncoder(n_values=None, categorical_features=None, categories=None, sparse=True, dtype=&lt;class ‘numpy.float64’&gt;, handle_unknown=’error’)</span><br><span class="line">无法对文本编码，且输入必须是二维</span><br><span class="line">sparse：若为True时，返回稀疏矩阵，否则返回数组</span><br><span class="line">categorical_features：若为all，代表所有的特征都被视为分类特征</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">LabelEncoder(), </span><br><span class="line">对不连续的数值或文本进行编码，且输入必须为一维</span><br></pre></td></tr></table></figure></p>
+<p>### feature_selection
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">VarianceThreshold(threshold)</span><br><span class="line">通过特征的方差来提取特征，默认方差为0的特征会自动删除</span><br><span class="line"></span><br><span class="line">SelectKBest(score_func, k=10)</span><br><span class="line">from minepy import MINE</span><br><span class="line">from sklearn.feature_selection import chi2</span><br><span class="line">from scipy.stats import pearsonr</span><br><span class="line">scores按升序排序，选择排前k名所对应的特征,</span><br><span class="line">score_func 通常结合 卡方检验chi2，Pearson相关系数 pearsonr,最大信息系数 MINE</span><br></pre></td></tr></table></figure></p>
+<p>### model_selection
+主要提供交叉验证和结果评估的工具</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">train_test_split(*array,test_size=0.25,train_size=None,random_state=None,shuffle=True,stratify=None)</span><br><span class="line"># 返回切分的数据集,默认test_size将被设置为0.25，train_size将被设置为0.75，stratify按比例抽取训练集和测试集，random_state不同值获取到不同的数据集</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">cross_val_score(estimator,raw_data,raw_target,cv,scoring)</span><br><span class="line"># 返回train/test数据集上的每折得分,estimator为分类器，raw_data为原数据，raw_target为原数据类别，cv默认为3折验证,scoring为评分算法</span><br><span class="line"></span><br><span class="line">GridSearchCV(estimator, param_grid, scoring=None, fit_params=None, refit=True, cv=’warn’)</span><br><span class="line">#自动调参，只要把参数输进去，就能给出最优化的结果和参数。但是这个方法适合于小数据集，可能会调到局部最优而不是全局最优</span><br><span class="line">param_grid：值为字典或者列表，即需要最优化的参数的取值</span><br><span class="line">score：评价标准，默认None,如scoring=&apos;roc_auc&apos;</span><br><span class="line">refit搜索参数结束后，用最佳参数结果再次fit一遍全部数据集</span><br><span class="line">grid.fit()：运行网格搜索</span><br><span class="line">grid_scores_：给出不同参数情况下的评价结果</span><br><span class="line">best_params_：描述了已取得最佳结果的参数的组合</span><br><span class="line">best_score_：成员提供优化过程期间观察到的最好的评分</span><br></pre></td></tr></table></figure></p>
+<p>##### k折交叉划分</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">kf=KFold(n_splits=3, shuffle=False, random_state=None)</span><br><span class="line">for train_index,test_index in kf.split():</span><br><span class="line"># 将数据集m划分n_splits个不相交子集，每个子集有m/n_splits个训练样例，每次使用k-1个子集作为训练数据，用1个子集作为测试数据，训练k次。最终的结果是这k次测试结果的均值。返回数据集index</span><br><span class="line"></span><br><span class="line">StratifiedKFold用法类似Kfold，但是他是分层采样，确保训练集，测试集中各类别样本的比例与原始数据集中相同</span><br><span class="line">LabelKFold与StratifiedKFold用法相反</span><br></pre></td></tr></table></figure></p>
+<p>##### 随机划分法</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ShuffleSplit()</span><br><span class="line"># 首先对样本全体随机打乱，然后再划分出train/tes对，比KFold交叉更好的控制train/test比例</span><br><span class="line"></span><br><span class="line">ss=StratifiedShuffleSplit(n_splits=10,test_size=None,train_size=None, random_state=None)</span><br><span class="line">for train_index, test_index in ss.split(X, y):</span><br><span class="line"># n_splits是将训练数据分成train/test对的组数，StratifiedShuffleSplit是ShuffleSplit的一个变体，返回分层划分</span><br></pre></td></tr></table></figure></p>
+<p>### metrics
+用于评估方法中，衡量 分类器性能</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">accuracy_score(y_true,y_pred) 计算 accuracy</span><br><span class="line"></span><br><span class="line">二分类指标：</span><br><span class="line">precision_recall_curve（y_true,y_score）</span><br><span class="line">fpr,tpr,thresholds=roc_curve(y_true, y_score)</span><br><span class="line">y_score 表示每个测试样本属于正样本的概率，从高到低，依次将“Score”值作为阈值threshold，当测试样本属于正样本的概率大于或等于这个threshold时，我们认为它为正样本，否则为负样本，每次选取一个不同的threshold，我们就可以得到一组FPR和TPR，即ROC曲线上的一点</span><br><span class="line"></span><br><span class="line">roc_auc_score(y_true, y_score, average=&apos;macro&apos;, sample_weight=None) 计算预测得分曲线下的面积</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">confusion_matrix(y_true, y_pred, labels=None, sample_weight=None) 输出为混淆矩阵</span><br></pre></td></tr></table></figure></p>
+<p>### linear_model
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">LogisticRegression(penalty,dual,C,solver,tol,max_iter)</span><br><span class="line">penalty为正则化范数，默认为L2范数；dual为对偶或者原始方法，通常样本数大于特征数的情况下，默认为False；C为正则化系数λ的倒数，默认为1，值越小，代表正则化越强；solver参数决定了我们对逻辑回归损失函数的优化方法;tol为迭代终止判据的误差范围；max_iter为算法收敛的最大迭代次数</span><br><span class="line"></span><br><span class="line">LogisticRegression().fit(X, y, sample_weight=None)</span><br><span class="line">LogisticRegression().predict(X)</span><br><span class="line">LogisticRegression().score(X，Y) 返回准确率</span><br><span class="line">LogisticRegression().predict_proba(X) 返回每个样本每种类别的概率</span><br></pre></td></tr></table></figure></p>
+<p>### tree</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">DecisionTreeClassifier(criterion=&apos;gini&apos;, splitter=&apos;best&apos;, max_depth=None, min_samples_split=2,min_samples_leaf =1, min_weight_fraction_leaf=0.0, max_features=None, random_state=None, max_leaf_nodes=None,class_weight=None, presort=False)</span><br><span class="line">CART分类回归树算法</span><br><span class="line">tree= DecisionTreeClassifier() 建立决策树模型</span><br><span class="line">tree.fit(X,Y) 构建实例</span><br><span class="line">tree.predict() 预测分类</span><br><span class="line">tree.predict_proba(X) 返回每个样本每种类别的概率</span><br></pre></td></tr></table></figure></p>
+<p>### cluster</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">estimator=KMeans(n_clusters,n_init=10,max_iter)</span><br><span class="line">n_cluster为簇的个数，n_init为获取初始簇质心迭代的次数，max_iter为最大迭代次数</span><br><span class="line"></span><br><span class="line">estimator.fit() 构建实例</span><br><span class="line">estimator.labels 获取聚类标签</span><br><span class="line">estimator.cluster_centers 获取聚类中心</span><br></pre></td></tr></table></figure></p>
+<p>### ensemble</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">RandomForestClassifier(n_estimators,)</span><br><span class="line">n_estimators 决策树的个数，控制模型复杂度，bosstrap 是否有放回，oob_score 没有被boostrap选取的数据是否做验证，max_features 控制选取多少特征量，常用值为\sqrt&#123;n&#125;和log2(n) ,max_depth 控制子树的深度，min_samples_split控制内部节点再划分所需最小样本数，若节点样本数小于值，则不进行划分，min_samples_leaf 控制控制叶子节点最少样本数，若小于值，则和兄弟节点一起被剪枝</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">IsolationForest(n_estimators=100, max_samples=’auto’, contamination=0.1, max_features=1.0, bootstrap=False, n_jobs=1, random_state=None, verbose=0)</span><br><span class="line">max_samples默认采样数据256条样本</span><br><span class="line">contamination设置样本中异常点的比例</span><br><span class="line">fit(X)</span><br><span class="line">pretict(X) 返回1表示非异常值，-1为异常值</span><br><span class="line">decision_function(X) 返回样本的异常评分，值越小表示越有可能是异常样本</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">VotingClassifier(estimators=[(&apos;xgb&apos;, clf1), (&apos;rf&apos;, clf2), (&apos;svc&apos;, clf3)], voting=[&apos;hard&apos;,&apos;soft&apos;],weight=)</span><br><span class="line">针对分类问题的一种结合策略。基本思想是选择所有机器学习算法当中输出最多的那个类</span><br><span class="line">hard vote 硬投票是选择算法输出最多的标签，软投票是使用各个算法输出的类概率来进行类的选择，输入权重的话，会得到每个类的类概率的加权平均值</span><br></pre></td></tr></table></figure></p>
+<p>### neighbors</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">KNeighborsClassifier(n_neighbors=5, weights=’uniform’, algorithm=’auto’, leaf_size=30, p=2, metric=’minkowski’, metric_params=None, n_jobs=None, **kwargs)</span><br><span class="line">KNN近邻分类，algorithm有三种，brute’对应第一种蛮力实现，‘kd_tree’对应第二种KD树实现，‘ball_tree’对应第三种的球树实现， ‘auto’则会在上面三种算法中做权衡，选择一个拟合最好的最优算法</span><br></pre></td></tr></table></figure></p>
+<p>### SVM
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">LinearSVC(penalty=&apos;l2&apos;, loss=&apos;squared_hinge&apos;, dual=True, tol=0.0001, C=1.0, multi_class=&apos;ovr&apos;, fit_intercept=True, intercept_scaling=1, class_weight=None, verbose=0, random_state=None, max_iter=1000)</span><br><span class="line">LinearSVC是线性分类，不支持各种低维到高维的核函数，仅仅支持线性核函数，对线性不可分的数据不能使用</span><br><span class="line"></span><br><span class="line">NuSVC(nu=0.5, kernel=&apos;rbf&apos;, degree=3, gamma=&apos;auto&apos;, coef0=0.0, shrinking=True, probability=False, tol=0.001, cache_size=200, class_weight=None, verbose=False, max_iter=-1, decision_function_shape=&apos;ovr&apos;, random_state=None)</span><br><span class="line"></span><br><span class="line">SVC(C=1.0, kernel=&apos;rbf&apos;, degree=3, gamma=&apos;auto&apos;, coef0=0.0, shrinking=True, probability=False, tol=0.001, cache_size=200, class_weight=None, verbose=False, max_iter=-1, decision_function_shape=&apos;ovr&apos;, random_state=None)</span><br><span class="line"></span><br><span class="line">OneClassSVM(kernel=’rbf’, degree=3, gamma=’auto’, coef0=0.0, tol=0.001, nu=0.5, shrinking=True, cache_size=200, verbose=False, max_iter=-1, random_state=None)</span><br><span class="line">pretict(X) 返回1表示非异常值，-1为异常值</span><br></pre></td></tr></table></figure></p>
+<p>### decomposition 
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">PCA(n_components=None, copy=True, whiten=False)</span><br><span class="line">n_components:所要保留的主成分个数n</span><br></pre></td></tr></table></figure></p>
+<p>### manifold 
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">TSNE(n_components=2, perplexity=30.0, early_exaggeration=12.0, learning_rate=200.0, n_iter=1000, n_iter_without_progress=300, min_grad_norm=1e-07, metric=’euclidean’, init=’random’, verbose=0, random_state=None, method=’barnes_hut’, angle=0.5)</span><br><span class="line">n_components:嵌入空间的维度</span><br></pre></td></tr></table></figure></p>
+<p>### pipeline 
+管道机制实现了对全部步骤的流式化封装和管理</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Pipeline([(&apos;sc&apos;, StandardScaler()), (&apos;pca&apos;, PCA(n_components=2)),(&apos;clf&apos;, LogisticRegression(random_state=1))])</span><br><span class="line"></span><br><span class="line">make_pipeline(StandardScaler()，PCA(n_components=2)，LogisticRegression(random_state=1))</span><br><span class="line">pipline的简写</span><br></pre></td></tr></table></figure></p>
+<p># imblearn模块
+不平衡数据处理包</p>
+<p>### Over_sampling
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">RandomOverSampler(sampling_strategy=&apos;auto&apos;, return_indices=False, random_state=None, ratio=None)</span><br><span class="line">ros=RandomOverSampler()</span><br><span class="line">X_re,y_re=ros.fit_sample(X, y)</span><br><span class="line"></span><br><span class="line">SMOTE(sampling_strategy=&apos;auto&apos;, random_state=None, k_neighbors=5, m_neighbors=&apos;deprecated&apos;, out_step=&apos;deprecated&apos;, kind=&apos;deprecated&apos;, svm_estimator=&apos;deprecated&apos;, n_jobs=1, ratio=None)</span><br><span class="line">kind调参&#123;&apos;regular&apos;, &apos;borderline1&apos;, &apos;borderline2&apos;, &apos;svm&apos;&#125;调参判别k近邻的样本是否属于同类样本</span><br></pre></td></tr></table></figure></p>
+<p>### Under_sampling
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">RandomUnderSampler(sampling_strategy=&apos;auto&apos;, return_indices=False, random_state=None, replacement=False, ratio=None)</span><br><span class="line"></span><br><span class="line">NearMiss(sampling_strategy=&apos;auto&apos;, return_indices=False, random_state=None, version=1, n_neighbors=3, n_neighbors_ver3=3, n_jobs=1, ratio=None)</span><br><span class="line">version调参&#123;1，2，3&#125;调参判别K近邻样本选取</span><br></pre></td></tr></table></figure></p>
+<p>### ensemble
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">EasyEnsembleClassifier(n_estimators=10, base_estimator=None, warm_start=False, sampling_strategy=&apos;auto&apos;, replacement=False, n_jobs=1, random_state=None, verbose=0)</span><br><span class="line">从多数类中抽样出和少数类数目差不多的样本，然后和少数类样本组合作为训练集。在这个训练集上学习一个adaboost分类器</span><br></pre></td></tr></table></figure></p>
+<p>#  xgboost 模块</p>
+<p>### sklearn.XGBClassifier
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line">from xgboost.sklearn import XGBClassifier</span><br><span class="line"></span><br><span class="line">XGBClassifier(learning_rate=0.1,n_estimators=1000,max_depth=5,min_child_weight=1,gamma=0,subsample=0.8,colsample_bytree=0.8,objective=&apos;binary:logistic&apos;,nthread=4,scale_pos_weight=1,seed=27,reg_alpha=0, reg_lambda=1, colsample_bylevel=1)</span><br><span class="line"></span><br><span class="line">基本参数调优（learning_rate,n_estimators）</span><br><span class="line">决策树特定参数调优(max_depth, min_child_weight, gamma, subsample, colsample_bytree)</span><br><span class="line">正则化参数的调优(lambda, alpha)</span><br><span class="line"></span><br><span class="line">参数：booster：指定了用哪一种基模型。可以为：&apos;gbtree&apos;,&apos;gblinear&apos;,&apos;dart&apos;</span><br><span class="line">	gamma：最小划分损失min_split_loss。即对于一个叶子节点，当对它采取划分之后，损失函数的降低值的阈值。</span><br><span class="line">	max_depth:树的深度，默认值为6</span><br><span class="line">	min_child_weight： 一个整数，子节点的权重阈值。对于树模型（booster=gbtree,dart），权重就是：叶子节点包含样本的所有二阶偏导数之和。</span><br><span class="line">	subsample：一个浮点数，对训练样本的采样比例。默认值为 1 。如果为0.5，表示随机使用一半的训练样本来训练子树</span><br><span class="line">	colsample_bytree： 一个浮点数，构建子树时，对特征的采样比例。默认值为 1。</span><br><span class="line">	colsample_bylevel： 一个浮点数，寻找划分点时，对特征的采样比例。 默认值为 1。</span><br><span class="line">	reg_alpha： L1 正则化系数</span><br><span class="line">	reg_lambda： L2 正则化系数</span><br><span class="line">	scale_pos_weight： 用于调整正负样本的权重，常用于类别不平衡的分类问题。默认为 1。</span><br><span class="line">	</span><br><span class="line">&gt;&gt; objective </span><br><span class="line">回归任务</span><br><span class="line">reg:linear (默认)</span><br><span class="line">reg:logistic </span><br><span class="line">二分类</span><br><span class="line">binary:logistic     概率 </span><br><span class="line">binary：logitraw   类别</span><br><span class="line">多分类</span><br><span class="line">multi：softmax  num_class=n   返回类别</span><br><span class="line">multi：softprob   num_class=n  返回概率</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line"></span><br><span class="line">fit(X, y, sample_weight=None, eval_set=None, eval_metric=None,</span><br><span class="line">    early_stopping_rounds=None,verbose=True, xgb_model=None)</span><br><span class="line"></span><br><span class="line">参数：sample_weight： 一个序列，给出了每个样本的权重</span><br><span class="line">	eval_set： 一个列表，元素为(X,y)，给出了验证集及其标签</span><br><span class="line">	xgb_model：一个Booster实例，它给出了待训练的模型。</span><br><span class="line">	eval_metric： 一个字符串或者可调用对象，用于evaluation metric</span><br><span class="line">	early_stopping_rounds：在验证集上，当连续n次迭代，分数没有提高后，提前终止训练</span><br><span class="line"></span><br><span class="line">&gt;&gt; eval_metric</span><br><span class="line">回归任务(默认rmse) rmse--均方根误差;mae--平均绝对误差</span><br><span class="line">分类任务(默认error)</span><br><span class="line">auc--roc曲线下面积</span><br><span class="line">error--错误率（二分类）</span><br><span class="line">merror--错误率（多分类）</span><br><span class="line">logloss--负对数似然函数（二分类）</span><br><span class="line">mlogloss--负对数似然函数（多分类）</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">predict(data, output_margin=False, ntree_limit=0)</span><br><span class="line">参数：output_margin： 表示是否输出原始的、未经过转换的margin value</span><br><span class="line"></span><br><span class="line">predict_proba(data, output_margin=False, ntree_limit=0) ： 执行预测，预测的是各类别的概率</span><br><span class="line"></span><br><span class="line">evals_result()： 返回一个字典，给出了各个验证集在各个验证参数上的历史值</span><br></pre></td></tr></table></figure></p>
+<p>### Xgboost
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">import xgboost </span><br><span class="line">xgboost.DMatrix(data, label=None, missing=None, weight=None, silent=False, feature_names=None, feature_types=None, nthread=None) </span><br><span class="line">无法识别object类型,需使用了sklearn.preprocessing中的LabelEncoder转化</span><br><span class="line">参数：label：一个序列，表示样本标记。，missing： 一个值，它是缺失值的默认值。，weight：一个序列，给出了数据集中每个样本的权重</span><br><span class="line">属性：feature_names： 返回每个特征的名字；feature_types： 返回每个特征的数据类型</span><br><span class="line">方法：.num_col()；.num_row()；.get_label();.get_weight()</span><br><span class="line"></span><br><span class="line">xgboost.train()： 使用给定的参数来训练一个booster</span><br><span class="line">xgboost.train(params, dtrain, num_boost_round=10, evals=(), obj=None, feval=None,</span><br><span class="line">   maximize=False, early_stopping_rounds=None, evals_result=None, verbose_eval=True,</span><br><span class="line">   xgb_model=None, callbacks=None, learning_rates=None)</span><br><span class="line">参数：dtrain：DMatrix对象，params： 键值对，num_boost_round： 表示boosting 迭代数量</span><br><span class="line">	evals： (DMatrix,string)验证集，以及验证集的名字，obj：表示自定义的目标函数</span><br><span class="line">	feval： 表示自定义的evaluation 函数，maximize： 如果为True，则表示是对feval 求最大值</span><br><span class="line">	learning_rates： 一个列表，给出了每个迭代步的学习率，</span><br><span class="line">	evals_result： 一个字典，它给出了对测试集要进行评估的指标</span><br><span class="line">	</span><br><span class="line">xgboost.cv()： 使用给定的参数执行交叉验证 </span><br><span class="line">xgboost.cv(params, dtrain, num_boost_round=10, nfold=3, stratified=False, folds=None,</span><br><span class="line">     metrics=(), obj=None, feval=None, maximize=False, early_stopping_rounds=None,</span><br><span class="line">     fpreproc=None, as_pandas=True, verbose_eval=None, show_stdv=True, seed=0,</span><br><span class="line">     callbacks=None, shuffle=True)</span><br><span class="line">     参数：nfold： 表示交叉验证的fold 的数量，stratified： 如果为True，则执行分层采样</span><br><span class="line">     	folds： 一个scikit-learn 的 KFold 实例或者StratifiedKFold 实例</span><br><span class="line">     	shuffle： 如果为True，则创建folds 之前先混洗数据</span><br><span class="line">     	as_pandas： 如果为True，则返回DataFrame；否则返回ndarray</span><br></pre></td></tr></table></figure></p>
 
           
         
@@ -1357,6 +1333,15 @@ $$ J=J_0+\alpha\sum|w|</script><p>其中<script type="math/tex">J_0为原始的�
               </div>
             
 
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">categories</span>
+                
+              </div>
             
 
             
