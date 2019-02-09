@@ -607,15 +607,9 @@ $ L(x,y|\beta)=\prod_{i=1}^N[p(Y=1|x)^{y_i}][p(Y=0|x)^{1-y_i}] $
 <p>模型总体判断准确率</p>
 <script type="math/tex; mode=display">Accuracy=\cfrac{TP+TN}{TP+TN+FP+FN}</script><p>查准率</p>
 <script type="math/tex; mode=display">Precision=\cfrac{TP}{TP+FP}</script><p>查全率</p>
-<script type="math/tex; mode=display">Recall=\cfrac{TP}{TP+FN}</script><p>查准和查全是一对矛盾的度量，查准率-查全率曲线，简称P-R曲线。</p>
-<script type="math/tex; mode=display">F_\beta=\cfrac{(1+\beta^2) \times P \times R}{(\beta^2 \times P)+R} $$ 表达了查准率/查全率 的不同偏好，采用调和平均值，调和平均更重视较小值。其中 $$\beta>1$$时查全率有更大的影响，小于1时查准率有更大影响
-
-### ROC和AUC
-
-ROC曲线是多个混淆矩阵的结果组合，如果在上述模型中我们没有定好阈值，而是将模型预测概率从高到低排序，将每个概率值依次作为阈值，那么就有多个混淆矩阵。
-对于每个混淆矩阵，我们计算两个指标
-
-$$纵轴TPR（True positive rate）= TPR=\frac{TP}{(TP+FN)}=Recall</script><script type="math/tex; mode=display">横轴FPR（False positive rate）=\frac{FP}{(FP+TN)}</script><p>因此，ROC曲线越接近左上角，该分类器的性能越好。</p>
+<script type="math/tex; mode=display">Recall=\cfrac{TP}{TP+FN}</script><p>查准和查全是一对矛盾的度量，查准率-查全率曲线，简称P-R曲线。<br>$ F_\beta=\cfrac{(1+\beta^2) \times P \times R}{(\beta^2 \times P)+R} $ 表达了查准率/查全率 的不同偏好，采用调和平均值，调和平均更重视较小值。其中 $\beta&gt;1$时查全率有更大的影响，小于1时查准率有更大影响</p>
+<h3 id="ROC和AUC"><a href="#ROC和AUC" class="headerlink" title="ROC和AUC"></a>ROC和AUC</h3><p>ROC曲线是多个混淆矩阵的结果组合，如果在上述模型中我们没有定好阈值，而是将模型预测概率从高到低排序，将每个概率值依次作为阈值，那么就有多个混淆矩阵。<br>对于每个混淆矩阵，我们计算两个指标</p>
+<script type="math/tex; mode=display">纵轴TPR（True positive rate）= TPR=\frac{TP}{(TP+FN)}=Recall</script><script type="math/tex; mode=display">横轴FPR（False positive rate）=\frac{FP}{(FP+TN)}</script><p>因此，ROC曲线越接近左上角，该分类器的性能越好。</p>
 <p>AUC的值为ROC曲线下面的面积，一般AUC均在0.5到1之间，AUC越高，模型的区分能力越好，若AUC=0.5，表示模型的区分能力与随机猜测没有差别</p>
 <h2 id="K近邻算法"><a href="#K近邻算法" class="headerlink" title="K近邻算法"></a>K近邻算法</h2><h3 id="算法原理"><a href="#算法原理" class="headerlink" title="算法原理"></a>算法原理</h3><p>存在一个训练样本集，并且样本集中每个数据都存在标签。输入没有标签的新数据后，将新数据的每个特征与样本集中数据对应的特征进行比较，然后算法提取样本集中特征最相似数据（最近邻）的分类标签。一般来说，我们只选择样本数据集中前k个最相似的数据，这就是k-近邻算法中k的出处，通常k是不大于20的整数。最后，选择k个最相似数据中出现次数最多的分类，作为新数据的分类。</p>
 <h3 id="kNN算法之KD树（K-dimension-tree）"><a href="#kNN算法之KD树（K-dimension-tree）" class="headerlink" title="kNN算法之KD树（K-dimension tree）"></a>kNN算法之KD树（K-dimension tree）</h3><p>KD树建树采用的是计算n个特征的取值的方差，用方差最大的特征值来作为根节点，该特征下的中位数作为划分点，对于所有第k维特征的取值小于划分点的样本，我们划入左子树，对于第k维特征的取值大于等于划分点的样本，我们划入右子树，对于左子树和右子树，我们采用和刚才同样的办法来找方差最大的特征来做更节点，递归的生成KD树。</p>
@@ -635,6 +629,11 @@ $$纵轴TPR（True positive rate）= TPR=\frac{TP}{(TP+FN)}=Recall</script><scri
 <script type="math/tex; mode=display">dist(X_i,X_j)= \Sigma|X_{ik}-X_{jk}|</script><ul>
 <li>无序属性采用VDM距离</li>
 </ul>
+<h2 id="聚类"><a href="#聚类" class="headerlink" title="聚类"></a>聚类</h2><p>1.K均值，基于原型的、划分的聚类技术，直至满足指定个数的簇<br>2.凝聚层次聚类，开始每个点作为簇，然后重复合并最近的簇，直至产生预设的簇个数<br>3.分裂层次聚类，从包含所有点的某个簇开始，每一步分裂一个簇，直至产生预设的簇个数<br>4.DBSCAN，基于密度的聚类算法，簇的个数由算法自动确定，低密度区域的点视为噪声而忽略，因此不会产生完全聚类</p>
+<p>K-means算法对离群点敏感（需要进行离群点检测），不能处理非球形簇，不同尺寸，不同密度的簇。仅限于具有中心（质心）概念的数据。K-中心点可以弥补受离群点的影响</p>
+<p>二分K均值<br>将所有集合分成两个簇，选取一个簇进行分裂，直到产生K个簇</p>
+<h3 id="簇度量"><a href="#簇度量" class="headerlink" title="簇度量"></a>簇度量</h3><p>1.簇的非监督度量分成两类：簇的凝聚性来度量确定簇中对象如何密切相关，簇的分离性度量确定某个簇不同于其他簇的地方<br>2.簇的监督度量簇标号与标号的匹配程度</p>
+<h3 id="轮廓系数（结合凝聚度和分离度两种因素）"><a href="#轮廓系数（结合凝聚度和分离度两种因素）" class="headerlink" title="轮廓系数（结合凝聚度和分离度两种因素）"></a>轮廓系数（结合凝聚度和分离度两种因素）</h3><p>1.某个点到簇中其他点的平均距离a<br>2.某个点到其他簇中点的距离b<br>3.某点的轮廓系数$ s=\cfrac{b-a}{max[a,b]} $</p>
 <h2 id="神经网络"><a href="#神经网络" class="headerlink" title="神经网络"></a>神经网络</h2><p>前馈神经网络是由一层一层构建的，涉及到输入层，隐藏层（中间层），输出层，每层的关系可以由公式<script type="math/tex">\vec{y}=f(w\vec{x}+b)</script> 表示，其中 f为激活函数，常用Sigmod函数表示。即可以理解为每层之间的信息的传递是通过线形变换和非线性变换。增加节点数：增加维度，即增加线性转换能力。增加层数：增加激活函数的次数，即增加非线性转换次数。</p>
 <p>将网络的预测值和目标值之间的均方误差作为目标函数，采用梯度下降法，对权重参数调整</p>
 <h2 id="决策树"><a href="#决策树" class="headerlink" title="决策树"></a>决策树</h2><h3 id="信息论"><a href="#信息论" class="headerlink" title="信息论"></a>信息论</h3><p>在划分数据集之前之后信息发生的变化称为信息增益，获得信息增益最高的特征就是最好的选择。信息熵与条件熵相减就是我们的信息增益。</p>
@@ -650,6 +649,68 @@ $$纵轴TPR（True positive rate）= TPR=\frac{TP}{(TP+FN)}=Recall</script><scri
 <h3 id="决策树的剪枝"><a href="#决策树的剪枝" class="headerlink" title="决策树的剪枝"></a>决策树的剪枝</h3><p>为防止过拟合，需要对决策树进行简化，降低复杂度<br>预剪枝：当决策树在生成时当达到该指标时就停止生长，比如小于一定的信息获取量或是一定的深度，就停止生长。<br>后剪枝：当决策树生成完后，再进行剪枝操作。即将子树替换为叶节点</p>
 <h3 id="模型特点-1"><a href="#模型特点-1" class="headerlink" title="模型特点"></a>模型特点</h3><p>能够处理数值和非数值属性<br>对数值属性的极端值不敏感<br>对属性的线性相关性不敏感<br>可以自动处理缺失值<br>很高的可解释性<br>可以用于多分类场景<br>不支持增量训练<br>在属性选择、属性分裂时，无法纳入属性间的交互性</p>
 <h3 id="随机森林"><a href="#随机森林" class="headerlink" title="随机森林"></a>随机森林</h3><p>随机森林属于集成模型的一种。它由若干棵决策树构成，最终的判断结果由每一棵决策树的结果进行简单投票决定。</p>
+<h2 id="集成学习"><a href="#集成学习" class="headerlink" title="集成学习"></a>集成学习</h2><p>通过构建并结合多个学习器来完成学习任务，不同类型的个体学习器，这样的集成是异质的。集成学习的好坏与个体学习器的准确性和多样性相关</p>
+<h3 id="Boosting（AdaBoost算法）"><a href="#Boosting（AdaBoost算法）" class="headerlink" title="Boosting（AdaBoost算法）"></a>Boosting（AdaBoost算法）</h3><p>基于前一个个体学习器对训练样本的表现，对训练样本进行调整（降低正确样本权重，提高错误样本权重），产生新的学习器，直至到达指定个数的基学习器数目。根据这些基学习器的效果，进行权重分布，线性组合。</p>
+<p>使用最广泛的Adaboost弱学习器是决策树和神经网络。对于决策树，Adaboost分类用了CART分类树，而Adaboost回归用了CART回归树。<br>Adaboost算法为加法模型，损失函数为指数函数，学习算法为前向分步的二分类方法。</p>
+<p>提升树(boosting decision tree)系列算法。提升树系列算法里面应用最广泛的是梯度提升树(Gradient Boosting Decision Tree) ，提升树算法中弱学习器限定了只能使用CART回归树模型。</p>
+<h3 id="Bagging和随机森林"><a href="#Bagging和随机森林" class="headerlink" title="Bagging和随机森林"></a>Bagging和随机森林</h3><p>Bagging。基于样本划分方法中的自助法(bootstrapping)，即对于含m个样本的数据集，开始有放回的抽取m次,作为训练集,然后把数据集和训练集的差集作为测试集，其中样本不被抽到的概率为36.8%，被重复抽到的概率为63.2%。在对预测输出进行结合时，通常对分类任务使用简单投票法，对回归任务使用简单平均法。</p>
+<p>随机森林(Random Forest)<br>以决策树为基学习器构建，对样本选取基于Bagging方法，对属性的选取采取从属性集合中无放回地抽取一部分属性进行决策树模型的开发，对整体的d个属性，一般选取其中的k个属性，满足<script type="math/tex">k=log_2d</script></p>
+<h3 id="Boosting-和-Bagging-区别"><a href="#Boosting-和-Bagging-区别" class="headerlink" title="Boosting 和 Bagging 区别"></a>Boosting 和 Bagging 区别</h3><p>Boosting的弱学习器存在强依赖关系，必须串行生成， Boosting主要关注降低偏差，可基于泛化性能弱的学习器构建出强的集成<br>Bagging的弱学习器之间没有依赖关系，可以并行生成</p>
+<h2 id="GBDT"><a href="#GBDT" class="headerlink" title="GBDT"></a>GBDT</h2><p>GBDT使用了前向分布算法，在函数空间中利用梯度下降法进行优化。常见的有回归提升树、二元分类、多元分类三个GBDT算法，Freidman提出的梯度提升算法：利用最速下降的近似方法，即利用损失函数的负梯度在当前模型的值，作为回归问题中提升树算法的残差的近似值</p>
+<h3 id="GBDT模型"><a href="#GBDT模型" class="headerlink" title="GBDT模型"></a>GBDT模型</h3><p>强分类器由多个弱分类器线性相加，h为cart树，a为cart树参数，GBDT中每颗树学的是之前所有树结论和的残差<br>$ f(x;[\beta_t,a_t])=\sum_{t=1}^T \beta_t h(x;a_t) $</p>
+<p>第t步的模型可以写成：<br>$ f_t(x)=f_{t-1}(x)+\beta_th_t(x;a_t) $</p>
+<p>构建h(x),使第t轮的损失函数最小：<br>$ L(y,f_t(x))=L(y,f_{t-1}(x)+\beta_th_t(x)) $</p>
+<h3 id="GBDT-梯度拟合"><a href="#GBDT-梯度拟合" class="headerlink" title="GBDT 梯度拟合"></a>GBDT 梯度拟合</h3><p>对于损失函数$ L(y,f_t(x)) ,需求出最优解f^*(x)$</p>
+<p>$ \rho_t=argminL(y,f_{t-1}(x)-\rho \cfrac {\partial L(y,f(x_{t-1}))}{\partial f(x_{t-1})} ) $<br>$ (\beta_t,a_t)=argminL(y,f_{t-1}(x)+\beta_th_t(x;a_t)) $<br>$ a_t=argmin \sum(-\cfrac {\partial L(y_i,f(x_i))}{\partial f(x_i)}-\beta_ih_i(x;a_i))^2 $</p>
+<h3 id="GBDT常用损失函数"><a href="#GBDT常用损失函数" class="headerlink" title="GBDT常用损失函数"></a>GBDT常用损失函数</h3><p>指数损失函数 $  L(y,f(x))=exp(-yf(x)) $</p>
+<p>负二项对数函数 $ L(y,f(x))=log(1+exp(-2yf(x))),y \in (-1,1) $ 用于二元分类场景<br>平方损失函数 $ L(y,f(x))=(y-f(x))^2 $ 用于回归场景</p>
+<h2 id="Xgboost"><a href="#Xgboost" class="headerlink" title="Xgboost"></a>Xgboost</h2><p>Xgboost与GBDT，两者都是boosting方法，不同在于，GBDT利用梯度下降法进行优化，XGboost利用牛顿法进行优化<br>目标函数为<br>$ L(y,y_{t-1}(x)+f_t(x))+\sum \Omega(f_t) $<br>对于每颗树，由结构部分q和叶子权重部分组成w定义。<br>$ f_t(x)=w_q(x) $<br>后者为正则化项，正则化项与树的叶子节点的数量T和叶子节点的值w有关,$\Omega(f_t)=\gamma T+\cfrac{1}{2}\lambda||w||^2  $</p>
+<p>用泰勒展开<br>$ f(x+\Delta x)=f(x)+f’(x)\Delta x+\cfrac{f^{(2)}(x)}{2}\Delta x^2 $<br>定义<br>$ g_i=\partial L(y,y_{t-1}(x)),h_i=\partial^2 L(y,y_{t-1}(x)) $<br>则有<br>$ Obj_i= \sum (L(y,y_{t-1})+g_if_t(x_i)+\cfrac{1}{2}h_if^2_t(x_i))+\Omega(f_t)   ​$</p>
+<h2 id="类别不平衡"><a href="#类别不平衡" class="headerlink" title="类别不平衡"></a>类别不平衡</h2><p>训练样本中不同类别的样本数目差距过大的情况（正例过少，反例过多），实行一个基本策略，“再缩放”</p>
+<ul>
+<li>欠采样（undersampling）</li>
+</ul>
+<p>去除一些反例，使正、反例数目接近.代表算法EasyEnsemble</p>
+<ul>
+<li>过采样（oversampling）</li>
+</ul>
+<p>增加一些正例，使得双方数目接近。代表算法SMOTE</p>
+<ul>
+<li>阈值移动</li>
+</ul>
+<p>直接基于原始训练集进行学习，在用分类器进行预测时，<script type="math/tex">\cfrac{y}{1-y}×\cfrac{m^-}{m^+} 作为阈值(m为观测数目)</script></p>
+<p><strong>SMOTE算法</strong></p>
+<p>随机过采样采取简单复制样本的策略来增加少数类样本，这样容易产生模型过拟合的问题。SMOTE算法的基本思想是对少数类样本进行分析并根据少数类样本人工合成新样本添加到数据集</p>
+<p>算法流程:<br>1.对于少数类中每一个样本x，以欧氏距离为标准计算它到少数类样本集中所有样本的距离，得到其k近邻。<br>2.根据样本不平衡比例设置一个采样比例以确定采样倍率N，对于每一个少数类样本x，从其k近邻中随机选择若干个样本，假设选择的近邻为$x_i$。<br>3.对于每一个随机选出的近邻$x_i$，分别与原样本按照公式$ x_{new}=x+rand(0,1)*|x-x_i| $构建新的样本 </p>
+<h2 id="主成分分析"><a href="#主成分分析" class="headerlink" title="主成分分析"></a>主成分分析</h2><h3 id="PCA"><a href="#PCA" class="headerlink" title="PCA"></a>PCA</h3><p>PCA的思想是将n维特征映射到k维上，这k维是重新构造出来的k维特征，且k维应线性无关，而不是简单地从n维特征中去除其余n-k维特征。即线代知识中通过矩阵的变化，将一个维度中的向量变化到另一个维度中，实现降维的效果。</p>
+<p>维度的协方差矩阵中，对角线是各维度的样本方差，非对角线位置是不同维度的协方差，也即两个维度的相关性。而降维后理想化即是非对角线位置各维度的相关性为0，协方差矩阵为对角矩阵。转为矩阵运算原理，降维的过程也即是将协方差矩阵经过变化为对角矩阵。</p>
+<p>$  M^{-1}PM=\Lambda $ ,其中M为矩阵P变化的特征向量，也即正交矩阵，$\Lambda$ 为对角矩阵，对角元素为特征值$\lambda。​$<br>M也为另一坐标系下的基向量，当坐标系经过矩阵P变化后，获得的标准基向量坐标系的变化 </p>
+<h3 id="SVD"><a href="#SVD" class="headerlink" title="SVD"></a>SVD</h3><p>将任意矩阵分解<br>$ A_{m×n} =U_{m×m} \sum_{m×n} V_{n×n}$，其中U的列向量为$AA^T$的特征向量，称为A的左奇异向量，V的列向量为$A^TA$的特征向量，称为A的右奇异向量，$\sum$ 为主对角线为奇异值$\sigma$，非主对角线位置为0的矩阵 ,其中$\sigma$ 也为$A^TA$的特征值的平方根<br> 选取奇异值最大的前k列，重新构造来代替原矩阵A，实现降维效果</p>
+<h3 id="t-SNE"><a href="#t-SNE" class="headerlink" title="t-SNE"></a>t-SNE</h3><p>t-SNE将样本点间的相似度关系转化为概率<br> 在原空间（高维空间）中转化为基于高斯分布的概率；在嵌入空间（低维空间）中转化为基于t分布的概率。这使得t-SNE不仅可以关注局部（SNE只关注相邻点之间的相似度映射而忽略了全局之间的相似度映射，使得可视化后的边界不明显），还关注全局，使可视化效果更好（簇内不会过于集中，簇间边界明显）</p>
+<h2 id="向量机"><a href="#向量机" class="headerlink" title="向量机"></a>向量机</h2><p>SVM（Support Vector Machine）的模型是让所有点到超平面的距离大于一定的距离，也就是所有的分类点要在各自类别的支持向量两边。</p>
+<p>支持向量：和超平面平行的保持一定的函数距离的这两个超平面对应的向量，两个异类支持向量到超平面的距离之和称为间隔<script type="math/tex">\gamma=\cfrac{2}{||w||}，其中||w||是w的L2范数</script></p>
+<blockquote>
+<p>SVM模型目标函数,即最大化间隔：</p>
+<script type="math/tex; mode=display">min \cfrac{1}{2}||w||^2</script><script type="math/tex; mode=display">s.t. y_i(w^Tx_i+b) \geq 1</script></blockquote>
+<p>-</p>
+<blockquote>
+<p>对线性不可分数据集，目标函数为软间隔最大化，即对每个样本点引进松弛变量 <script type="math/tex">\delta \geq0</script></p>
+<script type="math/tex; mode=display">min \cfrac{1}{2}||w||^2+C\sum \delta_i</script><script type="math/tex; mode=display">s.t. y_i(w^Tx_i+b) \geq 1-\delta_i</script></blockquote>
+<p>-</p>
+<blockquote>
+<p>对非线性问题，先将其转化为线性问题。即将样本通过<script type="math/tex">\phi 函数</script>映射到更高维的特征空间，使其线性可分。核函数</p>
+<script type="math/tex; mode=display">K(x_i,x_j)=\phi(x_i)^T\phi(x_j)  $$。将$$x_i 和 x_j$$ 在特征空间的内积等于它们在原始空间中通过核函数K实现
+$$ min \cfrac{1}{2}||w||^2</script><script type="math/tex; mode=display">s.t. y_i(w^T\phi(x_i)+b) \geq 1</script></blockquote>
+<p>-</p>
+<blockquote>
+<p>核函数<br>线性核函数 <script type="math/tex">K(x,z)=x^Tz</script><br>多项式核函数 <script type="math/tex">k(x,z)=(x^Tz)^d</script><br>高斯核函数<script type="math/tex">K(x,z)=exp(-\cfrac{||x-z||^2}{2\sigma ^2})</script><br>Sigmoid核函数<script type="math/tex">K(x,z)=tanh(\beta x^Tz+\theta)</script></p>
+</blockquote>
+<h2 id="最大熵模型"><a href="#最大熵模型" class="headerlink" title="最大熵模型"></a>最大熵模型</h2><p>最大熵原理：在所有可能的概率模型中，条件熵最大的模型是最好的模型</p>
+<script type="math/tex; mode=display">H(X)=-\Sigma P(X_i)log_2P(X_i)，其中X_i表示事物状态，P为概率</script><p>条件熵关于条件概率分布<script type="math/tex">H(Y|X)=-\Sigma P(X_i)P(Y_i|X
+_i)log_2P(|Y_i|X_i)</script></p>
+<h2 id="异常点检测"><a href="#异常点检测" class="headerlink" title="异常点检测"></a>异常点检测</h2><p>异常点检测算法，基于专门的异常点检测算法来做。算法的代表是One Class SVM和Isolation Forest.</p>
+<h3 id="One-Class-SVM"><a href="#One-Class-SVM" class="headerlink" title="One Class SVM"></a>One Class SVM</h3><p>应用场景：样本中，只有一种类型的样本，或有两种类型样本，但其中一类型样本数目远少于另一类型样本数目。属于无监督学习。<br>对于只有一个类的情况，采用SVDD（support vector domain description），它的基本思想是，训练出一个最小的超球面（超球面是指3维以上的空间中的球面，对应的2维空间中就是曲线，3维空间中就是球面，3维以上的称为超球面），把这堆数据全都包起来，识别一个新的数据点时，如果这个数据点落在超球面内，就是这个类，否则不是。优化目标是求出能够包含正常数据样本的最小超球体的中心a和半径R</p>
+<h3 id="Isolation-Forest"><a href="#Isolation-Forest" class="headerlink" title="Isolation Forest"></a>Isolation Forest</h3><p>iTree是一种随机二叉树，且随机选择划分属性和划分点（值）。iTree能有效检测异常的假设是：异常点一般都是非常稀有的，在iTree中会很快被划分到叶子节点，因此可以用叶子节点到根节点的路径h(x)长度来判断一条记录x是否是异常点。<br>s(x,n) 表明x在由n个样本的训练数据构成的iTree的异常指数，越接近1，异常可能性越高，</p>
 
           
         
