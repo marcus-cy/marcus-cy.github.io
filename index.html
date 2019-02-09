@@ -538,7 +538,7 @@ y=β_0 + β_1 X + ε</script><p>1.误差项ε是一个期望值为零的随机�
 <p>为使函数实现最大值，可采用梯度上升法，</p>
 <p>$ \cfrac{\partial LL(x,y|\beta)}{\partial \beta_i}=\sum_{i=1}^N[y_ix_i-x_i\cfrac{exp(x_i\beta)}{1+exp(x_i\beta)}] $</p>
 <p>$ \beta^{i+1}=\beta^{i}+\nabla*h $ (h为步长)</p>
-<p>最优的参数值即为<br>$ \beta^{<em>}=\sum\nabla_i</em>h_i ​$</p>
+<p>最优的参数值即为<br>$ \beta^{ <em>}=\sum\nabla_i</em>h_i $</p>
 <p>对于多分类情况，借用softmax函数，或者通过多个二分类实现</p>
 <h3 id="模型特点"><a href="#模型特点" class="headerlink" title="模型特点"></a>模型特点</h3><p>模型的结果是估计出属于某一类的概率；<br>变量之间是线性可加关系；<br>可增量式读取数据；<br>需要对非数值变量进行编码；<br>对缺失值敏感，需要处理；<br>对异常值敏感，需要处理；<br>需要做变量归一化；<br>变量的线性相关性对模型有影响，需要变量挑选和正则化；</p>
 <h2 id="模型评估"><a href="#模型评估" class="headerlink" title="模型评估"></a>模型评估</h2><h3 id="训练集与测试集的划分方法"><a href="#训练集与测试集的划分方法" class="headerlink" title="训练集与测试集的划分方法"></a>训练集与测试集的划分方法</h3><ul>
