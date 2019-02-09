@@ -541,50 +541,28 @@ y=β_0 + β_1 X + ε</script><p>1.误差项ε是一个期望值为零的随机�
 <blockquote>
 <p>牛顿法和拟牛顿法： </p>
 </blockquote>
-<p>由<script type="math/tex">f(x)在x_k点处的</script>泰勒公式推展，对于极小值点有<script type="math/tex">f'(x)=0</script>,既有<script type="math/tex">x=x_k-\cfrac{f'(x_k)}{f''(x_k)}</script>,即需要求值<script type="math/tex">d_k=-\cfrac{f'(x_k)}{f''(x_k)}</script>,令</p>
-<script type="math/tex; mode=display">x_{k+1}=x_k+d_k $$,重新迭代计算
-
-梯度下降使用梯度(一阶导数)寻找下降最快的方向，而牛顿法通过曲率(二阶导数)寻找下降最快的方向，因此牛顿法的路径更直接。
-
-> 共轭梯度法：             
-
-介于最速下降法与牛顿法之间的一个方法，仅需一阶导数信息
-
-## 逻辑回归
-
-### logistic函数
-$𝑓(𝑥)=\cfrac{𝑒𝑥𝑝(𝑥)}{1+exp⁡(𝑥)}$
-
-函数特点:
-
->单调递增
-0＜f(x)＜1
-处处可导
-$𝑓^′ (𝑥)=𝑓(𝑥)(1−𝑓(𝑥))$
-
-
-
-### 逻辑回归模型
-
-(回归模型是对概率做回归，而非对结果做回归)：
-$ p(Y=1|x)=\cfrac{𝑒𝑥𝑝(\beta𝑥)}{1+exp⁡(\beta𝑥)}$
-$ p(Y=0|x)=\cfrac{1}{1+exp⁡(\beta𝑥)}$
-$ P(Y_i=y_i)=p(Y=1|x)^{y_i}p(Y=0|x)^{1-y_i} $
-
-
-
-### 参数优化
-（极大似然法MLE）
-
-似然函数为：
-
-$ L(x,y|\beta)=\prod_{i=1}^N[p(Y=1|x)^{y_i}][p(Y=0|x)^{1-y_i}] $
-
-对数似然函数为： $$ LL(x,y|\beta)=\sum_{i=1}^N[y_ilog(\cfrac{e^{\beta x}}{1+e^{\beta x}})+(1-y_i)log(\cfrac{1}{1+e^{\beta x}})]=
-\sum_{i=1}^N[y_i(\beta x_i)-log(1+exp(\beta x_i))]</script><p>为使函数实现最大值，可采用梯度上升法，</p>
-<script type="math/tex; mode=display">\cfrac{\partial LL(x,y|\beta)}{\partial \beta_i}=\sum_{i=1}^N[y_ix_i-x_i\cfrac{exp(x_i\beta)}{1+exp(x_i\beta)}]</script><script type="math/tex; mode=display">\beta^{i+1}=\beta^{i}+\nabla*h $$ (h为步长)
-
-最优的参数值即为 $$ \beta^*=\sum\nabla_i*h_i</script><p>对于多分类情况，借用softmax函数，或者通过多个二分类实现</p>
+<p>由<script type="math/tex">f(x)在x_k点处的</script>泰勒公式推展，对于极小值点有<script type="math/tex">f'(x)=0</script>,既有<script type="math/tex">x=x_k-\cfrac{f'(x_k)}{f''(x_k)}</script>,即需要求值<script type="math/tex">d_k=-\cfrac{f'(x_k)}{f''(x_k)}</script>,令$ x_{k+1}=x_k+d_k $,重新迭代计算</p>
+<p>梯度下降使用梯度(一阶导数)寻找下降最快的方向，而牛顿法通过曲率(二阶导数)寻找下降最快的方向，因此牛顿法的路径更直接。</p>
+<blockquote>
+<p>共轭梯度法：             </p>
+</blockquote>
+<p>介于最速下降法与牛顿法之间的一个方法，仅需一阶导数信息</p>
+<h2 id="逻辑回归"><a href="#逻辑回归" class="headerlink" title="逻辑回归"></a>逻辑回归</h2><h3 id="logistic函数"><a href="#logistic函数" class="headerlink" title="logistic函数"></a>logistic函数</h3><p>$𝑓(𝑥)=\cfrac{𝑒𝑥𝑝(𝑥)}{1+exp⁡(𝑥)}$</p>
+<p>函数特点:</p>
+<blockquote>
+<p>单调递增<br>0＜f(x)＜1<br>处处可导<br>$𝑓^′ (𝑥)=𝑓(𝑥)(1−𝑓(𝑥))$</p>
+</blockquote>
+<h3 id="逻辑回归模型"><a href="#逻辑回归模型" class="headerlink" title="逻辑回归模型"></a>逻辑回归模型</h3><p>(回归模型是对概率做回归，而非对结果做回归)：<br>$ p(Y=1|x)=\cfrac{𝑒𝑥𝑝(\beta𝑥)}{1+exp⁡(\beta𝑥)}$<br>$ p(Y=0|x)=\cfrac{1}{1+exp⁡(\beta𝑥)}$<br>$ P(Y_i=y_i)=p(Y=1|x)^{y_i}p(Y=0|x)^{1-y_i} $</p>
+<h3 id="参数优化-1"><a href="#参数优化-1" class="headerlink" title="参数优化"></a>参数优化</h3><p>（极大似然法MLE）</p>
+<p>似然函数为：</p>
+<p>$ L(x,y|\beta)=\prod_{i=1}^N[p(Y=1|x)^{y_i}][p(Y=0|x)^{1-y_i}] $</p>
+<p>对数似然函数为： <script type="math/tex">LL(x,y|\beta)=\sum_{i=1}^N[y_ilog(\cfrac{e^{\beta x}}{1+e^{\beta x}})+(1-y_i)log(\cfrac{1}{1+e^{\beta x}})]=
+\sum_{i=1}^N[y_i(\beta x_i)-log(1+exp(\beta x_i))]</script></p>
+<p>为使函数实现最大值，可采用梯度上升法，</p>
+<p>$ \cfrac{\partial LL(x,y|\beta)}{\partial \beta_i}=\sum_{i=1}^N[y_ix_i-x_i\cfrac{exp(x_i\beta)}{1+exp(x_i\beta)}] $</p>
+<p>$ \beta^{i+1}=\beta^{i}+\nabla*h $ (h为步长)</p>
+<p>最优的参数值即为 $ \beta^<em>=\sum\nabla_i</em>h_i $</p>
+<p>对于多分类情况，借用softmax函数，或者通过多个二分类实现</p>
 <h3 id="模型特点"><a href="#模型特点" class="headerlink" title="模型特点"></a>模型特点</h3><p>模型的结果是估计出属于某一类的概率；<br>变量之间是线性可加关系；<br>可增量式读取数据；<br>需要对非数值变量进行编码；<br>对缺失值敏感，需要处理；<br>对异常值敏感，需要处理；<br>需要做变量归一化；<br>变量的线性相关性对模型有影响，需要变量挑选和正则化；</p>
 <h2 id="模型评估"><a href="#模型评估" class="headerlink" title="模型评估"></a>模型评估</h2><h3 id="训练集与测试集的划分方法"><a href="#训练集与测试集的划分方法" class="headerlink" title="训练集与测试集的划分方法"></a>训练集与测试集的划分方法</h3><ul>
 <li>留出法</li>
