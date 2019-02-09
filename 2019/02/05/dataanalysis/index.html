@@ -79,17 +79,25 @@
 
 
 
-<meta name="description" content="##  缺失处理 ### 数据缺失及其类别 - 完全随机缺失：    当某变量缺失值发生的可能性与其他变量无关也与该变量自身无关时称作MCAR。换句话说，某变量缺失值的出现完全是个随机事件。可以将存在MCAR变量的数据看做是假定完整数据的一个随机样本   例如，由于测量设备出故障导致某些值缺失。 - 随机缺失：    当某变量出现缺失值的可能性与模型中某些观测变量有关而与该变量自身无关时称作MAR">
+<meta name="description" content="缺失处理数据缺失及其类别 完全随机缺失：当某变量缺失值发生的可能性与其他变量无关也与该变量自身无关时称作MCAR。换句话说，某变量缺失值的出现完全是个随机事件。可以将存在MCAR变量的数据看做是假定完整数据的一个随机样本例如，由于测量设备出故障导致某些值缺失。 随机缺失：当某变量出现缺失值的可能性与模型中某些观测变量有关而与该变量自身无关时称作MAR例如，在一次测试中，如果IQ达不到最低要求的10">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数据挖掘基础">
 <meta property="og:url" content="http://yoursite.com/2019/02/05/dataanalysis/index.html">
 <meta property="og:site_name" content="Marcus Blog">
-<meta property="og:description" content="##  缺失处理 ### 数据缺失及其类别 - 完全随机缺失：    当某变量缺失值发生的可能性与其他变量无关也与该变量自身无关时称作MCAR。换句话说，某变量缺失值的出现完全是个随机事件。可以将存在MCAR变量的数据看做是假定完整数据的一个随机样本   例如，由于测量设备出故障导致某些值缺失。 - 随机缺失：    当某变量出现缺失值的可能性与模型中某些观测变量有关而与该变量自身无关时称作MAR">
+<meta property="og:description" content="缺失处理数据缺失及其类别 完全随机缺失：当某变量缺失值发生的可能性与其他变量无关也与该变量自身无关时称作MCAR。换句话说，某变量缺失值的出现完全是个随机事件。可以将存在MCAR变量的数据看做是假定完整数据的一个随机样本例如，由于测量设备出故障导致某些值缺失。 随机缺失：当某变量出现缺失值的可能性与模型中某些观测变量有关而与该变量自身无关时称作MAR例如，在一次测试中，如果IQ达不到最低要求的10">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-02-09T05:16:27.452Z">
+<meta property="og:image" content="http://yoursite.com/2019/02/05/dataanalysis/20160325131644664.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/02/05/dataanalysis/20160325132224619.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/02/05/dataanalysis/20160325132018016.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/02/05/dataanalysis/1527426007.png">
+<meta property="og:image" content="http://yoursite.com/2019/02/05/dataanalysis/p1.png">
+<meta property="og:image" content="http://yoursite.com/2019/02/05/dataanalysis/p2.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/02/05/dataanalysis/640.webp">
+<meta property="og:updated_time" content="2019-02-09T05:22:24.737Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据挖掘基础">
-<meta name="twitter:description" content="##  缺失处理 ### 数据缺失及其类别 - 完全随机缺失：    当某变量缺失值发生的可能性与其他变量无关也与该变量自身无关时称作MCAR。换句话说，某变量缺失值的出现完全是个随机事件。可以将存在MCAR变量的数据看做是假定完整数据的一个随机样本   例如，由于测量设备出故障导致某些值缺失。 - 随机缺失：    当某变量出现缺失值的可能性与模型中某些观测变量有关而与该变量自身无关时称作MAR">
+<meta name="twitter:description" content="缺失处理数据缺失及其类别 完全随机缺失：当某变量缺失值发生的可能性与其他变量无关也与该变量自身无关时称作MCAR。换句话说，某变量缺失值的出现完全是个随机事件。可以将存在MCAR变量的数据看做是假定完整数据的一个随机样本例如，由于测量设备出故障导致某些值缺失。 随机缺失：当某变量出现缺失值的可能性与模型中某些观测变量有关而与该变量自身无关时称作MAR例如，在一次测试中，如果IQ达不到最低要求的10">
+<meta name="twitter:image" content="http://yoursite.com/2019/02/05/dataanalysis/20160325131644664.jpg">
 
 
 
@@ -292,39 +300,6 @@
           </span>
 
           
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="../../../../categories/foo/" itemprop="url" rel="index">
-                    <span itemprop="name">foo</span>
-                  </a>
-                </span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="../../../../categories/foo/bar/" itemprop="url" rel="index">
-                    <span itemprop="name">bar</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
 
           
             
@@ -352,140 +327,82 @@
       
 
       
-        <p>##  缺失处理
-### 数据缺失及其类别</p>
-<p>- 完全随机缺失： 
-  当某变量缺失值发生的可能性与其他变量无关也与该变量自身无关时称作MCAR。换句话说，某变量缺失值的出现完全是个随机事件。可以将存在MCAR变量的数据看做是假定完整数据的一个随机样本
-  例如，由于测量设备出故障导致某些值缺失。
-- 随机缺失： 
-  当某变量出现缺失值的可能性与模型中某些观测变量有关而与该变量自身无关时称作MAR
-  例如，在一次测试中，如果IQ达不到最低要求的100分，那么将不能参加随后的人格测验。在人格测验上因为IQ低于100分而产生的缺失值为MAR
-- 非随机缺失：  
-  当某变量出现缺失值的可能性只与自身相关时称作MANR
-  例如，公司新录用了20名员工，由于6名员工表现较差在试用期内辞退，试用期结束后的表现评定中，辞退的6名员工的表现分即为非随机缺失。</p>
-<p>### 数据缺失的处理方法</p>
-<p>- 删除法：当一条记录中存在许多缺失时，将记录删去；当一个列存在许多缺失时，将列删去。或将特征映射到高维，对特征的每个属性做是否判断。或添加缺失项这一特征
-- 均值替代法：使用每个变量的均值去填补该变量的缺失值。这种方法容易产生估计偏差。
-- 回归法 ：根据变量间的相关，利用其他变量的信息通过建立回归方式去推算缺失值。该法同样会产生估计偏差。
-- 期望值最大化（Expectation Maximization, EM）法：随机缺失的条件下，假设模型对于完整的样本是正确的，那么通过观测数据的边际分布可以对未知参数进行极大似然估计。这种方法也被称为忽略缺失值的极大似然估计，对于极大似然的参数估计实际中常采用的计算方法是期望值最大化。
-- K最近距离邻（K-means clustering）法：先确定距离具有缺失数据样本最近的K个样本，将这K个值加权平均来估计该样本的缺失数据。
-- 不处理：把缺失当成一种特殊值。
-- 拉格朗日插值法</p>
-<p>拉格朗日插值法，即对于点 $(x_1,y_1),(x_2,y_2),(x_3,y_3)​$
-存在曲线经过这些点，运用线代中的坐标基向量的找法，该多项式曲线为 
-$$
-f(x)=y_1f_1(x)+y_2f_2(x)+y_3f_3(x)+...
-$$</p>
-<p>其中$f_i(x_j)= \begin{cases} 1 ,i=j \\ \\ 0 ,i!=j	\end{cases}$</p>
+        <h2 id="缺失处理"><a href="#缺失处理" class="headerlink" title="缺失处理"></a>缺失处理</h2><h3 id="数据缺失及其类别"><a href="#数据缺失及其类别" class="headerlink" title="数据缺失及其类别"></a>数据缺失及其类别</h3><ul>
+<li>完全随机缺失：<br>当某变量缺失值发生的可能性与其他变量无关也与该变量自身无关时称作MCAR。换句话说，某变量缺失值的出现完全是个随机事件。可以将存在MCAR变量的数据看做是假定完整数据的一个随机样本<br>例如，由于测量设备出故障导致某些值缺失。</li>
+<li>随机缺失：<br>当某变量出现缺失值的可能性与模型中某些观测变量有关而与该变量自身无关时称作MAR<br>例如，在一次测试中，如果IQ达不到最低要求的100分，那么将不能参加随后的人格测验。在人格测验上因为IQ低于100分而产生的缺失值为MAR</li>
+<li>非随机缺失：<br>当某变量出现缺失值的可能性只与自身相关时称作MANR<br>例如，公司新录用了20名员工，由于6名员工表现较差在试用期内辞退，试用期结束后的表现评定中，辞退的6名员工的表现分即为非随机缺失。</li>
+</ul>
+<h3 id="数据缺失的处理方法"><a href="#数据缺失的处理方法" class="headerlink" title="数据缺失的处理方法"></a>数据缺失的处理方法</h3><ul>
+<li>删除法：当一条记录中存在许多缺失时，将记录删去；当一个列存在许多缺失时，将列删去。或将特征映射到高维，对特征的每个属性做是否判断。或添加缺失项这一特征</li>
+<li>均值替代法：使用每个变量的均值去填补该变量的缺失值。这种方法容易产生估计偏差。</li>
+<li>回归法 ：根据变量间的相关，利用其他变量的信息通过建立回归方式去推算缺失值。该法同样会产生估计偏差。</li>
+<li>期望值最大化（Expectation Maximization, EM）法：随机缺失的条件下，假设模型对于完整的样本是正确的，那么通过观测数据的边际分布可以对未知参数进行极大似然估计。这种方法也被称为忽略缺失值的极大似然估计，对于极大似然的参数估计实际中常采用的计算方法是期望值最大化。</li>
+<li>K最近距离邻（K-means clustering）法：先确定距离具有缺失数据样本最近的K个样本，将这K个值加权平均来估计该样本的缺失数据。</li>
+<li>不处理：把缺失当成一种特殊值。</li>
+<li>拉格朗日插值法</li>
+</ul>
+<p>拉格朗日插值法，即对于点 $(x_1,y_1),(x_2,y_2),(x_3,y_3)​$<br>存在曲线经过这些点，运用线代中的坐标基向量的找法，该多项式曲线为 </p>
+<script type="math/tex; mode=display">
+f(x)=y_1f_1(x)+y_2f_2(x)+y_3f_3(x)+...</script><p>其中$f_i(x_j)= \begin{cases} 1 ,i=j \ \ 0 ,i!=j    \end{cases}$</p>
 <p>推导有 $ f_i(x)=\prod \cfrac{x-x_i}{x_i-x_j}  ​$</p>
-<p>## 统计知识
-### 假设检验
-对总体参数做一个尝试性的假设，来确定是否应拒绝总体参数值</p>
+<h2 id="统计知识"><a href="#统计知识" class="headerlink" title="统计知识"></a>统计知识</h2><h3 id="假设检验"><a href="#假设检验" class="headerlink" title="假设检验"></a>假设检验</h3><p>对总体参数做一个尝试性的假设，来确定是否应拒绝总体参数值</p>
 <p>1.假设检验中的两类错误</p>
-<p>&gt; 第一类错误：原假设为真，拒绝原假设
-&gt; 第二类错误：备择假设为真，不拒绝原假设</p>
+<blockquote>
+<p>第一类错误：原假设为真，拒绝原假设<br>第二类错误：备择假设为真，不拒绝原假设</p>
+</blockquote>
 <p>2.显著性水平：犯第一类错误的概率</p>
-<p>3.下侧检验：拒绝域出现在下侧
-$$
-原假设：H_0:u≥u_0</p>
-<p>备择假设：H_a:u＜u_0
-$$
-4.上侧检验：拒绝域出现在上侧
-$$
-原假设：H_0:u≤u_0</p>
-<p>备择假设：H_a:u＞u_0
-$$
-总体方差$$\sigma^2$$ 已知的情况下：Z检验
-总体方差$$\sigma^2$$ 未知的情况下：t检验</p>
+<p>3.下侧检验：拒绝域出现在下侧</p>
+<script type="math/tex; mode=display">
+原假设：H_0:u≥u_0  
+
+备择假设：H_a:u＜u_0</script><p>4.上侧检验：拒绝域出现在上侧</p>
+<script type="math/tex; mode=display">
+原假设：H_0:u≤u_0  
+
+备择假设：H_a:u＞u_0</script><p>总体方差<script type="math/tex">\sigma^2</script> 已知的情况下：Z检验<br>总体方差<script type="math/tex">\sigma^2</script> 未知的情况下：t检验</p>
 <p>5.p值：概率值，是样本所提供的证据对原假设支持程度的度量，p越小，表明反对原假设的证据越多,p大于显著性水平时，不拒绝原假设</p>
-<p>### 自由度</p>
-<p>- wiki解释</p>
-<p>**在统计学中，自由度（英语：degree of freedom, df）是指当以样本的统计量来估计总体的参数时，样本中独立或能自由变化的数据的个数，称为该统计量的自由度[1]。一般来说，自由度等于独立变量减掉其衍生量数[2]；举例来说，方差的定义是样本减平均值的平方之和（一个由样本决定的衍生量），因此对N个随机样本而言，其自由度为N-1。**</p>
-<p>**估计总体的方差时所使用的统计量是样本的方差 s，而 s必须用到样本平均数x来计算。 x在抽样完成后已确定，所以大小为 n的样本中只要  n-1个数确定了，第 n个数就只有一个能使样本符合x的数值。也就是说，样本中只有  n-1个数可以自由变化，只要确定了这  n-1个数，方差也就确定了。这里，平均数 x就相当于一个限制条件，由于加了这个限制条件，样本方差 s的自由度为 n-1。**</p>
-<p>### 中心极限定理
-若给定样本量的所有样本来自任意总体，则**样本均值的抽样分布近似服从正态分布**，样本量越大，近似性越强</p>
-<p>### 方差和标准差
-样本方差$$ s^2$$是对总体方差$$ \sigma ^2$$的无偏估计</p>
-<p>### Pearson相关系数</p>
-<p>两个变量之间是线性关系，总体是正态分布
-$$  r=\cfrac{\sum (X-\overline{X})(Y-\overline{Y})}{\sqrt{\sum (X-\overline X})^2 \sqrt{\sum (Y-\overline Y})^2} $$</p>
-<p>### 超几何分布</p>
-<p>N中有M个特定种类，抽取n个时，会有k个特定种类的概率</p>
-<p>### 导数</p>
-<p>导数，指的是一元函数中，函数y=f(x)在某一点处沿x轴正方向的变化率；</p>
-<p>![](dataanalysis/20160325131644664.jpg)</p>
-<p>### 方向导数</p>
-<p>方向导数的定义，即：某一点在某一趋近方向上的变化率，就是函数在其他特定方向上的变化率</p>
-<p>![](dataanalysis/20160325132224619.jpg)</p>
-<p>### 偏导数</p>
-<p>偏导数，指的是多元函数中，函数y=f(x1,x2,…,xn)在某一点处沿某一坐标轴（x1,x2,…,xn）正方向的变化率。</p>
-<p>![](dataanalysis/20160325132018016.jpg)</p>
-<p>### 梯度</p>
-<p>梯度为解决空间中的某点，沿着哪个方向有最大的变化率
-$$gradf(x_0,x_1,...,x_n)=(\cfrac{\delta{f}}{\delta{x_0}},...,\cfrac{\delta{f}}{\delta{x_n}}) $$
-既有
-1.梯度是一个向量，即有方向有大小； 
-2.梯度的方向是最大方向导数的方向； 
-3.梯度的值是最大方向导数的值。</p>
-<p>### 泰勒公式</p>
-<p>$$ 若f(x)在a点处n+1可导，那么函数在a处的泰勒展开式 $$</p>
-<p>$$ f(x)=f(a)+\cfrac{f'(a)}{1!}(x-a)+\cfrac{f^{(2)}(a)}{2!}(x-a)^2+..+\cfrac{f^{(n)}(a)}{n!}(x-a)^n+R_n $$
-其中$$ R_n $$是泰勒公式的余项，是$$ (x-a)^n $$的高阶无穷小</p>
-<p>### 仿射</p>
-<p>任意两点$$X_1,X_2 \in K 以及 \alpha \in R$$，这两点连线上的所有点$$ \alpha X_1+(1-\alpha)X_2 \in K $$,则称这些点为仿射组合</p>
-<p>### 仿射函数</p>
-<p>仿射函数即由 1 阶多项式构成的函数，一般形式为 f (x) = A x + b，这里，A 是一个 m×k 矩阵，x 是一个 k 向量，b 是一个 m 向量，实际上反映了一种从 k 维到 m 维的空间映射关系</p>
-<p>### 超平面</p>
-<p>超平面H是从n维空间到n-1维空间的一个映射子空间，它有一个n维向量和一个实数定义。因为是子空间，所以超平面一定过原点，二维空间里的超平面为一条直线. 一维空间里超平面为数轴上的一个点。</p>
-<p>### 凸集
-K是n维欧式空间一点集合，若任意两点$$X_1,X_2 \in K$$，这两点连线上的所有点$$ \alpha X_1+(1-\alpha)X_2 \in K ,(0 \leq\alpha\leq1)$$,则称$$K$$为凸集</p>
-<p>### 凸函数</p>
-<p>定义在某个向量空间的凸子集区间上的实值函数，对于任意两点$$x,y,以及t \in [0,1]$$，有
-$ f(tx+(1-t)y) \leq tf(x)+(1-t)f(y) $，也就是凸函数上任意两点的连线都在两点区间的函数之上</p>
-<p>凸函数的性质：
-&gt; 1.凸函数的epigraph（函数图上或上方的点集合）为凸集
-&gt; 2.对于$$∀x,y，f(y)≥f(x)+∇f(x)^T(y−x) $$,即在函数某点切线上的点的值小于该点在函数上的值
-&gt; 3.对于$$∀x∈dom(f)， ∇^2f(x)≥0$$, 函数图像在定义域中每点处均有向上的正弯曲
-&gt; 4.凸函数的任何 极小值都是最小值，严格凸函数最多有一个最小值
-&gt; 5.凸函数具有仿射不变性，即f(x)是凸函数，则g(y)=f(Ax+b)也是凸函数</p>
-<p>### 凸优化</p>
-<p>&gt; 1.目标函数必须是凸的
-&gt; 2.不等式约束函数必须是凸的
-&gt; 3.等式约束函数必须是仿射的</p>
-<p>### 最大似然估计</p>
-<p>概率是已知模型和参数，推数据。统计是已知数据，推模型和参数。最大似然估计的目的就是：利用已知的样本结果，反推最有可能（最大概率）导致这样结果的参数值。</p>
+<h3 id="自由度"><a href="#自由度" class="headerlink" title="自由度"></a>自由度</h3><ul>
+<li>wiki解释</li>
+</ul>
+<p>　　<strong>在统计学中，自由度（英语：degree of freedom, df）是指当以样本的统计量来估计总体的参数时，样本中独立或能自由变化的数据的个数，称为该统计量的自由度[1]。一般来说，自由度等于独立变量减掉其衍生量数[2]；举例来说，方差的定义是样本减平均值的平方之和（一个由样本决定的衍生量），因此对N个随机样本而言，其自由度为N-1。</strong>  </p>
+<p>　　<strong>估计总体的方差时所使用的统计量是样本的方差 s，而 s必须用到样本平均数x来计算。 x在抽样完成后已确定，所以大小为 n的样本中只要  n-1个数确定了，第 n个数就只有一个能使样本符合x的数值。也就是说，样本中只有  n-1个数可以自由变化，只要确定了这  n-1个数，方差也就确定了。这里，平均数 x就相当于一个限制条件，由于加了这个限制条件，样本方差 s的自由度为 n-1。</strong></p>
+<h3 id="中心极限定理"><a href="#中心极限定理" class="headerlink" title="中心极限定理"></a>中心极限定理</h3><p>若给定样本量的所有样本来自任意总体，则<strong>样本均值的抽样分布近似服从正态分布</strong>，样本量越大，近似性越强</p>
+<h3 id="方差和标准差"><a href="#方差和标准差" class="headerlink" title="方差和标准差"></a>方差和标准差</h3><p>样本方差<script type="math/tex">s^2</script>是对总体方差<script type="math/tex">\sigma ^2</script>的无偏估计</p>
+<h3 id="Pearson相关系数"><a href="#Pearson相关系数" class="headerlink" title="Pearson相关系数"></a>Pearson相关系数</h3><p>两个变量之间是线性关系，总体是正态分布</p>
+<script type="math/tex; mode=display">r=\cfrac{\sum (X-\overline{X})(Y-\overline{Y})}{\sqrt{\sum (X-\overline X})^2 \sqrt{\sum (Y-\overline Y})^2}</script><h3 id="超几何分布"><a href="#超几何分布" class="headerlink" title="超几何分布"></a>超几何分布</h3><p>N中有M个特定种类，抽取n个时，会有k个特定种类的概率</p>
+<h3 id="导数"><a href="#导数" class="headerlink" title="导数"></a>导数</h3><p>导数，指的是一元函数中，函数y=f(x)在某一点处沿x轴正方向的变化率； </p>
+<p><img src="/2019/02/05/dataanalysis/20160325131644664.jpg" alt=""></p>
+<h3 id="方向导数"><a href="#方向导数" class="headerlink" title="方向导数"></a>方向导数</h3><p>方向导数的定义，即：某一点在某一趋近方向上的变化率，就是函数在其他特定方向上的变化率</p>
+<p><img src="/2019/02/05/dataanalysis/20160325132224619.jpg" alt=""></p>
+<h3 id="偏导数"><a href="#偏导数" class="headerlink" title="偏导数"></a>偏导数</h3><p>偏导数，指的是多元函数中，函数y=f(x1,x2,…,xn)在某一点处沿某一坐标轴（x1,x2,…,xn）正方向的变化率。 </p>
+<p><img src="/2019/02/05/dataanalysis/20160325132018016.jpg" alt="">
+　</p>
+<h3 id="梯度"><a href="#梯度" class="headerlink" title="梯度"></a>梯度</h3><p>梯度为解决空间中的某点，沿着哪个方向有最大的变化率</p>
+<script type="math/tex; mode=display">gradf(x_0,x_1,...,x_n)=(\cfrac{\delta{f}}{\delta{x_0}},...,\cfrac{\delta{f}}{\delta{x_n}})</script><p>既有<br>1.梯度是一个向量，即有方向有大小；<br>2.梯度的方向是最大方向导数的方向；<br>3.梯度的值是最大方向导数的值。 </p>
+<h3 id="泰勒公式"><a href="#泰勒公式" class="headerlink" title="泰勒公式"></a>泰勒公式</h3><script type="math/tex; mode=display">若f(x)在a点处n+1可导，那么函数在a处的泰勒展开式</script><script type="math/tex; mode=display">f(x)=f(a)+\cfrac{f'(a)}{1!}(x-a)+\cfrac{f^{(2)}(a)}{2!}(x-a)^2+..+\cfrac{f^{(n)}(a)}{n!}(x-a)^n+R_n</script><p>其中<script type="math/tex">R_n</script>是泰勒公式的余项，是<script type="math/tex">(x-a)^n</script>的高阶无穷小</p>
+<h3 id="仿射"><a href="#仿射" class="headerlink" title="仿射"></a>仿射</h3><p>任意两点<script type="math/tex">X_1,X_2 \in K 以及 \alpha \in R</script>，这两点连线上的所有点<script type="math/tex">\alpha X_1+(1-\alpha)X_2 \in K</script>,则称这些点为仿射组合</p>
+<h3 id="仿射函数"><a href="#仿射函数" class="headerlink" title="仿射函数"></a>仿射函数</h3><p>仿射函数即由 1 阶多项式构成的函数，一般形式为 f (x) = A x + b，这里，A 是一个 m×k 矩阵，x 是一个 k 向量，b 是一个 m 向量，实际上反映了一种从 k 维到 m 维的空间映射关系</p>
+<h3 id="超平面"><a href="#超平面" class="headerlink" title="超平面"></a>超平面</h3><p>超平面H是从n维空间到n-1维空间的一个映射子空间，它有一个n维向量和一个实数定义。因为是子空间，所以超平面一定过原点，二维空间里的超平面为一条直线. 一维空间里超平面为数轴上的一个点。</p>
+<h3 id="凸集"><a href="#凸集" class="headerlink" title="凸集"></a>凸集</h3><p>K是n维欧式空间一点集合，若任意两点<script type="math/tex">X_1,X_2 \in K</script>，这两点连线上的所有点<script type="math/tex">\alpha X_1+(1-\alpha)X_2 \in K ,(0 \leq\alpha\leq1)</script>,则称<script type="math/tex">K</script>为凸集</p>
+<h3 id="凸函数"><a href="#凸函数" class="headerlink" title="凸函数"></a>凸函数</h3><p>定义在某个向量空间的凸子集区间上的实值函数，对于任意两点<script type="math/tex">x,y,以及t \in [0,1]</script>，有<br>$ f(tx+(1-t)y) \leq tf(x)+(1-t)f(y) $，也就是凸函数上任意两点的连线都在两点区间的函数之上   </p>
+<p>凸函数的性质：</p>
+<blockquote>
+<p>1.凸函数的epigraph（函数图上或上方的点集合）为凸集<br>2.对于<script type="math/tex">∀x,y，f(y)≥f(x)+∇f(x)^T(y−x)</script>,即在函数某点切线上的点的值小于该点在函数上的值<br>3.对于<script type="math/tex">∀x∈dom(f)， ∇^2f(x)≥0</script>, 函数图像在定义域中每点处均有向上的正弯曲<br>4.凸函数的任何 极小值都是最小值，严格凸函数最多有一个最小值<br>5.凸函数具有仿射不变性，即f(x)是凸函数，则g(y)=f(Ax+b)也是凸函数</p>
+</blockquote>
+<h3 id="凸优化"><a href="#凸优化" class="headerlink" title="凸优化"></a>凸优化</h3><blockquote>
+<p>1.目标函数必须是凸的<br>2.不等式约束函数必须是凸的<br>3.等式约束函数必须是仿射的</p>
+</blockquote>
+<h3 id="最大似然估计"><a href="#最大似然估计" class="headerlink" title="最大似然估计"></a>最大似然估计</h3><p>概率是已知模型和参数，推数据。统计是已知数据，推模型和参数。最大似然估计的目的就是：利用已知的样本结果，反推最有可能（最大概率）导致这样结果的参数值。</p>
 <p>对于P(x|θ)，x表示某一个具体的数据；θ表示模型的参数。</p>
 <p>如果θ是已知确定的，x是变量，这个函数叫做概率函数(probability function)，它描述对于不同的样本点x，其出现概率是多少。</p>
 <p>如果x是已知确定的，θ是变量，这个函数叫做似然函数(likelihood function), 它描述对于不同的模型参数，出现x这个样本点的概率是多少。</p>
-<p>### 对数几率</p>
-<p>一个事件发生的概率与不发生的概率的比值称为几率
-对数几率函数为 $$ logit(P)=log(\cfrac{P}{1-P})=\beta_0+\beta_1x_1+...+\beta_nx_n$$,与逻辑回归函数转化</p>
-<p>## 线性代数1</p>
-<p>### 二维空间的向量</p>
-<p>可以由两个基向量$ \vec{i}=\left[ \begin{array}{ccc}1\\0
-\end{array}\right]
-,\vec{j}=\left[ \begin{array}{ccc}0\\1
-\end{array}\right]
- $，经过向量数乘和向量加法运算后表示
-$\left[ \begin{array}{ccc}
--3\\
-2
-\end{array}\right]
-=-3\vec{i}+2\vec{j}$
-向量空间的一组基是张成该空间的一个线性无关向量集，当选择不同的基向量时，获得一个新的坐标系</p>
-<p>### 线性组合</p>
-<p>两个数乘向量的和被称为这两个向量的线性组合
-$a\vec{v}+b\vec{w},即\vec{v}和\vec{w}的线性组合，构成的向量集合称为张成的空间$
-当固定其中一个标量，让另一个标量自由变化，所产生的向量的终点会描出一条直线；
-当两个标量同时自由变化（非零向量；不共线的情况下），可以获得所有的二维向量</p>
-<p>### 线性变换
-接受一个向量并且输出一个向量的变换</p>
-<p>线性变换的特性：
-1.直线依旧是直线；
-2.原点保持固定</p>
-<p>考虑基向量线性变换后的位置，其他向量通过变换后基向量表示变换值
-变换后的基向量
-$$
+<h3 id="对数几率"><a href="#对数几率" class="headerlink" title="对数几率"></a>对数几率</h3><p>一个事件发生的概率与不发生的概率的比值称为几率<br>对数几率函数为 <script type="math/tex">logit(P)=log(\cfrac{P}{1-P})=\beta_0+\beta_1x_1+...+\beta_nx_n</script>,与逻辑回归函数转化</p>
+<h2 id="线性代数1"><a href="#线性代数1" class="headerlink" title="线性代数1"></a>线性代数1</h2><h3 id="二维空间的向量"><a href="#二维空间的向量" class="headerlink" title="二维空间的向量"></a>二维空间的向量</h3><p>可以由两个基向量$ \vec{i}=\left[ \begin{array}{ccc}1\0<br>\end{array}\right]<br>,\vec{j}=\left[ \begin{array}{ccc}0\1<br>\end{array}\right]<br> $，经过向量数乘和向量加法运算后表示<br>$\left[ \begin{array}{ccc}<br>-3\<br>2<br>\end{array}\right]<br>=-3\vec{i}+2\vec{j}$<br>向量空间的一组基是张成该空间的一个线性无关向量集，当选择不同的基向量时，获得一个新的坐标系</p>
+<h3 id="线性组合"><a href="#线性组合" class="headerlink" title="线性组合"></a>线性组合</h3><p>两个数乘向量的和被称为这两个向量的线性组合<br>$a\vec{v}+b\vec{w},即\vec{v}和\vec{w}的线性组合，构成的向量集合称为张成的空间$<br>当固定其中一个标量，让另一个标量自由变化，所产生的向量的终点会描出一条直线；<br>当两个标量同时自由变化（非零向量；不共线的情况下），可以获得所有的二维向量</p>
+<h3 id="线性变换"><a href="#线性变换" class="headerlink" title="线性变换"></a>线性变换</h3><p>接受一个向量并且输出一个向量的变换</p>
+<p>线性变换的特性：<br>1.直线依旧是直线；<br>2.原点保持固定</p>
+<p>考虑基向量线性变换后的位置，其他向量通过变换后基向量表示变换值<br>变换后的基向量</p>
+<script type="math/tex; mode=display">
 \vec{i}=\left[ \begin{array}{ccc}1\\-2
 \end{array}\right]
 ,\vec{j}=\left[ \begin{array}{ccc}3\\0
@@ -494,155 +411,138 @@ $$
 \vec{v}=-3\vec{i}+2\vec{j}=\left[ \begin{array}{ccc}
 -3*1+2*3\\
 -3*-2+2*0
-\end{array}\right]
-$$</p>
-<p>### 矩阵乘法和线性变换</p>
-<p>$$
+\end{array}\right]</script><h3 id="矩阵乘法和线性变换"><a href="#矩阵乘法和线性变换" class="headerlink" title="矩阵乘法和线性变换"></a>矩阵乘法和线性变换</h3><script type="math/tex; mode=display">
 A=\left[ \begin{array}{ccc}i,j
-\end{array}\right]=\left[ \begin{array}{ccc}1 &amp; 3\\-2 &amp; 0
+\end{array}\right]=\left[ \begin{array}{ccc}1 & 3\\-2 & 0
 \end{array}\right]是变换后的基向量，\left[ \begin{array}{ccc}x \\y
 \end{array}\right] 是任意初始向量，则A\left[ \begin{array}{ccc}x \\y
-\end{array}\right]为线性变换后的向量
-$$</p>
-<p>## 线性代数2</p>
-<p>### 矩阵乘法和线性变换(续)</p>
-<p>两个矩阵相乘的几何意义，就是两次线性变换的相继作用
-$AB\left[ \begin{array}{ccc}x \\y
-\end{array}\right]=C\left[ \begin{array}{ccc}x \\y
-\end{array}\right]$</p>
-<p>### 行列式</p>
-<p>矩阵A的行列式$$det(A)=M$$,表示将一个区域的面积变换为原来的M倍，若M为0，则表示线性变换将平面压缩成一条线或者是一个点。$$即通过判断行列式是否为0，确定矩阵所代表的线性变换是否将空间压缩，降维 $$</p>
-<p>### 线性方程组</p>
-<p>对于求解线性方程组$$ A\vec{x}=\vec{v},即是找到一个向量\vec{x}，在经过矩阵A线性变换后，与\vec{v}重合$$</p>
-<p>### 逆矩阵
-$$ 对于A^{-1}A=E的恒等变换 $$，只存在于det(A)≠0，即若矩阵A代表的线性变换将空间压缩，则无法通过逆变换还原</p>
-<p>### 秩</p>
-<p>代表着线性变换后空间的维数，当列数与秩相等时，称为满秩</p>
-<p>### 向量的点积</p>
-<p>向量的点积$$ \vec{v}*\vec{w}=\vec{v}的投影长度*\vec{w}的长度=\vec{v}*\vec{w}的投影长度 $$</p>
-<p>对偶性:两种数学事物之间自然而又出乎意料的对应关系</p>
-<p>### 向量的叉积</p>
-<p>$$ \vec{v}\times\vec{w}=\vec{p},其中\vec{p}的长度等于平行四边形的面积，方向垂直于\vec{v}和\vec{w} $$</p>
-<p>## 线性代数3</p>
-<p>### 不同坐标系下的基向量</p>
-<p>A坐标系下基向量$$ \vec{i},\vec{j} $$，B坐标系下基向量$$ \vec{b_1},\vec{b_2} 为\left[ \begin{array}{ccc}0 \\1
+\end{array}\right]为线性变换后的向量</script><h2 id="线性代数2"><a href="#线性代数2" class="headerlink" title="线性代数2"></a>线性代数2</h2><h3 id="矩阵乘法和线性变换-续"><a href="#矩阵乘法和线性变换-续" class="headerlink" title="矩阵乘法和线性变换(续)"></a>矩阵乘法和线性变换(续)</h3><p>两个矩阵相乘的几何意义，就是两次线性变换的相继作用<br>$AB\left[ \begin{array}{ccc}x \y<br>\end{array}\right]=C\left[ \begin{array}{ccc}x \y<br>\end{array}\right]$</p>
+<h3 id="行列式"><a href="#行列式" class="headerlink" title="行列式"></a>行列式</h3><p>矩阵A的行列式<script type="math/tex">det(A)=M</script>,表示将一个区域的面积变换为原来的M倍，若M为0，则表示线性变换将平面压缩成一条线或者是一个点。<script type="math/tex">即通过判断行列式是否为0，确定矩阵所代表的线性变换是否将空间压缩，降维</script></p>
+<h3 id="线性方程组"><a href="#线性方程组" class="headerlink" title="线性方程组"></a>线性方程组</h3><p>对于求解线性方程组<script type="math/tex">A\vec{x}=\vec{v},即是找到一个向量\vec{x}，在经过矩阵A线性变换后，与\vec{v}重合</script></p>
+<h3 id="逆矩阵"><a href="#逆矩阵" class="headerlink" title="逆矩阵"></a>逆矩阵</h3><script type="math/tex; mode=display">对于A^{-1}A=E的恒等变换 $$，只存在于det(A)≠0，即若矩阵A代表的线性变换将空间压缩，则无法通过逆变换还原
+
+### 秩
+
+代表着线性变换后空间的维数，当列数与秩相等时，称为满秩
+
+### 向量的点积
+
+向量的点积$$ \vec{v}*\vec{w}=\vec{v}的投影长度*\vec{w}的长度=\vec{v}*\vec{w}的投影长度</script><p>对偶性:两种数学事物之间自然而又出乎意料的对应关系</p>
+<h3 id="向量的叉积"><a href="#向量的叉积" class="headerlink" title="向量的叉积"></a>向量的叉积</h3><script type="math/tex; mode=display">\vec{v}\times\vec{w}=\vec{p},其中\vec{p}的长度等于平行四边形的面积，方向垂直于\vec{v}和\vec{w}</script><h2 id="线性代数3"><a href="#线性代数3" class="headerlink" title="线性代数3"></a>线性代数3</h2><h3 id="不同坐标系下的基向量"><a href="#不同坐标系下的基向量" class="headerlink" title="不同坐标系下的基向量"></a>不同坐标系下的基向量</h3><p>A坐标系下基向量<script type="math/tex">\vec{i},\vec{j}</script>，B坐标系下基向量<script type="math/tex">\vec{b_1},\vec{b_2} 为\left[ \begin{array}{ccc}0 \\1
 \end{array}\right] 和\left[ \begin{array}{ccc}1 \\0
-\end{array}\right] $$，其中从A的视角中，$$ \vec{b_1}=\left[ \begin{array}{ccc}2 \\1
+\end{array}\right]</script>，其中从A的视角中，<script type="math/tex">\vec{b_1}=\left[ \begin{array}{ccc}2 \\1
 \end{array}\right],\vec{b_2}=\left[ \begin{array}{ccc}-1 \\1
-\end{array}\right] $$，这两个坐标系都共用一个原点，但是坐标轴的方向和网格间距会不同，这依赖与对基的选择</p>
-<p>令$$ M=\left[ \begin{array}{ccc}2 &amp; -1 \\1 &amp;1
-\end{array}\right]$$,对于两种坐标系下的向量转换，即存在$$ M\alpha=\beta $$,其中 $$ \alpha=\left[ \begin{array}{ccc}1 &amp; 0 \\0 &amp;1
-\end{array}\right] $$ 为B坐标系视角下的向量，$$ \beta=\left[ \begin{array}{ccc} \vec{b_1} &amp; \vec{b_2}
-\end{array}\right]  $$为A坐标系视角下的向量。</p>
-<p>推广下，则有 $$  M^{-1}PM\alpha 代表在两种坐标系视角下，经过矩阵P(A视角下)的线性变换后，获得的B视角下的向量 $$</p>
-<p>### 特征向量</p>
-<p>对于线性变化A，若存在原向量$$ \alpha $$,经过A变化后，仍在其张成的空间中，只做拉伸变化，即存在
-$$ A\alpha=\lambda\alpha $$，其中$$ \lambda $$为拉伸或压缩比例因子，称向量$$ \alpha为特征向量，\lambda为特征值 $$</p>
-<p>特征向量的用途：在一个三维空间旋转中，对于旋转的特征向量，可以将此特征向量视为旋转轴，此时特征值为1</p>
-<p>### 特征基</p>
-<p>当特征向量可作为基向量时，即$$ \vec{b_1},\vec{b_2} $$ 为P变换中的特征向量，则有
-$$ M^{-1}PM 为新基的视角下P变换，所得到的矩阵，这个矩阵为对角矩阵，对角元为特征值，其中M为P变化的特征向量，这是因为在所处的坐标系的基向量在变换中只进行了伸缩  $$</p>
-<p>### 正交矩阵</p>
-<p>矩阵的逆和矩阵的转置相等</p>
-<p>### 正定矩阵</p>
-<p>对任意非零向量$$  \vec{x},有x^TAx&gt;0 $$,即称A为正定矩阵，且A的特征值均为正；
-正定、半正定矩阵的直觉代表一个向量经过它的变化后的向量与其本身的夹角小于等于90度。</p>
-<p>### 二次型矩阵</p>
-<p>二次型矩阵具有对称性，所以二次型一定可以化成对角矩阵</p>
-<p>### 相似对角化</p>
-<p>如果矩阵与一个对角阵相似，那么他们具有相同的特征多项值、特征值、秩
-一个矩阵 $$A=\lambda_1P_1+\lambda_2P_2+... $$
-其中，$$ P称为A的谱族，\lambda为特征值,特征值
+\end{array}\right]</script>，这两个坐标系都共用一个原点，但是坐标轴的方向和网格间距会不同，这依赖与对基的选择</p>
+<p>令<script type="math/tex">M=\left[ \begin{array}{ccc}2 & -1 \\1 &1
+\end{array}\right]</script>,对于两种坐标系下的向量转换，即存在<script type="math/tex">M\alpha=\beta</script>,其中 <script type="math/tex">\alpha=\left[ \begin{array}{ccc}1 & 0 \\0 &1
+\end{array}\right]</script> 为B坐标系视角下的向量，<script type="math/tex">\beta=\left[ \begin{array}{ccc} \vec{b_1} & \vec{b_2}
+\end{array}\right]</script>为A坐标系视角下的向量。</p>
+<p>推广下，则有 <script type="math/tex">M^{-1}PM\alpha 代表在两种坐标系视角下，经过矩阵P(A视角下)的线性变换后，获得的B视角下的向量</script></p>
+<h3 id="特征向量"><a href="#特征向量" class="headerlink" title="特征向量"></a>特征向量</h3><p>对于线性变化A，若存在原向量<script type="math/tex">\alpha</script>,经过A变化后，仍在其张成的空间中，只做拉伸变化，即存在</p>
+<script type="math/tex; mode=display">A\alpha=\lambda\alpha $$，其中$$ \lambda $$为拉伸或压缩比例因子，称向量$$ \alpha为特征向量，\lambda为特征值</script><p>特征向量的用途：在一个三维空间旋转中，对于旋转的特征向量，可以将此特征向量视为旋转轴，此时特征值为1</p>
+<h3 id="特征基"><a href="#特征基" class="headerlink" title="特征基"></a>特征基</h3><p>当特征向量可作为基向量时，即<script type="math/tex">\vec{b_1},\vec{b_2}</script> 为P变换中的特征向量，则有</p>
+<script type="math/tex; mode=display">M^{-1}PM 为新基的视角下P变换，所得到的矩阵，这个矩阵为对角矩阵，对角元为特征值，其中M为P变化的特征向量，这是因为在所处的坐标系的基向量在变换中只进行了伸缩</script><h3 id="正交矩阵"><a href="#正交矩阵" class="headerlink" title="正交矩阵"></a>正交矩阵</h3><p>矩阵的逆和矩阵的转置相等</p>
+<h3 id="正定矩阵"><a href="#正定矩阵" class="headerlink" title="正定矩阵"></a>正定矩阵</h3><p>对任意非零向量<script type="math/tex">\vec{x},有x^TAx>0</script>,即称A为正定矩阵，且A的特征值均为正；<br>正定、半正定矩阵的直觉代表一个向量经过它的变化后的向量与其本身的夹角小于等于90度。</p>
+<h3 id="二次型矩阵"><a href="#二次型矩阵" class="headerlink" title="二次型矩阵"></a>二次型矩阵</h3><p>二次型矩阵具有对称性，所以二次型一定可以化成对角矩阵</p>
+<h3 id="相似对角化"><a href="#相似对角化" class="headerlink" title="相似对角化"></a>相似对角化</h3><p>如果矩阵与一个对角阵相似，那么他们具有相同的特征多项值、特征值、秩<br>一个矩阵 <script type="math/tex">A=\lambda_1P_1+\lambda_2P_2+...</script><br>其中，<script type="math/tex">P称为A的谱族，\lambda为特征值,特征值
 和谱族的乘积就代表了它对矩阵A 的贡献率,即能量（power）或者权重
-(weight)。这样，能量多的、权重大的部分当然重要，问题的主要矛盾就凸显出来了 $$
-对于矩阵$$A=P\left[ \begin{array}{ccc}\lambda_1 &amp;  \\ &amp; \lambda_2
-\end{array}\right]P^{-1}，其中P=[p_1,p_2,..],P^{-1}=[q_1,q_2,..]^T,则有P_1=p_1q_1,...$$,</p>
-<p>## 线性回归方程</p>
-<p>&gt; 简单线性回归模型</p>
-<p>$$
-y=β_0 + β_1 X + ε
-$$</p>
-<p>ε 是一个随机变量，称为模型的误差项，即不能被x，y之间的线性关系解释的变异性</p>
-<p>&gt; 简单线性回归方程</p>
-<p>$$
-E(y)=β_0 + β_1 X
-$$</p>
-<p>&gt; 估计的简单线性回归方程</p>
-<p>$$
-\hat{y}=b_0 + b_1 X
-$$</p>
-<p>用样本统计量 $$ b_0 + b_1 X $$ 替代回归方程中的未知参数</p>
-<p>&gt; 最小二乘法准则</p>
-<p>最小二乘法是利用样本数据，通过使应变量的观测值$$ y_i $$与应变量的预测值 $$\hat{y}$$ 之间的离差平方和达到最小的方法求得 $$ b_0 和 b_1  $$ 
-$$
-min\Sigma(y_i-\hat{y})^2
-$$</p>
-<p>&gt; 判定系数
-&gt; 为估计回归方程提供一个拟合优度的度量</p>
-<p>1.离差$$ y_i -\hat{y} $$ 表示用方程的估计值预测所产生的误差，称为误差平方和 $$  SSE=\Sigma(y_i -\hat{y})^2 $$</p>
-<p>2.离差$$  y_i -\bar{y} $$ 表示用样本平均值来去预测所产生的误差，称为总平方和 $$ SST=\Sigma(y_i -\bar{y})^2 $$</p>
-<p>3.离差$$  \hat{y} -\bar{y} ​$$ ，称为回归平方和 $$ SSR=\Sigma(\hat{y} -\bar{y})^2 ​$$</p>
-<p>4. $SST=SSR+SSE​$</p>
-<p>5.判定系数：$$ r^2= \frac {SSR} {SST} $$</p>
+(weight)。这样，能量多的、权重大的部分当然重要，问题的主要矛盾就凸显出来了</script><br>对于矩阵<script type="math/tex">A=P\left[ \begin{array}{ccc}\lambda_1 &  \\ & \lambda_2
+\end{array}\right]P^{-1}，其中P=[p_1,p_2,..],P^{-1}=[q_1,q_2,..]^T,则有P_1=p_1q_1,...</script>,</p>
+<h2 id="线性回归方程"><a href="#线性回归方程" class="headerlink" title="线性回归方程"></a>线性回归方程</h2><blockquote>
+<p>简单线性回归模型</p>
+</blockquote>
+<script type="math/tex; mode=display">
+y=β_0 + β_1 X + ε</script><p>ε 是一个随机变量，称为模型的误差项，即不能被x，y之间的线性关系解释的变异性</p>
+<blockquote>
+<p>简单线性回归方程</p>
+</blockquote>
+<script type="math/tex; mode=display">
+E(y)=β_0 + β_1 X</script><blockquote>
+<p>估计的简单线性回归方程</p>
+</blockquote>
+<script type="math/tex; mode=display">
+\hat{y}=b_0 + b_1 X</script><p>用样本统计量 <script type="math/tex">b_0 + b_1 X</script> 替代回归方程中的未知参数</p>
+<blockquote>
+<p>最小二乘法准则   </p>
+</blockquote>
+<p>最小二乘法是利用样本数据，通过使应变量的观测值<script type="math/tex">y_i</script>与应变量的预测值 <script type="math/tex">\hat{y}</script> 之间的离差平方和达到最小的方法求得 <script type="math/tex">b_0 和 b_1</script> </p>
+<script type="math/tex; mode=display">
+min\Sigma(y_i-\hat{y})^2</script><blockquote>
+<p>判定系数<br>为估计回归方程提供一个拟合优度的度量  </p>
+</blockquote>
+<p>1.离差<script type="math/tex">y_i -\hat{y}</script> 表示用方程的估计值预测所产生的误差，称为误差平方和 <script type="math/tex">SSE=\Sigma(y_i -\hat{y})^2</script></p>
+<p>2.离差<script type="math/tex">y_i -\bar{y}</script> 表示用样本平均值来去预测所产生的误差，称为总平方和 <script type="math/tex">SST=\Sigma(y_i -\bar{y})^2</script></p>
+<p>3.离差<script type="math/tex">\hat{y} -\bar{y} ​</script> ，称为回归平方和 <script type="math/tex">SSR=\Sigma(\hat{y} -\bar{y})^2 ​</script></p>
+<ol>
+<li>$SST=SSR+SSE​$</li>
+</ol>
+<p>5.判定系数：<script type="math/tex">r^2= \frac {SSR} {SST}</script></p>
 <p>6.仅仅依靠判定系数，无法判断x和y之间的显著性，只能判断最小二乘回归直线是否很好的拟合了样本数据</p>
-<p>&gt; 相关系数   
-&gt; $$  r_{xy}=（b_1的符号)\sqrt{判定系数} ​$$   
-&gt; 样本相关系数被限制在两变量之间存在线性关系的情况</p>
-<p>### 显著性检验</p>
-<p>关于简单线性回归模型中误差项ε的假定
-$$
-y=β_0 + β_1 X + ε
-$$
-1.误差项ε是一个期望值为零的随机变量，即$$E(y)=0$$,
-即有 $$
-E(y)=β_0 + β_1 X
-$$</p>
-<p>2.对所有的x值，ε的方差$$\sigma^2 $$相同</p>
-<p>3.ε值是独立的，且符合正态分布</p>
-<p>4.假设检验，判定$$β_1$$ 是否为0</p>
-<p>$$\sigma^2 $$的估计：$$ s^2=MSE=\frac{SSE} {n-2} $$</p>
-<p>### 损失函数</p>
-<p>最小二乘法的拟合误差函数：
-$$ loss=\Sigma(y_i-\hat{y})^2=\Sigma(y_i-β_0 - β_1 X)^2 $$
-损失函数：
-$$ Loss function= Fit Error + Model Complexity $$
-其中复杂度代价函数就是约束我们的模型尽量的简单，模型越复杂，规则化值越大</p>
-<p>&gt;范数</p>
-<p>范数，是具有“长度”概念的函数。
-L1范数对应曼哈顿距离
-L2范数对应欧式距离</p>
-<p>&gt; L0范数</p>
+<blockquote>
+<p>相关系数   </p>
+<script type="math/tex; mode=display">r_{xy}=（b_1的符号)\sqrt{判定系数} ​</script><p>样本相关系数被限制在两变量之间存在线性关系的情况</p>
+</blockquote>
+<h3 id="显著性检验"><a href="#显著性检验" class="headerlink" title="显著性检验"></a>显著性检验</h3><p>关于简单线性回归模型中误差项ε的假定</p>
+<script type="math/tex; mode=display">
+y=β_0 + β_1 X + ε</script><p>1.误差项ε是一个期望值为零的随机变量，即<script type="math/tex">E(y)=0</script>,<br>即有 $$<br>E(y)=β_0 + β_1 X</p>
+<script type="math/tex; mode=display">
+
+2.对所有的x值，ε的方差$$\sigma^2 $$相同
+
+3.ε值是独立的，且符合正态分布
+
+4.假设检验，判定$$β_1$$ 是否为0
+
+$$\sigma^2 $$的估计：$$ s^2=MSE=\frac{SSE} {n-2}</script><h3 id="损失函数"><a href="#损失函数" class="headerlink" title="损失函数"></a>损失函数</h3><p>最小二乘法的拟合误差函数：</p>
+<script type="math/tex; mode=display">loss=\Sigma(y_i-\hat{y})^2=\Sigma(y_i-β_0 - β_1 X)^2</script><p>损失函数：</p>
+<script type="math/tex; mode=display">Loss function= Fit Error + Model Complexity</script><p>其中复杂度代价函数就是约束我们的模型尽量的简单，模型越复杂，规则化值越大</p>
+<blockquote>
+<p>范数</p>
+</blockquote>
+<p>范数，是具有“长度”概念的函数。<br>L1范数对应曼哈顿距离<br>L2范数对应欧式距离</p>
+<blockquote>
+<p>L0范数</p>
+</blockquote>
 <p>向量中非零元素的个数</p>
-<p>&gt; L1范数 (Lasso regularization)</p>
-<p>$$ ||x||_1 = \sum_{i=1}^N|x_i| $$，即向量元素绝对值之和
+<blockquote>
+<p>L1范数 (Lasso regularization) </p>
+</blockquote>
+<script type="math/tex; mode=display">||x||_1 = \sum_{i=1}^N|x_i| $$，即向量元素绝对值之和
 L1正则化有助于生成一个稀疏的权值矩阵，即使线性回归模型中大多数系数为0
 损失函数：
-$$ J=J_0+\alpha\sum|w| $$
-其中$$J_0为原始的损失函数，\alpha为正则化系数 $$</p>
-<p>&gt; L2范数 (Ridge Regression)</p>
-<p>$$ ||x||_2 = \sqrt[2]{\sum_{i=1}^N|x_i^2|} ​$$，即向量元素绝对值平方和的开平方</p>
-<p>**L1范数和L2范数正则化都有助于降低过拟合风险，但前者更易于获得更少的非零向量。即L1会趋向于产生少量的特征，而其他的特征都是0，而L2会选择更多的特征，这些特征都会接近于0**</p>
-<p>如图，假定x仅有两个属性，此时L1范数等值线和平方误差等值线交点更常出现在坐标轴上，即参数为0的情况
-![1527426007](dataanalysis/1527426007.png)</p>
-<p>### 参数优化</p>
-<p>机器学习的参数估计，是寻找最优参数使得损失函数最小化。在理想的情况下，损失函数是凸的、连续的、可导的。因此最基本的优化算法有：</p>
-<p>&gt; 梯度下降法(Gradient Descend Method)：</p>
-<p>梯度下降法，用当前负梯度的方向作为搜索方向，梯度下降法算法用梯度乘以一个称为学习速率（有时也称为步长）的标量，以确定下一个点的位置
-对于损失函数$$J(\theta) $$,其中m为样本个数,对$$\theta $$求导，
-![](dataanalysis/p1.png)
-![](dataanalysis/p2.jpg)
-![](dataanalysis/640.webp)</p>
-<p>&gt; 批量梯度下降法(BGD)</p>
+$$ J=J_0+\alpha\sum|w|</script><p>其中<script type="math/tex">J_0为原始的损失函数，\alpha为正则化系数</script></p>
+<blockquote>
+<p>L2范数 (Ridge Regression)</p>
+</blockquote>
+<p><script type="math/tex">||x||_2 = \sqrt[2]{\sum_{i=1}^N|x_i^2|} ​</script>，即向量元素绝对值平方和的开平方</p>
+<p><strong>L1范数和L2范数正则化都有助于降低过拟合风险，但前者更易于获得更少的非零向量。即L1会趋向于产生少量的特征，而其他的特征都是0，而L2会选择更多的特征，这些特征都会接近于0</strong></p>
+<p>如图，假定x仅有两个属性，此时L1范数等值线和平方误差等值线交点更常出现在坐标轴上，即参数为0的情况<br><img src="/2019/02/05/dataanalysis/1527426007.png" alt="1527426007"></p>
+<h3 id="参数优化"><a href="#参数优化" class="headerlink" title="参数优化"></a>参数优化</h3><p>机器学习的参数估计，是寻找最优参数使得损失函数最小化。在理想的情况下，损失函数是凸的、连续的、可导的。因此最基本的优化算法有：</p>
+<blockquote>
+<p>梯度下降法(Gradient Descend Method)：     </p>
+</blockquote>
+<p>梯度下降法，用当前负梯度的方向作为搜索方向，梯度下降法算法用梯度乘以一个称为学习速率（有时也称为步长）的标量，以确定下一个点的位置<br>对于损失函数<script type="math/tex">J(\theta)</script>,其中m为样本个数,对<script type="math/tex">\theta</script>求导，<br><img src="/2019/02/05/dataanalysis/p1.png" alt=""><br><img src="/2019/02/05/dataanalysis/p2.jpg" alt=""><br><img src="/2019/02/05/dataanalysis/640.webp" alt=""></p>
+<blockquote>
+<p>批量梯度下降法(BGD)</p>
+</blockquote>
 <p>对于BGD法，每次迭代需要把m个样本全部带入计算，可以得到全局最优解，但会导致计算量庞大</p>
-<p>&gt; 随机梯度下降法(SGD)</p>
+<blockquote>
+<p>随机梯度下降法(SGD)</p>
+</blockquote>
 <p>在更新每一参数时都使用一个样本来进行更新，也就是m等于1。每一次跟新参数都用一个样本。最终的结果往往是在全局最优解附近，适用于大规模训练样本</p>
-<p>&gt; 小批量梯度下降</p>
+<blockquote>
+<p>小批量梯度下降</p>
+</blockquote>
 <p>是介于全批量迭代与 SGD 之间的折衷方案。小批量通常包含 10-1000 个随机选择的样本。小批量 SGD 可以减少 SGD 中的杂乱样本数量，但仍然比全批量更高效</p>
-<p>&gt; 牛顿法和拟牛顿法：</p>
-<p>由$$f(x)在x_k点处的$$泰勒公式推展，对于极小值点有$$ f'(x)=0 $$,既有$$x=x_k-\cfrac{f'(x_k)}{f''(x_k)}$$,即需要求值$$ d_k=-\cfrac{f'(x_k)}{f''(x_k)} $$,令
-$$ x_{k+1}=x_k+d_k $$,重新迭代计算</p>
+<blockquote>
+<p>牛顿法和拟牛顿法： </p>
+</blockquote>
+<p>由<script type="math/tex">f(x)在x_k点处的</script>泰勒公式推展，对于极小值点有<script type="math/tex">f'(x)=0</script>,既有<script type="math/tex">x=x_k-\cfrac{f'(x_k)}{f''(x_k)}</script>,即需要求值<script type="math/tex">d_k=-\cfrac{f'(x_k)}{f''(x_k)}</script>,令</p>
+<p><script type="math/tex">x_{k+1}=x_k+d_k</script>,重新迭代计算</p>
 <p>梯度下降使用梯度(一阶导数)寻找下降最快的方向，而牛顿法通过曲率(二阶导数)寻找下降最快的方向，因此牛顿法的路径更直接。</p>
-<p>&gt; 共轭梯度法：</p>
+<blockquote>
+<p>共轭梯度法：             </p>
+</blockquote>
 <p>介于最速下降法与牛顿法之间的一个方法，仅需一阶导数信息</p>
 
       
@@ -728,8 +628,17 @@ $$ x_{k+1}=x_k+d_k $$,重新迭代计算</p>
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -753,15 +662,6 @@ $$ x_{k+1}=x_k+d_k $$,重新迭代计算</p>
             
 
             
-              
-              
-              <div class="site-state-item site-state-categories">
-                
-                  <span class="site-state-item-count">2</span>
-                  <span class="site-state-item-name">categories</span>
-                
-              </div>
-            
 
             
 
@@ -782,6 +682,22 @@ $$ x_{k+1}=x_k+d_k $$,重新迭代计算</p>
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#缺失处理"><span class="nav-number">1.</span> <span class="nav-text">缺失处理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据缺失及其类别"><span class="nav-number">1.1.</span> <span class="nav-text">数据缺失及其类别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据缺失的处理方法"><span class="nav-number">1.2.</span> <span class="nav-text">数据缺失的处理方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#统计知识"><span class="nav-number">2.</span> <span class="nav-text">统计知识</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#假设检验"><span class="nav-number">2.1.</span> <span class="nav-text">假设检验</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自由度"><span class="nav-number">2.2.</span> <span class="nav-text">自由度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#中心极限定理"><span class="nav-number">2.3.</span> <span class="nav-text">中心极限定理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方差和标准差"><span class="nav-number">2.4.</span> <span class="nav-text">方差和标准差</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Pearson相关系数"><span class="nav-number">2.5.</span> <span class="nav-text">Pearson相关系数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#超几何分布"><span class="nav-number">2.6.</span> <span class="nav-text">超几何分布</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#导数"><span class="nav-number">2.7.</span> <span class="nav-text">导数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方向导数"><span class="nav-number">2.8.</span> <span class="nav-text">方向导数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#偏导数"><span class="nav-number">2.9.</span> <span class="nav-text">偏导数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#梯度"><span class="nav-number">2.10.</span> <span class="nav-text">梯度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#泰勒公式"><span class="nav-number">2.11.</span> <span class="nav-text">泰勒公式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#仿射"><span class="nav-number">2.12.</span> <span class="nav-text">仿射</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#仿射函数"><span class="nav-number">2.13.</span> <span class="nav-text">仿射函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#超平面"><span class="nav-number">2.14.</span> <span class="nav-text">超平面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#凸集"><span class="nav-number">2.15.</span> <span class="nav-text">凸集</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#凸函数"><span class="nav-number">2.16.</span> <span class="nav-text">凸函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#凸优化"><span class="nav-number">2.17.</span> <span class="nav-text">凸优化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#最大似然估计"><span class="nav-number">2.18.</span> <span class="nav-text">最大似然估计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对数几率"><span class="nav-number">2.19.</span> <span class="nav-text">对数几率</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线性代数1"><span class="nav-number">3.</span> <span class="nav-text">线性代数1</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#二维空间的向量"><span class="nav-number">3.1.</span> <span class="nav-text">二维空间的向量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#线性组合"><span class="nav-number">3.2.</span> <span class="nav-text">线性组合</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#线性变换"><span class="nav-number">3.3.</span> <span class="nav-text">线性变换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#矩阵乘法和线性变换"><span class="nav-number">3.4.</span> <span class="nav-text">矩阵乘法和线性变换</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线性代数2"><span class="nav-number">4.</span> <span class="nav-text">线性代数2</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#矩阵乘法和线性变换-续"><span class="nav-number">4.1.</span> <span class="nav-text">矩阵乘法和线性变换(续)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#行列式"><span class="nav-number">4.2.</span> <span class="nav-text">行列式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#线性方程组"><span class="nav-number">4.3.</span> <span class="nav-text">线性方程组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#逆矩阵"><span class="nav-number">4.4.</span> <span class="nav-text">逆矩阵</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#向量的叉积"><span class="nav-number">4.5.</span> <span class="nav-text">向量的叉积</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线性代数3"><span class="nav-number">5.</span> <span class="nav-text">线性代数3</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#不同坐标系下的基向量"><span class="nav-number">5.1.</span> <span class="nav-text">不同坐标系下的基向量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#特征向量"><span class="nav-number">5.2.</span> <span class="nav-text">特征向量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#特征基"><span class="nav-number">5.3.</span> <span class="nav-text">特征基</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#正交矩阵"><span class="nav-number">5.4.</span> <span class="nav-text">正交矩阵</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#正定矩阵"><span class="nav-number">5.5.</span> <span class="nav-text">正定矩阵</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二次型矩阵"><span class="nav-number">5.6.</span> <span class="nav-text">二次型矩阵</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#相似对角化"><span class="nav-number">5.7.</span> <span class="nav-text">相似对角化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线性回归方程"><span class="nav-number">6.</span> <span class="nav-text">线性回归方程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#显著性检验"><span class="nav-number">6.1.</span> <span class="nav-text">显著性检验</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#损失函数"><span class="nav-number">6.2.</span> <span class="nav-text">损失函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参数优化"><span class="nav-number">6.3.</span> <span class="nav-text">参数优化</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -923,7 +839,7 @@ $$ x_{k+1}=x_k+d_k $$,重新迭代计算</p>
   
 
 
-  <script type="text/javascript" src="../../../../js/src/bootstrap.js?v=5.1.4"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <script type="text/javascript" src="../../../../js/src/bootstrap.js?v=5.1.4"></script>
 
 
 
@@ -976,6 +892,26 @@ $$ x_{k+1}=x_k+d_k $$,重新迭代计算</p>
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
