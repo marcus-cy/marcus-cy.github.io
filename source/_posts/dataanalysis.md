@@ -747,10 +747,10 @@ Bagging的弱学习器之间没有依赖关系，可以并行生成
 
 ### Stacking
 训练过程：对训练集采用K-Fold交叉和不同模型训练，再将不同模型的训练结果导入模型6训练
-![20171226110238565](F:\Blog\source\_posts\dataanalysis\20171226110238565.png)
+![](dataanalysis/20171226110238565.png)
 
 预测过程：
-![20171226110353569](F:\Blog\source\_posts\dataanalysis\20171226110353569.png)
+![](dataanalysis/20171226110353569.png)
 
 ### Blending
 类似于Stacking模型，不采用KFold选择训练集，只针对训练集中的一部分训练
