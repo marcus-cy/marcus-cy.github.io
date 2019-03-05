@@ -611,6 +611,9 @@ y=β_0 + β_1 X + ε</script><p>1.误差项ε是一个期望值为零的随机�
 <h3 id="Bagging和随机森林"><a href="#Bagging和随机森林" class="headerlink" title="Bagging和随机森林"></a>Bagging和随机森林</h3><p>Bagging。基于样本划分方法中的自助法(bootstrapping)，即对于含m个样本的数据集，开始有放回的抽取m次,作为训练集,然后把数据集和训练集的差集作为测试集，其中样本不被抽到的概率为36.8%，被重复抽到的概率为63.2%。在对预测输出进行结合时，通常对分类任务使用简单投票法，对回归任务使用简单平均法。</p>
 <p>随机森林(Random Forest)<br>以决策树为基学习器构建，对样本选取基于Bagging方法，对属性的选取采取从属性集合中无放回地抽取一部分属性进行决策树模型的开发，对整体的d个属性，一般选取其中的k个属性，满足<script type="math/tex">k=log_2d</script></p>
 <h3 id="Boosting-和-Bagging-区别"><a href="#Boosting-和-Bagging-区别" class="headerlink" title="Boosting 和 Bagging 区别"></a>Boosting 和 Bagging 区别</h3><p>Boosting的弱学习器存在强依赖关系，必须串行生成， Boosting主要关注降低偏差，可基于泛化性能弱的学习器构建出强的集成<br>Bagging的弱学习器之间没有依赖关系，可以并行生成</p>
+<h3 id="Stacking"><a href="#Stacking" class="headerlink" title="Stacking"></a>Stacking</h3><p>训练过程：对训练集采用K-Fold交叉和不同模型训练，再将不同模型的训练结果导入模型6训练<br><img src="/2019/02/05/dataanalysis/Blog\source\_posts\dataanalysis\20171226110238565.png" alt="20171226110238565"></p>
+<p>预测过程：<br><img src="/2019/02/05/dataanalysis/Blog\source\_posts\dataanalysis\20171226110353569.png" alt="20171226110353569"></p>
+<h3 id="Blending"><a href="#Blending" class="headerlink" title="Blending"></a>Blending</h3><p>类似于Stacking模型，不采用KFold选择训练集，只针对训练集中的一部分训练</p>
 <h2 id="GBDT"><a href="#GBDT" class="headerlink" title="GBDT"></a>GBDT</h2><p>GBDT使用了前向分布算法，在函数空间中利用梯度下降法进行优化。常见的有回归提升树、二元分类、多元分类三个GBDT算法，Freidman提出的梯度提升算法：利用最速下降的近似方法，即利用损失函数的负梯度在当前模型的值，作为回归问题中提升树算法的残差的近似值</p>
 <h3 id="GBDT模型"><a href="#GBDT模型" class="headerlink" title="GBDT模型"></a>GBDT模型</h3><p>强分类器由多个弱分类器线性相加，h为cart树，a为cart树参数，GBDT中每颗树学的是之前所有树结论和的残差<br>$ f(x;[\beta_t,a_t])=\sum_{t=1}^T \beta_t h(x;a_t) $</p>
 <p>第t步的模型可以写成：<br>$ f_t(x)=f_{t-1}(x)+\beta_th_t(x;a_t) $</p>
