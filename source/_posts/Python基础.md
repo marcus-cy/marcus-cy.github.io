@@ -1,7 +1,7 @@
 ---
 title: Python基础
 date: 2019-02-05 18:51:15
-categories: 写作2
+categories: python常用语句
 ---
 ### 列表 
 list是一种有序的集合，可以随时添加和删除其中的元素

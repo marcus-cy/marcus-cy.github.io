@@ -2,7 +2,7 @@
 layout: python简介
 title: python入门
 date: 2019-01-13 19:40:56
-categories: 写作3
+categories: python编码
 ---
 
 ### Python：一种交互式、解释性、面向对象的编程语言

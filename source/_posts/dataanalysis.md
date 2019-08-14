@@ -1,7 +1,7 @@
 ---
 title: 数据挖掘基础
 date: 2019-02-05 19:30:33
-categories: 写作1
+categories: 深度学习
 mathjax: true
 ---
 

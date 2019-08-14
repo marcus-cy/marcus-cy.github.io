@@ -1,7 +1,7 @@
 ---
 title: python之旅
 date: 2018-12-13 15:28:52
-categories: 写作4
+categories: 数据挖掘常用包
 ---
 
 # Numpy模块
