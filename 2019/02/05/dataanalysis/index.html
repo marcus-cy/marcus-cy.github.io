@@ -97,7 +97,7 @@
 <meta property="og:image" content="http://yoursite.com/2019/02/05/dataanalysis/1528726169.jpg">
 <meta property="og:image" content="http://yoursite.com/2019/02/05/dataanalysis/20171226110238565.png">
 <meta property="og:image" content="http://yoursite.com/2019/02/05/dataanalysis/20171226110353569.png">
-<meta property="og:updated_time" content="2019-03-05T16:10:01.444Z">
+<meta property="og:updated_time" content="2019-08-14T06:58:29.890Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据挖掘基础">
 <meta name="twitter:description" content="缺失处理数据缺失及其类别 完全随机缺失：当某变量缺失值发生的可能性与其他变量无关也与该变量自身无关时称作MCAR。换句话说，某变量缺失值的出现完全是个随机事件。可以将存在MCAR变量的数据看做是假定完整数据的一个随机样本例如，由于测量设备出故障导致某些值缺失。 随机缺失：当某变量出现缺失值的可能性与模型中某些观测变量有关而与该变量自身无关时称作MAR例如，在一次测试中，如果IQ达不到最低要求的10">
@@ -111,7 +111,7 @@
     root: '/',
     scheme: 'Mist',
     version: '5.1.4',
-    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    sidebar: {"position":"right","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
@@ -195,9 +195,19 @@
         <li class="menu-item menu-item-home">
           <a href="" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
             Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
           </a>
         </li>
       
@@ -274,6 +284,28 @@
           </span>
 
           
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="../../../../categories/写作1/" itemprop="url" rel="index">
+                    <span itemprop="name">写作1</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -320,10 +352,10 @@
 <li>不处理：把缺失当成一种特殊值。</li>
 <li>拉格朗日插值法</li>
 </ul>
-<p>拉格朗日插值法，即对于点 $(x_1,y_1),(x_2,y_2),(x_3,y_3)​$<br>存在曲线经过这些点，运用线代中的坐标基向量的找法，该多项式曲线为 </p>
+<p>拉格朗日插值法，即对于点 $(x_1,y_1),(x_2,y_2),(x_3,y_3)$<br>存在曲线经过这些点，运用线代中的坐标基向量的找法，该多项式曲线为 </p>
 <script type="math/tex; mode=display">
-f(x)=y_1f_1(x)+y_2f_2(x)+y_3f_3(x)+...</script><p>其中$f_i(x_j)= \begin{cases} 1, &amp; \text {i=j}   \\ 0 , &amp; \text{i!=j}    \end{cases} ​$</p>
-<p>推导有 $ f_i(x)=\prod \cfrac{x-x_i}{x_i-x_j}  ​$</p>
+f(x)=y_1f_1(x)+y_2f_2(x)+y_3f_3(x)+...</script><p>其中$f_i(x_j)= \begin{cases} 1, &amp; \text {i=j}   \\ 0 , &amp; \text{i!=j}    \end{cases} $</p>
+<p>推导有 $ f_i(x)=\prod \cfrac{x-x_i}{x_i-x_j}  $</p>
 <h2 id="特征选择"><a href="#特征选择" class="headerlink" title="特征选择"></a>特征选择</h2><h3 id="特征选择的方法"><a href="#特征选择的方法" class="headerlink" title="特征选择的方法"></a>特征选择的方法</h3><p>前向选择法：在前一轮产生的最优特征集合上，添加这一轮的最优特征，且产生的特征集合优于上一轮。若在K+1轮时，最优的{K+1}特征集合表现不如上一轮的K个特征集，则停止搜索。<br>后向选择法：类似前向，前向选择和后向选择都属于贪心策略，仅考虑本轮的最优。对于特征选择方法，可以基于决策树算法，选取信息增益最大的特征。<br>过滤式选择：先进行特征选取，特征的选取依据一种相关统计量来度量，类似于距离度量。然后再训练学习器。<br>包裹式选择：将最终确定的学习器性能作为特征选择的评价准则。<br>嵌入式选择：将特征选择和学习器训练过程融为一体，即在损失函数中，为避免样本特征多，样本量少，产生的过拟合，引入正则化项，其中L1范数更容易获得稀疏解</p>
 <h3 id="多重共线性检测"><a href="#多重共线性检测" class="headerlink" title="多重共线性检测"></a>多重共线性检测</h3><p>使用方差膨胀因子(VIF)来鉴定，如果VIF大于5，则说明变量存在多重共线性。一旦发现变量之间存在多重共线性的话，可以考虑删除变量和重新选择模型（岭回归法）</p>
 <p>$VIF =\cfrac{1}{1-R^2}$<br>$R^2是以x_j$为因变量时对其它自变量回归的复测定系数</p>
@@ -407,17 +439,17 @@ A=\left[ \begin{array}{ccc}i,j
 <h3 id="秩"><a href="#秩" class="headerlink" title="秩"></a>秩</h3><p>代表着线性变换后空间的维数，当列数与秩相等时，称为满秩</p>
 <h3 id="向量的点积"><a href="#向量的点积" class="headerlink" title="向量的点积"></a>向量的点积</h3><p>向量的点积<script type="math/tex">\vec{v}*\vec{w}=\vec{v}的投影长度*\vec{w}的长度=\vec{v}*\vec{w}的投影长度</script></p>
 <p>对偶性:两种数学事物之间自然而又出乎意料的对应关系</p>
-<h3 id="向量的叉积"><a href="#向量的叉积" class="headerlink" title="向量的叉积"></a>向量的叉积</h3><p>$ \vec{v}\times\vec{w}=\vec{p},其中\vec{p}的长度等于平行四边形的面积，方向垂直于\vec{v}和\vec{w} ​$</p>
+<h3 id="向量的叉积"><a href="#向量的叉积" class="headerlink" title="向量的叉积"></a>向量的叉积</h3><p>$ \vec{v}\times\vec{w}=\vec{p},其中\vec{p}的长度等于平行四边形的面积，方向垂直于\vec{v}和\vec{w} $</p>
 <h2 id="线性代数3"><a href="#线性代数3" class="headerlink" title="线性代数3"></a>线性代数3</h2><h3 id="不同坐标系下的基向量"><a href="#不同坐标系下的基向量" class="headerlink" title="不同坐标系下的基向量"></a>不同坐标系下的基向量</h3><p>A坐标系下基向量<script type="math/tex">\vec{i},\vec{j}</script>，B坐标系下基向量<script type="math/tex">\vec{b_1},\vec{b_2} 为\left[ \begin{array}{ccc}0 \\1
 \end{array}\right] 和\left[ \begin{array}{ccc}1 \\0
 \end{array}\right]</script>，其中从A的视角中，<script type="math/tex">\vec{b_1}=\left[ \begin{array}{ccc}2 \\1
 \end{array}\right],\vec{b_2}=\left[ \begin{array}{ccc}-1 \\1
 \end{array}\right]</script>，这两个坐标系都共用一个原点，但是坐标轴的方向和网格间距会不同，这依赖与对基的选择</p>
 <p>令<script type="math/tex">M=\left[ \begin{array}{ccc}2 & -1 \\1 &1
-\end{array}\right]​</script>,对于两种坐标系下的向量转换，即存在<script type="math/tex">M\alpha=\beta ​</script>,其中 <script type="math/tex">\alpha=\left[ \begin{array}{ccc}1 & 0 \\0 &1
-\end{array}\right] ​</script> 为B坐标系视角下的向量，<script type="math/tex">\beta=\left[ \begin{array}{ccc} \vec{b_1} & \vec{b_2}
-\end{array}\right]  ​</script>为A坐标系视角下的向量。</p>
-<p>推广下，则有<br>$  M^{-1}PM\alpha 代表在两种坐标系视角下，经过矩阵P(A视角下)的线性变换后，获得的B视角下的向量 ​$</p>
+\end{array}\right]</script>,对于两种坐标系下的向量转换，即存在<script type="math/tex">M\alpha=\beta</script>,其中 <script type="math/tex">\alpha=\left[ \begin{array}{ccc}1 & 0 \\0 &1
+\end{array}\right]</script> 为B坐标系视角下的向量，<script type="math/tex">\beta=\left[ \begin{array}{ccc} \vec{b_1} & \vec{b_2}
+\end{array}\right]</script>为A坐标系视角下的向量。</p>
+<p>推广下，则有<br>$  M^{-1}PM\alpha 代表在两种坐标系视角下，经过矩阵P(A视角下)的线性变换后，获得的B视角下的向量 $</p>
 <h3 id="特征向量"><a href="#特征向量" class="headerlink" title="特征向量"></a>特征向量</h3><p>对于线性变化A，若存在原向量$ \alpha $,经过A变化后，仍在其张成的空间中，只做拉伸变化，即存在<br>$ A\alpha=\lambda\alpha $，其中$ \lambda $为拉伸或压缩比例因子，称向量$ \alpha为特征向量，\lambda为特征值 $</p>
 <p>特征向量的用途：在一个三维空间旋转中，对于旋转的特征向量，可以将此特征向量视为旋转轴，此时特征值为1</p>
 <h3 id="特征基"><a href="#特征基" class="headerlink" title="特征基"></a>特征基</h3><p>当特征向量可作为基向量时，即<script type="math/tex">\vec{b_1},\vec{b_2}</script> 为P变换中的特征向量，则有</p>
@@ -453,7 +485,7 @@ min\Sigma(y_i-\hat{y})^2</script><blockquote>
 <p>1.离差$ y_i -\hat{y} <script type="math/tex">表示用方程的估计值预测所产生的误差，称为误差平方和</script>  SSE=\Sigma(y_i -\hat{y})^2 $</p>
 <p>2.离差$  y_i -\bar{y} <script type="math/tex">表示用样本平均值来去预测所产生的误差，称为总平方和</script> SST=\Sigma(y_i -\bar{y})^2 $</p>
 <p>3.离差$  \hat{y} -\bar{y} $ ，称为回归平方和 $ SSR=\Sigma(\hat{y} -\bar{y})^2 $</p>
-<p>4.$SST=SSR+SSE​$</p>
+<p>4.$SST=SSR+SSE$</p>
 <p>5.判定系数：$ r^2= \frac {SSR} {SST} $</p>
 <p>6.仅仅依靠判定系数，无法判断x和y之间的显著性，只能判断最小二乘回归直线是否很好的拟合了样本数据</p>
 <blockquote>
@@ -609,7 +641,7 @@ y=β_0 + β_1 X + ε</script><p>1.误差项ε是一个期望值为零的随机�
 <h3 id="GBDT常用损失函数"><a href="#GBDT常用损失函数" class="headerlink" title="GBDT常用损失函数"></a>GBDT常用损失函数</h3><p>指数损失函数 $  L(y,f(x))=exp(-yf(x)) $</p>
 <p>负二项对数函数 $ L(y,f(x))=log(1+exp(-2yf(x))),y \in (-1,1) $ 用于二元分类场景<br>平方损失函数 $ L(y,f(x))=(y-f(x))^2 $ 用于回归场景</p>
 <h2 id="Xgboost"><a href="#Xgboost" class="headerlink" title="Xgboost"></a>Xgboost</h2><p>Xgboost与GBDT，两者都是boosting方法，不同在于，GBDT利用梯度下降法进行优化，XGboost利用牛顿法进行优化<br>目标函数为<br>$ L(y,y_{t-1}(x)+f_t(x))+\sum \Omega(f_t) $<br>对于每颗树，由结构部分q和叶子权重部分组成w定义。<br>$ f_t(x)=w_q(x) $<br>后者为正则化项，正则化项与树的叶子节点的数量T和叶子节点的值w有关,$\Omega(f_t)=\gamma T+\cfrac{1}{2}\lambda||w||^2  $</p>
-<p>用泰勒展开<br>$ f(x+\Delta x)=f(x)+f’(x)\Delta x+\cfrac{f^{(2)}(x)}{2}\Delta x^2 $<br>定义<br>$ g_i=\partial L(y,y_{t-1}(x)),h_i=\partial^2 L(y,y_{t-1}(x)) $<br>则有<br>$ Obj_i= \sum (L(y,y_{t-1})+g_if_t(x_i)+\cfrac{1}{2}h_if^2_t(x_i))+\Omega(f_t)   ​$</p>
+<p>用泰勒展开<br>$ f(x+\Delta x)=f(x)+f’(x)\Delta x+\cfrac{f^{(2)}(x)}{2}\Delta x^2 $<br>定义<br>$ g_i=\partial L(y,y_{t-1}(x)),h_i=\partial^2 L(y,y_{t-1}(x)) $<br>则有<br>$ Obj_i= \sum (L(y,y_{t-1})+g_if_t(x_i)+\cfrac{1}{2}h_if^2_t(x_i))+\Omega(f_t)   $</p>
 <h2 id="类别不平衡"><a href="#类别不平衡" class="headerlink" title="类别不平衡"></a>类别不平衡</h2><p>训练样本中不同类别的样本数目差距过大的情况（正例过少，反例过多），实行一个基本策略，“再缩放”</p>
 <ul>
 <li>欠采样（undersampling）</li>
@@ -628,7 +660,7 @@ y=β_0 + β_1 X + ε</script><p>1.误差项ε是一个期望值为零的随机�
 <p>算法流程:<br>1.对于少数类中每一个样本x，以欧氏距离为标准计算它到少数类样本集中所有样本的距离，得到其k近邻。<br>2.根据样本不平衡比例设置一个采样比例以确定采样倍率N，对于每一个少数类样本x，从其k近邻中随机选择若干个样本，假设选择的近邻为$x_i$。<br>3.对于每一个随机选出的近邻$x_i$，分别与原样本按照公式$ x_{new}=x+rand(0,1)*|x-x_i| $构建新的样本 </p>
 <h2 id="主成分分析"><a href="#主成分分析" class="headerlink" title="主成分分析"></a>主成分分析</h2><h3 id="PCA"><a href="#PCA" class="headerlink" title="PCA"></a>PCA</h3><p>PCA的思想是将n维特征映射到k维上，这k维是重新构造出来的k维特征，且k维应线性无关，而不是简单地从n维特征中去除其余n-k维特征。即线代知识中通过矩阵的变化，将一个维度中的向量变化到另一个维度中，实现降维的效果。</p>
 <p>维度的协方差矩阵中，对角线是各维度的样本方差，非对角线位置是不同维度的协方差，也即两个维度的相关性。而降维后理想化即是非对角线位置各维度的相关性为0，协方差矩阵为对角矩阵。转为矩阵运算原理，降维的过程也即是将协方差矩阵经过变化为对角矩阵。</p>
-<p>$  M^{-1}PM=\Lambda $ ,其中M为矩阵P变化的特征向量，也即正交矩阵，$\Lambda$ 为对角矩阵，对角元素为特征值$\lambda。​$<br>M也为另一坐标系下的基向量，当坐标系经过矩阵P变化后，获得的标准基向量坐标系的变化 </p>
+<p>$  M^{-1}PM=\Lambda $ ,其中M为矩阵P变化的特征向量，也即正交矩阵，$\Lambda$ 为对角矩阵，对角元素为特征值$\lambda。$<br>M也为另一坐标系下的基向量，当坐标系经过矩阵P变化后，获得的标准基向量坐标系的变化 </p>
 <h3 id="SVD"><a href="#SVD" class="headerlink" title="SVD"></a>SVD</h3><p>将任意矩阵分解<br>$ A_{m×n} =U_{m×m} \sum_{m×n} V_{n×n}$，其中U的列向量为$AA^T$的特征向量，称为A的左奇异向量，V的列向量为$A^TA$的特征向量，称为A的右奇异向量，$\sum$ 为主对角线为奇异值$\sigma$，非主对角线位置为0的矩阵 ,其中$\sigma$ 也为$A^TA$的特征值的平方根<br> 选取奇异值最大的前k列，重新构造来代替原矩阵A，实现降维效果</p>
 <h3 id="t-SNE"><a href="#t-SNE" class="headerlink" title="t-SNE"></a>t-SNE</h3><p>t-SNE将样本点间的相似度关系转化为概率<br> 在原空间（高维空间）中转化为基于高斯分布的概率；在嵌入空间（低维空间）中转化为基于t分布的概率。这使得t-SNE不仅可以关注局部（SNE只关注相邻点之间的相似度映射而忽略了全局之间的相似度映射，使得可视化后的边界不明显），还关注全局，使可视化效果更好（簇内不会过于集中，簇间边界明显）</p>
 <h2 id="向量机"><a href="#向量机" class="headerlink" title="向量机"></a>向量机</h2><p>SVM（Support Vector Machine）的模型是让所有点到超平面的距离大于一定的距离，也就是所有的分类点要在各自类别的支持向量两边。</p>
@@ -772,6 +804,15 @@ _i)log_2P(|Y_i|X_i)</script></p>
               </div>
             
 
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="../../../../categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
             
 
             
